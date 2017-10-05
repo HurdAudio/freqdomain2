@@ -95,7 +95,7 @@ body {
   width: 70%;
   margin-left: 0;
   margin-top: 0;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 #masterGainFace button {
@@ -105,13 +105,24 @@ body {
   margin-left: 9vmin;
   margin-top: -4vmin;
   cursor: pointer;
+
+}
+
+#displaySpan {
+  font-family: 'Righteous', cursive;
+  font-size: 76px;
+  color: black;
+  margin-left: -30vmin;
+  margin-top: -35vmin;
+  opacity: 0.5;
+  color: #fff000
 }
 
 #masterGainFace p {
   font-family: 'Righteous', cursive;
   font-size: 24px;
   margin-bottom: 0;
-  text-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF, -3px -3px 1px #7DF9FF;
+  text-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF;
 }
 
 #masterGainDisplay {
@@ -134,11 +145,10 @@ body {
   background: url(../img/january/blue_ice.png);
   background-size: 300%;
   outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  opacity: 1.0;
+
   margin-left: 20vmin;
-  margin-top: 0.2vmin;
+  margin-top: 0.5vmin;
   box-shadow: 1px -1px 1px #7DF9FF, 2px -2px 1px #7DF9FF, 3px -3px 1px #7DF9FF, 4px -4px 1px #7DF9FF;
 }
 

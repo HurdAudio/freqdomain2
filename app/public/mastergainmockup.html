@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
 
-    <!-- <script src="./landingmockup.js" defer></script> -->
+    <script src="./mastergainmockup.js" defer></script>
 
 
 
@@ -53,12 +53,12 @@
       <div id="masterGainFace">
 
         <form>
-          <input id="masterGainDisplay" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value">
+          <a><input id="masterGainDisplay" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value"><span id="displaySpan"></span></a>
           <input name="amountRange" type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" id="masterVolume">
 
         </form>
-        <button type="" class="btn"><img src="./img/january/loudspeaker-155807_1280.png">
-        <p>mute</p></button>
+        <button type="" id="masterMute" class="btn"><img id="speakerIcon" src="./img/january/loudspeaker-155807_1280.png">
+        <p id="muteNote">mute</p></button>
 
       </div>
 
