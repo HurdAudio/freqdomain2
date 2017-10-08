@@ -229,6 +229,62 @@ function expandRetypePassword(element, current, target) {
   }
 }
 
+function blingElement(element) {
+  let timer = Math.random() * 30;
+  element.setAttribute("style", "filter: hue-rotate(360deg); transition: filter " + timer + "s linear;");
+  setTimeout(()=>{
+    element.setAttribute("style", "filter: hue-rotate(0deg); transition: filter " + timer + "s linear;");
+    setTimeout(()=>{
+      blingElement(element);
+    }, (timer * 1000));
+  }, (timer * 1000));
+}
+
+function blurElement(element) {
+  element.setAttribute("style", "filter: blur(3px); transition: filter 60s linear");
+  setTimeout(()=>{
+    element.setAttribute("style", "filter: blur(0px); transition: filter 60s linear");
+    setTimeout(()=>{
+      blurElement(element);
+    }, 60000);
+  }, 60000);
+}
+
+function flickerDown(el1, el2, el3, el4, el5) {
+  let timer = Math.floor(Math.random() * 30);
+  let delay = Math.floor(Math.random() * 5000);
+
+  setTimeout(()=>{
+    el1.setAttribute("style", "filter: hue-rotate(360deg); transition: filter " + timer + "s linear;");
+    setTimeout(()=>{
+      timer = Math.floor(Math.random() * 30);
+      delay = Math.floor(Math.random() * 5000);
+
+      el2.setAttribute("style", "filter: blur(3px); transition: filter " + timer + "s linear;");
+      setTimeout(()=>{
+        timer = Math.floor(Math.random() * 30);
+        delay = Math.floor(Math.random() * 5000);
+        el1.setAttribute("style", "filter: hue-rotate(0deg); transition: filter " + timer + "s linear;");
+
+        el3.setAttribute("style", "filter: sepia(100%): transition: filter " + timer + "s linear;");
+        setTimeout(()=>{
+          timer = Math.floor(Math.random() * 30);
+          delay = Math.floor(Math.random() * 5000);
+          el2.setAttribute("style", "filter: blur(0px); transition: filter " + timer + "s linear;");
+
+          setTimeout(()=>{
+            timer = Math.floor(Math.random() * 30);
+            delay = Math.floor(Math.random() * 5000);
+
+            el3.setAttribute("style", "filter: sepia(0%): transition: filter " + timer + "s linear;");
+            flickerDown(el2, el3, el4, el5, el1);
+          }, delay);
+        }, (timer * 700));
+      }, (timer * 700));
+    }, (timer * 700));
+  }, delay);
+}
+
 
 window.onload = ()=>{
   let loginButton = document.getElementById('loginButton');
@@ -242,8 +298,54 @@ window.onload = ()=>{
   let newUserPassword = document.getElementById('newUserPassword');
   let newUserRetypePassword = document.getElementById('newUserRetypePassword');
   let newSub = document.getElementById('newSub');
+  console.log(Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
+  console.log(Math.max(document.documentElement.clientHeight, window.innerHeight));
+  let displayWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  let displayHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  let squareSize;
+
+  let frame = document.getElementById('frame');
+  let top = document.getElementById('top');
+  let newUser = document.getElementById('newUser');
+  let login = document.getElementById('login');
+  let topBlocker = document.getElementById('topBlocker');
+  let leftBlock = document.getElementById('leftBlock');
+  let rightBlock = document.getElementById('rightBlock');
+  let bottomBlock = document.getElementById('bottomBlock');
+  let title = document.getElementById('title');
+  let git = document.getElementById('git');
+  if (displayWidth > displayHeight) {
+    squareSize = (displayWidth * 0.173611111111111);
+  } else {
+    squareSize = (displayHeight * 0.173611111111111);
+  }
+
+  if (displayWidth > 1024) {
+
+    frame.setAttribute("style", "width: " + (displayWidth * 0.912) + "px; height: " + (displayHeight * 0.84) + "px; margin: " + (displayHeight - 5) + "px " + (displayWidth - 5) + "px + " + (displayHeight - 5) + "px "  + (displayWidth - 5) + "px;");
+    top.setAttribute("style", "bottom: " + (displayHeight * 0.5604) + "px; right: " + (displayWidth * 0.41) + "px; height: " + squareSize + "px; width: " + squareSize + "px;");
+    newUser.setAttribute("style", "bottom: " + (displayHeight * 0.3238) + "px; left: " + (displayWidth * 0.38125) + "px; height: " + squareSize + "px;");
+    login.setAttribute("style", "bottom: " + (displayHeight * 0.3238) + "px; right: " + (displayWidth * 0.3743) + "px; height: " + squareSize + "px;");
+    topBlocker.setAttribute("style", "width: " + (displayWidth * 0.95) + "px; height: " + (displayHeight * 0.2037) + "px;");
+    leftBlock.setAttribute("style", "width: " + (displayWidth * 0.3417) +"px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; left: " + (displayWidth * 0.04) + "px;");
+    rightBlock.setAttribute("style", "width: " + (displayWidth * 0.3417) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * 0.0326) + "px;");
+    bottomBlock.setAttribute("style", "width: " + (displayWidth * 0.95) + "px; height: " + (displayHeight * 0.213) + "px; bottom: " + (displayHeight * 0.0337) + "px;");
+  } else {
+    frame.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.93) + "px; margin: " + (displayHeight - 1) + "px " + (displayWidth - 1) + "px + " + (displayHeight - 1) + "px "  + (displayWidth - 1) + "px; top: 0px");
+    top.setAttribute("style", "bottom: " + (displayHeight * 0.5104) + "px; right: " + (displayWidth * 0.34) + "px; height: " + squareSize + "px; width: " + squareSize + "px;");
+    newUser.setAttribute("style", "bottom: " + (displayHeight * 0.3768) + "px; left: " + (displayWidth * 0.30125) + "px; height: " + squareSize + "px;");
+    login.setAttribute("style", "bottom: " + (displayHeight * 0.38) + "px; right: " + (displayWidth * 0.2843) + "px; height: " + squareSize + "px;");
+    topBlocker.setAttribute("style", "width: " + (displayWidth * 0.97) + "px; height: " + (displayHeight * 0.3337) + "px;");
+    leftBlock.setAttribute("style", "width: " + (displayWidth * 0.3117) +"px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2027) + "px; left: " + (displayWidth * -0.01) + "px;");
+    rightBlock.setAttribute("style", "width: " + (displayWidth * 0.2957) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * -0.01) + "px;");
+    bottomBlock.setAttribute("style", "width: " + (displayWidth * 0.973) + "px; height: " + (displayHeight * 0.353) + "px; bottom: " + (displayHeight * 0.0001) + "px;");
+  }
 
   backgroundColoring(rValues, gValues, bValues, rValues2, gValues2, bValues2, 0);
+
+  //flickerDown(top, title, git, top, title);
+  blingElement(top);
+  blurElement(title);
 
   newUserAccountStart.addEventListener('click', ()=>{
     newUserAccountStart.setAttribute("style", "visibility: hidden;");
