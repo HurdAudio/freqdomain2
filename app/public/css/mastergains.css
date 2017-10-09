@@ -73,6 +73,7 @@ body {
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
   text-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF;
   box-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF;
+  cursor: pointer;
 }
 
 #masterGainFace {
