@@ -1,0 +1,31 @@
+{
+  "name": "freqdomain2",
+  "version": "1.0.0",
+  "description": "Additive Synthesizer in Object Oriented Form",
+  "main": "./app/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HurdAudio/freqdomain2.git"
+  },
+  "author": "Devin Hurd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HurdAudio/freqdomain2/issues"
+  },
+  "homepage": "https://github.com/HurdAudio/freqdomain2#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "knex": "^0.13.0",
+    "nanoid": "^0.2.2",
+    "nodemon": "^1.12.1",
+    "pg": "^7.3.0",
+    "request": "^2.83.0"
+  }
+}

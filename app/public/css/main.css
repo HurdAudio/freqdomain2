@@ -177,17 +177,17 @@ right: 3.26%;
 #newUseBlock {
   position:fixed;
   background-color: black;
-  width: 105%;
+  width: 100%;
   height: 60%;
-  bottom: -60%;
+  bottom: -54.5%;
 }
 
 #logBlock {
   position:fixed;
   background-color: black;
-  width: 105%;
+  width: 100%;
   height: 60%;
-  bottom: -60%;
+  bottom: -54.5%;
 }
 
 #userEmail {
