@@ -13,7 +13,7 @@ require('dotenv').config();
 
 const app = express();
 // const visitorfeedbacks = require('./routes/visitorfeedbacks.js');
-// const users = require('./routes/users.js');
+const users = require('./routes/users.js');
 // const holidays = require('./routes/holidays.js');
 // const holidaysbyuser = require('./routes/holidaysbyuser.js');
 // const occasions = require('./routes/occasions.js');
@@ -83,7 +83,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
 
 
- // app.use('/users', users);
+ app.use('/users', users);
  // app.use('/holidays', holidays);
  // app.use('/holidaysbyuser', holidaysbyuser);
  // app.use('/occasions', occasions);
