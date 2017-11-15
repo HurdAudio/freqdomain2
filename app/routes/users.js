@@ -17,7 +17,7 @@ const nodemailer = require('nodemailer');
 router.use(cookieSession(
   {
     name: 'session',
-    keys: ['supersecretkey'],
+    keys: [process.env.SUPERSECRETKEY],
 
     // Cookie Options
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
@@ -269,10 +269,11 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  var salt = bcrypt.genSaltSync(saltRounds);
-  var hash = bcrypt.hashSync(req.body.password, salt);
+  var salt = bcrypt.genSaltSync(parseInt(process.env.SALT_ROUNDS));
+  var hash = bcrypt.hashSync(process.env.SALT_PASSWORD + req.body.password, salt);
   var key = nanoid();
   var value = nanoid();
+  var email_confirm = nanoid() + nanoid();
 
 
   knex('users')
@@ -283,7 +284,8 @@ router.post('/', (req, res, next) => {
     is_admin: req.body.is_admin,
     user_avatar_url: req.body.user_avatar_url,
     associates: req.body.associates,
-    security: { "key": key, "value": value}
+    security: { "key": key, "value": value },
+    email_reset: { "initialize_account": email_confirm, "confirm": false}
   }, '*')
   .then((result) => {
     // console.log(bcrypt.compareSync(myPlaintextPassword, hash)); //true
@@ -326,8 +328,8 @@ router.patch('/:id', (req, res, next) => {
   var hashed_password = '';
   if (!req.session.isChanged) {
     if (req.body.password) {
-      var salt = bcrypt.genSaltSync(saltRounds);
-      var hash = bcrypt.hashSync(req.body.password, salt);
+      var salt = bcrypt.genSaltSync(process.env.SALT_ROUNDS);
+      var hash = bcrypt.hashSync(process.env.SALT_PASSWORD + req.body.password, salt);
       knex('users')
       .where('id', req.params.id)
       .update({

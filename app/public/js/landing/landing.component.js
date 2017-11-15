@@ -1,8 +1,20 @@
 (function() {
   'use strict';
 
-
-
+  function printErrorMessage(element, message, message2) {
+    let currentDisplayMessage = message2;
+    let currentQueueMessage = message;
+    if (message === '') {
+      return;
+    } else {
+      currentDisplayMessage += message.slice(0, 1);
+      currentQueueMessage = message.slice(1);
+      element.innerHTML = currentDisplayMessage;
+      setTimeout(()=>{
+        printErrorMessage(element, currentQueueMessage, currentDisplayMessage);
+      }, 20);
+    }
+  }
 
 
   angular.module('app')
@@ -214,9 +226,10 @@
       function expandNewUserEmail(element, current, target) {
         let timer = 0.02;
         if (current === target) {
+          element.focus();
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 32vmin; margin-top: 9vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 11vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
           setTimeout(()=>{
             expandNewUserEmail(element, current + 1, target);
           }, (timer * 1000));
@@ -225,10 +238,12 @@
 
       function expandNewPassword(element, current, target) {
         let timer = 0.02;
+        let addAccountButtons = document.getElementById('addAccountButtons');
         if (current === target) {
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 32vmin; margin-top: 1vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 1.5vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          addAccountButtons.setAttribute("style", "margin-top: -11.5vmin;");
           setTimeout(()=>{
             expandNewPassword(element, current + 1, target);
           }, (timer * 1000));
@@ -237,10 +252,12 @@
 
       function expandRetypePassword(element, current, target) {
         let timer = 0.02;
+        let addAccountButtons = document.getElementById('addAccountButtons');
         if (current === target) {
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 32vmin; margin-top: 1vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 1vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          addAccountButtons.setAttribute("style", "margin-top: -10.5vmin;");
           setTimeout(()=>{
             expandRetypePassword(element, current + 1, target);
           }, (timer * 1000));
@@ -305,6 +322,7 @@
 
       function onInit() {
         console.log("Landing is lit");
+        let errorMessages = document.getElementById('errorMessages');
         let loginButton = document.getElementById('loginButton');
         let userEmail = document.getElementById('userEmail');
         let loginExit = document.getElementById('loginExit');
@@ -371,6 +389,48 @@
           newExit.setAttribute("style", "visibility: visible;");
         });
 
+        newSub.addEventListener('click', ()=>{
+          //TODO check for unique email address
+          $http.get('users')
+          .then(usersData=>{
+            let users = usersData.data;
+            let userFilt = users.filter(email=>{
+              return (email.email === newUserEmail.value);
+            });
+            if (userFilt.length > 0) {
+              printErrorMessage(errorMessages, '>ERROR : account already exists for this email', '');
+              return;
+            }
+            if ((newUserPassword.value !== '') && (newUserRetypePassword.value !== '')) {
+              if (newUserPassword.value !== newUserRetypePassword.value) {
+                //error handling
+                printErrorMessage(errorMessages, '>ERROR (409): password entries mismatch.', '');
+                return;
+              }
+            } else {
+              printErrorMessage(errorMessages, '>ERROR (409): password cannot be blank', '');
+              return;
+            }
+            let createUser = {
+              name: '',
+              email: newUserEmail.value,
+              password: newUserPassword.value,
+              is_admin: false,
+              user_avatar_url: '',
+              associates: null,
+            };
+            //TODO post object to users table
+            printErrorMessage(errorMessages, '>Processing... please wait...', '');
+            $http.post('/users', createUser)
+            .then(userData=>{
+              let user = userData.data;
+              printErrorMessage(errorMessages, '>Please check your email for verification link.', '');
+            });
+            //TODO generate email for user to verify account
+          });
+
+        });
+
         newExit.addEventListener('click', ()=>{
           newUserAccountStart.setAttribute("style", "visibility: visible;");
           newUserEmail.setAttribute("style", "visibility: hidden;");
@@ -383,6 +443,7 @@
           newPasswordRetypeVisible = false;
           newUserRetypePassword.value = '';
           newSub.setAttribute("style", "visibility: hidden;");
+          errorMessages.innerHTML = '';
         });
 
         loginButton.addEventListener('click', ()=>{
