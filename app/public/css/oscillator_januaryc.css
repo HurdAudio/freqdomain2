@@ -14,7 +14,7 @@ body {
 }
 
 #oscillatorTop {
-  background: url(../img/january/ws_Cool_Ice_Block_1920x1200.jpg);
+  background: url(../img/january/sky_blue_faux_fur_or_feathers_by_sweetsoulsister.jpg);
   background-size: 70%;
   background-color: #ffffff;
   font-family: 'Righteous', cursive;
@@ -33,11 +33,11 @@ body {
   margin-top: 1em;
   color: #000000;
   font-weight: 600;
-  text-shadow: 1px 1px 1px #D2691E, 2px 2px 1px #D2691E;
+  text-shadow: 1px 1px 1px #FF003F, 2px 2px 1px #FF003F;
 }
 
 #oscillatorSignalFlow {
-  background: url(../img/january/ws_Cool_Ice_Block_1920x1200.jpg);
+  background: url(../img/january/sky_blue_faux_fur_or_feathers_by_sweetsoulsister.jpg);
   background-size: 1300%;
   background-color: #ffffff;
   border: solid 1px transparent;
@@ -47,7 +47,7 @@ body {
   transform: skew(0deg, 45deg);
   margin-left: 0.8vmin;
   margin-bottom: 3.5vmin;
-  box-shadow: 0px -1px 1px #D2691E;
+  box-shadow: 0px -1px 1px #FF003F;
 }
 
 #oscillatorSignalFlow p {
@@ -57,7 +57,7 @@ body {
   margin-top: 34vmin;
   margin-bottom: 0;
   color: #000000;
-  text-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E;
+  text-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F;
 }
 
 #oscillatorSignalFlow h2 {
@@ -68,15 +68,15 @@ body {
   margin-bottom: 8vmin;
   width: 60%;
   color: #000000;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 600%;
   /*background: #224CBC;
   background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  text-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E;
+  text-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F;
   cursor: pointer;
 }
 
@@ -88,12 +88,12 @@ body {
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);
-  background: url(../img/january/oscillatorfaceJanb.jpg);
-  background-size: 140%;
+  background: url(../img/january/depositphotos_40318089-stock-photo-blue-ice-texture-background.jpg);
+  background-size: 120%;
   /*background-repeat: no-repeat;*/
   margin-top: -56.4vmin;
   margin-left: 7.3vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F;
 }
 
 #oscillatorFace img {
@@ -110,7 +110,7 @@ body {
   font-family: 'Righteous', cursive;
   font-size: 24px;
   margin-bottom: 0;
-  text-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E;
+  text-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F;
 }
 
 #waveformSelector {
@@ -131,8 +131,8 @@ body {
 #waveformSelector li {
   border: solid 1px black;
   cursor: pointer;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 100%;
 }
 
@@ -154,7 +154,7 @@ body {
   margin-left: 30vmin;
   margin-bottom: 0;
   margin-top: -54.5vmin;
-  text-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  text-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #oscillatorFrequency {
@@ -162,9 +162,9 @@ body {
   font-size: 56px;
   margin-left: 30vmin;
   margin-top: 0;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 100%;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
   padding-left: 5vmin;
 }
 
@@ -174,14 +174,14 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 54%;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 400%;
   outline: none;
   opacity: 1.0;
 
   margin-left: 57vmin;
   margin-top: 10.5vmin;
-  box-shadow: 1px -1px 1px #D2691E, 2px -2px 1px #D2691E, 3px -3px 1px #D2691E, 4px -4px 1px #D2691E;
+  box-shadow: 1px -1px 1px #FF003F, 2px -2px 1px #FF003F, 3px -3px 1px #FF003F, 4px -4px 1px #FF003F;
 }
 
 #oscillatorFrequencySlider::-webkit-slider-thumb {
@@ -198,7 +198,7 @@ body {
     background-size: 140%;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: 1px -1px 1px #D2691E, 2px -2px 1px #D2691E, 3px -3px 1px #D2691E, 4px -4px 1px #D2691E;
+    box-shadow: 1px -1px 1px #FF003F, 2px -2px 1px #FF003F, 3px -3px 1px #FF003F, 4px -4px 1px #FF003F;
 }
 
 #oscillatorFrequencySlider::-moz-range-thumb {
@@ -213,7 +213,7 @@ body {
   background-size: 140%;
   background-repeat: no-repeat;
   cursor: pointer;
-  box-shadow: 1px -1px 1px #D2691E, 2px -2px 1px #D2691E, 3px -3px 1px #D2691E, 4px -4px 1px #D2691E;
+  box-shadow: 1px -1px 1px #FF003F, 2px -2px 1px #FF003F, 3px -3px 1px #FF003F, 4px -4px 1px #FF003F;
 }
 
 #frequencyModulator {
@@ -224,11 +224,11 @@ body {
 #frequenctModulatorSelect {
   width: 64%;
   font-family: 'Righteous', cursive;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 200%;
   font-size: 36px;
   margin-top: 1vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #frequencyModulateEdit {
@@ -239,17 +239,17 @@ body {
   background: transparent;
   margin-top: 3vmin;
   margin-left: 5vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #waveformModulatorSelect {
   width: 24%;
   font-family: 'Righteous', cursive;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 100%;
   font-size: 24px;
   margin-top: 1vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #waveformModulatorEditor {
@@ -260,7 +260,7 @@ body {
   background: transparent;
   margin-top: 1vmin;
   margin-left: 2vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #detuneLabel {
@@ -273,9 +273,9 @@ body {
   font-size: 24px;
   margin-left: 30vmin;
   margin-top: 1vmin;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 100%;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
   padding-left: 5vmin;
 }
 
@@ -283,13 +283,13 @@ body {
   -webkit-appearance: none;
   appearance: none;
   width: 24%;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 500%;
   outline: none;
   opacity: 1.0;
   margin-left: 30vmin;
   margin-top: 2vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F, -4px -4px 1px #FF003F;
 }
 
 #oscillatorDetuneSlider::-webkit-slider-thumb {
@@ -306,7 +306,7 @@ body {
     background-size: 140%;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E, -4px -4px 1px #D2691E;
+    box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F, -4px -4px 1px #FF003F;
 }
 
 #oscillatorDetuneSlider::-moz-range-thumb {
@@ -321,7 +321,7 @@ body {
   background-size: 140%;
   background-repeat: no-repeat;
   cursor: pointer;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F, -4px -4px 1px #FF003F;
 }
 
 #detuneMod {
@@ -332,11 +332,11 @@ body {
 #detuneModulatorSelect {
   width: 58%;
   font-family: 'Righteous', cursive;
-  background: url(../img/january/oscillatorDisplayJanb.jpg);
+  background: url(../img/january/oscJanuaryCDisplays.jpg);
   background-size: 100%;
   font-size: 24px;
   margin-top: 1vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #detuneModulatorEditor {
@@ -347,7 +347,7 @@ body {
   background: transparent;
   margin-top: 1vmin;
   margin-left: 3vmin;
-  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #7DF9FF, -4px -4px 1px #D2691E;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #7DF9FF, -4px -4px 1px #FF003F;
 }
 
 #sine {
