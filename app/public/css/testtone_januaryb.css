@@ -1,0 +1,444 @@
+body {
+  background-color: #000000;
+}
+
+#testtoneDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#testtoneTop {
+  background: url(../img/january/0040-ice-snow-texture-seamless-hr.jpg);
+  background-size: 210%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 80%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#testtoneTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #000000;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #FFFE00, 2px 2px 1px #FFFE00;
+}
+
+#testtoneSignalFlow {
+  background: url(../img/january/0040-ice-snow-texture-seamless-hr.jpg);
+  background-size: 1300%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #FFFE00;
+}
+
+#testtoneSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 34vmin;
+  margin-bottom: 0;
+  color: #000000;
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00;
+}
+
+#testtoneSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #000000;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00;
+  cursor: pointer;
+}
+
+#testtoneFace {
+  height: 450px;
+  width: 80%;
+  background: #ffffff;
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/tileable-icy-and-watery-blue-textures-9.jpg);
+  background-size: 110%;
+  background-repeat: no-repeat;
+  margin-top: -56.4vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00;
+}
+
+#testtoneFace img {
+  width: 70%;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+
+
+
+#testtoneFace p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-bottom: 0;
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00;
+}
+
+#waveformSelector {
+  font-family: 'Righteous', cursive;
+  font-size: 42px;
+  width: 23%;
+  list-style-type: none;
+}
+
+#waveLabel {
+  margin: 1vmin 0 2vmin 2vmin;
+}
+
+#waveformSelector ul {
+  list-style-type: none;
+}
+
+#waveformSelector li {
+  border: solid 1px black;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+  background: url(../img/january/0040-ice-snow-texture-seamless-hr.jpg);
+  background-size: 100%;
+}
+
+#waveformSelector img {
+  width: 60px;
+  height: 60px;
+}
+
+#waveMod {
+  margin-left: 5vmin;
+  margin-top: -2vmin;
+}
+
+
+
+#hertzLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3vmin;
+  margin-bottom: 0;
+  margin-top: -54.5vmin;
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+}
+
+#testToneWaveLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3vmin;
+  margin-top: -15vmin;
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+}
+
+#volumeLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 65vmin;
+  margin-top: -45.5vmin;
+  text-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+}
+
+#testToneFrequency {
+  font-family: 'Righteous', cursive;
+  font-size: 56px;
+  margin-left: 3vmin;
+  margin-top: 0;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+  padding-left: 5vmin;
+}
+
+#testToneVolume {
+  font-family: 'Righteous', cursive;
+  font-size: 56px;
+  margin-left: 65vmin;
+  margin-top: -4.5vmin;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #7DF9FF, -4px -4px 1px #FFFE00;
+  padding-left: 5vmin;
+}
+
+#testToneFrequencySlider {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 40%;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: 30vmin;
+  margin-top: 11vmin;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#testToneFrequencySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: linear-gradient(-135deg, #B8C9D2, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#testToneFrequencySlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background: url(../img/noun_338545_cc.png);
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#testToneVolumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 40%;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: 69vmin;
+  margin-top: 10.5vmin;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#testToneVolumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: linear-gradient(-135deg, #B8C9D2, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#testToneVolumeSlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background: url(../img/noun_338545_cc.png);
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+#waveFormsContainer {
+  cursor: pointer;
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 100%;
+  margin: 0 3vmin 0 5vmin;
+  margin-top: 1vmin;
+  border: solid 1px #000000;
+  width: 35%;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00, -4px -4px 1px #FFFE00;
+}
+
+#sine {
+  transform: rotateY(0deg);
+  opacity: 1;
+  width: 100%;
+}
+
+#sine img {
+  margin-left: 15vmin;
+  margin-top: -5vmin;
+  width: 40%;
+}
+
+#sine p {
+  margin-left: 3vmin;
+}
+
+#square {
+  /*transform: rotateY(-90deg);*/
+  /*opacity: 1;*/
+  width: 100%;
+  margin: -18vmin 0 0 0
+}
+
+#square p {
+  margin-left: 3vmin;
+}
+
+#square img {
+  margin-left: 15vmin;
+  margin-top: -5vmin;
+  width: 40%;
+}
+
+#sawtooth {
+  /*transform: rotateY(180deg);*/
+  /*opacity: 0;*/
+  width: 100%;
+  margin: -18.5vmin 0 0 0
+}
+
+#sawtooth p {
+  margin-left: 3vmin;
+}
+
+#sawtooth img {
+  margin-left: 15vmin;
+  margin-top: -5vmin;
+  width: 40%;
+}
+
+#triangle {
+  transform: rotateY(90deg);
+  opacity: 1;
+  width: 100%;
+  margin: -18.5vmin 0 0 0
+}
+
+#triangle p {
+  margin-left: 3vmin;
+}
+
+#triangle img {
+  margin-left: 15vmin;
+  margin-top: -5vmin;
+  width: 40%;
+}
+
+#onOff {
+  margin-left: 100vmin;
+  margin-top: -20vmin;
+}
+
+#light {
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  border: solid 10px #ff0000;
+  background-color: #ff0000;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00, -4px -4px 1px #FFFE00;
+}
+.switch {
+  margin: 6vmin 0 0 1vmin;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00;
+}
+
+.switch input {
+  display:none;
+}
+
+.slider {
+  background: url(../img/january/IceDiamonds.jpg);
+  background-size: 600%;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(135deg, #B8C9D2, #73899E);
+  background: linear-gradient(135deg, #B8C9D2, #73899E);
+
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  filter: hue-rotate(-135deg);
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
