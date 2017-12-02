@@ -4,13 +4,13 @@ body {
 
 #masterGainDiv {
   position: fixed;
-  /*bottom: -34.5%;*/
-  /*right: -20%;*/
+  bottom: -34.5%;
+  right: -20%;
   margin: 10em;
   height: 450px;
   width: 450px;
   background-color: transparent;
-  /*transform: scale(0.5);*/
+  transform: scale(0.5);
 }
 
 #masterGainTop {
