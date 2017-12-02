@@ -15,6 +15,7 @@ const app = express();
 // const visitorfeedbacks = require('./routes/visitorfeedbacks.js');
 const users = require('./routes/users.js');
 const master_volumes = require('./routes/master_volumes.js');
+const gains = require('./routes/gains.js');
 // const holidays = require('./routes/holidays.js');
 // const holidaysbyuser = require('./routes/holidaysbyuser.js');
 // const occasions = require('./routes/occasions.js');
@@ -86,6 +87,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
  app.use('/users', users);
  app.use('/master_volumes', master_volumes);
+ app.use('/gains', gains);
  // app.use('/holidays', holidays);
  // app.use('/holidaysbyuser', holidaysbyuser);
  // app.use('/occasions', occasions);

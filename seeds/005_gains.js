@@ -1,23 +1,24 @@
 'use strict';
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('master_volumes').del()
+  return knex('gains').del()
     .then(function () {
       // Inserts seed entries
-      return knex('master_volumes').insert([
+      return knex('gains').insert([
         {
           id: 1,
           user_id: 1,
-          name: 'master volume',
-          master_volume_gain_value: 40,
+          name: 'gain',
+          gain_value: 40,
+          gain_modulator: null,
           input: null,
-          mute: false,
+          output: null,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
         }
       ]);
     })
     .then(() => {
-      return knex.raw("SELECT setval('master_volumes_id_seq', (SELECT MAX(id) FROM master_volumes));");
+      return knex.raw("SELECT setval('gains_id_seq', (SELECT MAX(id) FROM gains));");
     });
 };

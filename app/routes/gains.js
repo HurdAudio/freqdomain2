@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('master_volumes')
+  knex('gains')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('master_volumes')
+  knex('gains')
     .select()
     .where('id', req.params.id)
     .first()
@@ -37,13 +37,14 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  knex('master_volumes')
+  knex('gains')
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
-    master_volume_gain_value: req.body.master_volume_gain_value,
+    gain_value: req.body.gain_value,
+    gain_modulator: req.body.gain_modulator,
     input: req.body.input,
-    mute: req.body.mute
+    output: req.body.output
   }, '*')
   .then((result) => {
     res.status(200).send(result);
@@ -55,14 +56,15 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('master_volumes')
+  knex('gains')
   .where('id', req.params.id)
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
-    master_volume_gain_value: req.body.master_volume_gain_value,
+    gain_value: req.body.gain_value,
+    gain_modulator: req.body.gain_modulator,
     input: req.body.input,
-    mute: req.body.mute
+    output: req.body.output
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);
@@ -75,7 +77,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('master_volumes')
+      knex('gains')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -86,7 +88,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('master_volumes')
+          return knex('gains')
             .del()
             .where('id', req.params.id);
         })
@@ -98,9 +100,10 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
-            master_volume_gain_value: record.master_volume_gain_value,
+            volume_gain_value: record.gain_value,
+            gain_modulator: record.gain_modulator,
             input: record.input,
-            mute: record.mute,
+            output: record.output,
             created_at: record.created_at,
             updated_at: record.updated_at
           };
