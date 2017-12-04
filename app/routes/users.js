@@ -245,7 +245,8 @@ router.post('/login', (req,res) => {
       .where({name: req.body.email})
       .first()
       .update({
-        security: { "key": key, "value": value, "expire": expire}
+        security: { "key": key, "value": value, "expire": expire},
+        email_reset: null
       }, '*')
       .then(()=>{
         res.send(result);
@@ -354,7 +355,9 @@ router.patch('/:id', (req, res, next) => {
         hashed_password: hash,
         is_admin: req.body.is_admin,
         user_avatar_url: req.body.user_avatar_url,
-        associates: req.body.associates
+        associates: req.body.associates,
+        security: req.body.security,
+        email_reset: req.body.email_reset
       }, '*')
         .then((results)=>{
            res.status(200).send(results[0]);
@@ -370,7 +373,9 @@ router.patch('/:id', (req, res, next) => {
         email: req.body.email,
         is_admin: req.body.is_admin,
         user_avatar_url: req.body.user_avatar_url,
-        associates: req.body.associates
+        associates: req.body.associates,
+        security: req.body.security,
+        email_reset: req.body.email_reset
       }, '*')
         .then((results)=>{
            res.status(200).send(results[0]);

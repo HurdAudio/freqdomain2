@@ -459,6 +459,10 @@
                   document.cookie = "freq2DomainUserID=" + user.id;
                   console.log('user is logged in');
                   printErrorMessage(errorMessages, '>User is logged in.', '');
+                  $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
+                  .then((resulting)=>{
+                    console.log(resulting.data);
+                  });
                 } else {
                   if (!user.email_reset.confirm) {
                     printErrorMessage(errorMessages, '>Please verify email.', '');
@@ -473,6 +477,10 @@
                     document.cookie = "freq2DomainUserID=" + user.id;
                     console.log('user is logged in');
                     printErrorMessage(errorMessages, '>User is logged in.', '');
+                    $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
+                    .then((resulting)=>{
+                      console.log(resulting.data);
+                    });
                   }
                 }
               } else {
