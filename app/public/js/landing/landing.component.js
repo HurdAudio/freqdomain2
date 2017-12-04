@@ -202,6 +202,7 @@
         let timer = 0.02;
         if (current === target) {
           element2.setAttribute("style", "visibility: visible; margin: 1vmin; margin-left: 0; margin-top: 12vmin; width: 40%; padding-left: 1vmin;");
+          element.focus();
           return;
         } else {
           element.setAttribute("style", "width: " + current + "vmin; visibility: visible; margin: 5vmin; margin-left: 2vmin; margin-top: 10vmin; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 35deg); font-family: 'Oswald', sans-serif; font-size: 24px; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
@@ -209,6 +210,7 @@
             expandDiv(element, current + 1, target, element2);
           }, (timer * 1000));
         }
+
       }
 
       function expandPassword(element, current, target) {
@@ -285,43 +287,10 @@
         }, 60000);
       }
 
-      function flickerDown(el1, el2, el3, el4, el5) {
-        let timer = Math.floor(Math.random() * 30);
-        let delay = Math.floor(Math.random() * 5000);
-
-        setTimeout(()=>{
-          el1.setAttribute("style", "filter: hue-rotate(360deg); transition: filter " + timer + "s linear;");
-          setTimeout(()=>{
-            timer = Math.floor(Math.random() * 30);
-            delay = Math.floor(Math.random() * 5000);
-
-            el2.setAttribute("style", "filter: blur(3px); transition: filter " + timer + "s linear;");
-            setTimeout(()=>{
-              timer = Math.floor(Math.random() * 30);
-              delay = Math.floor(Math.random() * 5000);
-              el1.setAttribute("style", "filter: hue-rotate(0deg); transition: filter " + timer + "s linear;");
-
-              el3.setAttribute("style", "filter: sepia(100%): transition: filter " + timer + "s linear;");
-              setTimeout(()=>{
-                timer = Math.floor(Math.random() * 30);
-                delay = Math.floor(Math.random() * 5000);
-                el2.setAttribute("style", "filter: blur(0px); transition: filter " + timer + "s linear;");
-
-                setTimeout(()=>{
-                  timer = Math.floor(Math.random() * 30);
-                  delay = Math.floor(Math.random() * 5000);
-
-                  el3.setAttribute("style", "filter: sepia(0%): transition: filter " + timer + "s linear;");
-                  flickerDown(el2, el3, el4, el5, el1);
-                }, delay);
-              }, (timer * 700));
-            }, (timer * 700));
-          }, (timer * 700));
-        }, delay);
-      }
 
       function onInit() {
         console.log("Landing is lit");
+        let forgotPassword = document.getElementById('forgotPassword');
         let errorMessages = document.getElementById('errorMessages');
         let loginButton = document.getElementById('loginButton');
         let userEmail = document.getElementById('userEmail');
@@ -364,7 +333,7 @@
           login.setAttribute("style", "bottom: " + (displayHeight * 0.3148) + "px; right: " + (displayWidth * 0.3783) + "px; height: " + squareSize + "px;");
           topBlocker.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.2257) + "px;");
           leftBlock.setAttribute("style", "width: " + (displayWidth * 0.3637) +"px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; left: " + (displayWidth * 0.04) + "px;");
-          rightBlock.setAttribute("style", "width: " + (displayWidth * 0.3417) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * 0.0360) + "px;");
+          rightBlock.setAttribute("style", "width: " + (displayWidth * 0.3428) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * 0.0360) + "px;");
           bottomBlock.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.213) + "px; bottom: " + (displayHeight * 0.0337) + "px;");
         } else {
           frame.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.93) + "px; margin: " + (displayHeight - 1) + "px " + (displayWidth - 1) + "px + " + (displayHeight - 1) + "px "  + (displayWidth - 1) + "px; top: 0px");
@@ -451,6 +420,7 @@
           loginButton.setAttribute("style", "visibility: hidden;");
           userEmail.setAttribute("style", "visibility: visible;");
           expandDiv(userEmail, 1, 26, loginExit);
+
         });
 
         loginExit.addEventListener('click', ()=>{
@@ -460,9 +430,60 @@
           userEmail.setAttribute("style", "visibility: hidden;");
           userPassword.setAttribute("style", "visibility: hidden;");
           loginSub.setAttribute("style", "visibility: hidden;");
+          forgotPassword.setAttribute("style", "visibility: hidden;");
           passwordVisible = false;
           userEmail.value = '';
           userPassword.value = '';
+
+        });
+
+        loginSub.addEventListener('click', ()=>{
+          let subObj = {
+            email: userEmail.value,
+            password: userPassword.value
+          };
+          forgotPassword.setAttribute("style", "visibility: hidden;");
+          printErrorMessage(errorMessages, '>Please wait, logging in...', '');
+          $http.post('/users/login', subObj)
+          .then(userData=>{
+            let user = userData.data;
+            if (user.login === undefined) {
+              if (user.login !== 'forbidden') {
+                if (user.email_reset === null) {
+                  let storage = window.localStorage;
+                  storage.setItem(user.security.key, user.security.value);
+                  storage.setItem('freq2Expire', user.security.expire);
+                  storage.setItem('freq2DomainUserID', user.id);
+                  document.cookie = "freq2Expire=" + user.security.expire;
+                  document.cookie = user.security.key + "=" + user.security.value;
+                  document.cookie = "freq2DomainUserID=" + user.id;
+                  console.log('user is logged in');
+                  printErrorMessage(errorMessages, '>User is logged in.', '');
+                } else {
+                  if (!user.email_reset.confirm) {
+                    printErrorMessage(errorMessages, '>Please verify email.', '');
+                    forgotPassword.setAttribute("style", "visibility: visible;");
+                  } else {
+                    let storage = window.localStorage;
+                    storage.setItem(user.security.key, user.security.value);
+                    storage.setItem('freq2Expire', user.security.expire);
+                    storage.setItem('freq2DomainUserID', user.id);
+                    document.cookie = "freq2Expire=" + user.security.expire;
+                    document.cookie = user.security.key + "=" + user.security.value;
+                    document.cookie = "freq2DomainUserID=" + user.id;
+                    console.log('user is logged in');
+                    printErrorMessage(errorMessages, '>User is logged in.', '');
+                  }
+                }
+              } else {
+                printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
+                forgotPassword.setAttribute("style", "visibility: visible;");
+              }
+            } else {
+              printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
+              forgotPassword.setAttribute("style", "visibility: visible;");
+            }
+          });
 
         });
 
@@ -498,14 +519,17 @@
                 if (!passwordVisible) {
                   expandPassword(userPassword, 1, 26);
                   passwordVisible = true;
+                  forgotPassword.setAttribute("style", "visibility: visible;");
                 }
               }
             } else {
               userPassword.setAttribute("style", "visibility: hidden;");
+              forgotPassword.setAttribute("style", "visibility: hidden;");
               passwordVisible = false;
             }
           } else {
             userPassword.setAttribute("style", "visibility: hidden;");
+            forgotPassword.setAttribute("style", "visibility: hidden;");
             passwordVisible = false;
           }
           if (userPassword.value !== '') {

@@ -396,6 +396,26 @@ footer h2 {
   margin: 9vmin 14vmin 0vmin 73vmin;
 }
 
+#forgotPassword {
+  visibility: hidden;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 35deg);
+  float: right;
+  margin: -9vmin 32vmin 0 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+
+}
+
+#forgotPassword a {
+  color: #88AE47;
+
+}
+
+#forgotPassword a:hover {
+  color: #ff0000;
+}
+
 @media only screen and (max-width: 1024px) {
   #frame {
     transform: scale(1.1);

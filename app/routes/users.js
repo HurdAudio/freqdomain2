@@ -7,7 +7,7 @@ const router = express.Router();
 const cookieSession = require('cookie-session');
 
 const bcrypt = require('bcrypt');
-const saltRounds = 12;
+const saltRounds = process.env.SALT_ROUNDS;
 const nanoid = require('nanoid');
 
 const nodemailer = require('nodemailer');
@@ -203,6 +203,11 @@ router.post('/lostpassword/:id', (req, res, next)=>{
 
 router.post('/login', (req,res) => {
 
+  let key = nanoid();
+  let value = nanoid();
+  let expire = new Date();
+  expire.setDate(expire.getDate() + 3);
+
   if (!req.body.email || !req.body.password) {
     console.log("ERROR STATE");
     res.sendStatus(403);
@@ -212,29 +217,40 @@ router.post('/login', (req,res) => {
   .where({email: req.body.email})
   .first()
   .then((result) => {
-    // console.log(result);
 
-
-    if (!result || (!bcrypt.compareSync(req.body.password,result.hashed_password))) {
-      console.log("invalid password");
+    if (!result || (!bcrypt.compareSync(process.env.SALT_PASSWORD + req.body.password,result.hashed_password))) {
       req.session = null;
-      let failure = {
-        user_id: undefined,
-        login: 'forbidden'
-      };
-      res.send(failure);
+
+      knex('users')
+      .where({email: req.body.email})
+      .first()
+      .update({
+        security: null
+      })
+      .then(()=>{
+        let failure = {
+          user_id: undefined,
+          login: 'forbidden'
+        };
+        res.send(failure);
+      });
+
     } else {
-      // if ((result.name === req.body.name) && (result.email === req.body.email)) {
-         req.session.userId = result.id;
-      //   if (result.is_admin) {
-           req.session.userId = result.id;
-           res.send(result);
-      //   } else {
-      //     console.log("not everything matches up");
-      //     req.session = null;
-      //     res.sendStatus(403);
-      //   }
-      // }
+      req.session.userId = result.id;
+      result.security = {};
+      result.security.key = key;
+      result.security.value = value;
+      result.security.expire = expire;
+      knex('users')
+      .where({name: req.body.email})
+      .first()
+      .update({
+        security: { "key": key, "value": value, "expire": expire}
+      }, '*')
+      .then(()=>{
+        res.send(result);
+      });
+
     }
   });
 
@@ -328,7 +344,7 @@ router.patch('/:id', (req, res, next) => {
   var hashed_password = '';
   if (!req.session.isChanged) {
     if (req.body.password) {
-      var salt = bcrypt.genSaltSync(process.env.SALT_ROUNDS);
+      var salt = bcrypt.genSaltSync(parseInt(process.env.SALT_ROUNDS));
       var hash = bcrypt.hashSync(process.env.SALT_PASSWORD + req.body.password, salt);
       knex('users')
       .where('id', req.params.id)
