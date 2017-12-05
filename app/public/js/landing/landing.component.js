@@ -438,60 +438,73 @@
         });
 
         loginSub.addEventListener('click', ()=>{
-          let subObj = {
-            email: userEmail.value,
-            password: userPassword.value
-          };
-          forgotPassword.setAttribute("style", "visibility: hidden;");
-          printErrorMessage(errorMessages, '>Please wait, logging in...', '');
-          $http.post('/users/login', subObj)
-          .then(userData=>{
-            let user = userData.data;
-            if (user.login === undefined) {
-              if (user.login !== 'forbidden') {
-                if (user.email_reset === null) {
-                  let storage = window.localStorage;
-                  storage.setItem(user.security.key, user.security.value);
-                  storage.setItem('freq2Expire', user.security.expire);
-                  storage.setItem('freq2DomainUserID', user.id);
-                  document.cookie = "freq2Expire=" + user.security.expire;
-                  document.cookie = user.security.key + "=" + user.security.value;
-                  document.cookie = "freq2DomainUserID=" + user.id;
-                  console.log('user is logged in');
-                  printErrorMessage(errorMessages, '>User is logged in.', '');
-                  $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
-                  .then((resulting)=>{
-                    console.log(resulting.data);
-                  });
-                } else {
-                  if (!user.email_reset.confirm) {
-                    printErrorMessage(errorMessages, '>Please verify email.', '');
-                    forgotPassword.setAttribute("style", "visibility: visible;");
+          $http.get('/users')
+          .then(allUsersData=>{
+            let allUsers = allUsersData.data;
+            let specificUser = allUsers.filter(entry=>{
+              return(entry.email === userEmail.value);
+            });
+            if (specificUser.length === 1) {
+              let subObj = {
+                email: userEmail.value,
+                password: userPassword.value
+              };
+              forgotPassword.setAttribute("style", "visibility: hidden;");
+              printErrorMessage(errorMessages, '>Please wait, logging in...', '');
+              $http.post('/users/login', subObj)
+              .then(userData=>{
+                let user = userData.data;
+                if (user.login === undefined) {
+                  if (user.login !== 'forbidden') {
+                    if (user.email_reset === null) {
+                      let storage = window.localStorage;
+                      storage.setItem(user.security.key, user.security.value);
+                      storage.setItem('freq2Expire', user.security.expire);
+                      storage.setItem('freq2DomainUserID', user.id);
+                      document.cookie = "freq2Expire=" + user.security.expire;
+                      document.cookie = user.security.key + "=" + user.security.value;
+                      document.cookie = "freq2DomainUserID=" + user.id;
+                      console.log('user is logged in');
+                      printErrorMessage(errorMessages, '>User is logged in.', '');
+                      $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
+                      .then(()=>{
+                        console.log('patched');
+                      });
+                    } else {
+                      if (!user.email_reset.confirm) {
+                        printErrorMessage(errorMessages, '>Please verify email.', '');
+                        forgotPassword.setAttribute("style", "visibility: visible;");
+                      } else {
+                        let storage = window.localStorage;
+                        storage.setItem(user.security.key, user.security.value);
+                        storage.setItem('freq2Expire', user.security.expire);
+                        storage.setItem('freq2DomainUserID', user.id);
+                        document.cookie = "freq2Expire=" + user.security.expire;
+                        document.cookie = user.security.key + "=" + user.security.value;
+                        document.cookie = "freq2DomainUserID=" + user.id;
+                        console.log('user is logged in');
+                        printErrorMessage(errorMessages, '>User is logged in.', '');
+                        $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
+                        .then(()=>{
+                          console.log('patched');
+                        });
+                      }
+                    }
                   } else {
-                    let storage = window.localStorage;
-                    storage.setItem(user.security.key, user.security.value);
-                    storage.setItem('freq2Expire', user.security.expire);
-                    storage.setItem('freq2DomainUserID', user.id);
-                    document.cookie = "freq2Expire=" + user.security.expire;
-                    document.cookie = user.security.key + "=" + user.security.value;
-                    document.cookie = "freq2DomainUserID=" + user.id;
-                    console.log('user is logged in');
-                    printErrorMessage(errorMessages, '>User is logged in.', '');
-                    $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
-                    .then((resulting)=>{
-                      console.log(resulting.data);
-                    });
+                    printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
+                    forgotPassword.setAttribute("style", "visibility: visible;");
                   }
+                } else {
+                  printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
+                  forgotPassword.setAttribute("style", "visibility: visible;");
                 }
-              } else {
-                printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
-                forgotPassword.setAttribute("style", "visibility: visible;");
-              }
+              });
             } else {
               printErrorMessage(errorMessages, '>ERROR - Login Failed.', '');
               forgotPassword.setAttribute("style", "visibility: visible;");
             }
           });
+
 
         });
 
