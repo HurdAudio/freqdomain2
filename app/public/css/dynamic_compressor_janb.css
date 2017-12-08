@@ -6,13 +6,13 @@ body {
 
 #dynamicCompressorDiv {
   position: fixed;
-  /*bottom: -25.5%;*/
-  /*right: 0%;*/
+  bottom: -25.5%;
+  right: 0%;
   margin: 10em;
   height: 450px;
   width: 1150px;
   background-color: transparent;
-  /*transform: scale(0.5);*/
+  transform: scale(0.5);
 }
 
 #dynamicCompressorTop {
