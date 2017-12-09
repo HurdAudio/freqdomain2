@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('gains')
+  knex('oscillators')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('gains')
+  knex('oscillators')
     .select()
     .where('id', req.params.id)
     .first()
@@ -37,13 +37,16 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  knex('gains')
+  knex('oscillators')
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
-    gain_value: req.body.gain_value,
-    gain_modulator: req.body.gain_modulator,
-    input: req.body.input,
+    waveform: req.body.waveform,
+    waveform_modulator: req.body.waveform_modulator,
+    hertz: req.body.hertz,
+    hertz_modulator: req.body.hertz_modulator,
+    detune: req.body.detune,
+    detune_modulator: req.body.detune_modulator,
     output: req.body.output
   }, '*')
   .then((result) => {
@@ -56,14 +59,17 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('gains')
+  knex('oscillators')
   .where('id', req.params.id)
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
-    gain_value: req.body.gain_value,
-    gain_modulator: req.body.gain_modulator,
-    input: req.body.input,
+    waveform: req.body.waveform,
+    waveform_modulator: req.body.waveform_modulator,
+    hertz: req.body.hertz,
+    hertz_modulator: req.body.hertz_modulator,
+    detune: req.body.detune,
+    detune_modulator: req.body.detune_modulator,
     output: req.body.output
   }, '*')
     .then((results)=>{
@@ -77,7 +83,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('gains')
+      knex('oscillators')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -88,7 +94,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('gains')
+          return knex('oscillators')
             .del()
             .where('id', req.params.id);
         })
@@ -100,9 +106,12 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
-            gain_value: record.gain_value,
-            gain_modulator: record.gain_modulator,
-            input: record.input,
+            waveform: record.waveform,
+            waveform_modulator: record.waveform_modulator,
+            hertz: record.hertz,
+            hertz_modulator: record.hertz_modulator,
+            detune: record.detune,
+            detune_modulator: record.detune_modulator,
             output: record.output,
             created_at: record.created_at,
             updated_at: record.updated_at
