@@ -21,13 +21,13 @@
         url: '/',
         parent: 'app',
         component: 'landing'
-       });
-      // .state({
-      //   name: 'dayview',
-      //   url: '/dayview/:id',
-      //   parent: 'app',
-      //   component: 'dayview'
-      // })
+       })
+      .state({
+        name: 'emailconfirm',
+        url: '/emailconfirm/:id',
+        parent: 'app',
+        component: 'emailconfirm'
+      });
       // .state({
       //   name: 'weekview',
       //   url: '/weekview/:id',

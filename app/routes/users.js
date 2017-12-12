@@ -340,6 +340,20 @@ router.patch('/resetsecurity/:id', (req, res, next)=>{
   });
 });
 
+router.patch('/newuser/:id', (req, res, next)=>{
+  knex('users')
+  .where('id', req.params.id)
+  .update({
+    email_reset: req.body.email_reset
+  }, '*')
+  .then(results=>{
+    req.session.userId = results.id;
+    res.status(200).send(results[0]);
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
 
 router.patch('/:id', (req, res, next) => {
   var hashed_password = '';
