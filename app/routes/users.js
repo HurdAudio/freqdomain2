@@ -98,6 +98,92 @@ router.post('/byemail', (req, res, next)=>{
   });
 });
 
+router.post('/newuserconfirm/:id', (req, res, next)=>{
+  let linkString = 'http://localhost:3007/emailconfirm/';
+  let user = req.params.id;
+
+  let smtp = {
+    host: 'smtp.mail.com',
+    port: 587,
+    secure: false
+  };
+  let account = {
+    smtp: smtp,
+    user: process.env.EMAIL_ACCOUNT,
+    pass: process.env.EMAIL_PASSWORD
+  };
+
+  knex('users')
+  .where({id: user})
+  .first()
+  .then(userFile=>{
+    console.log(userFile);
+    let identifier = userFile.email_reset.initialize_account;
+
+    let transporter = nodemailer.createTransport(
+        {
+            host: account.smtp.host,
+            port: account.smtp.port,
+            secure: account.smtp.secure,
+            auth: {
+                user: account.user,
+                pass: account.pass
+            },
+            tls: {
+              rejectUnauthorized: false
+            },
+            logger: true,
+            debug: true // include SMTP traffic in the logs
+        },
+        {
+            // default message fields
+
+            // sender info
+            from: process.env.EMAIL_ACCOUNT
+        }
+    );
+
+    transporter.verify(function(error, success) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Server is ready to take our messages');
+      }
+    });
+
+    // Message object
+    let message = {
+        // Comma separated list of recipients
+        from: process.env.EMAIL_ACCOUNT,
+        to: userFile.email,
+
+        // Subject of the message
+        subject: 'Your FreqDomain 2.0 email verification link',
+
+        // plaintext body
+        text: 'Please click this link to confirm your email:',
+
+        // HTML body
+        html: '<a href="' + linkString + identifier + '"><h1>__FreqDomain2.0_Email_Link__<h1></a>'
+
+    };
+
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            console.log('Error occurred');
+            console.log(error.message);
+            return process.exit(1);
+        }
+
+        console.log('Message sent successfully!');
+        console.log(nodemailer.getTestMessageUrl(info));
+
+        // only needed when using pooled connections
+        //transporter.close();
+    });
+  });
+});
+
 router.post('/lostpassword/:id', (req, res, next)=>{
   console.log('it\'s emailing time!');
   let linkString = 'http://localhost:3007/' + '/passwordreset/';

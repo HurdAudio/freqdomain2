@@ -290,6 +290,8 @@
 
       function onInit() {
         console.log("Landing is lit");
+        let theBody = document.getElementsByTagName("body")[0];
+        theBody.setAttribute("style", "filter: hue-rotate(0deg);");
         let forgotPassword = document.getElementById('forgotPassword');
         let errorMessages = document.getElementById('errorMessages');
         let loginButton = document.getElementById('loginButton');
@@ -392,8 +394,12 @@
             printErrorMessage(errorMessages, '>Processing... please wait...', '');
             $http.post('/users', createUser)
             .then(userData=>{
-              let user = userData.data;
+              let user = userData.data[0];
               printErrorMessage(errorMessages, '>Please check your email for verification link.', '');
+              $http.post(`/users/newuserconfirm/${user.id}`, {})
+              .then(()=>{
+                console.log('email sent');
+              });
             });
             //TODO generate email for user to verify account
           });
