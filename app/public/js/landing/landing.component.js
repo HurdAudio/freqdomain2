@@ -390,7 +390,6 @@
               user_avatar_url: '',
               associates: null,
             };
-            //TODO post object to users table
             printErrorMessage(errorMessages, '>Processing... please wait...', '');
             $http.post('/users', createUser)
             .then(userData=>{
@@ -401,7 +400,6 @@
                 console.log('email sent');
               });
             });
-            //TODO generate email for user to verify account
           });
 
         });
