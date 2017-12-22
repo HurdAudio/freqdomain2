@@ -18,6 +18,7 @@ const master_volumes = require('./routes/master_volumes.js');
 const gains = require('./routes/gains.js');
 const oscillators = require('./routes/oscillators.js');
 const test_tones = require('./routes/test_tones.js');
+const dynamic_compressors = require('./routes/dynamic_compressors.js');
 
 const port = process.env.PORT || 3007;
 
@@ -36,7 +37,8 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/gains', gains);
  app.use('/oscillators', oscillators);
  app.use('/test_tones', test_tones);
- 
+ app.use('/dynamic_compressors', dynamic_compressors);
+
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
 //   //console.log(req.body.data);
