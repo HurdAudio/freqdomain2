@@ -186,7 +186,7 @@ router.post('/newuserconfirm/:id', (req, res, next)=>{
 
 router.post('/lostpassword/:id', (req, res, next)=>{
   console.log('it\'s emailing time!');
-  let linkString = 'http://localhost:3007/' + '/passwordreset/';
+  let linkString = 'http://localhost:3007/passwordreset/';
   let user = req.params.id;
   let idendifier = nanoid() + nanoid();
 
@@ -259,13 +259,13 @@ router.post('/lostpassword/:id', (req, res, next)=>{
         to: req.body.email,
 
         // Subject of the message
-        subject: 'Your 168h password reset link',
+        subject: 'Your FreqDomain2.0 password reset link',
 
         // plaintext body
         text: 'Please click this link to reset your password:',
 
         // HTML body
-        html: '<a href="' + linkString + 'user=' + req.body.id + '&recovery=' + idendifier + '">168h_password_reset</a>'
+        html: '<a href="' + linkString + 'user=' + req.body.id + '&recovery=' + idendifier + '"><h1>FreqDomain2.0_password_reset</h1></a>'
 
     };
 

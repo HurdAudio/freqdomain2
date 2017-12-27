@@ -29,6 +29,7 @@
       const vm = this;
 
       vm.$onInit = onInit;
+      vm.resetPassword = resetPassword;
 
       let oneGestalt = 26;
       let theDiv = document.getElementById('theDiv');
@@ -41,6 +42,29 @@
       let passwordVisible = false;
       let newPasswordVisible = false;
       let newPasswordRetypeVisible = false;
+
+      function resetPassword() {
+        let userEmail = document.getElementById('userEmail');
+        let errorMessages = document.getElementById('errorMessages');
+        errorMessages.innerHTML = '';
+
+        $http.get(`/users`)
+        .then(allUsersData=>{
+          let allUsers = allUsersData.data;
+          let user = allUsers.filter(entry=>{
+            return(entry.email.toLowerCase() === userEmail.value.toLowerCase());
+          });
+          if (user.length > 0) {
+            printErrorMessage(errorMessages, 'Password reset link sent to your email.', '');
+            $http.post(`/users/lostpassword/${user[0].id}`, user[0])
+            .then(()=>{
+
+            });
+          } else {
+            printErrorMessage(errorMessages, '>ERROR : no account for this email', '');
+          }
+        });
+      }
 
       function backgroundColoring(rArr, gArr, bArr, r2Arr, g2Arr, b2Arr, rad) {
         let r = rArr;
