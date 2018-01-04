@@ -20,6 +20,7 @@ const oscillators = require('./routes/oscillators.js');
 const test_tones = require('./routes/test_tones.js');
 const dynamic_compressors = require('./routes/dynamic_compressors.js');
 const master_volume_skins = require('./routes/master_volume_skins.js');
+const random_number_generators = require('./routes/random_number_generators.js');
 
 const port = process.env.PORT || 3007;
 
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/test_tones', test_tones);
  app.use('/dynamic_compressors', dynamic_compressors);
  app.use('/master_volume_skins', master_volume_skins);
+ app.use('/random_number_generators', random_number_generators);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
