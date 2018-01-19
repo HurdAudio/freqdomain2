@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('master_volume_skins')
+  knex('gain_skins')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('master_volume_skins')
+  knex('gain_skins')
     .select()
     .where('id', req.params.id)
     .first()
@@ -37,7 +37,7 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  knex('master_volume_skins')
+  knex('gain_skins')
   .insert({
     name: req.body.name,
     month: req.body.month,
@@ -65,15 +65,24 @@ router.post('/', (req, res, next) => {
     input_box_shadow_color: req.body.input_box_shadow_color,
     input_font_color: req.body.input_font_color,
     input_font_shadow: req.body.input_font_shadow,
-    display_span_color: req.body.display_span_color,
+    output_size: req.body.output_size,
+    output_repeat: req.body.output_repeat,
+    output_box_shadow_color: req.body.output_box_shadow_color,
+    output_font_color: req.body.output_font_color,
+    output_font_shadow: req.body.output_font_shadow,
     gain_display_size: req.body.gain_display_size,
     gain_display_repeat: req.body.gain_display_repeat,
     gain_display_box_shadow_color: req.body.gain_display_box_shadow_color,
     gain_display_font_color: req.body.gain_display_font_color,
-    master_volume_size: req.body.master_volume_size,
-    master_volume_repeat: req.body.master_volume_repeat,
-    master_volume_box_shadow: req.body.master_volume_box_shadow,
-    slider_background_image: req.body.slider_background_image
+    gain_volume_size: req.body.gain_volume_size,
+    gain_volume_repeat: req.body.gain_volume_repeat,
+    gain_volume_box_shadow: req.body.gain_volume_box_shadow,
+    gain_slider_path: req.body.gain_slider_path,
+    gain_modulator_select_path: req.body.gain_modulator_select_path,
+    gain_modulator_select_size: req.body.gain_modulator_select_size,
+    gain_modulator_select_repeat: req.body.gain_modulator_select_repeat,
+    gain_modulator_select_box_shadow_color: req.body.gain_modulator_select_box_shadow_color,
+    gain_modulator_edit_box_shadow_color: req.body.gain_modulator_edit_box_shadow_color
   }, '*')
   .then((result) => {
     res.status(200).send(result);
@@ -85,7 +94,7 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('master_volume_skins')
+  knex('gain_skins')
   .where('id', req.params.id)
   .update({
     name: req.body.name,
@@ -114,15 +123,24 @@ router.patch('/:id', (req, res, next) => {
     input_box_shadow_color: req.body.input_box_shadow_color,
     input_font_color: req.body.input_font_color,
     input_font_shadow: req.body.input_font_shadow,
-    display_span_color: req.body.display_span_color,
+    output_size: req.body.output_size,
+    output_repeat: req.body.output_repeat,
+    output_box_shadow_color: req.body.output_box_shadow_color,
+    output_font_color: req.body.output_font_color,
+    output_font_shadow: req.body.output_font_shadow,
     gain_display_size: req.body.gain_display_size,
     gain_display_repeat: req.body.gain_display_repeat,
     gain_display_box_shadow_color: req.body.gain_display_box_shadow_color,
     gain_display_font_color: req.body.gain_display_font_color,
-    master_volume_size: req.body.master_volume_size,
-    master_volume_repeat: req.body.master_volume_repeat,
-    master_volume_box_shadow: req.body.master_volume_box_shadow,
-    slider_background_image: req.body.slider_background_image
+    gain_volume_size: req.body.gain_volume_size,
+    gain_volume_repeat: req.body.gain_volume_repeat,
+    gain_volume_box_shadow: req.body.gain_volume_box_shadow,
+    gain_slider_path: req.body.gain_slider_path,
+    gain_modulator_select_path: req.body.gain_modulator_select_path,
+    gain_modulator_select_size: req.body.gain_modulator_select_size,
+    gain_modulator_select_repeat: req.body.gain_modulator_select_repeat,
+    gain_modulator_select_box_shadow_color: req.body.gain_modulator_select_box_shadow_color,
+    gain_modulator_edit_box_shadow_color: req.body.gain_modulator_edit_box_shadow_color
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);
@@ -135,7 +153,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('master_volume_skins')
+      knex('gain_skins')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -146,7 +164,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('master_volume_skins')
+          return knex('gain_skins')
             .del()
             .where('id', req.params.id);
         })
@@ -182,15 +200,24 @@ router.delete('/:id', (req, res, next) => {
             input_box_shadow_color: record.input_box_shadow_color,
             input_font_color: record.input_font_color,
             input_font_shadow: record.input_font_shadow,
-            display_span_color: record.display_span_color,
+            output_size: record.output_size,
+            output_repeat: record.output_repeat,
+            output_box_shadow_color: record.output_box_shadow_color,
+            output_font_color: record.output_font_color,
+            output_font_shadow: record.output_font_shadow,
             gain_display_size: record.gain_display_size,
             gain_display_repeat: record.gain_display_repeat,
             gain_display_box_shadow_color: record.gain_display_box_shadow_color,
             gain_display_font_color: record.gain_display_font_color,
-            master_volume_size: record.master_volume_size,
-            master_volume_repeat: record.master_volume_repeat,
-            master_volume_box_shadow: record.master_volume_box_shadow,
-            slider_background_image: record.slider_background_image,
+            gain_volume_size: record.gain_volume_size,
+            gain_volume_repeat: record.gain_volume_repeat,
+            gain_volume_box_shadow: record.gain_volume_box_shadow,
+            gain_slider_path: record.gain_slider_path,
+            gain_modulator_select_path: record.gain_modulator_select_path,
+            gain_modulator_select_size: record.gain_modulator_select_size,
+            gain_modulator_select_repeat: record.gain_modulator_select_repeat,
+            gain_modulator_select_box_shadow_color: record.gain_modulator_select_box_shadow_color,
+            gain_modulator_edit_box_shadow_color: record.gain_modulator_edit_box_shadow_color,
             created_at: record.created_at,
             updated_at: record.updated_at
           };
