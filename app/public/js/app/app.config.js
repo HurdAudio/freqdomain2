@@ -27,7 +27,13 @@
         url: '/emailconfirm/:id',
         parent: 'app',
         component: 'emailconfirm'
-      });
+      })
+      .state({
+        name: 'passwordreset',
+        url: '/passwordreset/:id',
+        parent: 'app',
+        component: 'passwordreset'
+      })
       // .state({
       //   name: 'weekview',
       //   url: '/weekview/:id',

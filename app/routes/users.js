@@ -441,6 +441,22 @@ router.patch('/newuser/:id', (req, res, next)=>{
   });
 });
 
+router.patch('/passwordchange/:id', (req, res, next)=>{
+  var salt = bcrypt.genSaltSync(parseInt(process.env.SALT_ROUNDS));
+  var hash = bcrypt.hashSync(process.env.SALT_PASSWORD + req.body.password, salt);
+  knex('users')
+  .where('id', req.params.id)
+  .update({
+    hashed_password: hash,
+  }, '*')
+    .then((results)=>{
+       res.status(200).send(results[0]);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.patch('/:id', (req, res, next) => {
   var hashed_password = '';
   if (!req.session.isChanged) {
