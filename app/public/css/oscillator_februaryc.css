@@ -134,7 +134,7 @@ body {
   border: solid 1px black;
   cursor: pointer;
   color: #000000;
-  box-shadow: -1px -1px 1px #013300, -2px -2px 1px #013300, -3px -3px 1px #7DF9FF, -4px -4px 1px #013300;
+  box-shadow: -1px -1px 1px #013300, -2px -2px 1px #013300, -3px -3px 1px #013300, -4px -4px 1px #013300;
   background: url(../img/february/silk-fabric-texture-15.jpg);
   background-size: 100%;
 }

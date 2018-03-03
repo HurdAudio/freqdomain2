@@ -23,6 +23,7 @@ const master_volume_skins = require('./routes/master_volume_skins.js');
 const random_number_generators = require('./routes/random_number_generators.js');
 const gain_skins = require('./routes/gain_skins.js');
 const low_pass_filters = require('./routes/low_pass_filters.js');
+const oscillator_skins = require('./routes/oscillator_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -45,7 +46,8 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/master_volume_skins', master_volume_skins);
  app.use('/random_number_generators', random_number_generators);
  app.use('/gain_skins', gain_skins);
- app.use('/low_pass_filters', low_pass_filters)
+ app.use('/low_pass_filters', low_pass_filters);
+ app.use('/oscillator_skins', oscillator_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
