@@ -103,6 +103,15 @@
                     let useruser = useruserData.data;
                     if ((useruser.login !== null) && (useruser.login !== 'forbidden')) {
                       userResetName.innerHTML = 'Logged In - password reset';
+                      let storage = window.localStorage;
+                      storage.setItem(useruser.security.key, useruser.security.value);
+                      storage.setItem('freq2Expire', useruser.security.expire);
+                      storage.setItem('freq2DomainUserID', useruser.id);
+                      document.cookie = "freq2Expire=" + useruser.security.expire;
+                      document.cookie = useruser.security.key + "=" + useruser.security.value;
+                      document.cookie = "freq2DomainUserID=" + useruser.id;
+
+                      $state.go('userhub', (id: useruser.id));
                     } else {
                       userResetName.innerHTML = 'Login Failure';
                     }

@@ -311,9 +311,61 @@
         }, 60000);
       }
 
+      function getCookie (name) {
+        var cookies = document.cookie.split(';');
+        for(var i=0 ; i < cookies.length ; ++i) {
+          var pair = cookies[i].trim().split('=');
+          if(pair[0] === name) {
+            return (pair[1]);
+          }
+        }
+        return null;
+      }
+
+      function checkUserLoggedIn() {
+        let storage = window.localStorage;
+        let potentialUserLocal = storage.getItem('freq2DomainUserID');
+        let potentialUserCookie = getCookie('freq2DomainUserID');
+        if ((potentialUserLocal === undefined) || (potentialUserCookie === null)) {
+          return;
+        } else {
+          if (potentialUserLocal === potentialUserCookie) {
+            let localExpire = new Date(storage.getItem('freq2Expire'));
+            let cookieExpire = new Date(getCookie('freq2Expire'));
+            let currentTime = new Date();
+            if (localExpire.getTime() !== cookieExpire.getTime()) {
+              return;
+            }
+            if (currentTime.getTime() > localExpire.getTime()) {
+              return;
+            }
+            $http.get(`/users/${potentialUserLocal}`)
+            .then(userData=>{
+              let user = userData.data;
+              let userExpire = new Date(user.security.expire);
+              if (userExpire.getTime() !== localExpire.getTime()) {
+                return;
+              }
+              let key = user.security.key;
+              let value = user.security.value;
+              if (storage.getItem(key) !== value) {
+                return;
+              }
+              if (getCookie(key) !== value) {
+                return;
+              }
+              $state.go('userhub', {id: user.id});
+            });
+          } else {
+            return;
+          }
+        }
+      }
+
 
       function onInit() {
         console.log("Landing is lit");
+        checkUserLoggedIn();
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "filter: hue-rotate(0deg);");
         let forgotPassword = document.getElementById('forgotPassword');
@@ -385,7 +437,6 @@
         });
 
         newSub.addEventListener('click', ()=>{
-          //TODO check for unique email address
           $http.get('users')
           .then(usersData=>{
             let users = usersData.data;
@@ -497,6 +548,7 @@
                       $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
                       .then(()=>{
                         console.log('patched');
+                        $state.go('userhub', {id: user.id});
                       });
                     } else {
                       if (!user.email_reset.confirm) {
@@ -515,6 +567,7 @@
                         $http.patch(`/users/${user.id}`, {security: user.security, email_confirm: null})
                         .then(()=>{
                           console.log('patched');
+                          $state.go('userhub', {id: user.id});
                         });
                       }
                     }

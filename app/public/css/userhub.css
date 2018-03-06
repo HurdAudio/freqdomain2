@@ -1,0 +1,227 @@
+#hubNavbar {
+  width: 100%;
+  height: 120px;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  border-bottom: solid 4px #7D2301;
+}
+
+#hubNavbar img {
+  float: left;
+  width: 5%;
+  margin: 2vmin;
+  border: solid 2px #7D2301;
+  box-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+  cursor: pointer;
+}
+
+#hubNavbar img:active {
+  box-shadow: -1px -1px 1px #201702;
+}
+
+#hubNavbar h2 {
+  float: left;
+  margin: 8vmin 0 0 -1vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  color: #ED4E0E;
+  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+  cursor: pointer;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#hubNavbar h2:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#hubNavbar h2:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#hubNavbar h1 {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  color: #ED4E0E;
+  margin: 0 0 3vmin 4vmin;
+  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+  cursor: pointer;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#hubNavbar h1:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#hubNavbar h1:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#hubNavbar p {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ED4E0E;
+  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+
+}
+
+#hubNavbar a {
+  float: left;
+  margin-left: 7vmin;
+  margin-top: 4vmin;
+  padding-bottom: 2vmin;
+  height: 5vmin;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#hubNavbar a p:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#hubNavbar a p:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#freqDomain2Hubspot {
+  width: 96%;
+  height: 100%;
+  margin: 10px 5px 5px 5px;
+  background-color: transparent;
+
+  padding: 2vmin;
+}
+
+#freqDomain2Hubspot p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  color: #ED4E0E;
+}
+
+#freqDomain2Hubspot h3 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  color: #ED4E0E;
+  margin: -1vmin 0 1vmin 4vmin;
+}
+
+#newsTicker {
+  background-size: 100%;
+  padding: 1vmin;
+  background: #00FF66;
+
+  background-color: -webkit-linear-gradient(-45deg, #00FF66, #282828);
+  background: -webkit-linear-gradient(-45deg, #00FF66, #282828);
+  background: -o-linear-gradient(-45deg, #00FF66, #282828);
+  background: linear-gradient(-45deg, #00FF66, #282828);
+  border-bottom: solid 4px #00FF66;
+}
+
+#newsTicker p {
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+}
+
+#newsTicker h3 {
+  margin-top: 1vmin;
+}
+
+#newsLabel {
+  float: left;
+  margin-right: 5vmin;
+}
+
+#headlineNews {
+  margin-top: 2vmin;
+  margin-left: 20vmin;
+  opacity: 1;
+  font-weight: bold;
+  border: solid 1px #000;
+  width: auto;
+  background: #282828;
+  box-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+
+  /* text-shadow: -21px -21px 1px #624906, -22px -22px 1px #624906, -23px -23px #624906, -24px -24px 1px #624906, -25px -25px 1px #624906; */
+}
+
+#hubMessages {
+  float: left;
+  width: 50%;
+}
+
+#hubUpdates {
+  float: left;
+  width: 50%;
+}
+
+#hubMessageSpace {
+  height: 500px;
+  overflow: scroll;
+  background: #282828;
+  /* background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  border-bottom: solid 4px #7D2301; */
+  padding: 2vmin;
+  opacity: 0;
+  filter: hue-rotate(180deg);
+  margin-right: 3vmin;
+  border-bottom: solid 4px #00FF66;
+}
+
+#hubMessageSpace p {
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+}
+
+#hubUpdatesSpace {
+  height: 500px;
+  overflow: scroll;
+  background: #282828;
+  /* background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  border-bottom: solid 4px #7D2301; */
+  padding: 2vmin;
+  opacity: 0;
+  filter: hue-rotate(180deg);
+  border-bottom: solid 4px #00FF66;
+}
+
+#hubUpdatesSpace p {
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+}
+
+#hubUpdatesSpace ul {
+  list-style: none;
+  /* margin-left: 0; */
+  /* padding-left: 0; */
+}
+
+#hubUpdatesSpace li {
+  float: left;
+  /* padding-left: 1em; */
+  /* text-indent: 4em; */
+}
+
+#hubUpdatesSpace li:before {
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 30px;
+  content: ">freqDomain2 git:(master)";
+  padding-right: 5px;
+  float: left;
+}

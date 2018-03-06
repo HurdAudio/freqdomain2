@@ -34,6 +34,12 @@
         parent: 'app',
         component: 'passwordreset'
       })
+      .state({
+        name: 'userhub',
+        url: '/userhub/:id',
+        parent: 'app',
+        component: 'userhub'
+      });
       // .state({
       //   name: 'weekview',
       //   url: '/weekview/:id',

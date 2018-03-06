@@ -133,6 +133,7 @@
                   document.cookie = user.security.key + "=" + user.security.value;
                   document.cookie = "freq2DomainUserID=" + user.id;
                   emailConfirmHeadline.innerHTML = 'user is logged in';
+                  $state.go('userhub', (id: user.id));
                 });
 
               });
