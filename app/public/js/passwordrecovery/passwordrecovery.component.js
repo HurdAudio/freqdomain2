@@ -111,7 +111,7 @@
                       document.cookie = useruser.security.key + "=" + useruser.security.value;
                       document.cookie = "freq2DomainUserID=" + useruser.id;
 
-                      $state.go('userhub', (id: useruser.id));
+                      $state.go('userhub', {id: useruser.id});
                     } else {
                       userResetName.innerHTML = 'Login Failure';
                     }

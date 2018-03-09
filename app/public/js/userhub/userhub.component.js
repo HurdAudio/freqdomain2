@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var currentUserId = 0;
-  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Band Pass Filter - module 11.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Socia media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs' ];
+  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Band Pass Filter - module 11.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
 
   angular.module('app')
     .component('userhub', {
@@ -136,9 +136,9 @@
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 5s linear;");
         runNewsTicker();
         setTimeout(()=>{
-          hubMessageSpace.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: all 3s linear;");
+          hubMessageSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
           setTimeout(()=>{
-            hubUpdatesSpace.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: all 3s linear;");
+            hubUpdatesSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
           }, 2000);
         }, 3000);
 
