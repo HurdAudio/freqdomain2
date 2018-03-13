@@ -1,0 +1,1010 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#envelopeDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#envelopeTop {
+  background: url(../img/january/blueIceText.jpeg);
+  background-size: 150%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 88%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#envelopeTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #190000;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #ADFF2F, 2px 2px 1px #ADFF2F;
+}
+
+#envelopeSignalFlow {
+  background: url(../img/january/blueIceText.jpeg);
+  background-size: 1800%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 500px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #ADFF2F;
+}
+
+#envelopeSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 32vmin;
+  margin-bottom: 0;
+  color: #190000;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#envelopeSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #333300;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  cursor: pointer;
+}
+
+#envelopeFace {
+  height: 500px;
+  width: 88%;
+  /*background: #ffffff;*/
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/crystal-blue-inside-the-ice-cave-1024x683.jpg);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -62.5vmin;
+  margin-left: 7.5vmin;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+}
+
+#outputDiv {
+  margin: -2vmin 0 0 1vmin;
+}
+
+#verticalMeter {
+  margin: 1vmin 0 0 2vmin;
+}
+
+#meterVerticalDiv {
+  background-color: #A9A9A9;
+  opacity: 0.8;
+  height: 50%;
+  width: 100%;
+  border-bottom: solid 1px #333300;
+}
+
+#verticalMeterOutline {
+  height: 420px;
+  width: 24px;
+  border: solid 3px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FFFFCC, #FF0000);
+  background: -webkit-linear-gradient(45deg, #FFFFCC, #FF0000);
+  background: -o-linear-gradient(45deg, #FFFFCC, #FF0000);
+  background: linear-gradient(45deg, #FFFFCC, #FF0000);
+}
+
+#selectors {
+  margin: 8vmin 0 1vmin 0;
+}
+
+#attackWindow {
+  display: none;
+}
+
+#decayWindow {
+  display: none;
+}
+
+#sustainWindow {
+  display: none;
+}
+
+#postSustainWindow {
+  display: none;
+}
+
+#releaseWindow {
+  display: none;
+}
+
+#attackSelector {
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #190000;
+  margin: 3vmin 0 3vmin 0;
+  padding-left: 3vmin;
+  padding-top: 0;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(-45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  height: 36px;
+  border: solid 1px transparent;
+  filter: hue-rotate(0deg);
+  transition: filter 200ms linear;
+}
+
+#attackSelector p {
+  margin: 0;
+}
+
+#attackSelector:active {
+  box-shadow: -1px -1px 0px #ADFF2F;
+  filter: hue-rotate(90deg);
+  transition: filter 200ms linear;
+  border: solid 1px #333300;
+}
+
+#decaySelector {
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #190000;
+  margin: 3vmin 0 3vmin 0;
+  padding-left: 3vmin;
+  padding-top: 0;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(-45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  height: 36px;
+  border: solid 1px transparent;
+  filter: hue-rotate(0deg);
+  transition: filter 200ms linear;
+}
+
+#decaySelector p {
+  margin: 0;
+}
+
+#decaySelector:active {
+  box-shadow: -1px -1px 0px #ADFF2F;
+  filter: hue-rotate(90deg);
+  transition: filter 200ms linear;
+  border: solid 1px #333300;
+}
+
+#sustainSelector {
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #190000;
+  margin: 3vmin 0 3vmin 0;
+  padding-left: 3vmin;
+  padding-top: 0;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(-45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  height: 36px;
+  border: solid 1px transparent;
+  filter: hue-rotate(0deg);
+  transition: filter 200ms linear;
+}
+
+#sustainSelector p {
+  margin: 0;
+}
+
+#sustainSelector:active {
+  box-shadow: -1px -1px 0px #ADFF2F;
+  filter: hue-rotate(90deg);
+  transition: filter 200ms linear;
+  border: solid 1px #333300;
+}
+
+#postSustainSelector {
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #190000;
+  margin: 3vmin 0 3vmin 0;
+  padding-left: 3vmin;
+  padding-top: 0;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(-45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  height: 72px;
+  border: solid 1px transparent;
+  filter: hue-rotate(0deg);
+  transition: filter 200ms linear;
+}
+
+#postSustainSelector p {
+  margin: 0;
+}
+
+#postSustainSelector:active {
+  box-shadow: -1px -1px 0px #ADFF2F;
+  filter: hue-rotate(90deg);
+  transition: filter 200ms linear;
+  border: solid 1px #333300;
+}
+
+#releaseSelector {
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #190000;
+  margin: 3vmin 0 3vmin 0;
+  padding-left: 3vmin;
+  padding-top: 0;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(-45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(-45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  height: 36px;
+  border: solid 1px transparent;
+  filter: hue-rotate(0deg);
+  transition: filter 200ms linear;
+}
+
+#releaseSelector p {
+  margin: 0;
+}
+
+#releaseSelector:active {
+  box-shadow: -1px -1px 0px #ADFF2F;
+  filter: hue-rotate(90deg);
+  transition: filter 200ms linear;
+  border: solid 1px #333300;
+}
+
+#attackEditor {
+  margin: 3vmin 2vmin 1vmin 6vmin;
+  width: 100%;
+  height: 420px;
+  border: solid 2px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#releaseEditor {
+  margin: 3vmin 2vmin 1vmin 6vmin;
+  width: 100%;
+  height: 420px;
+  border: solid 2px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#decayEditor {
+  margin: 3vmin 2vmin 1vmin 6vmin;
+  width: 100%;
+  height: 420px;
+  border: solid 2px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  overflow: scroll;
+}
+
+#sustainEditor {
+  margin: 3vmin 2vmin 1vmin 6vmin;
+  width: 100%;
+  height: 420px;
+  border: solid 2px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#postSustainEditor {
+  margin: 3vmin 2vmin 1vmin 6vmin;
+  width: 100%;
+  height: 420px;
+  border: solid 2px #333300;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  overflow: scroll;
+}
+
+.envelopeInputDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 600%;
+  margin: 1vmin 0 0 4vmin;
+  padding-left: 2vmin;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#attackTimeIntervalValue {
+  width: 60%;
+  margin-left: 3vmin;
+}
+
+#releaseTimeIntervalValue {
+  width: 60%;
+  margin-left: 3vmin;
+}
+
+#decayTimeIntervalValue1 {
+  width: 40%;
+  margin-left: 6vmin;
+}
+
+#decayTimeIntervalModSelect1 {
+  margin-left: 6vmin;
+}
+
+#postSustainTimeIntervalModSelect1 {
+  margin-left: 6vmin;
+}
+
+#postSustainTimeIntervalValue1 {
+  width: 40%;
+  margin-left: 6vmin;
+}
+
+#sustainTimeIntervalModSelect1 {
+  margin-left: 6vmin;
+}
+
+#decayTimeIntervalModulationEditButton1 {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 9vmin;
+}
+
+#sustainTimeIntervalModulationEditButton1 {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 9vmin;
+}
+
+#postSustainTimeIntervalModulationEditButton1 {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 9vmin;
+}
+
+#decayEndValueModulationEditButton1 {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#postSustainEndValueModulationEditButton1 {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#attackStartValueModulationEditButton {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#attackTimeIntervalModulationEditButton {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#releaseTimeIntervalModulationEditButton {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#attackEndValueModulationEditButton {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+#releaseEndValueModulationEditButton {
+  visibility: hidden;
+  margin: 2vmin 1vmin 1vmin 6vmin;
+}
+
+
+#envelopeLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 1vmin 3vmin;
+  /* width: 100%; */
+}
+
+#envelopeReleaseLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 1vmin 3vmin;
+  /* width: 100%; */
+}
+
+#decayLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 1vmin 3vmin;
+  /* width: 100%; */
+}
+
+#sustainLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 1vmin 3vmin;
+  /* width: 100%; */
+}
+
+#postSustainLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 1vmin 3vmin;
+  /* width: 100%; */
+}
+
+#decayToggle {
+  margin: 1vmin 0 1vmin 2vmin;
+}
+
+#sustainToggle {
+  margin: 1vmin 0 1vmin 2vmin;
+}
+
+#postSustainToggle {
+  margin: 1vmin 0 1vmin 2vmin;
+}
+
+.envelopeValuesLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 0 4vmin;
+}
+
+.modInput {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  margin: 1vmin 0 0 2vmin;
+}
+
+#horizontalMeterDiv {
+  margin: 48vmin -11vmin 0 -111vmin;
+}
+
+#horizontalMeterDiv p {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  color: #190000;;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+#horizontalMeterOutline {
+  float: left;
+  height: 25px;
+  width: 830px;
+  border: solid 2px #333300;
+  margin: 8vmin 0 0 3vmin;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+  background-color: #ff0000;
+  /* background-color: -webkit-linear-gradient(45deg, #FFFFCC, #0000ff);
+  background: -webkit-linear-gradient(45deg, #FFFFCC, #0000ff);
+  background: -o-linear-gradient(45deg, #FFFFCC, #0000ff);
+  background: linear-gradient(45deg, #FFFFCC, #0000ff); */
+}
+
+#hoizontalMeterInnerDivL {
+  background: #999999;
+  border-right: solid 1px transparent;
+  width: 50%;
+  opacity: 0.9;
+  height: 100%;
+}
+
+#horizontalMeterInnerDivR {
+  float: right;
+  background: #999999;
+  width: 49%;
+  opacity: 0.9;
+  height: 100%;
+  margin: -3.1vmin 0 0 0;
+}
+
+#rightMark {
+  margin-left: 1vmin;
+}
+
+
+button {
+
+  /* visibility: hidden; */
+  width: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 0;
+  margin-left: 0;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(45deg, #FFFFCC, #ffffff);
+}
+
+button:active {
+  box-shadow: -1px -1px 0px #ffffff;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #A9A9A9;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #228B22;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #808000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #808000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+#linearOrExponentialDiv {
+  margin: 4vmin 0 4vmin 4vmin;
+}
+
+#releaseLinearOrExponentialDiv {
+  margin: 4vmin 0 4vmin 4vmin;
+}
+
+#decayLinearOrExponentialDiv {
+  margin: 4vmin 0 4vmin 4vmin;
+}
+
+#postSustainLinearOrExponentialDiv {
+  margin: 4vmin 0 4vmin 4vmin;
+}
+
+#continuousHandlerDiv {
+  visibility: visible;
+  margin: -4vmin 0 0 0;
+}
+
+#releaseContinuousHandlerDiv {
+  visibility: visible;
+  margin: -4vmin 0 0 0;
+}
+
+#decayContinuousHandlerDiv {
+  visibility: visible;
+  margin: -4vmin 0 0 0;
+}
+
+#postSustainContinuousHandlerDiv {
+  visibility: visible;
+  margin: -4vmin 0 0 0;
+}
+
+#concaveOrConvexlDiv {
+  margin: 6vmin 0 0 2vmin;
+}
+
+#slopeDiv {
+  visibility: hidden;
+  margin: 0 0 3vmin 16vmin;
+}
+
+#releaseSlopeDiv {
+  visibility: hidden;
+  margin: 0 0 3vmin 16vmin;
+}
+
+#decaySlopeDiv {
+  visibility: hidden;
+  margin: 0 0 3vmin 16vmin;
+}
+
+#postSustainSlopeDiv {
+  visibility: hidden;
+  margin: 0 0 3vmin 16vmin;
+}
+
+#linearOrExponential {
+  float: left;
+  margin-left: 1vmin;
+}
+
+#releaseLinearOrExponential {
+  float: left;
+  margin-left: 1vmin;
+}
+
+#decayLinearOrExponential {
+  float: left;
+  margin-left: 1vmin;
+}
+
+#postSustainLinearOrExponential {
+  float: left;
+  margin-left: 1vmin;
+}
+
+#linearLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#releaseLinearLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#decayLinearLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#postSustainLinearLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#exponentialLabel {
+  float: right;
+  margin: 1vmin 2vmin 1vmin 1vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#releaseExponentialLabel {
+  float: right;
+  margin: 1vmin 2vmin 1vmin 1vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#decayExponentialLabel {
+  float: right;
+  margin: 1vmin 2vmin 1vmin 1vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#postSustainExponentialLabel {
+  float: right;
+  margin: 1vmin 2vmin 1vmin 1vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#concaveOrConvex {
+  float: left;
+  margin-left: 2vmin;
+}
+
+#releaseConcaveOrConvex {
+  float: left;
+  margin-left: 2vmin;
+}
+
+#decyConcaveOrConvex {
+  float: left;
+  margin-left: 2vmin;
+}
+
+#concaveLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#releaseConcaveLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#decayConcaveLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#postSusatinConcaveLabel {
+  float: left;
+  margin: 1vmin 2vmin 0 0.5vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#convexLabel {
+  float: right;
+  margin: 1vmin 9vmin 1vmin 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#releaseConvexLabel {
+  float: right;
+  margin: 1vmin 9vmin 1vmin 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#decayConvexLabel {
+  float: right;
+  margin: 1vmin 9vmin 1vmin 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#postSustainConvexLabel {
+  float: right;
+  margin: 1vmin 9vmin 1vmin 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#slopeLabel {
+  float: left;
+  margin: 0 3vmin 0 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#releaseSlopeLabel {
+  float: left;
+  margin: 0 3vmin 0 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#decaySlopeLabel {
+  float: left;
+  margin: 0 3vmin 0 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+#postSustainSlopeLabel {
+  float: left;
+  margin: 0 3vmin 0 0;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+}
+
+.incrementDecriment {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 1vmin 0 1vmin;
+  border: solid 1px #333300;
+  border-radius: 10%;
+  padding: 1vmin;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: -webkit-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: -o-linear-gradient(45deg, #FFFFCC, #ffffff);
+  background: linear-gradient(45deg, #FFFFCC, #ffffff);
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+}
+
+.incrementDecriment:active {
+  box-shadow: -1px -1px 0px #ffffff;
+}
+
+#addedDecays fieldset {
+  margin: 0 0 0 3vmin;
+}
+
+#decayUniverse {
+  opacity: 0.2;
+}
+
+#sustainUniverse {
+  opacity: 0.2;
+}
+
+#postSustainUniverse {
+  opacity: 0.2;
+}
+
+#addNewDecay {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  width: 24vmin;
+  margin: 2vmin;
+}
+
+#addNewPostSustain {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  width: 24vmin;
+  margin: 2vmin;
+}
+
+.deleteDecay {
+  float: right;
+  margin: 1vmin 2vmin 0 0;
+}
+
+#slopeAmount {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 300%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+  padding-left: 1vmin;
+  height: 50px;
+}
+
+#releaseSlopeAmount {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 300%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+  padding-left: 1vmin;
+  height: 50px;
+}
+
+#decaySlopeAmount {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 300%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+  padding-left: 1vmin;
+  height: 50px;
+}
+
+#postSustainSlopeAmount {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: url(../img/january/blueQuartz.jpg);
+  background-size: 300%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+  padding-left: 1vmin;
+  height: 50px;
+}
+
+#exponentialCurveHanlderDiv {
+  visibility: hidden;
+}
+
+#releaseExponentialCurveHanlderDiv {
+  visibility: hidden;
+}
+
+#decayExponentialCurveHanlderDiv {
+  visibility: hidden;
+}
+
+#postSustainExponentialCurveHanlderDiv {
+  visibility: hidden;
+}
+
+.activeState {
+  color: #190000;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  opacity: 1.0;
+}
+
+.inactiveState {
+  color: transparent;
+  text-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F;
+  opacity: 0.3;
+}

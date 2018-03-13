@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/envelope_januaryc.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./envelope_januaryc.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="envelopeDiv">
+      <div id="envelopeTop">
+
+        <h1>Envelope</h1>
+      </div>
+      <div id="envelopeSignalFlow">
+
+
+        <div id="envelopeOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="envelopeFace" class="pure-g">
+
+        <div id="verticalMeter" class="pure-u-1-12">
+          <div id="verticalMeterOutline">
+
+            <div id="meterVerticalDiv"></div>
+          </div>
+
+        </div>
+
+        <div id="selectorsDiv" class="pure-u-1-6">
+          <div id="selectors">
+            <div id="attackSelector">
+              <p>Attack</p>
+            </div>
+            <div id="decaySelector">
+              <p>Decay</p>
+            </div>
+            <div id="sustainSelector">
+              <p>Sustain</p>
+            </div>
+            <div id="postSustainSelector">
+              <p>Post Sustain</p>
+            </div>
+            <div id="releaseSelector">
+              <p>Release</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="outputDiv" class="pure-u-2-3">
+          <div>
+
+            <div id="attackWindow">
+              <div id="attackEditor" class="pure-g">
+                <p id="envelopeLabel" class="pure-u-1-1">Attack:</p>
+                <div id="attackInitialValueDiv" class="pure-u-1-3">
+                  <p class="envelopeValuesLabel" id="startLabel">Start Value:</p>
+                  <input type="number" id="attackStartValue" min="0.00" max="100.00" step="0.01" value="0.00" class="envelopeInputDisplay">
+                  <p class="modInput">modulation input:</p>
+                  <select class="modInput" id="attackStartValueModSelect">
+
+                    <option value="none">none</option>
+                    <option value="envelope1">envelope1</option>
+                    <option value="envelope2">envelope2</option>
+                    <option value="envelope3">envelope3</option>
+                    <option value="envelope4">envelope4</option>
+                    <option value="frequency1">frequency1</option>
+                    <option value="frequency2">frequency2</option>
+                    <option value="frequency3">frequency3</option>
+                  </select>
+                  <button id="attackStartValueModulationEditButton">edit</button>
+                </div>
+
+                <div id="attackTimeIntervalDiv" class="pure-u-1-3">
+                  <p class="envelopeValuesLabel" id="attackIntervalLabel">Time Interval:</p>
+                  <input type="number" id="attackTimeIntervalValue" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                  <p class="modInput">modulation input:</p>
+                  <select class="modInput" id="attackTimeIntervalModSelect">
+
+                    <option value="none">none</option>
+                    <option value="envelope1">envelope1</option>
+                    <option value="envelope2">envelope2</option>
+                    <option value="envelope3">envelope3</option>
+                    <option value="envelope4">envelope4</option>
+                    <option value="frequency1">frequency1</option>
+                    <option value="frequency2">frequency2</option>
+                    <option value="frequency3">frequency3</option>
+                  </select>
+                  <button id="attackTimeIntervalModulationEditButton">edit</button>
+                </div>
+
+                <div id="attackEndValueDiv" class="pure-u-1-3">
+                  <p class="envelopeValuesLabel" id="attackEndValueLabel">End Value:</p>
+                  <input type="number" id="attackEndValueValue" min="0.00"  max="100.00" step="0.01" value="100.00" class="envelopeInputDisplay">
+                  <p class="modInput">modulation input:</p>
+                  <select class="modInput" id="attackEndValueModSelect">
+
+                    <option value="none">none</option>
+                    <option value="envelope1">envelope1</option>
+                    <option value="envelope2">envelope2</option>
+                    <option value="envelope3">envelope3</option>
+                    <option value="envelope4">envelope4</option>
+                    <option value="frequency1">frequency1</option>
+                    <option value="frequency2">frequency2</option>
+                    <option value="frequency3">frequency3</option>
+                  </select>
+                  <button id="attackEndValueModulationEditButton">edit</button>
+                </div>
+
+                <div id="continuousHandlerDiv" class="pure-u-1-2">
+                  <div id="linearOrExponentialDiv">
+                    <p id="linearLabel" class="activeState">linear</p>
+                    <label class="switch">
+                      <input id="linearOrExponential" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                    <p id="exponentialLabel" class="inactiveState">exponential</p>
+                  </div>
+                </div>
+                <div class="pure-u-1-2">
+                  <div id="exponentialCurveHanlderDiv">
+                    <div id="concaveOrConvexDiv">
+                      <p id="concaveLabel" class="activeState">concave</p>
+                      <label class="switch">
+                        <input id="concaveOrConvex" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <p id="convexLabel" class="inactiveState">convex</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pure-u-5-6">
+                  <div>
+                    <div id="slopeDiv">
+                      <p id="slopeLabel" class="activeState">slope:</p>
+                      <a class="incrementDecriment" id="decreaseSlope">-</a>
+                      <input id="slopeAmount" type="number" min="1" max="1024" value="4">
+                      <a class="incrementDecriment" id="increaseSlope">+</a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="decayWindow">
+              <div id="decayEditor" class="pure-g">
+                <div id="decayToggle">
+                  <label class="switch">
+                    <input id="decayOn" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <p id="decayLabel" class="pure-u-4-5">Decay:</p>
+
+                <div id="decayUniverse">
+                  <div id="decayTimeIntervalDiv1" class="pure-u-1-2">
+                    <p class="envelopeValuesLabel" id="decayIntervalLabel1">Time Interval:</p>
+                    <input type="number" id="decayTimeIntervalValue1" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                    <p class="modInput">modulation input:</p>
+                    <select class="modInput" id="decayTimeIntervalModSelect1">
+
+                      <option value="none">none</option>
+                      <option value="envelope1">envelope1</option>
+                      <option value="envelope2">envelope2</option>
+                      <option value="envelope3">envelope3</option>
+                      <option value="envelope4">envelope4</option>
+                      <option value="frequency1">frequency1</option>
+                      <option value="frequency2">frequency2</option>
+                      <option value="frequency3">frequency3</option>
+                    </select><br>
+                    <button id="decayTimeIntervalModulationEditButton1">edit</button>
+                  </div>
+
+                  <div id="decayEndValueDiv" class="pure-u-1-3">
+                    <p class="envelopeValuesLabel" id="decayEndValueLabel">End Value:</p>
+                    <input type="number" id="decayEndValueValue" min="0.00"  max="100.00" step="0.01" value="80.00" class="envelopeInputDisplay">
+                    <p class="modInput">modulation input:</p>
+                    <select class="modInput" id="decayEndValueModSelect1">
+
+                      <option value="none">none</option>
+                      <option value="envelope1">envelope1</option>
+                      <option value="envelope2">envelope2</option>
+                      <option value="envelope3">envelope3</option>
+                      <option value="envelope4">envelope4</option>
+                      <option value="frequency1">frequency1</option>
+                      <option value="frequency2">frequency2</option>
+                      <option value="frequency3">frequency3</option>
+                    </select>
+                    <button id="decayEndValueModulationEditButton1">edit</button>
+                  </div>
+
+                  <div id="decayContinuousHandlerDiv" class="pure-u-1-2">
+                    <div id="decayLinearOrExponentialDiv">
+                      <p id="decayLinearLabel" class="activeState">linear</p>
+                      <label class="switch">
+                        <input id="decayLinearOrExponential" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <p id="decayExponentialLabel" class="inactiveState">exponential</p>
+                    </div>
+                  </div>
+                  <div class="pure-u-1-2">
+                    <div id="decayExponentialCurveHanlderDiv">
+                      <div id="decayConcaveOrConvexDiv">
+                        <p id="decayConcaveLabel" class="activeState">concave</p>
+                        <label class="switch">
+                          <input id="decayConcaveOrConvex" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                        <p id="decayConvexLabel" class="inactiveState">convex</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pure-u-5-6">
+                    <div  id="decaySlopeDiv">
+                      <div>
+                        <p id="decaySlopeLabel" class="activeState">slope:</p>
+                        <a class="incrementDecriment" id="decayDecreaseSlope">-</a>
+                        <input id="decaySlopeAmount" type="number" min="1" max="1024" value="4">
+                        <a class="incrementDecriment" id="decayIncreaseSlope">+</a>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="addedDecays">
+                    <button class="deleteDecay">X</button>
+                    <fieldset class="pure-u-7-8">
+
+                      <div class="pure-u-1-2">
+                        <p class="envelopeValuesLabel">Time Interval:</p>
+                        <input type="number" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                        <p class="modInput">modulation input:</p>
+                        <select class="modInput">
+
+                          <option value="none">none</option>
+                          <option value="envelope1">envelope1</option>
+                          <option value="envelope2">envelope2</option>
+                          <option value="envelope3">envelope3</option>
+                          <option value="envelope4">envelope4</option>
+                          <option value="frequency1">frequency1</option>
+                          <option value="frequency2">frequency2</option>
+                          <option value="frequency3">frequency3</option>
+                        </select><br>
+                        <button>edit</button>
+                      </div>
+                      <div class="pure-u-1-3">
+                        <p class="envelopeValuesLabel">End Value:</p>
+                        <input type="number" min="0.00"  max="100.00" step="0.01" value="80.00" class="envelopeInputDisplay">
+                        <p class="modInput">modulation input:</p>
+                        <select class="modInput">
+
+                          <option value="none">none</option>
+                          <option value="envelope1">envelope1</option>
+                          <option value="envelope2">envelope2</option>
+                          <option value="envelope3">envelope3</option>
+                          <option value="envelope4">envelope4</option>
+                          <option value="frequency1">frequency1</option>
+                          <option value="frequency2">frequency2</option>
+                          <option value="frequency3">frequency3</option>
+                        </select>
+                        <button>edit</button>
+                      </div>
+                      <div class="pure-u-1-2">
+                        <div>
+                          <p class="activeState">linear</p>
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                          <p class="inactiveState">exponential</p>
+                        </div>
+                      </div>
+                      <div class="pure-u-1-2">
+                        <div>
+                          <div>
+                            <p class="activeState">concave</p>
+                            <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
+                            <p class="inactiveState">convex</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pure-u-5-6">
+                        <div>
+                          <div>
+                            <p class="activeState">slope:</p>
+                            <a class="incrementDecriment">-</a>
+                            <input type="number" min="1" max="1024" value="4">
+                            <a class="incrementDecriment">+</a>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </fieldset>
+                  </div>
+                  <div id="createDecayUnitDiv">
+
+                    <button id="addNewDecay">add new</button>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <div id="sustainWindow">
+              <div id="sustainEditor" class="pure-g">
+                <div id="sustainToggle">
+                  <label class="switch">
+                    <input id="sustainOn" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <p id="sustainLabel" class="pure-u-4-5">Sustain:</p>
+
+                <div id="sustainUniverse">
+                  <div id="sustainModder" class="pure-u-1-2">
+
+
+                    <p class="modInput">modulation input:</p>
+                    <select class="modInput" id="sustainTimeIntervalModSelect1">
+
+                      <option value="none">none</option>
+                      <option value="envelope1">envelope1</option>
+                      <option value="envelope2">envelope2</option>
+                      <option value="envelope3">envelope3</option>
+                      <option value="envelope4">envelope4</option>
+                      <option value="frequency1">frequency1</option>
+                      <option value="frequency2">frequency2</option>
+                      <option value="frequency3">frequency3</option>
+                    </select><br>
+                    <button id="sustainTimeIntervalModulationEditButton1">edit</button>
+                  </div>
+
+
+
+
+
+
+                </div>
+
+
+              </div>
+            </div>
+
+            <div id="postSustainWindow">
+              <div id="postSustainEditor" class="pure-g">
+                <div id="postSustainToggle">
+                  <label class="switch">
+                    <input id="postSustainOn" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <p id="postSustainLabel" class="pure-u-4-5">Post Sustain:</p>
+
+                <div id="postSustainUniverse">
+                  <div id="postSustainTimeIntervalDiv1" class="pure-u-1-2">
+                    <p class="envelopeValuesLabel" id="postSustainIntervalLabel1">Time Interval:</p>
+                    <input type="number" id="postSustainTimeIntervalValue1" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                    <p class="modInput">modulation input:</p>
+                    <select class="modInput" id="postSustainTimeIntervalModSelect1">
+
+                      <option value="none">none</option>
+                      <option value="envelope1">envelope1</option>
+                      <option value="envelope2">envelope2</option>
+                      <option value="envelope3">envelope3</option>
+                      <option value="envelope4">envelope4</option>
+                      <option value="frequency1">frequency1</option>
+                      <option value="frequency2">frequency2</option>
+                      <option value="frequency3">frequency3</option>
+                    </select><br>
+                    <button id="postSustainTimeIntervalModulationEditButton1">edit</button>
+                  </div>
+
+                  <div id="postSustainEndValueDiv" class="pure-u-1-3">
+                    <p class="envelopeValuesLabel" id="postSustainEndValueLabel">End Value:</p>
+                    <input type="number" id="postSustainEndValueValue" min="0.00"  max="100.00" step="0.01" value="80.00" class="envelopeInputDisplay">
+                    <p class="modInput">modulation input:</p>
+                    <select class="modInput" id="postEndValueModSelect1">
+
+                      <option value="none">none</option>
+                      <option value="envelope1">envelope1</option>
+                      <option value="envelope2">envelope2</option>
+                      <option value="envelope3">envelope3</option>
+                      <option value="envelope4">envelope4</option>
+                      <option value="frequency1">frequency1</option>
+                      <option value="frequency2">frequency2</option>
+                      <option value="frequency3">frequency3</option>
+                    </select>
+                    <button id="postSustainEndValueModulationEditButton1">edit</button>
+                  </div>
+
+                  <div id="postSustainContinuousHandlerDiv" class="pure-u-1-2">
+                    <div id="postSustainLinearOrExponentialDiv">
+                      <p id="postSustainLinearLabel" class="activeState">linear</p>
+                      <label class="switch">
+                        <input id="postSustainLinearOrExponential" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <p id="postSustainExponentialLabel" class="inactiveState">exponential</p>
+                    </div>
+                  </div>
+                  <div class="pure-u-1-2">
+                    <div id="postSustainExponentialCurveHanlderDiv">
+                      <div id="postSusatinConcaveOrConvexDiv">
+                        <p id="postSusatinConcaveLabel" class="activeState">concave</p>
+                        <label class="switch">
+                          <input id="postSustainConcaveOrConvex" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                        <p id="postSustainConvexLabel" class="inactiveState">convex</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pure-u-5-6">
+                    <div id="postSustainSlopeDiv">
+                      <div>
+                        <p id="postSustainSlopeLabel" class="activeState">slope:</p>
+                        <a class="incrementDecriment" id="postSustainDecreaseSlope">-</a>
+                        <input id="postSustainSlopeAmount" type="number" min="1" max="1024" value="4">
+                        <a class="incrementDecriment" id="postSustainIncreaseSlope">+</a>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="addedPostSustains">
+                    <button class="deleteDecay">X</button>
+                    <fieldset class="pure-u-7-8">
+
+                      <div class="pure-u-1-2">
+                        <p class="envelopeValuesLabel">Time Interval:</p>
+                        <input type="number" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                        <p class="modInput">modulation input:</p>
+                        <select class="modInput">
+
+                          <option value="none">none</option>
+                          <option value="envelope1">envelope1</option>
+                          <option value="envelope2">envelope2</option>
+                          <option value="envelope3">envelope3</option>
+                          <option value="envelope4">envelope4</option>
+                          <option value="frequency1">frequency1</option>
+                          <option value="frequency2">frequency2</option>
+                          <option value="frequency3">frequency3</option>
+                        </select><br>
+                        <button>edit</button>
+                      </div>
+                      <div class="pure-u-1-3">
+                        <p class="envelopeValuesLabel">End Value:</p>
+                        <input type="number" min="0.00"  max="100.00" step="0.01" value="80.00" class="envelopeInputDisplay">
+                        <p class="modInput">modulation input:</p>
+                        <select class="modInput">
+
+                          <option value="none">none</option>
+                          <option value="envelope1">envelope1</option>
+                          <option value="envelope2">envelope2</option>
+                          <option value="envelope3">envelope3</option>
+                          <option value="envelope4">envelope4</option>
+                          <option value="frequency1">frequency1</option>
+                          <option value="frequency2">frequency2</option>
+                          <option value="frequency3">frequency3</option>
+                        </select>
+                        <button>edit</button>
+                      </div>
+                      <div class="pure-u-1-2">
+                        <div>
+                          <p class="activeState">linear</p>
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                          <p class="inactiveState">exponential</p>
+                        </div>
+                      </div>
+                      <div class="pure-u-1-2">
+                        <div>
+                          <div>
+                            <p class="activeState">concave</p>
+                            <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
+                            <p class="inactiveState">convex</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pure-u-5-6">
+                        <div>
+                          <div>
+                            <p class="activeState">slope:</p>
+                            <a class="incrementDecriment">-</a>
+                            <input type="number" min="1" max="1024" value="4">
+                            <a class="incrementDecriment">+</a>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </fieldset>
+                  </div>
+                  <div id="createPostSustainUnitDiv">
+
+                    <button id="addNewPostSustain">add new</button>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <div id="releaseWindow">
+              <div id="releaseEditor" class="pure-g">
+                <p id="envelopeReleaseLabel" class="pure-u-1-1">Release:</p>
+
+
+                <div id="releaseTimeIntervalDiv" class="pure-u-1-3">
+                  <p class="envelopeValuesLabel" id="releaseIntervalLabel">Time Interval:</p>
+                  <input type="number" id="releaseTimeIntervalValue" min="1"  step="1" value="1" class="envelopeInputDisplay">
+                  <p class="modInput">modulation input:</p>
+                  <select class="modInput" id="releaseTimeIntervalModSelect">
+
+                    <option value="none">none</option>
+                    <option value="envelope1">envelope1</option>
+                    <option value="envelope2">envelope2</option>
+                    <option value="envelope3">envelope3</option>
+                    <option value="envelope4">envelope4</option>
+                    <option value="frequency1">frequency1</option>
+                    <option value="frequency2">frequency2</option>
+                    <option value="frequency3">frequency3</option>
+                  </select>
+                  <button id="releaseTimeIntervalModulationEditButton">edit</button>
+                </div>
+
+                <div id="releaseEndValueDiv" class="pure-u-1-3">
+                  <p class="envelopeValuesLabel" id="releaseEndValueLabel">End Value:</p>
+                  <input type="number" id="releaseEndValueValue" min="0.00"  max="100.00" step="0.01" value="0.00" class="envelopeInputDisplay">
+                  <p class="modInput">modulation input:</p>
+                  <select class="modInput" id="releaseEndValueModSelect">
+
+                    <option value="none">none</option>
+                    <option value="envelope1">envelope1</option>
+                    <option value="envelope2">envelope2</option>
+                    <option value="envelope3">envelope3</option>
+                    <option value="envelope4">envelope4</option>
+                    <option value="frequency1">frequency1</option>
+                    <option value="frequency2">frequency2</option>
+                    <option value="frequency3">frequency3</option>
+                  </select>
+                  <button id="releaseEndValueModulationEditButton">edit</button>
+                </div>
+
+                <div id="releaseContinuousHandlerDiv" class="pure-u-1-2">
+                  <div id="releaseLinearOrExponentialDiv">
+                    <p id="releaseLinearLabel" class="activeState">linear</p>
+                    <label class="switch">
+                      <input id="releaseLinearOrExponential" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                    <p id="releaseExponentialLabel" class="inactiveState">exponential</p>
+                  </div>
+                </div>
+                <div class="pure-u-1-2">
+                  <div id="releaseExponentialCurveHanlderDiv">
+                    <div id="releaseConcaveOrConvexDiv">
+                      <p id="releaseConcaveLabel" class="activeState">concave</p>
+                      <label class="switch">
+                        <input id="releaseConcaveOrConvex" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                      <p id="releaseConvexLabel" class="inactiveState">convex</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pure-u-5-6">
+                  <div>
+                    <div id="releaseSlopeDiv">
+                      <p id="releaseSlopeLabel" class="activeState">slope:</p>
+                      <a class="incrementDecriment" id="releaseDecreaseSlope">-</a>
+                      <input id="releaseSlopeAmount" type="number" min="1" max="1024" value="4">
+                      <a class="incrementDecriment" id="releaseIncreaseSlope">+</a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="pure-g">
+
+          <div id="horizontalMeterDiv" class="u-5-6">
+
+            <p>L</p>
+            <div id="horizontalMeterOutline">
+
+              <div id="hoizontalMeterInnerDivL"></div>
+              <div id="horizontalMeterInnerDivR"></div>
+            </div>
+            <p id="rightMark">R</p>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </body>
+</html>
