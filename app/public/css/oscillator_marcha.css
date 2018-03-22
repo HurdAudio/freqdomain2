@@ -1,0 +1,403 @@
+body {
+  background-color: #000000;
+}
+
+#oscillatorDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 850px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#oscillatorTop {
+  background: url(../img/march/abstract-3147697_1920.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 80%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#oscillatorTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #ff9999;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #ff3232, 2px 2px 1px #ff3232;
+}
+
+#oscillatorSignalFlow {
+  background: url(../img/march/abstract-3147697_1920.jpg);
+  background-size: 1300%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #ff3232;
+}
+
+#oscillatorSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 34vmin;
+  margin-bottom: 0;
+  color: #ff9999;
+  text-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232;
+}
+
+#oscillatorSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #ff9999;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232;
+  cursor: pointer;
+}
+
+#oscillatorFace {
+  height: 450px;
+  width: 80%;
+  background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: url(../img/march/glass-2440877_1920.jpg);
+  background-size: 120%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  margin-top: -56.4vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232;
+  color: #ff9999;
+}
+
+#oscillatorFace img {
+  width: 70%;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+
+
+
+#oscillatorFace p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-bottom: 0;
+  text-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232;
+}
+
+#waveformSelector {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  width: 23%;
+  list-style-type: none;
+}
+
+#waveLabel {
+  margin: 1vmin 0 2vmin 2vmin;
+}
+
+#waveformSelector ul {
+  list-style-type: none;
+}
+
+#waveformSelector li {
+  border: solid 1px black;
+  cursor: pointer;
+  color: #000000;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 100%;
+}
+
+#waveformSelector img {
+  width: 60px;
+  height: 60px;
+}
+
+#waveMod {
+  margin-left: 5vmin;
+  margin-top: -2vmin;
+}
+
+
+
+#hertzLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 30vmin;
+  margin-bottom: 0;
+  margin-top: -54.5vmin;
+  text-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#oscillatorFrequency {
+  font-family: 'Righteous', cursive;
+  font-size: 56px;
+  margin-left: 30vmin;
+  margin-top: 0;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+  padding-left: 5vmin;
+}
+
+#oscillatorFrequencySlider {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 54%;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 200%;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: 57vmin;
+  margin-top: 10.5vmin;
+  box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
+#oscillatorFrequencySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #ffffd1;
+    background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: linear-gradient(-135deg, #e50000, #ffffd1);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
+#oscillatorFrequencySlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background: url(../img/noun_338545_cc.png);
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
+#frequencyModulator {
+  margin-left: 38vmin;
+  margin-top: -18vmin;
+}
+
+#frequenctModulatorSelect {
+  width: 64%;
+  font-family: 'Righteous', cursive;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 200%;
+  font-size: 36px;
+  margin-top: 1vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#frequencyModulateEdit {
+  visibility: hidden;
+  width: 50%;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: transparent;
+  margin-top: 3vmin;
+  margin-left: 5vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#waveformModulatorSelect {
+  width: 24%;
+  font-family: 'Righteous', cursive;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 100%;
+  font-size: 24px;
+  margin-top: 1vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#waveformModulatorEditor {
+  visibility: hidden;
+  width: 17%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 1vmin;
+  margin-left: 2vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#detuneLabel {
+  margin-left: 30vmin;
+  margin-top: 2vmin;
+}
+
+#oscillatorDetune {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-left: 30vmin;
+  margin-top: 1vmin;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+  padding-left: 5vmin;
+}
+
+#oscillatorDetuneSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24%;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 200%;
+  outline: none;
+  opacity: 1.0;
+  margin-left: 30vmin;
+  margin-top: 2vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+}
+
+#oscillatorDetuneSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 24px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #ffffd1;
+    background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+    background: linear-gradient(-135deg, #e50000, #ffffd1);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+}
+
+#oscillatorDetuneSlider::-moz-range-thumb {
+  width: 12px;
+  height: 24px;
+  background: url(../img/noun_338545_cc.png);
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+}
+
+#detuneMod {
+  margin-left: 53vmin;
+  margin-top: -17.5vmin;
+}
+
+#detuneModulatorSelect {
+  width: 58%;
+  font-family: 'Righteous', cursive;
+  background: url(../img/march/background-3185014_1920.jpg);
+  background-size: 100%;
+  font-size: 24px;
+  margin-top: 1vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#detuneModulatorEditor {
+  visibility: hidden;
+  width: 40%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 1vmin;
+  margin-left: 3vmin;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #7DF9FF, -4px -4px 1px #ff3232;
+}
+
+#sine {
+  filter: hue-rotate(180deg);
+  filter: invert(1);
+  opacity: 1;
+
+}
+
+#square {
+  filter: hue-rotate(0deg);
+  filter: invert(0);
+  opacity: 0.3;
+}
+
+#sawtooth {
+  filter: hue-rotate(0deg);
+  filter: invert(0);
+  opacity: 0.3;
+}
+
+#triangle {
+  filter: hue-rotate(0deg);
+  filter: invert(0);
+  opacity: 0.3;
+}
+
+#waveformModulatorEditor {
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+}
+
+#frequencyModulateEdit {
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+}
+
+#detuneModulatorEditor {
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+}
