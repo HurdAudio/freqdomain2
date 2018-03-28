@@ -1,0 +1,230 @@
+#userPictureSlot {
+  margin: 4em;
+  box-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+}
+
+#userNamePicture {
+  float: left;
+  opacity: 0.9;
+  margin: 2em;
+  width: 30%;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  border-bottom: solid 4px #7D2301;
+  height: 700px;
+}
+
+#userStatsField {
+  float: left;
+  opacity: 0.9;
+  margin: 2em;
+  width: 62%;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  border-bottom: solid 4px #7D2301;
+  height: 700px;
+  overflow: scroll;
+}
+
+#userNamePicture p {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  color: #ED4E0E;
+  margin: 0 2em 2em 2em;
+  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+}
+
+#userNamePicture a {
+  margin: 0 2em 2em 2em;
+}
+
+#userNameSlot {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  color: #ED4E0E;
+  margin: -0.3em 2em 0.5em 1.3em;
+  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+}
+
+#userStatsField a {
+  float: left;
+  margin-top: 0.1vmin;
+  width: 190px;
+}
+
+#userStatsField p {
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 36px;
+  margin: 0.6em 0 0.4em 1em;
+}
+
+#userStatsField input[type=text] {
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 36px;
+  width: 650px;
+}
+
+#userStatsField input[type=file] {
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 36px;
+  width: 450px;
+}
+
+#userStatsField input[type=password] {
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 36px;
+  width: 450px;
+}
+
+#userStatsField textarea {
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  font-family: VT323, sans-serif;
+  color: #33FF33;
+  font-size: 36px;
+  width: 95%;
+}
+
+#userInfosFields {
+
+  width: 100%;
+  border-top: solid 4px #7D2301;
+  border-bottom: solid 4px #7D2301;
+  overflow: scroll;
+  height: 0px;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -o-linear-gradient(45deg, #4372E1, #624906);
+  background: linear-gradient(45deg, #4372E1, #624906);
+}
+
+#friendsInfosFields {
+
+  width: 100%;
+  border-top: solid 4px #7D2301;
+  border-bottom: solid 4px #7D2301;
+  overflow: scroll;
+  height: 0px;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -o-linear-gradient(45deg, #4372E1, #624906);
+  background: linear-gradient(45deg, #4372E1, #624906);
+}
+
+#displayStatsInfosFields {
+
+  width: 100%;
+  border-top: solid 4px #7D2301;
+  border-bottom: solid 4px #7D2301;
+  overflow: scroll;
+  height: 0px;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -o-linear-gradient(45deg, #4372E1, #624906);
+  background: linear-gradient(45deg, #4372E1, #624906);
+}
+
+#displayContactFormInfosFields {
+
+  width: 100%;
+  border-top: solid 4px #7D2301;
+  border-bottom: solid 4px #7D2301;
+  overflow: scroll;
+  height: 0px;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(45deg, #4372E1, #624906);
+  background: -o-linear-gradient(45deg, #4372E1, #624906);
+  background: linear-gradient(45deg, #4372E1, #624906);
+}
+
+#cancelUserProfileChangesClickable {
+  color: #33FF33;
+}
+
+#cancelUserProfileChangesClickable:hover {
+  color: #ED4E0E;
+}
+
+#cancelUserProfileChangesClickable:active {
+  color: #000000;
+}
+
+#makeUserProfileChangesClickable {
+  color: #33FF33;
+}
+
+#makeUserProfileChangesClickable:hover {
+  color: #ED4E0E;
+}
+
+#makeUserProfileChangesClickable:active {
+  color: #000000;
+}
+
+#friendsDone {
+  color: #33FF33;
+}
+
+#friendsDone:hover {
+  color: #ED4E0E;
+}
+
+#friendsDone:active {
+  color: #000000;
+}
+
+#contactSendClick {
+  color: #33FF33;
+}
+
+#contactSendClick:hover {
+  color: #ED4E0E;
+}
+
+#contactSendClick:active {
+  color: #000000;
+}
+
+#contactCancelClick {
+  color: #33FF33;
+}
+
+#contactCancelClick:hover {
+  color: #ED4E0E;
+}
+
+#contactCancelClick:active {
+  color: #000000;
+}

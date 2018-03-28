@@ -1,0 +1,82 @@
+<div id="profileDiv">
+  <div id="hubNavbar" class="pure-g">
+    <div class="pure-u-1-4">
+      <img id="hubUserImg" src="../img/evil-2162179_1280.png">
+      <h2 id="hubUserName"></h2>
+    </div>
+    <h1 class="pure-u-1-4" ng-click="$ctrl.returnToHub()">FreqDomain2</h1>
+    <div id="navBarButtons" class="pure-u-1-3">
+      <a class="button"><p>Compose</p></a>
+      <a class="button"><p>Mixer</p></a>
+      <a class="button"><p>Patch Editor</p></a>
+      <a class="button"><p>Social</p></a>
+      <a class="button"><p>Info</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
+
+    </div>
+  </div>
+
+  <div id="freqDomain2UserProfileSpot" class="pure-g">
+    <div id="userNamePicture" class="pure-u-1-3">
+
+      <img id="userPictureSlot">
+      <h1 id="userNameSlot"></h1>
+      <p id="userProfileTag"></p>
+      <a class="btn" id="adminButton">admin</a>
+    </div>
+
+    <div id="userStatsField" class="pure-u-2-3">
+
+      <div id="userInfos">
+
+        <a class="btn" ng-click="$ctrl.displayUserInfos()" id="displayUserInfosButton">user info</a>
+        <div id="userInfosFields">
+          <p>Avatar Link: <input type="text" id="userProfileAvatarField" class="pure-input-1"></p>
+          <p>Upload new: <input type="file" id="userProfileAvatarUploadField"></p>
+          <p>Name:
+          <input type="text" id="userProfileNameField"></p>
+
+          <p>Email: <input type="text" id="userProfileEmailField"></p>
+          <p>Change Password: <input type="password" id="userProfilePasswordField"></p>
+          <p>Confirm Password: <input type="password" id="userProfilePasswordConfirmField"></p>
+          <p><a href="#" id="makeUserProfileChangesClickable"> save changes</a></p><br><br>
+          <p><a href="#" id="cancelUserProfileChangesClickable" ng-click="$ctrl.undisplayUserInfos()">cancel</a></p>
+
+        </div>
+        <a class="btn" ng-click="$ctrl.displayFriendsInfos()" id="displayFriendsInfosButton">friends</a>
+        <div id="friendsInfosFields">
+
+          <p>43 Friends | 0 Requests Received | 2 Requests Sent</p>
+          <p>Search Friends: <input type="text" id="searchExistingFriends"></p>
+          <div id="profileFriendsList"></div>
+          <p>Add Friends: <input type="text" id="searchAllUsersToAdd"></p>
+          <div id="profileUsersList"></div>
+          <p><a id="friendsDone" href="#" ng-click="$ctrl.undisplayFriendInfos()">done</a></p>
+        </div>
+        <a class="btn" ng-click="$ctrl.displayStatsInfos()" id="displayStatsInfosButton">stats</a>
+        <div id="displayStatsInfosFields">
+
+          <p>4 Composition Projects</p>
+          <p>37 Patches</p>
+          <p>13 Mix Paths</p>
+          <p>2 Collaborations</p>
+          <p><a href="#" id="statsDone" ng-click="$ctrl.undisplayStatsInfos()">done</a></p>
+        </div>
+        <a class="btn" ng-click="$ctrl.displayContactInfos()" id="displayContactInfosButton">contact</a>
+      </div>
+      <div id="displayContactFormInfosFields">
+
+        <p>Message for FreqDomain2 Admins:</p>
+        <p><textarea rows="5"></textarea></p>
+        <p><a href="#" id="contactSendClick">send</a></p>
+        <p><a href="#" id="contactCancelClick" ng-click="$ctrl.undisplayContactInfos()">cancel</a></p>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</div>

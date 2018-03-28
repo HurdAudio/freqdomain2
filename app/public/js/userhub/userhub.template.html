@@ -1,8 +1,8 @@
 <div id="hubDiv">
   <div id="hubNavbar" class="pure-g">
     <div class="pure-u-1-4">
-      <img id="hubUserImg" src="../img/evil-2162179_1280.png">
-      <h2 id="hubUserName"></h2>
+      <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
+      <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
     </div>
     <h1 class="pure-u-1-4">FreqDomain2</h1>
     <div id="navBarButtons" class="pure-u-1-3">
@@ -11,7 +11,7 @@
       <a class="button"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
       <a class="button"><p>Info</p></a>
-      <a class="button"><p>Sign Out</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
 
     </div>
   </div>
@@ -34,8 +34,6 @@
           <ul>
 
 
-            <li><p>Module 1 - Master Volume pending: March C Skin. Next: March Skins added to database/Class Constructor created.</p></li>
-            <li><p>Module 0 - Front end: user hub page state and initial design. </p></li>
             <li><p>Module 12 - PENDING: Low Shelf Filter: initialization.</p></li>
             <li><p>Module 11 - Band Pass Filter: Design in January A Skin. Next: January B Skin</p></li>
             <li><p>Module 10 - Weather Module: January B Skin. Next: January C Skin.</p></li>
@@ -47,6 +45,9 @@
             <li><p>Module 4 - Test Tone: Skins Table. Add January and February skins. Next: March A Skin.</p></li>
             <li><p>Module 3 - Oscillator: March A Skin. Next: Match B Skin.</p></li>
             <li><p>Module 2 - Gain: March B Skin. Next: March C Skin.</p></li>
+            <li><p>Module 1 - Master Volume: March C Skin. Next: March Skins added to database/Class Constructor created.</p></li>
+            <li><p>Module 0 - Front end: User CRUD page state. Next: Live news crawl.</p></li>
+            <li><p>Module 13 - PENDING: Input Manager: initialization.</p></li>
 
 
           </ul>

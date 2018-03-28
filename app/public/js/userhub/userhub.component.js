@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var currentUserId = 0;
-  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Master Volume - module 1.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
+  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Low Shelf Filter - module 12.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
 
   angular.module('app')
     .component('userhub', {
@@ -26,6 +26,32 @@
       const vm = this;
 
       vm.$onInit = onInit;
+      vm.userLogout = userLogout;
+      vm.userProfileEditor = userProfileEditor;
+
+      function userProfileEditor() {
+        $state.go('userprofile', {id: currentUserId});
+      }
+
+      function userLogout() {
+        $http.get(`/users/${currentUserId}`)
+        .then(userData=>{
+          let user = userData.data;
+          let storage = window.localStorage;
+          storage.removeItem("freq2DomainUserID");
+          storage.removeItem("freq2Expire");
+          storage.removeItem(user.security.key);
+          document.cookie = "freq2DomainUserID=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+          document.cookie = "freq2Expire=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+          document.cookie = user.security.key + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+          $http.post('/users/logout', {})
+          .then(()=>{
+
+            $state.go('landing');
+          });
+        });
+
+      }
 
       function initializeSpace(user) {
         let hubUserImg = document.getElementById('hubUserImg');
@@ -63,6 +89,7 @@
           $state.go('landing');
           return;
         }
+        currentUserId = userId;
         $http.get(`/users/${userId}`)
         .then(userData=>{
           let user = userData.data;
