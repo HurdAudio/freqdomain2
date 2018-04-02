@@ -1,0 +1,310 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#weatherDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#weatherTop {
+  background: url(../img/january/4074902.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 88%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#weatherTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #203300;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #daff99, 2px 2px 1px #daff99;
+}
+
+#weatherSignalFlow {
+  background: url(../img/january/4074902.jpg);
+  background-size: 1600%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 500px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #daff99;
+}
+
+#weatherSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 32vmin;
+  margin-bottom: 0;
+  color: #203300;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+}
+
+#weatherSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #203300;
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  cursor: pointer;
+}
+
+#weatherFace {
+  height: 500px;
+  width: 88%;
+  /*background: #ffffff;*/
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/iceshelf_01.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -62.5vmin;
+  margin-left: 7.5vmin;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99;
+  color: #203300;
+}
+
+#zipLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  color: #203300;
+  margin: 2vmin 0 1vmin 2vmin;
+}
+
+#userZipInput {
+  display: initial;
+}
+
+#userZipInput input[type=number] {
+
+  padding-left: 1vmin;
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 300%;
+}
+
+#userZipInputModulators {
+  display: initial;
+}
+
+#userContryCityInput {
+  display: none;
+}
+
+#internationalLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  color: #203300;
+  margin: 2vmin 0 1vmin 2vmin;
+}
+
+#zipInputModulatorLabel {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  color: #203300;
+  margin: 2vmin 0 1vmin 2vmin;
+}
+
+.zipModButton {
+  margin: 0 0 1vmin 1vmin;
+  width: 7vmin;
+}
+
+#inputToggleButton {
+  margin: 3vmin 0 0 3vmin;
+}
+
+#moduleStartButton {
+  float: right;
+  margin: 3vmin 0 0 15vmin;
+}
+
+#logoImage {
+  float:right;
+  margin: 0 3vmin 0 3vmin;
+}
+
+#locationLabel {
+  overflow: scroll;
+  height: 4vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  color: #203300;
+  margin: 0 0 1vmin 0;
+  padding: 0 0 0 1vmin;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+}
+
+#temperatureBlock {
+  overflow: scroll;
+  width: 14%;
+  height: 46%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  border: 1px solid #000000;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  margin: 0 2vmin 0 1vmin;
+  padding: 0 0 0 1vmin;
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 300%;
+}
+
+#temperatureLabel {
+
+  font-size: 24px;
+  margin: 0 0 1vmin -1vmin;
+  border-bottom: 1px solid #000000;
+  background: #9999;
+}
+
+#windBlock {
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 300%;
+  overflow: scroll;
+  width: 14%;
+  height: 46%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  border: 1px solid #000000;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  margin: 0 2vmin 0 0;
+  padding: 0 0 0 1vmin;
+}
+
+#windLabel {
+  font-size: 24px;
+  margin: 0 0 1vmin -1vmin;
+  border-bottom: 1px solid #000000;
+  background: #9999;
+}
+
+#precipitationBlock {
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 300%;
+  overflow: scroll;
+  width: 14%;
+  height: 46%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  border: 1px solid #000000;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  margin: 0 2vmin 0 0;
+  padding: 0 0 0 1vmin;
+}
+
+#precipitationBlock img {
+  margin: 0 0 0 4vmin;
+}
+
+#precipitationLabel {
+  font-size: 24px;
+  margin: 0 0 1vmin -1vmin;
+  border-bottom: 1px solid #000000;
+  background: #9999;
+}
+
+#astronomyBlock {
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 300%;
+  overflow: scroll;
+  width: 16%;
+  height: 46%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  border: 1px solid #000000;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  margin: 0 2vmin 0 0;
+  padding: 0 0 0 1vmin;
+}
+
+#astronomyLabel {
+  font-size: 24px;
+  margin: 0 0 1vmin -1vmin;
+  border-bottom: 1px solid #000000;
+  background: #9999;
+}
+
+#webcamBlock {
+  background: url(../img/january/greenland_ali_2016167_lrg.jpg);
+  background-size: 200%;
+  width: 28%;
+  height: 46%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin: 0 2vmin 0 0;
+  padding: 0 0 0 1vmin;
+
+}
+
+
+
+#webcamBlock img {
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+}
+
+
+
+button {
+
+  /* visibility: hidden; */
+  width: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 0;
+  margin-left: 0;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #72b200, #ffffff);
+  background: -webkit-linear-gradient(45deg, #72b200, #ffffff);
+  background: -o-linear-gradient(45deg, #72b200, #ffffff);
+  background: linear-gradient(45deg, #72b200, #ffffff);
+}
+
+button:active {
+  box-shadow: -1px -1px 0px #ffffff;
+}
