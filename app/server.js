@@ -26,6 +26,7 @@ const low_pass_filters = require('./routes/low_pass_filters.js');
 const oscillator_skins = require('./routes/oscillator_skins.js');
 const high_pass_filters = require('./routes/high_pass_filters.js');
 const test_tone_skins = require('./routes/test_tone_skins.js');
+const envelope_generators = require('./routes/envelope_generators.js');
 
 const port = process.env.PORT || 3007;
 
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/oscillator_skins', oscillator_skins);
  app.use('/high_pass_filters', high_pass_filters);
  app.use('/test_tone_skins', test_tone_skins);
+ app.use('/envelope_generators', envelope_generators);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
