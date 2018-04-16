@@ -2,7 +2,6 @@
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 var MasterVolume = (function(settings, skin) {
-  let masterVolumeObject = {};
 
   let master = function (settings, skin) {
     this.id = settings.id;
