@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var currentUserId = 0;
-  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Master Volume - module 1.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
+  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Front End - module 0.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
 
   angular.module('app')
     .component('userhub', {
@@ -155,6 +155,18 @@
 
       function onInit() {
         console.log("User Hub is lit");
+        console.log(audioContext);
+        // let masterVolume = new MasterVolume({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: "master volume",
+        //   master_volume_gain_value: 40,
+        //   input: null,
+        //   mute: false,
+        //   created_at: "2017-07-20T13:44:00.000Z",
+        //   updated_at: "2017-07-20T13:44:00.000Z"
+        // }, {});
+        // console.log(masterVolume);
         checkValidUser($stateParams.id);
         let theBody = document.getElementsByTagName("body")[0];
         let hubMessageSpace = document.getElementById('hubMessageSpace');
