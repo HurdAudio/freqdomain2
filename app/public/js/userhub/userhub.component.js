@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var currentUserId = 0;
-  var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Front End - module 0.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
+  // var newsArray = [ 'FreqDomain2 is currently in pre-production.', 'Currently working on: Front End - module 0.', 'LAA 2 ARI 3 in the top of the 6th inning in Arizona.', 'Impeachment proceedings pick up momentum as the US Senate prepares for a vote', 'Frequency Hertz so good...', 'Welcome to FreqDomain2 HUB', 'Social media guru expires in 280 characters', 'Bloodbath ensues in Tunisia after clerics attempt coup.', 'This is FreqDomain2 Headline News - the only place for news that matters to freqs', '' ];
 
   angular.module('app')
     .component('userhub', {
@@ -117,13 +117,22 @@
       }
 
       function dynamicNewsTicker(element, news, width) {
-        let delay = 150;
-        let display = news.slice(0, width);
-        let nextNews = news.slice(1) + news[0];
-        element.innerHTML = display;
-        if (display[0] === ' ') {
-          delay = delay * 2;
+        let delay = 300;
+        if (news.length < 1) {
+          runNewsTicker();
+          return;
         }
+        let display = '';
+        if (news.length < width) {
+          display = news;
+        } else {
+          display = news.slice(0, width);
+        }
+        let nextNews = news.slice(1);
+        element.innerHTML = display;
+        // if (display[0] === ' ') {
+        //   delay = delay * 2;
+        // }
         setTimeout(()=>{
           dynamicNewsTicker(element, nextNews, width);
         }, delay);
@@ -133,24 +142,55 @@
       function runNewsTicker() {
         let headlineNews = document.getElementById('headlineNews');
         let newsString = '';
-        let characterWidth = 100;
+        let characterWidth = 79;
+        for (let sp = 0; sp < characterWidth; sp++) {
+          newsString+= ' ';
+        }
 
-        if (newsArray.length === 0) {
-          return;
-        }
-        if (newsArray.length === 1) {
-          headlineNews.innerHTML = newsArray[0];
-        }
-        for (let i = 0; i < newsArray.length; i++) {
-          newsString += '>';
-          newsString += newsArray[i];
-          newsString += ' • • • • • | • • • • • | • • • • • | • • • • • '
-        }
-        if (newsString.length < characterWidth) {
-          headlineNews.innerHTML = newsString;
-        } else {
-          dynamicNewsTicker(headlineNews, newsString, characterWidth);
-        }
+        $http.get('/news_tickers')
+        .then(freqdomain2NewsData=>{
+          let freqdomain2News = freqdomain2NewsData.data;
+          let freqNews = freqdomain2News.filter(line=>{
+            return(!line.expired);
+          });
+          $http.get('/reuters_headlines/us')
+          .then(reutersHeadlinesData=>{
+            let reutersHeadlines = reutersHeadlinesData.data;
+            if (freqNews.length > 0) {
+              for (let i = 0; i < freqNews.length; i++) {
+                newsString += 'FreqDomain2 News: ' + freqNews[i].headline + '                                                  ';
+              }
+            }
+            if (reutersHeadlines.articles.length > 0) {
+              for (let j = 0; j < reutersHeadlines.articles.length; j++) {
+                newsString += reutersHeadlines.articles[j].source.name + ': ' + reutersHeadlines.articles[j].title;
+                if (reutersHeadlines.articles[j].description !== null) {
+                  newsString += ' - ' + reutersHeadlines.articles[j].description;
+                }
+                newsString += '                                                  ';
+              }
+            }
+            console.log(newsString);
+            dynamicNewsTicker(headlineNews, newsString, characterWidth);
+          });
+        });
+
+        // if (newsArray.length === 0) {
+        //   return;
+        // }
+        // if (newsArray.length === 1) {
+        //   headlineNews.innerHTML = newsArray[0];
+        // }
+        // for (let i = 0; i < newsArray.length; i++) {
+        //   newsString += '>';
+        //   newsString += newsArray[i];
+        //   newsString += ' • • • • • | • • • • • | • • • • • | • • • • • '
+        // }
+        // if (newsString.length < characterWidth) {
+        //   headlineNews.innerHTML = newsString;
+        // } else {
+        //   dynamicNewsTicker(headlineNews, newsString, characterWidth);
+        // }
       }
 
       function onInit() {

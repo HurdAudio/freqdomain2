@@ -127,9 +127,12 @@
   border-bottom: solid 4px #00FF66;
 }
 
+
+
 #newsTicker p {
   font-family: VT323, sans-serif;
   color: #33FF33;
+  font-size: 42px;
 }
 
 #newsTicker h3 {
@@ -142,6 +145,7 @@
 }
 
 #headlineNews {
+  white-space: pre;
   margin-top: 2vmin;
   margin-left: 20vmin;
   opacity: 1;
@@ -162,6 +166,19 @@
 #hubUpdates {
   float: left;
   width: 50%;
+}
+
+#poweredbynewsapi {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  float: right;
+}
+
+#poweredbynewsapi h5 {
+
+  /* margin-left: 6vmin; */
+  margin-bottom: 0;
+  margin-top: -3vmin;
 }
 
 #hubMessageSpace {

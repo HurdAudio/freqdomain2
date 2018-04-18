@@ -181,6 +181,30 @@
   color: #000000;
 }
 
+#friendsDone {
+  color: #33FF33;
+}
+
+#friendsDone:hover {
+  color: #ED4E0E;
+}
+
+#friendsDone:active {
+  color: #000000;
+}
+
+#statsDone {
+  color: #33FF33;
+}
+
+#statsDone:hover {
+  color: #ED4E0E;
+}
+
+#statsDone:active {
+  color: #000000;
+}
+
 #makeUserProfileChangesClickable {
   color: #33FF33;
 }
