@@ -28,3 +28,20 @@ var MasterVolume = (function(settings, skin) {
   return(master);
 
 })();
+
+var GainModule = (function(settings, skin) {
+
+  let gainNode = function(settings, skin) {
+    this.id = settings.id;
+    this.name = settings.name;
+    this.gainValue = settings.gain_value;
+    this.gainModulator = settings.gain_modulator;
+    this.input = settings.input;
+    this.output = settings.output;
+    this.gain = audioContext.createGain();
+    this.gain.gain.value = (this.gainValue/100);
+
+  }
+
+  return(gainNode);
+})();

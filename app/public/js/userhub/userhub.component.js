@@ -170,7 +170,7 @@
                 newsString += '                                                  ';
               }
             }
-            console.log(newsString);
+            // console.log(newsString);
             dynamicNewsTicker(headlineNews, newsString, characterWidth);
           });
         });
@@ -220,6 +220,20 @@
             hubUpdatesSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
           }, 2000);
         }, 3000);
+
+        let testGain = new GainModule({
+          id: 1,
+          user_id: 1,
+          name: "gain",
+          gain_value: 40,
+          gain_modulator: null,
+          input: null,
+          output: null,
+          created_at: "2017-07-20T13:44:00.000Z",
+          updated_at: "2017-07-20T13:44:00.000Z"
+        }, {});
+
+        console.log(testGain);
 
 
 
