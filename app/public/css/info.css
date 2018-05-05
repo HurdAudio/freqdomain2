@@ -1,0 +1,124 @@
+#infoContent {
+  float: left;
+  width: 100%;
+}
+
+#whitePaper {
+  height: 700px;
+  overflow: scroll;
+  background: #ffffff;
+  padding: 2vmin;
+  opacity: 0.9;
+  /* filter: hue-rotate(180deg); */
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+  border: solid 4px #00FF66;
+  width: 95.5%;
+  margin-top: 1vmin;
+  font-family: Roboto, sans-serif;
+}
+
+#whitePaper h1 {
+  font-family: Righteous, cursive;
+  margin: 1vmin 0 1vmin 38vmin;
+  font-size: 48px;
+}
+
+#whitePaper p {
+  font-size: 18px;
+  margin: 3vmin;
+}
+
+#whitePaper h2 {
+  font-size: 36px;
+  margin: 5vmin;
+}
+
+#whitePaper a {
+  color: #D93627;
+}
+
+#whitePaper a:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 0.5s linear;
+}
+
+#whitePaper a:active {
+  opacity: 0.4;
+}
+
+#whitePaper a h3 {
+  color: #D93627;
+}
+
+#whitePaper a h3:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 0.5s linear;
+}
+
+#whitePaper a h3:active {
+  opacity: 0.4;
+}
+
+#whitePaper a p {
+  font-size: 42px;
+  color: #D93627;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#whitePaper a p:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 0.5s linear;
+}
+
+#whitePaper a p:active {
+  opacity: 0.4;
+}
+
+#whitePaper h3 {
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  margin: 0 0 0 3vmin;
+}
+
+.infoBox {
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  margin: 1.5vmin 0 8vmin 3vmin;
+  border: 1px #000 solid;
+  background: #C4C4C4;
+  width: 40%;
+  height: 350px;
+  overflow: scroll;
+  box-shadow: -1px -1px 1px #A2A2A2, -2px -2px 1px #A2A2A2, -3px -3px 1px #A2A2A2, -4px -4px 1px #A2A2A2, -5px -5px 1px #A2A2A2;
+}
+
+.infoList {
+  font-family: Raleway, sans-serif;
+}
+
+
+.infoBox h4 {
+  font-size: 30px;
+  margin: 0 1vmin 1vmin 3vmin;
+}
+
+.infoBox img {
+  width: 25%;
+  margin: 2.5vmin 5vmin 1vmin 5vmin;
+  float: right;
+
+}
+
+.quarters {
+  width: 25%;
+  float: left;
+}
+
+.fullWidth {
+  width: 100%;
+  float: left;
+}

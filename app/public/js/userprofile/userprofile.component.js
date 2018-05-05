@@ -36,6 +36,64 @@
       vm.undisplayStatsInfos = undisplayStatsInfos;
       vm.displayContactInfos = displayContactInfos;
       vm.undisplayContactInfos = undisplayContactInfos;
+      vm.loadInfo = loadInfo;
+      vm.updateUserProfile = updateUserProfile;
+
+      function updateUserProfile() {
+        $http.get(`/users/${currentUserId}`)
+        .then(userData=>{
+          let user = userData.data;
+          let userProfileEmailField = document.getElementById('userProfileEmailField');
+          let userProfileAvatarField = document.getElementById('userProfileAvatarField');
+          let subObj = {};
+          let changed = false;
+          let userProfileNameField = document.getElementById('userProfileNameField');
+          let userProfilePasswordField = document.getElementById('userProfilePasswordField');
+          let userProfilePasswordConfirmField = document.getElementById('userProfilePasswordConfirmField');
+          let userProfileWarning = document.getElementById('userProfileWarning');
+          userProfileWarning.innerHTML = '';
+
+          if (userProfileEmailField.value.toLowerCase() !== user.email.toLowerCase()) {
+            //TODO change email logic (with verification)
+            userProfileWarning.innerHTML = 'PLEASE CLICK ON THE VERIFICATION LINK SENT TO YOUR NEW EMAIL ADDRESS TO CHANGE EMAIL ACCOUNT';
+            userProfileWarning.setAttribute("style", "color: #ff0000;");
+            return;
+          }
+          if (userProfileAvatarField.value !== user.user_avatar_url) {
+            changed = true;
+            subObj.user_avatar_url = userProfileAvatarField.value;
+            document.getElementById('userPictureSlot').src = userProfileAvatarField.value;
+          }
+          if (userProfileNameField.value !== user.name) {
+            changed = true;
+            subObj.name = userProfileNameField.value;
+            document.getElementById('userNameSlot').innerHTML = userProfileNameField.value;
+          }
+          if (userProfilePasswordField.value !== '') {
+            if (userProfilePasswordField.value === userProfilePasswordConfirmField.value) {
+              changed = true;
+              subObj.password = userProfilePasswordField.value;
+              userProfileWarning.innerHTML = '';
+            } else {
+              userProfileWarning.innerHTML = 'ERROR: PASSWORD FIELDS DO NOT MATCH';
+              userProfileWarning.setAttribute("style", "color: #ff0000;");
+              return;
+            }
+          }
+          if (changed) {
+            console.log(subObj);
+            $http.patch(`/users/${currentUserId}`, subObj)
+            .then(updatedUserData=>{
+              let updatedUser = updatedUserData.data;
+              console.log(updatedUser);
+            });
+          }
+        });
+      }
+
+      function loadInfo() {
+        $state.go('info', {id: currentUserId});
+      }
 
       function undisplayContactInfos() {
         let displayContactInfosButton = document.getElementById('displayContactInfosButton');
@@ -104,6 +162,7 @@
       }
 
       function undisplayUserInfos() {
+        document.getElementById('userProfileWarning').innerHTML = '';
         let displayUserInfosButton = document.getElementById('displayUserInfosButton');
         let userInfosFields = document.getElementById('userInfosFields');
 
@@ -116,6 +175,8 @@
       function displayUserInfos() {
         let displayUserInfosButton = document.getElementById('displayUserInfosButton');
         let userInfosFields = document.getElementById('userInfosFields');
+        document.getElementById('userProfilePasswordConfirmField').value = '';
+        document.getElementById('userProfilePasswordField').value = '';
 
         undisplayFriendInfos();
         undisplayStatsInfos();
@@ -244,7 +305,7 @@
 
 
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
-        
+
 
 
 

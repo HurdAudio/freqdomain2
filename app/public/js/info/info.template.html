@@ -1,0 +1,326 @@
+<div id="hubDiv">
+  <div id="hubNavbar" class="pure-g">
+    <div class="pure-u-1-4">
+      <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
+      <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
+    </div>
+    <h1 class="pure-u-1-4" ng-click="$ctrl.returnToHub()">FreqDomain2</h1>
+    <div id="navBarButtons" class="pure-u-1-3">
+      <a class="button"><p>Compose</p></a>
+      <a class="button"><p>Mixer</p></a>
+      <a class="button"><p>Patch Editor</p></a>
+      <a class="button"><p>Social</p></a>
+      <a class="button" id="infoOnInfo"><p>Info</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
+
+    </div>
+  </div>
+  <div id="infoContent">
+
+    <div id="whitePaper">
+
+      <h1>FreqDomain2</h1>
+      <br>
+      <p>FreqDomain2 is a modular composition and sound design application built with the <a href="#">Web Audio API</a>. Individual components can be chained together to construct sounding objects and realize full compositions. Users are encouraged to sonify, share and collaborate in creating sounds.</p>
+      <h2>Where to start?</h2>
+      <div class="pure-g">
+        <div class="quarters">
+          <a href="#"><h3>Mixer Settings</h3></a>
+          <p>Create a mixer that routes your creation from the <a href="#">input manager</a> to your <a href="#">master volume</a> and ultimately to your speakers and ears.</p>
+        </div>
+        <div class="quarters">
+          <a href="#"><h3>Patch Editor</h3></a>
+          <p>Build sounding objects using sonic sources and modulators. Use <a href="#">oscillators</a> to modulate other oscillators, the <a href="#">weather</a> in Madrid to set your dynamic compression ratio, <a href="#">flight times</a> at O'Hare to set your <a href="#">notch filter</a>, set <a href="#">stock market</a> fluctuations to drive your <a href="#">envelope generator</a> or just use <a href="#">census data</a> to control the <a href="#">lowpass filter</a>. FreqDomain2 allows you to mix and match different modules to realize dynamic sonic designs. New modules are being added all the time to expand the creative toolset.</p>
+        </div>
+        <div class="quarters">
+          <a href="#"><h3>Compose</h3></a>
+          <p>Bring your patches and mixer settings into the <a href="#">composition editor</a> where they can be triggered along a timeline to realize your latest masterpieces.</p>
+        </div>
+        <div class="quarters">
+          <a href="#"><h3>Be Social</h3></a>
+          <p>Share your creation with other users or draw inspiration from others. Or just start a collaborative project with your friends and get your jam on. And be sure to check out the <a href="#">user hub</a> for updates about FreqDomain2 as well as messages from the community.</p>
+        </div>
+      </div>
+      <div class="fullWidth">
+        <h2>Freq-uently Asked Questions</h2>
+        <p><a href="#">Can I get your autograph?</a></p>
+        <p><a href="#">Can I buy you a beer?</a></p>
+        <p><a href="#">Can I upsample your mp3s?</a></p>
+        <p><a href="#">When is the FreqDomain2 World Tour?</a></p>
+      </div>
+      <div class="fullWidth">
+        <h2>The Modules</h2>
+        <ul class="infoList">
+          <li>
+
+            <a href="#"><p>Airlines Module</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-airplane-take-off-64.png">
+              <h4>Brief Description:</h4>
+              <p>Modulation source using real time data about current flight times.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Allpass Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order allpass filter. It lets all frequencies through, but changes the phase-relationship between the various frequencies.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Bandpass Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order bandpass filter. Frequencies outside the given range of frequencies are attenuated; the frequencies inside it pass through.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Inital design phase completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Delay Module</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-double-right-40.png">
+              <h4>Brief Description:</h4>
+              <p>An audio-processing module that causes a delay between the arrival of an input data and its propagation to the output.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Dynamic Compressor</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-compress-64.png">
+              <h4>Brief Description:</h4>
+              <p>Provides a compression effect, which lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion that can occur when multiple sounds are played and multiplexed together at once.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Envelope Generator</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-secured-letter-64.png">
+              <h4>Brief Description:</h4>
+              <p>Modulation source that provides a structured change in values over time. Frequently used for shaping the attack/decay/sustain/release of a tone or panning a signal along the stereo field.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Financial Module</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-stocks-40.png">
+              <h4>Brief Description:</h4>
+              <p>Modulation source using real time data from global financial markets.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Gain Module</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-audio-settings-64.png">
+              <h4>Brief Description:</h4>
+              <p>Gain represents a change in volume. It is an audio-processing module that causes a given gain to be applied to the input data before its propagation to the output.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+              <p>Class constructor created.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>High Shelf Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order highshelf filter. Frequencies higher than the frequency get a boost or an attenuation; frequencies lower than it are unchanged.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Highpass Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order resonant highpass filter with 12dB/octave rolloff. Frequencies below the cutoff are attenuated; frequencies above it pass through.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Input Manager</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-input-48.png">
+              <h4>Brief Description:</h4>
+              <p>Dynamic channel merger system for combining all outputs before sending them through the mixer signal path. The Input Manager acts as the mixer console.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Low Shelf Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order lowshelf filter. Frequencies lower than the frequency get a boost, or an attenuation; frequencies over it are unchanged.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Lowpass Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard second-order resonant lowpass filter with 12dB/octave rolloff. Frequencies below the cutoff pass through; frequencies above it are attenuated.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Master Volume</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-audio-64.png">
+              <h4>Brief Description:</h4>
+              <p>Gain node connected directly to speaker output. Representing the final attenuator before a signal passes through. Master Volume also has mute functionality built in to quickly silence the final output.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+              <p>Class constructor created.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Notch Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Standard notch filter, also called a band-stop or band-rejection filter. It is the opposite of a bandpass filter: frequencies outside the give range of frequencies pass through; frequencies inside it are attenuated.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Oscillator</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-sine-40.png">
+              <h4>Brief Description:</h4>
+              <p>Represents a periodic waveform, such as a sine wave. It is an  audio-processing module that causes a specified frequency of a given wave to be created—in effect, a constant tone.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Peaking Filter</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slider-64.png">
+              <h4>Brief Description:</h4>
+              <p>Frequencies inside the range get a boost or an attenuation; frequencies outside it are unchanged.</p>
+              <h4>Status:</h4>
+              <p>Pending</p>
+              <h4>Progress:</h4>
+              <p>n/a</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Random Number Generator</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-slot-machine-40.png">
+              <h4>Brief Description:</h4>
+              <p>Modulation source that outputs random values. The rate of output as well as the option to change continuously between random values is set by the user.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Test Tone</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-voice-64.png">
+              <h4>Brief Description:</h4>
+              <p>Utility for testing signal paths. A module that generates a constant tone.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+            </div>
+          </li>
+          <li>
+            <a href="#"><p>Weather Module</p></a>
+            <div class="infoBox">
+              <img src="./img/icons8-partly-cloudy-day-64.png">
+              <h4>Brief Description:</h4>
+              <p>Modulation source that uses real-time weather data to generate values.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="fullWidth">
+        <h2>About the FreqDomain2 Team</h2>
+        <p>FreqDomain2 is lovingly hand-crafted and debugged by <a href="https://github.com/HurdAudio" target="_blank">Devin Hurd</a>. Kindly find him and this <a href="https://github.com/HurdAudio/freqdomain2" target="_blank">repo at GitHub</a>.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

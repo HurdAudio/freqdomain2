@@ -10,7 +10,7 @@
       <a class="button"><p>Mixer</p></a>
       <a class="button"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
-      <a class="button"><p>Info</p></a>
+      <a class="button" ng-click="$ctrl.loadInfo()"><p>Info</p></a>
       <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
 
     </div>
@@ -39,7 +39,8 @@
           <p>Email: <input type="text" id="userProfileEmailField"></p>
           <p>Change Password: <input type="password" id="userProfilePasswordField"></p>
           <p>Confirm Password: <input type="password" id="userProfilePasswordConfirmField"></p>
-          <p><a href="#" id="makeUserProfileChangesClickable"> save changes</a></p><br><br>
+          <p id="userProfileWarning"></p>
+          <p><a href="#" id="makeUserProfileChangesClickable" ng-click="$ctrl.updateUserProfile()">save changes</a></p><br><br>
           <p><a href="#" id="cancelUserProfileChangesClickable" ng-click="$ctrl.undisplayUserInfos()">cancel</a></p>
 
         </div>

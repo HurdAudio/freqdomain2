@@ -45,6 +45,12 @@
         url: '/userprofile/:id',
         parent: 'app',
         component: 'userprofile'
+      })
+      .state({
+        name: 'info',
+        url: '/info/:id',
+        parent: 'app',
+        component: 'info'
       });
       // .state({
       //   name: 'weekview',

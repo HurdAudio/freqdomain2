@@ -28,6 +28,11 @@
       vm.$onInit = onInit;
       vm.userLogout = userLogout;
       vm.userProfileEditor = userProfileEditor;
+      vm.loadInfo = loadInfo;
+
+      function loadInfo() {
+        $state.go('info', {id: currentUserId});
+      }
 
       function userProfileEditor() {
         $state.go('userprofile', {id: currentUserId});
