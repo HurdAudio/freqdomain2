@@ -1,0 +1,179 @@
+body {
+  background-color: #000000;
+}
+
+#masterGainDiv {
+  position: fixed;
+  bottom: -34.5%;
+  right: -20%;
+  margin: 10em;
+  height: 450px;
+  width: 450px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#masterGainTop {
+  background: url(../img/april/lake-2120033_1920.jpg);
+  background-size: 200%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 80%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#masterGainTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-left: 1em;
+  margin-top: 1em;
+  color: #000000;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #ccbadc, 2px 2px 1px #ccbadc;
+}
+
+#masterGainInput {
+  background: url(../img/april/lake-2120033_1920.jpg);
+  background-size: 1500%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 350px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #ccbadc;
+}
+
+#masterGainInput p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.1em;
+  margin-top: 8em;
+  color: #000000;
+  text-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc;
+}
+
+#masterGainInput h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 0.5em;
+  width: 60%;
+  color: #000000;
+  background: url(../img/april/water-1330252_1920.jpg);
+  background-size: 600%;
+  /*background: #ffb2b2;
+  background-color: -webkit-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: -o-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: -moz-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: linear-gradient(135deg, #ffb2b2, #e50000);*/
+  text-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc;
+  box-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc;
+  cursor: pointer;
+}
+
+#masterGainFace {
+  height: 350px;
+  width: 80%;
+  background: #ffb2b2;
+  background-color: -webkit-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: -o-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: -moz-linear-gradient(135deg, #ffb2b2, #e50000);
+  background: linear-gradient(135deg, #ffb2b2, #e50000);
+  background: url(../img/april/heart-3367962_1920.jpg);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -44vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc, -3px -3px 1px #ccbadc;
+}
+
+#masterGainFace img {
+  width: 70%;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+#masterGainFace button {
+  width: 40%;
+  height: auto;
+  background: transparent;
+  margin-left: 9vmin;
+  margin-top: -4vmin;
+  cursor: pointer;
+
+}
+
+#displaySpan {
+  font-family: 'Righteous', cursive;
+  font-size: 76px;
+  color: black;
+  margin-left: -30vmin;
+  margin-top: -35vmin;
+  opacity: 0.9;
+  color: #ccbadc
+}
+
+#masterGainFace p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-bottom: 0;
+  text-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc;
+}
+
+#masterGainDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 96px;
+  margin-left: 2vmin;
+  margin-top: 3vmin;
+  background: url(../img/april/water-1330252_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #ccbadc, -2px -2px 1px #ccbadc, -3px -3px 1px #ccbadc, -4px -4px 1px #ccbadc;
+  padding-left: 5vmin;
+}
+
+#masterVolume {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 85%;
+  background: url(../img/april/water-1330252_1920.jpg);
+  background-size: 300%;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: 20vmin;
+  margin-top: 0.5vmin;
+  box-shadow: 1px -1px 1px #ccbadc, 2px -2px 1px #ccbadc, 3px -3px 1px #ccbadc, 4px -4px 1px #ccbadc;
+}
+
+#masterVolume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 52px;
+    height: 49px;
+    border: solid 2px black;
+    background: url(../img/noun_149738_cc.png);
+    background-size: 110%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#masterVolume::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  border: solid 2px black;
+  background: url(../img/noun_149738_cc.png);
+  background-size: 110%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+    <!-- <link rel="icon" href="./img/clock-145560_640.png" type="image/gif" sizes="16x16"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous"> -->
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/mastergains_aprila.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./mastergainmockup_aprila.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="masterGainDiv">
+      <div id="masterGainTop">
+
+        <h1>Master Volume</h1>
+      </div>
+      <div id="masterGainInput">
+
+        <p>input</p>
+        <h2>◦</h2>
+      </div>
+
+      <div id="masterGainFace">
+
+        <form>
+          <a><input id="masterGainDisplay" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value"><span id="displaySpan"></span></a>
+          <input name="amountRange" type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" id="masterVolume">
+
+        </form>
+        <button type="" id="masterMute" class="btn"><img id="speakerIcon" src="./img/january/loudspeaker-155807_1280.png">
+        <p id="muteNote">mute</p></button>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
