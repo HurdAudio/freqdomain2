@@ -88,6 +88,22 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 //
 // });
 
+app.get('/flights_from_tiles/:x/:y', (req, res, next)=>{
+  let queryString = 'https://api.laminardata.aero/v1/tiles/3/' + req.params.x + '/' + req.params.y + '/flights?user_key=' + process.env.LARIMAR_KEY + '&format=json';
+  return request(queryString).pipe(res);
+});
+
+app.get('/airlines_lookup/:code', (req, res, next)=>{
+  let queryString = 'https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/airlines/designators/code-list?api_key=' + process.env.ISTARS_KEY + '&operators=' + req.params.code;
+  return request(queryString).pipe(res);
+});
+
+app.get('/airport_lookup/:code', (req, res, next)=>{
+  let queryString = 'https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/airports/locations/doc7910?&api_key=' + process.env.ISTARS_KEY + '&airports=' + req.params.code;
+  return request(queryString).pipe(res);
+
+});
+
 app.get('/reuters_headlines/:country', (req, res, next) =>{
   let newUrl = 'https://newsapi.org/v2/top-headlines?country=';
   let queryString = newUrl + req.params.country + '&apiKey=' + process.env.REUTERS_KEY;

@@ -1,0 +1,266 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#airlinesDiv {
+  position: fixed;
+  /* bottom: -25.5%; */
+  /* right: 0%; */
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  /* transform: scale(0.5); */
+}
+
+#airlinesTop {
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 88%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#airlinesTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #203300;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #daff99, 2px 2px 1px #daff99;
+}
+
+#airlinesSignalFlow {
+  background: url(../img/january/.jpg);
+  background-size: 1600%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 500px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.9vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #daff99;
+}
+
+#airlinesSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-left: 0.2em;
+  margin-top: 32vmin;
+  margin-bottom: 0;
+  color: #203300;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+}
+
+#airlinesSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #203300;
+  background: url(../img/january/.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  cursor: pointer;
+}
+
+#airlinesFace {
+  height: 500px;
+  width: 88%;
+  /*background: #ffffff;*/
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -56vmin;
+  margin-left: 7.5vmin;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99;
+  color: #203300;
+}
+
+#mercatorMap {
+  display: initial;
+  width: 100%;
+  height: 100%;
+  background: url(../img/Equirectangular_projection_SW.jpg);
+  background-size: 100%;
+}
+
+#mercatorMap table {
+  width: 100%;
+  height: 100%;
+}
+
+#mercatorMap td {
+  height: 12.5%;
+  border: 5px solid transparent;
+}
+
+#flightTable {
+  display: none;
+}
+
+#flightTotal {
+  font-family: 'Righteous', cursive;
+  font-size: 42px;
+  color: #203300;
+  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  margin: 1vmin 0 2vmin 4vmin;
+}
+
+#flightTableCancel {
+  float: right;
+  margin: 2vmin 2vmin 1vmin 0;
+}
+
+#flightTableList {
+  height: 400px;
+  overflow: scroll;
+  margin: 1vmin 3vmin 0 3vmin;
+}
+
+#flightTableList img {
+  float: left;
+  margin: 3vmin 1vmin 0 1vmin;
+  width: 5%;
+}
+
+#flightTableList p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  float: left;
+  margin: 2vmin 1vmin 1vmin 2vmin;
+}
+
+#flightTableList div {
+  float: left;
+  /* border-bottom: 1px solid #000; */
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+}
+
+#flightDrillDown {
+  display: none;
+
+}
+
+#flightDrillDown button {
+  float: right;
+  margin: 2vmin 2vmin 1vmin 0;
+}
+
+
+#airlineCallsign p {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin: 1vmin 1vmin 2vmin 2vmin;
+}
+
+#departureCityData {
+  float: left;
+  width: 26%;
+  margin: 0 1vmin 1vmin 6vmin;
+  /* border: 2px solid black; */
+  height: 350px;
+  padding: 1vmin;
+  overflow: scroll;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+}
+
+#departureCityData h4 {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: 0;
+}
+
+#departureCityData p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+}
+
+#arrivalCityData {
+  float: left;
+  width: 26%;
+  margin: 0 1vmin 1vmin 3vmin;
+  /* border: 2px solid black; */
+  height: 350px;
+  padding: 1vmin;
+  overflow: scroll;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+}
+
+#arrivalCityData h4 {
+  margin-top: 0;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+}
+
+#arrivalCityData p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+}
+
+#currentLocation {
+  float: left;
+  width: 26%;
+  margin: 0 1vmin 1vmin 3vmin;
+  /* border: 2px solid black; */
+  height: 350px;
+  padding: 1vmin;
+  overflow: scroll;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+}
+
+#currentLocation h4 {
+  margin-top: 0;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+}
+
+#currentLocation p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+}
+
+button {
+
+  /* visibility: hidden; */
+  width: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 0;
+  margin-left: 0;
+  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #72b200, #ffffff);
+  background: -webkit-linear-gradient(45deg, #72b200, #ffffff);
+  background: -o-linear-gradient(45deg, #72b200, #ffffff);
+  background: linear-gradient(45deg, #72b200, #ffffff);
+}
+
+button:active {
+  box-shadow: -1px -1px 0px #ffffff;
+}

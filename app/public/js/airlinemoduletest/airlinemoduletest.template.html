@@ -1,0 +1,237 @@
+<div>
+
+  <div id="airlinesDiv">
+    <div id="airlinesTop">
+
+      <h1>Airlines</h1>
+    </div>
+    <div id="airlinesSignalFlow">
+
+
+      <div id="airlinesOutput">
+        <p>out</p>
+        <h2>◦</h2>
+      </div>
+    </div>
+
+
+    <div id="airlinesFace">
+      <div id="mercatorMap">
+
+        <table>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 0)"></td>
+            <td ng-click="$ctrl.getXY(1, 0)"></td>
+            <td ng-click="$ctrl.getXY(2, 0)"></td>
+            <td ng-click="$ctrl.getXY(3, 0)"></td>
+            <td ng-click="$ctrl.getXY(4, 0)"></td>
+            <td ng-click="$ctrl.getXY(5, 0)"></td>
+            <td ng-click="$ctrl.getXY(6, 0)"></td>
+            <td ng-click="$ctrl.getXY(7, 0)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 1)"></td>
+            <td ng-click="$ctrl.getXY(1, 1)"></td>
+            <td ng-click="$ctrl.getXY(2, 1)"></td>
+            <td ng-click="$ctrl.getXY(3, 1)"></td>
+            <td ng-click="$ctrl.getXY(4, 1)"></td>
+            <td ng-click="$ctrl.getXY(5, 1)"></td>
+            <td ng-click="$ctrl.getXY(6, 1)"></td>
+            <td ng-click="$ctrl.getXY(7, 1)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 2)"></td>
+            <td ng-click="$ctrl.getXY(1, 2)"></td>
+            <td ng-click="$ctrl.getXY(2, 2)"></td>
+            <td ng-click="$ctrl.getXY(3, 2)"></td>
+            <td ng-click="$ctrl.getXY(4, 2)"></td>
+            <td ng-click="$ctrl.getXY(5, 2)"></td>
+            <td ng-click="$ctrl.getXY(6, 2)"></td>
+            <td ng-click="$ctrl.getXY(7, 2)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 3)"></td>
+            <td ng-click="$ctrl.getXY(1, 3)"></td>
+            <td ng-click="$ctrl.getXY(2, 3)"></td>
+            <td ng-click="$ctrl.getXY(3, 3)"></td>
+            <td ng-click="$ctrl.getXY(4, 3)"></td>
+            <td ng-click="$ctrl.getXY(5, 3)"></td>
+            <td ng-click="$ctrl.getXY(6, 3)"></td>
+            <td ng-click="$ctrl.getXY(7, 3)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 4)"></td>
+            <td ng-click="$ctrl.getXY(1, 4)"></td>
+            <td ng-click="$ctrl.getXY(2, 4)"></td>
+            <td ng-click="$ctrl.getXY(3, 4)"></td>
+            <td ng-click="$ctrl.getXY(4, 4)"></td>
+            <td ng-click="$ctrl.getXY(5, 4)"></td>
+            <td ng-click="$ctrl.getXY(6, 4)"></td>
+            <td ng-click="$ctrl.getXY(7, 4)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 5)"></td>
+            <td ng-click="$ctrl.getXY(1, 5)"></td>
+            <td ng-click="$ctrl.getXY(2, 5)"></td>
+            <td ng-click="$ctrl.getXY(3, 5)"></td>
+            <td ng-click="$ctrl.getXY(4, 5)"></td>
+            <td ng-click="$ctrl.getXY(5, 5)"></td>
+            <td ng-click="$ctrl.getXY(6, 5)"></td>
+            <td ng-click="$ctrl.getXY(7, 5)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 6)"></td>
+            <td ng-click="$ctrl.getXY(1, 6)"></td>
+            <td ng-click="$ctrl.getXY(2, 6)"></td>
+            <td ng-click="$ctrl.getXY(3, 6)"></td>
+            <td ng-click="$ctrl.getXY(4, 6)"></td>
+            <td ng-click="$ctrl.getXY(5, 6)"></td>
+            <td ng-click="$ctrl.getXY(6, 6)"></td>
+            <td ng-click="$ctrl.getXY(7, 6)"></td>
+
+
+          </tr>
+          <tr>
+            <td ng-click="$ctrl.getXY(0, 7)"></td>
+            <td ng-click="$ctrl.getXY(1, 7)"></td>
+            <td ng-click="$ctrl.getXY(2, 7)"></td>
+            <td ng-click="$ctrl.getXY(3, 7)"></td>
+            <td ng-click="$ctrl.getXY(4, 7)"></td>
+            <td ng-click="$ctrl.getXY(5, 7)"></td>
+            <td ng-click="$ctrl.getXY(6, 7)"></td>
+            <td ng-click="$ctrl.getXY(7, 7)"></td>
+
+
+          </tr>
+
+
+        </table>
+      </div>
+      <div id="flightTable" class="pure-u-1-1">
+
+        <button id="flightTableCancel" ng-click="$ctrl.backToMap()">cancel</button>
+
+        <h1 id="flightTotal">Airborne Flights: 2423</h1>
+        <div id="flightTableList">
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: GLO7648</p>
+            <p>Depart: SBGL 2018-05-11T01:26:06Z</p>
+            <p>Arrive: SAEZ 2018-05-11T04:41:06Z (estimated)</p>
+            <p>currently at 26200 feet</p>
+          </div>
+
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: TAM3960</p>
+            <p>Depart: SBSP 2018-05-11T00:51:00Z</p>
+            <p>Arrive: SBRJ 2018-05-11T01:57:13Z (estimated)</p>
+            <p>currently at 5250 feet</p>
+          </div>
+
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: GLO1090</p>
+            <p>Depart: SBGR 2018-05-11T00:41:00Z</p>
+            <p>Arrive: SBRJ 2018-05-11T01:57:34Z (estimated)</p>
+            <p>currently at 1100 feet</p>
+          </div>
+
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: GLO7648</p>
+            <p>Depart: SBGL 2018-05-11T01:26:06Z</p>
+            <p>Arrive: SAEZ 2018-05-11T04:41:06Z (estimated)</p>
+            <p>currently at 26200 feet</p>
+          </div>
+
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: TAM3960</p>
+            <p>Depart: SBSP 2018-05-11T00:51:00Z</p>
+            <p>Arrive: SBRJ 2018-05-11T01:57:13Z (estimated)</p>
+            <p>currently at 5250 feet</p>
+          </div>
+
+          <div>
+
+            <img src="./img/icons8-airplane-take-off-64.png">
+            <p>Flight: GLO1090</p>
+            <p>Depart: SBGR 2018-05-11T00:41:00Z</p>
+            <p>Arrive: SBRJ 2018-05-11T01:57:34Z (estimated)</p>
+            <p>currently at 1100 feet</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="flightDrillDown" class="pure-u-1-1">
+
+        <button ng-click="$ctrl.drillDownBack()">back</button>
+        <button ng-click="$ctrl.drillDownDone()">done</button>
+
+        <div id="airlineCallsign">
+          <p id="airlineDrilldownCallsign"></p>
+          <p id="airlineData"></p>
+
+        </div>
+        <div id="flightDataContainer">
+
+          <div id="departureCityData">
+
+            <h4>Departure:</h4>
+            <p id="departureAirport"></p>
+            <p id="scheduledDepartureTime"></p>
+            <p id="actualDepartureTime"></p>
+            <p id="departureDelta"></p>
+          </div>
+
+          <div id="arrivalCityData">
+
+            <h4>Arrive:</h4>
+            <p id="arriveAirport"></p>
+            <p id="scheduledArrivalTime"></p>
+            <p id="estimatedArrivalTime"></p>
+            <p id="arriveDelta"></p>
+          </div>
+
+          <div id="currentLocation">
+
+            <h4>Current Location:</h4>
+            <p id="currentLattitude"></p>
+            <p id="currentLongitude"></p>
+            <p id="currentAltitude"></p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+</div>

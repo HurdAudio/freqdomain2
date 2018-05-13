@@ -1,0 +1,550 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "1146415d-155b-46b7-acb3-14ef6fb25146",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.4542,
+                    -23.4162
+                ]
+            },
+            "properties": {
+                "airline": "GLO",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SAEZ",
+                        "scheduled": "SAEZ"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T04:25:00Z",
+                        "estimated": "2018-05-11T04:41:06Z"
+                    }
+                },
+                "callsign": "GLO7648",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGL",
+                        "scheduled": "SBGL"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:26:06Z",
+                        "initial": "2018-05-11T01:00:00Z",
+                        "estimated": "2018-05-11T01:10:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 219,
+                    "source": "ADS-B",
+                    "altitude": 26200,
+                    "captureTimestamp": "2018-05-11T01:37:06Z"
+                },
+                "iataFlightNumber": "G37648",
+                "timestampProcessed": "2018-05-11T01:37:18Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B738",
+                    "aircraftRegistration": "PRGUD"
+                }
+            }
+        },
+        {
+            "id": "1c7db5c6-8f6c-4261-95ac-161324a3edc8",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.4725,
+                    -22.9324
+                ]
+            },
+            "properties": {
+                "airline": "TAM",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SBRJ",
+                        "scheduled": "SBRJ"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T01:10:00Z",
+                        "estimated": "2018-05-11T01:57:13Z"
+                    }
+                },
+                "callsign": "TAM3960",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBSP",
+                        "scheduled": "SBSP"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T00:51:00Z",
+                        "initial": "2018-05-11T00:20:00Z",
+                        "estimated": "2018-05-11T00:20:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 65,
+                    "source": "ADS-B",
+                    "altitude": 5250,
+                    "captureTimestamp": "2018-05-11T01:36:47Z"
+                },
+                "iataFlightNumber": "JJ3960",
+                "timestampProcessed": "2018-05-11T01:37:00Z",
+                "aircraftDescription": {
+                    "aircraftCode": "A319",
+                    "aircraftRegistration": "PTTME"
+                }
+            }
+        },
+        {
+            "id": "3ebf9704-eb6a-4771-bb0f-ef49a0fc348b",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.2058,
+                    -22.9179
+                ]
+            },
+            "properties": {
+                "airline": "GLO",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SBRJ",
+                        "scheduled": "SBRJ"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T01:10:00Z",
+                        "estimated": "2018-05-11T01:57:34Z"
+                    }
+                },
+                "callsign": "GLO1090",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGR",
+                        "scheduled": "SBGR"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T00:41:00Z",
+                        "initial": "2018-05-11T00:05:00Z",
+                        "estimated": "2018-05-11T00:33:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 119,
+                    "source": "ADS-B",
+                    "altitude": 1100,
+                    "captureTimestamp": "2018-05-11T01:37:23Z"
+                },
+                "iataFlightNumber": "G31090",
+                "timestampProcessed": "2018-05-11T01:37:37Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B738",
+                    "aircraftRegistration": "PRGTP"
+                }
+            }
+        },
+        {
+            "id": "5efbbf56-ecd6-4357-b5f3-c6a0099685e3",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.5991,
+                    -22.6974
+                ]
+            },
+            "properties": {
+                "airline": "ONE",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SBGR",
+                        "scheduled": "SBGR"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T02:25:00Z",
+                        "estimated": "2018-05-11T02:19:50Z"
+                    }
+                },
+                "callsign": "ONE6259",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGL",
+                        "scheduled": "SBGL"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:29:00Z",
+                        "initial": "2018-05-11T01:15:00Z",
+                        "estimated": "2018-05-11T01:25:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 265,
+                    "source": "ADS-B",
+                    "altitude": 16425,
+                    "captureTimestamp": "2018-05-11T01:37:13Z"
+                },
+                "iataFlightNumber": "6259",
+                "timestampProcessed": "2018-05-11T01:37:28Z",
+                "aircraftDescription": {
+                    "aircraftCode": "A320",
+                    "aircraftRegistration": "PRONZ"
+                }
+            }
+        },
+        {
+            "id": "601ec605-cea2-48aa-9950-52fbbb847200",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.6651,
+                    -23.0779
+                ]
+            },
+            "properties": {
+                "airline": "UAE",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SGES",
+                        "scheduled": "SGES"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T03:20:00Z",
+                        "estimated": "2018-05-11T03:13:21Z"
+                    }
+                },
+                "callsign": "UAE9913",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "GOBD",
+                        "scheduled": "GOBD"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-10T19:53:21Z",
+                        "initial": "2018-05-10T20:00:00Z",
+                        "estimated": "2018-05-10T19:53:21Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 227,
+                    "source": "ADS-B",
+                    "altitude": 34000,
+                    "captureTimestamp": "2018-05-11T01:36:52Z"
+                },
+                "iataFlightNumber": "EK9913",
+                "timestampProcessed": "2018-05-11T01:37:03Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B772",
+                    "aircraftRegistration": "A6EFS"
+                }
+            }
+        },
+        {
+            "id": "7f9ebc9c-a3b7-4b11-a872-51a4fd7e0814",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.5876,
+                    -28.0638
+                ]
+            },
+            "properties": {
+                "airline": "SAA",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "FAOR",
+                        "scheduled": "FAOR"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T05:25:00Z",
+                        "estimated": "2018-05-11T05:24:25Z"
+                    }
+                },
+                "callsign": "SAA223",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGR",
+                        "scheduled": "SBGR"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-10T21:18:00Z",
+                        "initial": "2018-05-10T21:00:00Z",
+                        "estimated": "2018-05-10T21:19:25Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 95,
+                    "source": "ESTIMATED",
+                    "captureTimestamp": "2018-05-11T01:37:00Z"
+                },
+                "iataFlightNumber": "SA223",
+                "timestampProcessed": "2018-05-11T01:37:11Z",
+                "aircraftDescription": {
+                    "aircraftCode": "A343",
+                    "aircraftRegistration": "ZSSXE"
+                }
+            }
+        },
+        {
+            "id": "a23378df-6b70-44f5-825c-bda1b723ba5c",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -42.8702,
+                    -22.6377
+                ]
+            },
+            "properties": {
+                "airline": "DLH",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "EDDF",
+                        "scheduled": "EDDF"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T12:30:00Z",
+                        "estimated": "2018-05-11T11:49:00Z"
+                    }
+                },
+                "callsign": "DLH501",
+                "departure": {
+                    "gateTime": {
+                        "estimated": "2018-05-11T01:10:00Z"
+                    },
+                    "aerodrome": {
+                        "actual": "SBGL",
+                        "scheduled": "SBGL"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:31:00Z",
+                        "initial": "2018-05-11T01:10:00Z",
+                        "estimated": "2018-05-11T01:20:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 352,
+                    "source": "ADS-B",
+                    "altitude": 8425,
+                    "captureTimestamp": "2018-05-11T01:37:26Z"
+                },
+                "iataFlightNumber": "LH501",
+                "timestampProcessed": "2018-05-11T01:37:39Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B748",
+                    "aircraftRegistration": "DABYF"
+                }
+            }
+        },
+        {
+            "id": "b4c4b731-b528-45ee-aee4-5892f6cbe7fc",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -15.84,
+                    -26.6411
+                ]
+            },
+            "properties": {
+                "airline": "TAM",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "FAOR",
+                        "scheduled": "FAOR"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T06:50:00Z",
+                        "estimated": "2018-05-11T07:09:50Z"
+                    }
+                },
+                "callsign": "TAM8162",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGR",
+                        "scheduled": "SBGR"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-10T20:58:00Z",
+                        "initial": "2018-05-10T20:55:00Z",
+                        "estimated": "2018-05-10T20:58:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 100,
+                    "source": "ESTIMATED",
+                    "captureTimestamp": "2018-05-11T01:37:00Z"
+                },
+                "iataFlightNumber": "JJ8162",
+                "timestampProcessed": "2018-05-11T01:37:10Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B763",
+                    "aircraftRegistration": "PTMOF"
+                }
+            }
+        },
+        {
+            "id": "c8acf829-b18c-4971-b88b-8ae36349eea9",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.1119,
+                    -22.887
+                ]
+            },
+            "properties": {
+                "airline": "AZU",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SBVT",
+                        "scheduled": "SBVT"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T02:30:00Z",
+                        "estimated": "2018-05-11T02:36:59Z"
+                    }
+                },
+                "callsign": "AZU4219",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBRJ",
+                        "scheduled": "SBRJ"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:35:00Z",
+                        "initial": "2018-05-11T01:25:00Z",
+                        "estimated": "2018-05-11T01:18:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 92,
+                    "source": "ADS-B",
+                    "altitude": 1875,
+                    "captureTimestamp": "2018-05-11T01:36:56Z"
+                },
+                "iataFlightNumber": "AD4219",
+                "timestampProcessed": "2018-05-11T01:37:12Z",
+                "aircraftDescription": {
+                    "aircraftCode": "E190",
+                    "aircraftRegistration": "PRAUE"
+                }
+            }
+        },
+        {
+            "id": "d8573c9c-9df7-458f-adb3-0f2dc4113e3b",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.1521,
+                    -22.7799
+                ]
+            },
+            "properties": {
+                "airline": "ARG",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SAEZ",
+                        "scheduled": "SAEZ"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T04:30:00Z",
+                        "estimated": "2018-05-11T04:46:07Z"
+                    }
+                },
+                "callsign": "ARG1257",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBGL",
+                        "scheduled": "SBGL"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:35:00Z",
+                        "initial": "2018-05-11T01:10:00Z",
+                        "estimated": "2018-05-11T01:09:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 78,
+                    "source": "ADS-B",
+                    "altitude": 2850,
+                    "captureTimestamp": "2018-05-11T01:37:07Z"
+                },
+                "iataFlightNumber": "AR1257",
+                "timestampProcessed": "2018-05-11T01:37:19Z",
+                "aircraftDescription": {
+                    "aircraftCode": "B738",
+                    "aircraftRegistration": "LVFVO"
+                }
+            }
+        },
+        {
+            "id": "e9d8601c-0d2e-48eb-b6fa-a91dc9eba660",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.227,
+                    -23.1557
+                ]
+            },
+            "properties": {
+                "airline": "AZU",
+                "arrival": {
+                    "aerodrome": {
+                        "initial": "SBPA",
+                        "scheduled": "SBPA"
+                    },
+                    "runwayTime": {
+                        "initial": "2018-05-11T03:15:00Z",
+                        "estimated": "2018-05-11T03:17:00Z"
+                    }
+                },
+                "callsign": "AZU4455",
+                "departure": {
+                    "aerodrome": {
+                        "actual": "SBRJ",
+                        "scheduled": "SBRJ"
+                    },
+                    "runwayTime": {
+                        "actual": "2018-05-11T01:29:00Z",
+                        "initial": "2018-05-11T01:10:00Z",
+                        "estimated": "2018-05-11T01:18:00Z"
+                    }
+                },
+                "flightStatus": "AIRBORNE",
+                "positionReport": {
+                    "track": 220,
+                    "source": "MLAT",
+                    "altitude": 14663,
+                    "captureTimestamp": "2018-05-11T01:36:28Z"
+                },
+                "iataFlightNumber": "AD4455",
+                "timestampProcessed": "2018-05-11T01:36:44Z",
+                "aircraftDescription": {
+                    "aircraftCode": "E190",
+                    "aircraftRegistration": "PRAZL"
+                }
+            }
+        }
+    ],
+    "results": {
+        "publishTime": "2018-05-11T01:37:39.684Z",
+        "status": "ok",
+        "total": 11
+    }
+}

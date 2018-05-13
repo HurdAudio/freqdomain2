@@ -226,6 +226,11 @@
           }, 2000);
         }, 3000);
 
+        // $http.get('/flights_from_tiles/3/3')
+        // .then(data=>{
+        //   console.log(data.data);
+        // });
+
         let testGain = new GainModule({
           id: 1,
           user_id: 1,
