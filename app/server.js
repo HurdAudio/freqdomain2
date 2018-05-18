@@ -31,6 +31,7 @@ const dynamic_compressor_skins = require('./routes/dynamic_compressor_skins.js')
 const news_tickers = require('./routes/news_tickers.js');
 const weather_modules = require('./routes/weather_modules.js');
 const random_number_generator_skins = require('./routes/random_number_generator_skins.js');
+const bandpass_filters = require('./routes/bandpass_filters.js');
 
 const port = process.env.PORT || 3007;
 
@@ -62,6 +63,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/news_tickers', news_tickers);
  app.use('/weather_modules', weather_modules);
  app.use('/random_number_generator_skins', random_number_generator_skins);
+ app.use('/bandpass_filters', bandpass_filters);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
