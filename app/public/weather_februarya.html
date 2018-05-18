@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/weather_februarya.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./weather_februarya.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="weatherDiv">
+      <div id="weatherTop">
+
+        <h1>Weather</h1>
+      </div>
+      <div id="weatherSignalFlow">
+
+
+        <div id="weatherOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="weatherFace" class="pure-g">
+        <div id="inputToggle" class="pure-u-1-2">
+
+          <button id="inputToggleButton">toggle</button>
+          <button id="moduleStartButton">start</button>
+        </div>
+        <div id="weatherUndergroundLogo" class="pure-u-1-2">
+          <img id="logoImage">
+        </div>
+        <div id="userZipInput" class="pure-u-1-1">
+
+          <p id="zipLabel">US ZIP Code:
+            <input id="zipDigit1" type="number" min="0" max="9" value="6" step="1" class="pure-input-1">
+            <input id="zipDigit2" type="number" min="0" max="9" value="0" step="1" class="pure-input-1">
+            <input id="zipDigit3" type="number" min="0" max="9" value="6" step="1" class="pure-input-1">
+            <input id="zipDigit4" type="number" min="0" max="9" value="4" step="1" class="pure-input-1">
+            <input id="zipDigit5" type="number" min="0" max="9" value="7" step="1" class="pure-input-1">
+          </p>
+        </div>
+        <div id="userZipInputModulators" class="pure-u-1-1">
+
+          <p id="zipInputModulatorLabel">Modulators:
+            <button class="zipModButton" id="zipModDigit1">M</button>
+            <button class="zipModButton" id="zipModDigit2">M</button>
+            <button class="zipModButton" id="zipModDigit3">M</button>
+            <button class="zipModButton" id="zipModDigit4">M</button>
+            <button class="zipModButton" id="zipModDigit5">M</button>
+          </p>
+        </div>
+        <div id="userContryCityInput" class="pure-u-1-1">
+
+          <p id="internationalLabel">International:
+            <input id="countryInput" type="text" placeholder="country" class="pure-input-1">
+            <input id="cityInput" type="text" placeholder="city" class="pure-input-1">
+          </p>
+        </div>
+        <div id="weatherReadLocation" class="pure-u-1-1">
+
+          <p id="locationLabel"></p>
+        </div>
+        <div id="temperatureBlock" class="pure-u-1-6">
+          <p id="temperatureLabel">Temperature</p>
+          <p id="temperatureFC"></p>
+          <p id="relativeHumidity"></p>
+          <p id="feelsLikeLabel">Feels like:</p>
+          <p id="feelsLikeFC"></p>
+
+        </div>
+        <div id="windBlock" class="pure-u-1-6">
+
+          <p id="windLabel">Wind</p>
+          <p id="windString"></p>
+          <p id="windSpeed"></p>
+          <p id="windDirection"></p>
+          <p id="windGusts"></p>
+
+        </div>
+        <div id="precipitationBlock" class="pure-u-1-6">
+
+
+          <p id="precipitationLabel">Precipitation</p>
+          <img id="conditionsIcon">
+          <p id="conditionsString"></p>
+          <p id="dailyPrecipitation"></p>
+
+        </div>
+        <div id="astronomyBlock" class="pure-u-1-6">
+
+          <p id="astronomyLabel">Astronomy</p>
+          <p id="sunrise"></p>
+          <p id="sunset"></p>
+          <p id="moonrise"></p>
+          <p id="moonset"></p>
+          <p id="moonPhase"></p>
+        </div>
+        <div id="webcamBlock" class="pure-u-1-4">
+
+          <img id="webcamImg">
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </body>
+</html>
