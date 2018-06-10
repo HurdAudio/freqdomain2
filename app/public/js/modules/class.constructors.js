@@ -45,3 +45,25 @@ var GainModule = (function(settings, skin) {
 
   return(gainNode);
 })();
+
+var OscillatorModule = (function(settings, skin) {
+
+  let oscillatorNode = function(settings, skin) {
+    this.id = settings.id;
+    this.name = settings.name;
+    this.waveform = settings.waveform;
+    this.waveformModulator = settings.waveform_modulator;
+    this.hertz = settings.hertz;
+    this.hertzModulator = settings.hertz_modulator;
+    this.detune = settings.detune;
+    this.detuneModulator = settings.detune_modulator;
+    this.output = settings.output;
+    this.oscillator = audioContext.createOscillator();
+    this.oscillator.frequency.setValueAtTime(this.hertz, audioContext.currentTime);
+    this.oscillator.detune.setValueAtTime(this.detune, audioContext.currentTime);
+    this.oscillator.type = this.waveform;
+
+  }
+
+  return(oscillatorNode);
+})();

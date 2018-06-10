@@ -231,19 +231,32 @@
         //   console.log(data.data);
         // });
 
-        let testGain = new GainModule({
+        // let testGain = new GainModule({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: "gain",
+        //   gain_value: 40,
+        //   gain_modulator: null,
+        //   input: null,
+        //   output: null,
+        //   created_at: "2017-07-20T13:44:00.000Z",
+        //   updated_at: "2017-07-20T13:44:00.000Z"
+        // }, {});
+
+        let testOscillator = new OscillatorModule({
           id: 1,
           user_id: 1,
-          name: "gain",
-          gain_value: 40,
-          gain_modulator: null,
-          input: null,
-          output: null,
-          created_at: "2017-07-20T13:44:00.000Z",
-          updated_at: "2017-07-20T13:44:00.000Z"
+          name: "oscillator",
+          waveform: "sine",
+          waveform_modulator: null,
+          hertz: 440,
+          hertz_modulator: null,
+          detune: 0,
+          detune_modulator: null,
+          output: null
         }, {});
 
-        console.log(testGain);
+        console.log(testOscillator);
 
 
 
