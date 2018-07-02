@@ -7,7 +7,7 @@
 #userNamePicture {
   float: left;
   opacity: 0.9;
-  margin: 2em;
+  margin: 1em 0 0 0.5em;
   width: 30%;
   background: #4372E1;
   background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
@@ -15,13 +15,13 @@
   background: -o-linear-gradient(-45deg, #4372E1, #624906);
   background: linear-gradient(-45deg, #4372E1, #624906);
   border-bottom: solid 4px #7D2301;
-  height: 700px;
+  height: 650px;
 }
 
 #userStatsField {
   float: left;
   opacity: 0.9;
-  margin: 2em;
+  margin: 1em;
   width: 62%;
   background: #4372E1;
   background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
@@ -29,7 +29,7 @@
   background: -o-linear-gradient(-45deg, #4372E1, #624906);
   background: linear-gradient(-45deg, #4372E1, #624906);
   border-bottom: solid 4px #7D2301;
-  height: 700px;
+  height: 650px;
   overflow: scroll;
 }
 
@@ -37,7 +37,7 @@
   font-family: 'Righteous', cursive;
   font-size: 30px;
   color: #ED4E0E;
-  margin: 0 2em 2em 2em;
+  margin: 0 1em 1em 1em;
   text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
 }
 

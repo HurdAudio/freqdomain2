@@ -33,6 +33,7 @@ const weather_modules = require('./routes/weather_modules.js');
 const random_number_generator_skins = require('./routes/random_number_generator_skins.js');
 const bandpass_filters = require('./routes/bandpass_filters.js');
 const lowpass_filter_skins = require('./routes/lowpass_filter_skins.js');
+const messages = require('./routes/messages.js');
 
 const port = process.env.PORT || 3007;
 
@@ -66,6 +67,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/random_number_generator_skins', random_number_generator_skins);
  app.use('/bandpass_filters', bandpass_filters);
  app.use('/lowpass_filter_skins', lowpass_filter_skins);
+ app.use('/messages', messages);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{

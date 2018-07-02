@@ -29,6 +29,51 @@
       vm.userLogout = userLogout;
       vm.userProfileEditor = userProfileEditor;
       vm.loadInfo = loadInfo;
+      vm.openCollapsedMessage = openCollapsedMessage;
+      vm.collapseUnreadMessage = collapseUnreadMessage;
+      vm.uncollapseReadMessage = uncollapseReadMessage;
+      vm.collapseReadMessageAction = collapseReadMessageAction;
+
+      function collapseReadMessageAction(msgId) {
+        let collapsedReadMessage = document.getElementById('collapsedReadMessage' + msgId);
+        let openedReadMessage = document.getElementById('openedReadMessage' + msgId);
+
+        collapsedReadMessage.setAttribute("style", "display: initial; filter: saturate(0%);");
+        openedReadMessage.setAttribute("style", "display: none;");
+      }
+
+      function uncollapseReadMessage(msgId) {
+        let collapsedReadMessage = document.getElementById('collapsedReadMessage' + msgId);
+        let openedReadMessage = document.getElementById('openedReadMessage' + msgId);
+
+        collapsedReadMessage.setAttribute("style", "display: none;");
+        openedReadMessage.setAttribute("style", "display: initial;");
+      }
+
+      function collapseUnreadMessage(msgId) {
+        let collapsedUnreadMessage = document.getElementById('collapsedUnreadMessage' + msgId);
+        let openedUnreadMessage = document.getElementById('openedUnreadMessage' + msgId);
+
+        openedUnreadMessage.setAttribute("style", "display: none;");
+        collapsedUnreadMessage.setAttribute("style", "display: initial; filter: saturate(0%);");
+      }
+
+      function openCollapsedMessage(msgId) {
+        let collapsedUnreadMessage = document.getElementById('collapsedUnreadMessage' + msgId);
+        let openedUnreadMessage = document.getElementById('openedUnreadMessage' + msgId);
+        let now = new Date();
+        let subObj = {
+          read: true,
+          updated_at: now
+        }
+        $http.patch(`/messages/${msgId}`, subObj)
+        .then(()=>{
+          console.log('patched');
+        });
+
+        openedUnreadMessage.setAttribute("style", "display: initial;");
+        collapsedUnreadMessage.setAttribute("style", "display: none;");
+      }
 
       function loadInfo() {
         $state.go('info', {id: currentUserId});
@@ -147,7 +192,7 @@
       function runNewsTicker() {
         let headlineNews = document.getElementById('headlineNews');
         let newsString = '';
-        let characterWidth = 79;
+        let characterWidth = 70;
         for (let sp = 0; sp < characterWidth; sp++) {
           newsString+= ' ';
         }
@@ -198,6 +243,207 @@
         // }
       }
 
+      function populateToField(recipientId, controlArray, index, firstEntry) {
+        $http.get(`/users/${recipientId}`)
+        .then(recipientData=>{
+          let recipient = recipientData.data;
+          if (firstEntry) {
+            controlArray[index].to += recipient.name;
+          } else {
+            controlArray[index].to += ', ' + recipient.name;
+          }
+        });
+      }
+
+      function setSenderData (controlArray, index, message) {
+        $http.get(`/users/${message.user_author_id}`)
+        .then(authorData=>{
+          let author = authorData.data;
+          console.log(author);
+          controlArray[index].fromImage = author.user_avatar_url;
+          controlArray[index].from = author.name;
+          for (let i = 0; i < message.recipients_id.recipients.length; i++) {
+            if (i === 0) {
+              controlArray[index].to = '';
+              populateToField(message.recipients_id.recipients[i], controlArray, index, true);
+            } else {
+              populateToField(message.recipients_id.recipients[i], controlArray, index, false)
+            }
+          }
+        });
+      }
+
+      function getCleanDate(theDate) {
+        let clean = '';
+        let posted = new Date(theDate);
+        let months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+
+        clean += posted.toLocaleTimeString('en-GB') + ' on ' + posted.getDate() + ' ' + months[posted.getMonth()] + ' ' + posted.getFullYear();
+
+        return(clean);
+      }
+
+      function populateThreadToField(toId, controlArray, index, threadIndex, isFirstEntry) {
+        $http.get(`/users/${toId}`)
+        .then(toFieldData=>{
+          let toField = toFieldData.data;
+          if (isFirstEntry) {
+            controlArray[index].threads[threadIndex].to += toField.name;
+          } else {
+            controlArray[index].threads[threadIndex].to += ', ' + toField.name;
+          }
+        });
+      }
+
+      function obtainThreadToInfo(controlArray, index, threadIndex, recipientsArray) {
+        controlArray[index].threads[threadIndex].to = '';
+        for (let i = 0; i < recipientsArray.length; i++) {
+          if (i === 0) {
+
+            populateThreadToField(recipientsArray[i], controlArray, index, threadIndex, true);
+          } else {
+            populateThreadToField(recipientsArray[i], controlArray, index, threadIndex, false);
+          }
+
+        }
+      }
+
+      function obtainThreadFromInfo(controlArray, index, threadIndex, fromId) {
+        $http.get(`/users/${fromId}`)
+        .then(threadSenderData=>{
+          let threadSender = threadSenderData.data;
+          controlArray[index].threads[threadIndex].fromImage = threadSender.user_avatar_url;
+          controlArray[index].threads[threadIndex].from = threadSender.name;
+        });
+      }
+
+      function handleMessageThreads(controlArray, index, allMessages, threadIndex, childId) {
+        ++controlArray[index].threadCount;
+        let msg = allMessages.filter(en=>{
+          return(en.id === childId);
+        });
+        controlArray[index].threads[threadIndex] = {
+          id: msg[0].id,
+          subject: msg[0].subject,
+          message: msg[0].message,
+          cleanDate: getCleanDate(msg[0].updated_at)
+        };
+        obtainThreadFromInfo(controlArray, index, threadIndex, msg[0].user_author_id);
+        obtainThreadToInfo(controlArray, index, threadIndex, msg[0].recipients_id.recipients);
+        if (msg[0].links !== null) {
+          controlArray[index].threads[threadIndex].links = [];
+          for (let i = 0; i < msg[0].links.link.length; i++) {
+            controlArray[index].threads[threadIndex].links[i] = {
+              link: msg[0].links.link[i],
+              name: msg[0].links.name[i]
+            };
+          }
+        }
+        if (msg[0].thread_child !== null) {
+          handleMessageThreads(controlArray, index, allMessages, (threadIndex + 1), msg[0].thread_child);
+        }
+      }
+
+      function retrieveMessages() {
+        let aDate;
+        let bDate;
+
+        $http.get('messages')
+        .then(allMessagesData=>{
+          let allMessages = allMessagesData.data;
+          let userMessages = allMessages.filter(msg=>{
+            return(((msg.recipients_id.recipients.indexOf(parseInt(currentUserId)) !== -1) || (msg.user_author_id === parseInt(currentUserId))) && (msg.thread_parent === null));
+          });
+          let userUnreadMessages = userMessages.filter(msg=>{
+            return(!msg.read);
+          });
+          let userReadMessages = userMessages.filter(msg=>{
+            return(msg.read);
+          });
+          userUnreadMessages = userUnreadMessages.sort((a, b)=>{
+            aDate = new Date(a.created_at);
+            bDate = new Date(b.created_at);
+            return(aDate.getDate() - bDate.getDate());
+          });
+          userReadMessages = userReadMessages.sort((a, b)=>{
+            aDate = new Date(a.created_at);
+            bDate = new Date(b.created_at);
+            return(aDate.getDate() - bDate.getDate());
+          });
+
+          vm.unreadMessages = [];
+          vm.readMessages = [];
+          if (userUnreadMessages.length > 0) {
+            document.getElementById('youHaveNoMessagesAtThisTime').setAttribute("style", "display: none;");
+            for (let i = 0; i < userUnreadMessages.length; i++) {
+              vm.unreadMessages[i] = {
+                id: userUnreadMessages[i].id,
+                subject: userUnreadMessages[i].subject,
+                message: userUnreadMessages[i].message
+              };
+              setSenderData(vm.unreadMessages, i, userUnreadMessages[i]);
+              vm.unreadMessages[i].cleanDate = getCleanDate(userUnreadMessages[i].updated_at);
+              if (userUnreadMessages[i].links !== null) {
+                vm.unreadMessages[i].links = [];
+                for (let j = 0; j < userUnreadMessages[i].links.link.length; j++) {
+                  vm.unreadMessages[i].links[j] = {
+                    link: userUnreadMessages[i].links.link[j],
+                    name: userUnreadMessages[i].links.name[j]
+                  };
+                }
+              } else {
+                vm.unreadMessages[i].links = [];
+                vm.unreadMessages[i].links[0] = {
+                  link: '#',
+                  name: 'no link(s)'
+                };
+              }
+              if (userUnreadMessages[i].thread_child !== null) {
+                vm.unreadMessages[i].threadCount = 0;
+                vm.unreadMessages[i].threads = [];
+                handleMessageThreads(vm.unreadMessages, i, allMessages, 0, userUnreadMessages[i].thread_child);
+              } else {
+                vm.unreadMessages[i].threadCount = 0;
+              }
+            }
+          }
+          if (userReadMessages.length > 0) {
+            document.getElementById('youHaveNoMessagesAtThisTime').setAttribute("style", "display: none;");
+            for (let i = 0; i < userReadMessages.length; i++) {
+              vm.readMessages[i] = {
+                id: userReadMessages[i].id,
+                subject: userReadMessages[i].subject,
+                message: userReadMessages[i].message
+              };
+              setSenderData(vm.readMessages, i, userReadMessages[i]);
+              vm.readMessages[i].cleanDate = getCleanDate(userReadMessages[i].updated_at);
+              if (userReadMessages[i].links !== null) {
+                vm.readMessages[i].links = [];
+                for (let j = 0; j < userReadMessages[i].links.link.length; j++) {
+                  vm.readMessages[i].links[j] = {
+                    link: userReadMessages[i].links.link[j],
+                    name: userReadMessages[i].links.name[j]
+                  };
+                }
+              } else {
+                vm.readMessages[i].links = [];
+                vm.readMessages[i].links[0] = {
+                  link: '#',
+                  name: 'no link(s)'
+                };
+              }
+              if (userReadMessages[i].thread_child !== null) {
+                vm.readMessages[i].threadCount = 0;
+                vm.readMessages[i].threads = [];
+                handleMessageThreads(vm.readMessages, i, allMessages, 0, userReadMessages[i].thread_child);
+              } else {
+                vm.readMessages[i].threadCount = 0;
+              }
+            }
+          }
+        });
+      }
+
       function onInit() {
         console.log("User Hub is lit");
         console.log(audioContext);
@@ -219,6 +465,7 @@
 
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 5s linear;");
         runNewsTicker();
+        retrieveMessages();
         setTimeout(()=>{
           hubMessageSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
           setTimeout(()=>{

@@ -4,7 +4,7 @@
       <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
       <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
     </div>
-    <h1 class="pure-u-1-4">FreqDomain2</h1>
+    <h1 class="pure-u-1-3">FreqDomain2</h1>
     <div id="navBarButtons" class="pure-u-1-3">
       <a class="button"><p>Compose</p></a>
       <a class="button"><p>Mixer</p></a>
@@ -27,7 +27,89 @@
       <div id="hubMessages" class="pure-u-1-3">
         <br><h3>Messages:</h3>
         <div id="hubMessageSpace">
-          <p>You have no messages at this time</p>
+          <div id="unreadMessagesDiv">
+            <p id="youHaveNoMessagesAtThisTime">You have no messages at this time</p>
+            <div id="messageManagement">
+
+              <button>Compose</button>
+            </div>
+            <main ng-repeat="msg in $ctrl.unreadMessages | orderBy : $ctrl.sortBy">
+
+
+              <div id="collapsedUnreadMessage{{msg.id}}" class="collapsedUnreadMessage" ng-click="$ctrl.openCollapsedMessage(msg.id)">
+                <img src="{{msg.fromImage}}">
+                <p>{{msg.from}}: {{msg.subject}} - {{msg.cleanDate}}</p>
+                <p>{{msg.threadCount}} responses</p>
+
+              </div><br><br><br><br><br>
+              <div id="openedUnreadMessage{{msg.id}}" class="openedUnreadMessage" ng-click="$ctrl.collapseUnreadMessage(msg.id)">
+
+                <img src="{{msg.fromImage}}">
+                <p>{{msg.from}}: {{msg.subject}} - {{msg.cleanDate}}</p>
+                <p>to: {{msg.to}}</p>
+                <p>{{msg.message}}</p>
+                <p>Related Links:</p>
+                <main ng-repeat="link in msg.links | orderBy : $ctrl.sortBy">
+
+                  <a href="{{link.link}}" target="_blank"><p class="messageLinks">{{link.name}}</p></a>
+                </main>
+                <main ng-repeat="thread in msg.threads | orderBy : $ctrl.sortBy">
+
+                  <p style="width: 100%;">Response[id:{{thread.id}}]</p><br><br>
+
+                  <img src="{{thread.fromImage}}">
+                  <p>{{thread.from}}: {{thread.subject}} - {{thread.cleanDate}}</p>
+                  <p>to: {{thread.to}}</p>
+                  <p>{{thread.message}}</p>
+                  <p>Related Links:</p>
+                  <main ng-repeat="threadLink in thread.links | orderBy : $ctrl.sortBy">
+
+                    <a href="{{threadLink.link}}" target="_blank"><p class="messageLinks">{{threadLink.name}}</p></a>
+                  </main>
+                </main>
+              </div>
+            </main>
+
+          </div>
+          <div id="readMessagesDiv">
+
+            <main ng-repeat="msg in $ctrl.readMessages | orderBy : $ctrl.sortBy">
+
+              <div class="collapsedReadMessage" id="collapsedReadMessage{{msg.id}}" ng-click="$ctrl.uncollapseReadMessage(msg.id)">
+
+                <img src="{{msg.fromImage}}">
+                <p>{{msg.from}}: {{msg.subject}} - {{msg.cleanDate}}</p>
+                <p>{{msg.threadCount}} responses</p>
+              </div>
+              <div class="openedReadMessage" id="openedReadMessage{{msg.id}}" ng-click="$ctrl.collapseReadMessageAction(msg.id)">
+                <img src="{{msg.fromImage}}">
+                <p>{{msg.from}}: {{msg.subject}} - {{msg.cleanDate}}</p>
+                <p>to: {{msg.to}}</p>
+                <p>{{msg.message}}</p>
+                <p>Related Links:</p>
+                <main ng-repeat="link in msg.links | orderBy : $ctrl.sortBy">
+
+                  <a href="{{link.link}}" target="_blank"><p class="messageLinks">{{link.name}}</p></a>
+                </main>
+                <main ng-repeat="thread in msg.threads | orderBy : $ctrl.sortBy">
+
+                  <p style="width: 100%;">Response[id:{{thread.id}}]</p><br><br>
+
+                  <img src="{{thread.fromImage}}">
+                  <p>{{thread.from}}: {{thread.subject}} - {{thread.cleanDate}}</p>
+                  <p>to: {{thread.to}}</p>
+                  <p>{{thread.message}}</p>
+                  <p>Related Links:</p>
+                  <main ng-repeat="threadLink in thread.links | orderBy : $ctrl.sortBy">
+
+                    <a href="{{threadLink.link}}" target="_blank"><p class="messageLinks">{{threadLink.name}}</p></a>
+                  </main>
+                </main>
+
+              </div>
+            </main>
+          </div>
+
         </div>
       </div>
       <div id="hubUpdates" class="pure-u-1-3">
@@ -35,8 +117,7 @@
         <div id="hubUpdatesSpace">
           <ul>
 
-            <li><p>Module 0 - Front End: Pending: Stage 15 - Messages functionality. Send verification link to user changing email address. Next: Stage 16: </p></li>
-            <li><p>Module 15 - Highshelf Filter: PENDING: Stage 1 - Initialization.</p></li>
+            <li><p>Module 15 - Highshelf Filter: PENDING: Stage 1 - Initialization. Next: Stage 2 - January B Skin.</p></li>
             <li><p>Module 14 - Airlines Module: Stage 1 - Initial design in January A Skin. Next: January B Skin.</p></li>
             <li><p>Module 13 - Input Manager: Stage 2 - January B Skin. Next: Stage 3 - January C Skin.</p></li>
             <li><p>Module 12 - Low Shelf Filter: Stage 3 - January C Skin. Next: Stage 4 - January Consequence - Table creation with migration, seeds and routes.</p></li>
@@ -51,6 +132,8 @@
             <li><p>Module 3 - Oscillator: Stage 12 - March Consequence - March Skins added to Skins Table. Class Constructor. Next: Stage 13 - April A Skin.</p></li>
             <li><p>Module 2 - Gain: Stage 13 - April A Skin. Next: Stage 14 - April B Skin.</p></li>
             <li><p>Module 1 - Master Volume: Stage 14 - April B Skin. Next: Stage 15: April C Skin.</p></li>
+            <li><p>Module 0 - Front End: Stage 15 - Messages partial functionality. Next: Stage 16 - Login screen resoponsiveness work </p></li>
+            <li><p>Module 16 - Peaking Filter: PENDING: Stage 1 - Initialization.</p></li>
 
           </ul>
         </div>
