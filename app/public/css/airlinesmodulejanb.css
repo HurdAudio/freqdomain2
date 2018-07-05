@@ -6,8 +6,8 @@ body {
 
 #airlinesDiv {
   position: fixed;
-  /* bottom: -25.5%; */
-  /* right: 0%; */
+  bottom: 0.5%;
+  right: 0%;
   margin: 10em;
   height: 450px;
   width: 1150px;
@@ -16,7 +16,7 @@ body {
 }
 
 #airlinesTop {
-  background: url(../img/january/26AA74A700000578-2995579-image-a-3_1426414534022.jpg);
+  background: url(../img/january/chuttersnap-334738-unsplash.jpg);
   background-size: 100%;
   background-color: #ffffff;
   font-family: 'Righteous', cursive;
@@ -33,13 +33,13 @@ body {
   font-size: 36px;
   margin-left: 3em;
   margin-top: 1em;
-  color: #203300;
+  color: #282800;
   font-weight: 600;
-  text-shadow: 1px 1px 1px #daff99, 2px 2px 1px #daff99;
+  text-shadow: 1px 1px 1px #d6d632, 2px 2px 1px #d6d632;
 }
 
 #airlinesSignalFlow {
-  background: url(../img/january/26AA74A700000578-2995579-image-a-3_1426414534022.jpg);
+  background: url(../img/january/chuttersnap-334738-unsplash.jpg);
   background-size: 1600%;
   background-color: #ffffff;
   border: solid 1px transparent;
@@ -49,7 +49,7 @@ body {
   transform: skew(0deg, 45deg);
   margin-left: 0.9vmin;
   margin-bottom: 3.5vmin;
-  box-shadow: 0px -1px 1px #daff99;
+  box-shadow: 0px -1px 1px #d6d632;
 }
 
 #airlinesSignalFlow p {
@@ -58,8 +58,8 @@ body {
   margin-left: 0.2em;
   margin-top: 32vmin;
   margin-bottom: 0;
-  color: #203300;
-  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  color: #282800;
+  text-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632;
 }
 
 #airlinesSignalFlow h2 {
@@ -69,16 +69,16 @@ body {
   margin-top: 2vmin;
   margin-bottom: 8vmin;
   width: 60%;
-  color: #203300;
-  background: url(../img/january/iceojo.jpg);
+  color: #282800;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
   background-size: 600%;
   /*background: #224CBC;
   background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99;
+  text-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632;
   cursor: pointer;
 }
 
@@ -90,22 +90,23 @@ body {
   /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  background: url(../img/january/in-the-winters-of-south-iceland-you-can-find-otherworldly-blue-ice-caves-1.jpg);
+  background: url(../img/january/armand-khoury-492456-unsplash.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: #ffffff;
-  margin-top: -63vmin;
+  margin-top: -62.5vmin;
   margin-left: 7.5vmin;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99;
-  color: #203300;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632;
+  color: #282800;
 }
 
 #mercatorMap {
-  display: initial;
+  /* display: initial; */
   width: 100%;
   height: 100%;
   background: url(../img/Equirectangular_projection_SW.jpg);
   background-size: 100%;
+  cursor: pointer;
 }
 
 #mercatorMap table {
@@ -125,8 +126,8 @@ body {
 #flightTotal {
   font-family: 'Righteous', cursive;
   font-size: 42px;
-  color: #203300;
-  text-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  color: #282800;
+  text-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
   margin: 1vmin 0 2vmin 4vmin;
 }
 
@@ -139,6 +140,8 @@ body {
   height: 400px;
   overflow: scroll;
   margin: 1vmin 3vmin 0 3vmin;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
+  background-size: 200%;
 }
 
 #flightTableList img {
@@ -157,7 +160,7 @@ body {
 #flightTableList div {
   float: left;
   /* border-bottom: 1px solid #000; */
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
 }
 
 #flightDrillDown {
@@ -165,11 +168,23 @@ body {
 
 }
 
+#flightDataContainer {
+  width: 100%;
+}
+
 #flightDrillDown button {
   float: right;
   margin: 2vmin 2vmin 1vmin 0;
 }
 
+#airlineCallsign {
+  height: 120px;
+  width: auto;
+  overflow: scroll;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
+  background-size: 100%;
+  margin: 0.4vmin;
+}
 
 #airlineCallsign p {
   float: left;
@@ -181,12 +196,14 @@ body {
 #departureCityData {
   float: left;
   width: 26%;
-  margin: 0 1vmin 1vmin 6vmin;
+  margin: 1.2vmin 1vmin 1vmin 6vmin;
   /* border: 2px solid black; */
-  height: 350px;
+  height: 330px;
   padding: 1vmin;
   overflow: scroll;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
+  background-size: 300%;
 }
 
 #departureCityData h4 {
@@ -203,12 +220,14 @@ body {
 #arrivalCityData {
   float: left;
   width: 26%;
-  margin: 0 1vmin 1vmin 3vmin;
+  margin: 1.2vmin 1vmin 1vmin 3vmin;
   /* border: 2px solid black; */
-  height: 350px;
+  height: 330px;
   padding: 1vmin;
   overflow: scroll;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
+  background-size: 300%;
 }
 
 #arrivalCityData h4 {
@@ -225,12 +244,14 @@ body {
 #currentLocation {
   float: left;
   width: 26%;
-  margin: 0 1vmin 1vmin 3vmin;
+  margin: 1.2vmin 1vmin 1vmin 3vmin;
   /* border: 2px solid black; */
-  height: 350px;
+  height: 330px;
   padding: 1vmin;
   overflow: scroll;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
+  background: url(../img/january/aaron-burden-71492-unsplash.jpg);
+  background-size: 300%;
 }
 
 #currentLocation h4 {
@@ -253,12 +274,12 @@ button {
   background: transparent;
   margin-top: 0;
   margin-left: 0;
-  box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99, -4px -4px 1px #daff99;
+  box-shadow: -1px -1px 1px #d6d632, -2px -2px 1px #d6d632, -3px -3px 1px #d6d632, -4px -4px 1px #d6d632;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #72b200, #ffffff);
-  background: -webkit-linear-gradient(45deg, #72b200, #ffffff);
-  background: -o-linear-gradient(45deg, #72b200, #ffffff);
-  background: linear-gradient(45deg, #72b200, #ffffff);
+  background-color: -webkit-linear-gradient(45deg, #3d3d00, #f4f4cc);
+  background: -webkit-linear-gradient(45deg, #3d3d00, #f4f4cc);
+  background: -o-linear-gradient(45deg, #3d3d00, #f4f4cc);
+  background: linear-gradient(45deg, #3d3d00, #f4f4cc);
 }
 
 button:active {

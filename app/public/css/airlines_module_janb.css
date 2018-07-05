@@ -16,7 +16,7 @@ body {
 }
 
 #airlinesTop {
-  background: url(../img/january/26AA74A700000578-2995579-image-a-3_1426414534022.jpg);
+  background: url(../img/january/.jpg);
   background-size: 100%;
   background-color: #ffffff;
   font-family: 'Righteous', cursive;
@@ -39,7 +39,7 @@ body {
 }
 
 #airlinesSignalFlow {
-  background: url(../img/january/26AA74A700000578-2995579-image-a-3_1426414534022.jpg);
+  background: url(../img/january/.jpg);
   background-size: 1600%;
   background-color: #ffffff;
   border: solid 1px transparent;
@@ -70,7 +70,7 @@ body {
   margin-bottom: 8vmin;
   width: 60%;
   color: #203300;
-  background: url(../img/january/iceojo.jpg);
+  background: url(../img/january/.jpg);
   background-size: 600%;
   /*background: #224CBC;
   background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
@@ -90,11 +90,11 @@ body {
   /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  background: url(../img/january/in-the-winters-of-south-iceland-you-can-find-otherworldly-blue-ice-caves-1.jpg);
+  background: url(../img/january/.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: #ffffff;
-  margin-top: -63vmin;
+  margin-top: -56vmin;
   margin-left: 7.5vmin;
   box-shadow: -1px -1px 1px #daff99, -2px -2px 1px #daff99, -3px -3px 1px #daff99;
   color: #203300;
