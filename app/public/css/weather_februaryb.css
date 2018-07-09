@@ -16,9 +16,9 @@ body {
 }
 
 #weatherTop {
-  background: url(../img/february/0000072_bronze-green-crushed_275.jpeg);
+  background: url(../img/february/Velvet_DeepRed_Sample.png);
   background-size: 100%;
-  background-color: #6666ff;
+  background-color: #ffffff;
   font-family: 'Righteous', cursive;
   height: 50px;
   width: 88%;
@@ -39,9 +39,9 @@ body {
 }
 
 #weatherSignalFlow {
-  background: url(../img/february/0000072_bronze-green-crushed_275.jpeg);
+  background: url(../img/february/Velvet_DeepRed_Sample.png);
   background-size: 1500%;
-  background-color: #6666ff;
+  background-color: #ffffff;
   border: solid 1px transparent;
   height: 500px;
   width: 49px;
@@ -70,7 +70,7 @@ body {
   margin-bottom: 8vmin;
   width: 60%;
   color: #000019;
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 600%;
   /*background: #224CBC;
   background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
@@ -90,10 +90,10 @@ body {
   /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  background: url(../img/february/1501-Red-velvet-couch-texture.jpg);
+  background: url(../img/february/graphicstock-red-velvet-capitone-textile-background-retro-chesterfield-style-checkered-soft-tufted-fabric-furniture-diamond-pattern-decoration-with-buttons-close-up_HLrjhHBjl_thumb.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
-  background-color: #6666ff;
+  background-color: #ffffff;
   margin-top: -62.5vmin;
   margin-left: 7.5vmin;
   box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff, -3px -3px 1px #3232ff;
@@ -115,7 +115,7 @@ body {
 #userZipInput input[type=number] {
 
   padding-left: 1vmin;
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 300%;
 }
 
@@ -186,7 +186,7 @@ body {
   box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
   margin: 0 2vmin 0 1vmin;
   padding: 0 0 0 1vmin;
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 300%;
 }
 
@@ -199,7 +199,7 @@ body {
 }
 
 #windBlock {
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 300%;
   overflow: scroll;
   width: 14%;
@@ -220,7 +220,7 @@ body {
 }
 
 #precipitationBlock {
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 300%;
   overflow: scroll;
   width: 14%;
@@ -245,7 +245,7 @@ body {
 }
 
 #astronomyBlock {
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 300%;
   overflow: scroll;
   width: 16%;
@@ -266,7 +266,7 @@ body {
 }
 
 #webcamBlock {
-  background: url(../img/february/arthouse-romeo-damask-pattern-wallpaper-modern-metallic-floral-motif-p3592-image-victorian-flock-velvet-textured-patterns-blue-suzette-grey-970x970.jpg);
+  background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 200%;
   width: 28%;
   height: 46%;
