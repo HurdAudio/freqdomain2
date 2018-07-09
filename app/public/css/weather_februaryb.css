@@ -33,9 +33,9 @@ body {
   font-size: 36px;
   margin-left: 3em;
   margin-top: 1em;
-  color: #000019;
+  color: #33330a;
   font-weight: 600;
-  text-shadow: 1px 1px 1px #3232ff, 2px 2px 1px #3232ff;
+  text-shadow: 1px 1px 1px #ffff5a, 2px 2px 1px #ffff5a;
 }
 
 #weatherSignalFlow {
@@ -49,7 +49,7 @@ body {
   transform: skew(0deg, 45deg);
   margin-left: 0.8vmin;
   margin-bottom: 3.5vmin;
-  box-shadow: 0px -1px 1px #3232ff;
+  box-shadow: 0px -1px 1px #ffff5a;
 }
 
 #weatherSignalFlow p {
@@ -58,8 +58,8 @@ body {
   margin-left: 0.8em;
   margin-top: 32vmin;
   margin-bottom: 0;
-  color: #000019;
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  color: #33330a;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
 }
 
 #weatherSignalFlow h2 {
@@ -69,7 +69,7 @@ body {
   margin-top: 2vmin;
   margin-bottom: 8vmin;
   width: 60%;
-  color: #000019;
+  color: #33330a;
   background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
   background-size: 600%;
   /*background: #224CBC;
@@ -77,15 +77,15 @@ body {
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
   cursor: pointer;
 }
 
 #weatherFace {
   height: 500px;
   width: 88%;
-  /*background: #6666ff;*/
+  /*background: #ffffc1;*/
   /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
   /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
@@ -96,15 +96,15 @@ body {
   background-color: #ffffff;
   margin-top: -62.5vmin;
   margin-left: 7.5vmin;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff, -3px -3px 1px #3232ff;
-  color: #000019;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a, -3px -3px 1px #ffff5a;
+  color: #33330a;
 }
 
 #zipLabel {
   font-family: 'Righteous', cursive;
   font-size: 30px;
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
-  color: #000019;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
+  color: #33330a;
   margin: 2vmin 0 1vmin 2vmin;
 }
 
@@ -130,16 +130,16 @@ body {
 #internationalLabel {
   font-family: 'Righteous', cursive;
   font-size: 30px;
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
-  color: #000019;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
+  color: #33330a;
   margin: 2vmin 0 1vmin 2vmin;
 }
 
 #zipInputModulatorLabel {
   font-family: 'Righteous', cursive;
   font-size: 30px;
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
-  color: #000019;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
+  color: #33330a;
   margin: 2vmin 0 1vmin 2vmin;
 }
 
@@ -167,13 +167,13 @@ body {
   height: 4vmin;
   font-family: 'Righteous', cursive;
   font-size: 24px;
-  text-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
-  color: #000019;
+  text-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
+  color: #33330a;
   margin: 0 0 1vmin 0;
   padding: 0 0 0 1vmin;
   border-bottom: 1px solid #000000;
   border-top: 1px solid #000000;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
 }
 
 #temperatureBlock {
@@ -183,7 +183,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
   border: 1px solid #000000;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
   margin: 0 2vmin 0 1vmin;
   padding: 0 0 0 1vmin;
   background: url(../img/february/31-pink-crushed-velvet-texture.jpg);
@@ -207,7 +207,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
   border: 1px solid #000000;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
   margin: 0 2vmin 0 0;
   padding: 0 0 0 1vmin;
 }
@@ -228,7 +228,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
   border: 1px solid #000000;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
   margin: 0 2vmin 0 0;
   padding: 0 0 0 1vmin;
 }
@@ -253,7 +253,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
   border: 1px solid #000000;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
   margin: 0 2vmin 0 0;
   padding: 0 0 0 1vmin;
 }
@@ -283,7 +283,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 0 0 -1vmin;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a;
 }
 
 
@@ -297,14 +297,14 @@ button {
   background: transparent;
   margin-top: 0;
   margin-left: 0;
-  box-shadow: -1px -1px 1px #3232ff, -2px -2px 1px #3232ff, -3px -3px 1px #3232ff, -4px -4px 1px #3232ff;
+  box-shadow: -1px -1px 1px #ffff5a, -2px -2px 1px #ffff5a, -3px -3px 1px #ffff5a, -4px -4px 1px #ffff5a;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #ccccff, #6666ff);
-  background: -webkit-linear-gradient(45deg, #ccccff, #6666ff);
-  background: -o-linear-gradient(45deg, #ccccff, #6666ff);
-  background: linear-gradient(45deg, #ccccff, #6666ff);
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffffc1);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffffc1);
+  background: -o-linear-gradient(45deg, #b2b223, #ffffc1);
+  background: linear-gradient(45deg, #b2b223, #ffffc1);
 }
 
 button:active {
-  box-shadow: -1px -1px 0px #6666ff;
+  box-shadow: -1px -1px 0px #ffffc1;
 }
