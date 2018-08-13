@@ -49,7 +49,7 @@
   font-family: 'Righteous', cursive;
   font-size: 48px;
   color: #ED4E0E;
-  margin: 0 0 3vmin 0;
+  margin: 0 0 3vmin -1.5vmin;
   text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
   cursor: pointer;
   filter: hue-rotate(0deg);
@@ -96,8 +96,9 @@
 
 #hubUserName {
   width: 17%;
-  overflow: scroll;
+  /* overflow: scroll; */
   height:38px;
+  width: auto;
 }
 
 #freqDomain2Hubspot {
