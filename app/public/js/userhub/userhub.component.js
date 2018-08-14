@@ -490,20 +490,31 @@
         //   updated_at: "2017-07-20T13:44:00.000Z"
         // }, {});
 
-        let testOscillator = new OscillatorModule({
+        // let testOscillator = new OscillatorModule({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: "oscillator",
+        //   waveform: "sine",
+        //   waveform_modulator: null,
+        //   hertz: 440,
+        //   hertz_modulator: null,
+        //   detune: 0,
+        //   detune_modulator: null,
+        //   output: null
+        // }, {});
+
+        let testTestTone = new TestToneModule({
           id: 1,
           user_id: 1,
-          name: "oscillator",
-          waveform: "sine",
-          waveform_modulator: null,
-          hertz: 440,
-          hertz_modulator: null,
-          detune: 0,
-          detune_modulator: null,
+          name: 'test tone',
+          gain_value: 40,
+          waveform: 'sine',
+          hertz: 440.000,
+          device_on: false,
           output: null
         }, {});
 
-        console.log(testOscillator);
+        console.log(testTestTone);
 
 
 

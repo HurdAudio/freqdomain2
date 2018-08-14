@@ -67,3 +67,25 @@ var OscillatorModule = (function(settings, skin) {
 
   return(oscillatorNode);
 })();
+
+var TestToneModule = (function(settings, skin) {
+
+  let testToneNode = function(settings, skin) {
+    this.id = settings.id;
+    this.name = settings.name;
+    this.gainValue = settings.gain_value;
+    this.waveform = settings.waveform;
+    this.hertz = settings.hertz;
+    this.deviceOn = settings.device_on;
+    this.output = settings.output;
+    this.gain = audioContext.createGain();
+    this.gain.gain.value = (this.gainValue/100);
+    this.oscillator = audioContext.createOscillator();
+    this.oscillator.frequency.setValueAtTime(this.hertz, audioContext.currentTime);
+    this.oscillator.type = this.waveform;
+    this.oscillator.connect(this.gain);
+
+  }
+
+  return(testToneNode);
+})();
