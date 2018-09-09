@@ -225,11 +225,11 @@
       function expandDiv(element, current, target, element2) {
         let timer = 0.02;
         if (current === target) {
-          element2.setAttribute("style", "visibility: visible; margin: 1vmin; margin-left: 0; margin-top: 12vmin; width: 40%; padding-left: 1vmin;");
+          element2.setAttribute("style", "visibility: visible;");
           element.focus();
           return;
         } else {
-          element.setAttribute("style", "width: " + current + "vmin; visibility: visible; margin: 5vmin; margin-left: 2vmin; margin-top: 10vmin; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 35deg); font-family: 'Oswald', sans-serif; font-size: 24px; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "width: " + current + "vmin; visibility: visible;");
           setTimeout(()=>{
             expandDiv(element, current + 1, target, element2);
           }, (timer * 1000));
@@ -242,7 +242,7 @@
         if (current === target) {
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin: 5vmin; margin-left: 2vmin; margin-top: -11vmin; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "visibility: visible; width: " + current + "vmin;");
           setTimeout(()=>{
               expandPassword(element, current + 1, target);
           }, (timer * 1000));
@@ -255,7 +255,7 @@
           element.focus();
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 11vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
+          element.setAttribute("style", "visibility: visible; width: " + current + "vmin;");
           setTimeout(()=>{
             expandNewUserEmail(element, current + 1, target);
           }, (timer * 1000));
@@ -264,12 +264,10 @@
 
       function expandNewPassword(element, current, target) {
         let timer = 0.02;
-        let addAccountButtons = document.getElementById('addAccountButtons');
         if (current === target) {
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 1.5vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
-          addAccountButtons.setAttribute("style", "margin-top: -11.5vmin;");
+          element.setAttribute("style", "visibility: visible; width: " + current + "vmin;");
           setTimeout(()=>{
             expandNewPassword(element, current + 1, target);
           }, (timer * 1000));
@@ -278,12 +276,10 @@
 
       function expandRetypePassword(element, current, target) {
         let timer = 0.02;
-        let addAccountButtons = document.getElementById('addAccountButtons');
         if (current === target) {
           return;
         } else {
-          element.setAttribute("style", "visibility: visible; margin-left: 39vmin; margin-top: 1vmin; webkit-transform: skew(0deg, -45deg); transform: skew(0deg, -35deg); font-family: 'Oswald', sans-serif; font-size: 24px; width: " + current + "vmin; border-radius: 5px; color: #7DF9FF; background: #E4E4DF; background-color: -webkit-linear-gradient(90deg, #877A67, #E4E4DF); background: -o-linear-gradient(90deg, #877A67, #E4E4DF); background: -moz-linear-gradient(90deg, #877A67, #E4E4DF); background: linear-gradient(90deg, #877A67, #E4E4DF);");
-          addAccountButtons.setAttribute("style", "margin-top: -10.5vmin;");
+          element.setAttribute("style", "visibility: visible; width: " + current + "vmin;");
           setTimeout(()=>{
             expandRetypePassword(element, current + 1, target);
           }, (timer * 1000));
@@ -381,13 +377,7 @@
         let newUserPassword = document.getElementById('newUserPassword');
         let newUserRetypePassword = document.getElementById('newUserRetypePassword');
         let newSub = document.getElementById('newSub');
-        console.log(Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
-        console.log(Math.max(document.documentElement.clientHeight, window.innerHeight));
-        let displayWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        let displayHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-        let squareSize;
 
-        let frame = document.getElementById('frame');
         let top = document.getElementById('top');
         let newUser = document.getElementById('newUser');
         let login = document.getElementById('login');
@@ -396,43 +386,14 @@
         let rightBlock = document.getElementById('rightBlock');
         let bottomBlock = document.getElementById('bottomBlock');
         let title = document.getElementById('title');
-        let git = document.getElementById('git');
-        if (displayWidth > displayHeight) {
-          squareSize = (displayWidth * 0.173611111111111);
-        } else {
-          squareSize = (displayHeight * 0.173611111111111);
-        }
-
-        if (displayWidth > 1024) {
-
-          frame.setAttribute("style", "width: " + (displayWidth * 0.912) + "px; height: " + (displayHeight * 0.84) + "px; margin: " + (displayHeight - 5) + "px " + (displayWidth - 5) + "px + " + (displayHeight - 5) + "px "  + (displayWidth - 5) + "px;");
-          top.setAttribute("style", "bottom: " + (displayHeight * 0.5004) + "px; right: " + (displayWidth * 0.41) + "px; height: " + squareSize + "px; width: " + squareSize + "px;");
-          newUser.setAttribute("style", "bottom: " + (displayHeight * 0.3158) + "px; left: " + (displayWidth * 0.40225) + "px; height: " + squareSize + "px;");
-          login.setAttribute("style", "bottom: " + (displayHeight * 0.3148) + "px; right: " + (displayWidth * 0.3783) + "px; height: " + squareSize + "px;");
-          topBlocker.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.2257) + "px;");
-          leftBlock.setAttribute("style", "width: " + (displayWidth * 0.3637) +"px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; left: " + (displayWidth * 0.04) + "px;");
-          rightBlock.setAttribute("style", "width: " + (displayWidth * 0.3428) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * 0.0360) + "px;");
-          bottomBlock.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.213) + "px; bottom: " + (displayHeight * 0.0337) + "px;");
-        } else {
-          frame.setAttribute("style", "width: " + (displayWidth * 0.92) + "px; height: " + (displayHeight * 0.93) + "px; margin: " + (displayHeight - 1) + "px " + (displayWidth - 1) + "px + " + (displayHeight - 1) + "px "  + (displayWidth - 1) + "px; top: 0px");
-          top.setAttribute("style", "bottom: " + (displayHeight * 0.5104) + "px; right: " + (displayWidth * 0.34) + "px; height: " + squareSize + "px; width: " + squareSize + "px;");
-          newUser.setAttribute("style", "bottom: " + (displayHeight * 0.3768) + "px; left: " + (displayWidth * 0.30125) + "px; height: " + squareSize + "px;");
-          login.setAttribute("style", "bottom: " + (displayHeight * 0.38) + "px; right: " + (displayWidth * 0.2843) + "px; height: " + squareSize + "px;");
-          topBlocker.setAttribute("style", "width: " + (displayWidth * 0.97) + "px; height: " + (displayHeight * 0.3337) + "px;");
-          leftBlock.setAttribute("style", "width: " + (displayWidth * 0.3117) +"px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2027) + "px; left: " + (displayWidth * -0.01) + "px;");
-          rightBlock.setAttribute("style", "width: " + (displayWidth * 0.2957) + "px; height: " + (displayHeight * 0.6476) + "px; top: " + (displayHeight * 0.2827) + "px; right: " + (displayWidth * -0.01) + "px;");
-          bottomBlock.setAttribute("style", "width: " + (displayWidth * 0.973) + "px; height: " + (displayHeight * 0.353) + "px; bottom: " + (displayHeight * 0.0001) + "px;");
-        }
 
         backgroundColoring(rValues, gValues, bValues, rValues2, gValues2, bValues2, 0);
-
-        //flickerDown(top, title, git, top, title);
         blingElement(top);
         blurElement(title);
 
         newUserAccountStart.addEventListener('click', ()=>{
           newUserAccountStart.setAttribute("style", "visibility: hidden;");
-          expandNewUserEmail(newUserEmail, 1, 26);
+          expandNewUserEmail(newUserEmail, 1, 27);
           newExit.setAttribute("style", "visibility: visible;");
         });
 
@@ -591,13 +552,13 @@
 
         document.addEventListener('keyup', ()=>{
           if (newUserRetypePassword.value !== '') {
-            newSub.setAttribute("style", "visibility: visible; margin: 0.4vmin; margin-left: 2.6vmin; margin-top: 12vmin; width: 40%; padding-left: 1vmin;");
+            newSub.setAttribute("style", "visibility: visible;");
           } else {
             newSub.setAttribute("style", "visibility: hidden;");
           }
           if (newUserPassword.value !== '') {
             if (!newPasswordRetypeVisible) {
-              expandRetypePassword(newUserRetypePassword, 1, 26);
+              expandRetypePassword(newUserRetypePassword, 1, 27);
               newPasswordRetypeVisible = true;
             }
           } else {
@@ -607,7 +568,7 @@
           if (newUserEmail.value.indexOf('@') !== -1) {
             if (newUserEmail.value.indexOf('@') < (newUserEmail.value.length - 2)) {
               if (!newPasswordVisible) {
-                expandNewPassword(newUserPassword, 1, 26);
+                  expandNewPassword(newUserPassword, 1, 27);
                 newPasswordVisible = true;
               }
             }

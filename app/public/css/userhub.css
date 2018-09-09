@@ -169,11 +169,13 @@
 #hubMessages {
   float: left;
   width: 50%;
+  overflow: hidden;
 }
 
 #hubUpdates {
   float: left;
   width: 50%;
+  overflow: hidden;
 }
 
 #poweredbynewsapi {
@@ -190,7 +192,7 @@
 }
 
 #hubMessageSpace {
-  height: 420px;
+  height: 460px;
   overflow: scroll;
   background: #282828;
   /* background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
@@ -211,7 +213,7 @@
 }
 
 #hubUpdatesSpace {
-  height: 420px;
+  height: 460px;
   overflow: scroll;
   background: #282828;
   /* background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
