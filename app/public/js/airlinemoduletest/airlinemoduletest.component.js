@@ -371,7 +371,7 @@
         console.log("Airline Module Test is lit");
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg);");
-        // document.getElementById('mercatorMap').setAttribute("style", "display: initial; width: 100%; height: 100%; background: url(../img/Equirectangular_projection_SW.jpg); background-size: 100%;");
+        // document.getElementById('mercatorMap').setAttribute("style", "display: initial; width: 100%; height: 100%; background: url(../img/Equirectangular_projection_SW.jpg); background-size: 100%; opacity: 0;");
 
       }
 
