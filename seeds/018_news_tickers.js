@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Input Manager (module 13). Stage 4 - January Consequence - table with migration/seeds/routes.',
+          headline: 'Currently working on: Low Shelf Filter (module 12). Stage 5 - February A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
