@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Weather Module (module 10). Stage 7 - February C Skin.',
+          headline: 'Currently working on: Envelope Generator (module 9). Stage 8 - February Consequence - Skins Table. January & February skins added.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
