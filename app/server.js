@@ -37,6 +37,7 @@ const messages = require('./routes/messages.js');
 const lowshelf_filters = require('./routes/lowshelf_filters.js');
 const highpass_filter_skins = require('./routes/highpass_filter_skins.js');
 const input_managers = require('./routes/input_managers.js');
+const envelope_generator_skins = require('./routes/envelope_generator_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -74,6 +75,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/lowshelf_filters', lowshelf_filters);
  app.use('/highpass_filter_skins', highpass_filter_skins);
  app.use('/input_managers', input_managers);
+ app.use('/envelope_generator_skins', envelope_generator_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
