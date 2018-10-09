@@ -503,18 +503,37 @@
         //   output: null
         // }, {});
 
-        let testTestTone = new TestToneModule({
+        // let testTestTone = new TestToneModule({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: 'test tone',
+        //   gain_value: 40,
+        //   waveform: 'sine',
+        //   hertz: 440.000,
+        //   device_on: false,
+        //   output: null
+        // }, {});
+        //
+        // console.log(testTestTone);
+
+        let dynamicCompressor = new DynamicCompressor({
           id: 1,
-          user_id: 1,
-          name: 'test tone',
-          gain_value: 40,
-          waveform: 'sine',
-          hertz: 440.000,
-          device_on: false,
+          name: 'dynamic compressor',
+          threshold: -24.00,
+          threshold_modulator: null,
+          knee: 30.00,
+          knee_modulator: null,
+          ratio: 12.000,
+          ratio_modulator: null,
+          attack: 0.003,
+          attack_modulator: null,
+          release: 0.250,
+          release_modulator: null,
+          input: null,
           output: null
         }, {});
 
-        console.log(testTestTone);
+        console.log(dynamicCompressor);
 
 
 

@@ -89,3 +89,32 @@ var TestToneModule = (function(settings, skin) {
 
   return(testToneNode);
 })();
+
+var DynamicCompressor = (function(settings, skin) {
+
+  let dynamicCompressorNode = function(settings, skin) {
+    console.log(settings);
+    this.id = settings.id;
+    this.name = settings.name;
+    this.threshold = settings.threshold;
+    this.threshold_modulator = settings.threshold_modulator;
+    this.knee = settings.knee;
+    this.knee_modulator = settings.knee_modulator;
+    this.ratio = settings.ratio;
+    this.ratio_modulator = settings.ratio_modulator;
+    this.attack = settings.attack;
+    this.attack_modulator = settings.attack_modulator;
+    this.release = settings.release;
+    this.release_modulator = settings.release_modulator;
+    this.input = settings.input;
+    this.output = settings.output;
+    this.dynamicCompressor = audioContext.createDynamicsCompressor();
+    this.dynamicCompressor.threshold.value = this.threshold;
+    this.dynamicCompressor.knee.value = this.knee;
+    // this.dynamicCompressor.ratio.value = this.ratio;
+    this.dynamicCompressor.attack.value = this.attack;
+    this.dynamicCompressor.release.value = this.release;
+  }
+
+  return(dynamicCompressorNode);
+})();
