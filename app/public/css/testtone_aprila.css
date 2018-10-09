@@ -14,7 +14,7 @@ body {
 }
 
 #testtoneTop {
-  background: url(../img/march/christopher-burns-270898-unsplash.jpg);
+  background: url(../img/april/water-3711257_1920.jpg);
   background-size: 110%;
   background-color: #ffffff;
   font-family: 'Righteous', cursive;
@@ -31,14 +31,14 @@ body {
   font-size: 36px;
   margin-left: 3em;
   margin-top: 1em;
-  color: #141804;
+  color: #004c00;
   font-weight: 600;
-  text-shadow: 1px 1px 1px #d1f02e, 2px 2px 1px #d1f02e;
+  text-shadow: 1px 1px 1px #4cff4c, 2px 2px 1px #4cff4c;
 }
 
 #testtoneSignalFlow {
-  background: url(../img/march/christopher-burns-270898-unsplash.jpg);
-  background-size: 1300%;
+  background: url(../img/april/water-3711257_1920.jpg);
+  background-size: 1400%;
   background-color: #ffffff;
   border: solid 1px transparent;
   height: 450px;
@@ -47,7 +47,7 @@ body {
   transform: skew(0deg, 45deg);
   margin-left: 0.8vmin;
   margin-bottom: 3.5vmin;
-  box-shadow: 0px -1px 1px #d1f02e;
+  box-shadow: 0px -1px 1px #4cff4c;
 }
 
 #testtoneSignalFlow p {
@@ -56,8 +56,8 @@ body {
   margin-left: 0.8em;
   margin-top: 34vmin;
   margin-bottom: 0;
-  color: #141804;
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e;
+  color: #004c00;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c;
 }
 
 #testtoneSignalFlow h2 {
@@ -67,16 +67,16 @@ body {
   margin-top: 2vmin;
   margin-bottom: 8vmin;
   width: 60%;
-  color: #141804;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
+  color: #004c00;
+  background: url(../img/april/water-424807_1920.jpg);
   background-size: 600%;
   /*background: #224CBC;
   background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c;
   cursor: pointer;
 }
 
@@ -84,18 +84,18 @@ body {
   height: 450px;
   width: 80%;
   background: #ffffff;
-  color: #141804;
+  color: #004c00;
   /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
   background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
-  background: url(../img/march/ricardo-gomez-angel-459802-unsplash.jpg);
+  background: url(../img/april/water-1759703_1920.jpg);
   background-size: 110%;
   background-repeat: no-repeat;
   background-color: #ffffff;
-  margin-top: -56.4vmin;
+  margin-top: -57.4vmin;
   margin-left: 7.3vmin;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #d1f02e;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c;
 }
 
 #testtoneFace img {
@@ -112,7 +112,7 @@ body {
   font-family: 'Righteous', cursive;
   font-size: 24px;
   margin-bottom: 0;
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c;
 }
 
 #waveformSelector {
@@ -133,8 +133,8 @@ body {
 #waveformSelector li {
   border: solid 1px black;
   cursor: pointer;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
+  background: url(../img/april/water-424807_1920.jpg);
   background-size: 100%;
 }
 
@@ -156,7 +156,7 @@ body {
   margin-left: 3vmin;
   margin-bottom: 0;
   margin-top: -54.5vmin;
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
 }
 
 #testToneWaveLabel {
@@ -164,7 +164,7 @@ body {
   font-size: 36px;
   margin-left: 3vmin;
   margin-top: -15vmin;
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
 }
 
 #volumeLabel {
@@ -172,7 +172,7 @@ body {
   font-size: 36px;
   margin-left: 65vmin;
   margin-top: -45.5vmin;
-  text-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
+  text-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
 }
 
 #testToneFrequency {
@@ -180,9 +180,9 @@ body {
   font-size: 56px;
   margin-left: 3vmin;
   margin-top: 0;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
-  background-size: 3000%;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
+  background: url(../img/april/water-424807_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
   padding-left: 5vmin;
 }
 
@@ -191,9 +191,9 @@ body {
   font-size: 56px;
   margin-left: 65vmin;
   margin-top: -4.5vmin;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
-  background-size: 3000%;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #7DF9FF, -4px -4px 1px #d1f02e;
+  background: url(../img/april/water-424807_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #7DF9FF, -4px -4px 1px #4cff4c;
   padding-left: 5vmin;
 }
 
@@ -203,14 +203,14 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 40%;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
+  background: url(../img/april/water-424807_1920.jpg);
   background-size: 100%;
   outline: none;
   opacity: 1.0;
 
   margin-left: 30vmin;
   margin-top: 11vmin;
-  box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+  box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #testToneFrequencySlider::-webkit-slider-thumb {
@@ -219,30 +219,30 @@ body {
     width: 42px;
     height: 49px;
     background: url(../img/noun_338545_cc.png);
-    background-color: #687817;
-    background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
-    background: -webkit-linear-gradient(-135deg, #daf357, #687817);
-    background: -o-linear-gradient(-135deg, #daf357, #687817);
-    background: linear-gradient(-135deg, #daf357, #687817);
+    background-color: #99ff99;
+    background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+    background: linear-gradient(-135deg, #007f00, #99ff99);
     background-size: 140%;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+    box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #testToneFrequencySlider::-moz-range-thumb {
   width: 52px;
   height: 49px;
   background: url(../img/noun_338545_cc.png);
-  background-color: #687817;
-  background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
-  background: -webkit-linear-gradient(-135deg, #daf357, #687817);
-  background: -o-linear-gradient(-135deg, #daf357, #687817);
-  background: linear-gradient(-135deg, #daf357, #687817);
+  background-color: #99ff99;
+  background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+  background: linear-gradient(-135deg, #007f00, #99ff99);
   background-size: 140%;
   background-repeat: no-repeat;
   cursor: pointer;
-  box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+  box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #testToneVolumeSlider {
@@ -251,14 +251,14 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 40%;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
+  background: url(../img/april/water-424807_1920.jpg);
   background-size: 100%;
   outline: none;
   opacity: 1.0;
 
   margin-left: 69vmin;
   margin-top: 10.5vmin;
-  box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+  box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #testToneVolumeSlider::-webkit-slider-thumb {
@@ -267,41 +267,41 @@ body {
     width: 42px;
     height: 49px;
     background: url(../img/noun_338545_cc.png);
-    background-color: #687817;
-    background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
-    background: -webkit-linear-gradient(-135deg, #daf357, #687817);
-    background: -o-linear-gradient(-135deg, #daf357, #687817);
-    background: linear-gradient(-135deg, #daf357, #687817);
+    background-color: #99ff99;
+    background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+    background: linear-gradient(-135deg, #007f00, #99ff99);
     background-size: 140%;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+    box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #testToneVolumeSlider::-moz-range-thumb {
   width: 52px;
   height: 49px;
   background: url(../img/noun_338545_cc.png);
-  background-color: #687817;
-  background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
-  background: -webkit-linear-gradient(-135deg, #daf357, #687817);
-  background: -o-linear-gradient(-135deg, #daf357, #687817);
-  background: linear-gradient(-135deg, #daf357, #687817);
+  background-color: #99ff99;
+  background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+  background: linear-gradient(-135deg, #007f00, #99ff99);
   background-size: 140%;
   background-repeat: no-repeat;
   cursor: pointer;
-  box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+  box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 #waveFormsContainer {
   cursor: pointer;
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
-  background-size: 2000%;
+  background: url(../img/april/water-424807_1920.jpg);
+  background-size: 200%;
   margin: 0 3vmin 0 5vmin;
   margin-top: 1vmin;
-  border: solid 1px #141804;
+  border: solid 1px #004c00;
   width: 35%;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #d1f02e, -4px -4px 1px #d1f02e;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c, -4px -4px 1px #4cff4c;
 }
 
 #sine {
@@ -382,7 +382,7 @@ body {
   height: 60px;
   border: solid 10px #ff0000;
   background-color: #ff0000;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #d1f02e, -4px -4px 1px #d1f02e;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c, -4px -4px 1px #4cff4c;
 }
 .switch {
   margin: 6vmin 0 0 1vmin;
@@ -390,7 +390,7 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-  box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #d1f02e;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c;
 }
 
 .switch input {
@@ -398,7 +398,7 @@ body {
 }
 
 .slider {
-  background: url(../img/march/christian-l-626983-unsplash.jpg);
+  background: url(../img/april/water-424807_1920.jpg);
   background-size: 3000%;
   position: absolute;
   cursor: pointer;
@@ -418,11 +418,11 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: #687817;
-  background-color: -webkit-linear-gradient(135deg, #daf357, #687817);
-  background: -webkit-linear-gradient(135deg, #daf357, #687817);
-  background: -o-linear-gradient(135deg, #daf357, #687817);
-  background: linear-gradient(135deg, #daf357, #687817);
+  background-color: #99ff99;
+  background-color: -webkit-linear-gradient(135deg, #007f00, #99ff99);
+  background: -webkit-linear-gradient(135deg, #007f00, #99ff99);
+  background: -o-linear-gradient(135deg, #007f00, #99ff99);
+  background: linear-gradient(135deg, #007f00, #99ff99);
 
   -webkit-transition: .4s;
   transition: .4s;
