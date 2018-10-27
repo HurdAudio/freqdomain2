@@ -6,7 +6,12 @@
   var modDiv = [];
   var rackPositionX = 0;
   var rackPositionY = 0;
-
+  var verticalRackPositionX = 0;
+  var verticalRackPositionY = 0;
+  var defaultRackPositionX = 0;
+  var defaultRackPositionY = 0;
+  var dafaultVerticalRackPositionX = 0;
+  var defaultVerticalRackPositionY = 0;
 
   angular.module('app')
     .component('rendertest', {
@@ -32,6 +37,10 @@
             modDiv.splice(0, 1);
             divHandle.parentNode.removeChild(divHandle);
           }
+          rackPositionX = defaultRackPositionX;
+          rackPositionY = defaultRackPositionY;
+          verticalRackPositionX = dafaultVerticalRackPositionX;
+          verticalRackPositionY = defaultVerticalRackPositionY;
         }
       }
 
@@ -69,6 +78,14 @@
                 if (rackPositionY > 0) {
                   masterDiv = masterVolume.renderRackHorizontal(rackPositionX, rackPositionY);
                   rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
+              if (renderSizeSelector.value === 'rackVertical') {
+                if (verticalRackPositionX > 324) {
+                  masterDiv = masterVolume.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
                   modDiv.push(masterDiv);
                   renderTestingSpace.appendChild(masterDiv);
                 }
@@ -181,6 +198,12 @@
         console.log(totalHeight);
         rackPositionX = totalWidth - 950;
         rackPositionY = totalHeight - 320;
+        verticalRackPositionX = totalWidth - 200;
+        verticalRackPositionY = 10;
+        defaultRackPositionX = rackPositionX;
+        defaultRackPositionY = rackPositionY;
+        dafaultVerticalRackPositionX = verticalRackPositionX;
+        defaultVerticalRackPositionY = verticalRackPositionY;
 
       }
 

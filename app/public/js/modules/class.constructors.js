@@ -64,6 +64,8 @@ var MasterVolume = (function(settings, skin) {
     this.dragHeight = 400;
     this.horizontalWidth = 900;
     this.horizontalHeight = 160;
+    this.verticalWidth = 160;
+    this.verticalHeight = 750;
 
     this.userVolumeInput = (display, slider) => {
 
@@ -193,6 +195,53 @@ var MasterVolume = (function(settings, skin) {
           displaySpan.innerHTML = '';
           masterGainDisplay.setAttribute("style", "color: " + obj.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 35px; background: url(" + obj.displayPath + "); background-size: " + obj.gainDisplaySize + "; box-shadow: -1px -1px 1px " + obj.gainDisplayBoxShadowColor + ", -2px -2px 1px " + obj.gainDisplayBoxShadowColor + ", -3px -3px 1px " + obj.gainDisplayBoxShadowColor + ", -4px -4px 1px " + obj.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; height: 80px;");
           nameAndInputDiv.setAttribute("style", "float: left; width: " + (obj.horizontalWidth/5) + "px; background: url(" + obj.topPath + "); background-size: " + obj.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (obj.horizontalHeight - 5) + "px; filter: sepia(0);");
+          speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 1;");
+        }
+      }
+    }
+
+    this.userMuteRackVertical = (masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv) => {
+      masterMute.addEventListener('click', () => {
+        this.mute = !this.mute;
+        if (this.mute) {
+          this.masterGain.gain.value = 0;
+          visualMutingRackVertical(this);
+        } else {
+          this.masterGain.gain.value = (this.gainValue/100);
+        }
+      });
+
+      function visualMutingRackVertical(obj) {
+        if (obj.mute) {
+          displaySpan.innerHTML = 'mute';
+          masterGainDisplay.setAttribute("style", "color: transparent; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: #ff0000; box-shadow: -1px -1px 1px #00ffff, -2px -2px 1px #00ffff, -3px -3px 1px #00ffff, -4px -4px 1px #00ffff; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+          speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 0.2;");
+          nameAndInputDiv.setAttribute("style", "float: left; width: " + obj.verticalWidth + "px; background: url(" + obj.topPath + "); background-size: " + obj.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (obj.verticalHeight/5) + "px; filter: sepia(5);");
+          setTimeout(() => {
+            if (obj.mute) {
+              masterGainDisplay.setAttribute("style", "color: transparent; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + obj.displayPath + "); background-size: " + obj.gainDisplaySize + "; box-shadow: -1px -1px 1px " + obj.gainDisplayBoxShadowColor + ", -2px -2px 1px " + obj.gainDisplayBoxShadowColor + ", -3px -3px 1px " + obj.gainDisplayBoxShadowColor + ", -4px -4px 1px " + obj.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+              setTimeout(() => {
+                if (obj.mute) {
+                  visualMutingRackVertical(obj);
+                } else {
+                  displaySpan.innerHTML = '';
+                  masterGainDisplay.setAttribute("style", "color: " + obj.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + obj.displayPath + "); background-size: " + obj.gainDisplaySize + "; box-shadow: -1px -1px 1px " + obj.gainDisplayBoxShadowColor + ", -2px -2px 1px " + obj.gainDisplayBoxShadowColor + ", -3px -3px 1px " + obj.gainDisplayBoxShadowColor + ", -4px -4px 1px " + obj.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+                  speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 1;");
+                  nameAndInputDiv.setAttribute("style", "float: left; width: " + obj.verticalWidth + "px; background: url(" + obj.topPath + "); background-size: " + obj.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (obj.verticalHeight/5) + "px; filter: sepia(0);");
+                }
+              }, 500);
+            } else {
+              displaySpan.innerHTML = '';
+              masterGainDisplay.setAttribute("style", "color: " + obj.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + obj.displayPath + "); background-size: " + obj.gainDisplaySize + "; box-shadow: -1px -1px 1px " + obj.gainDisplayBoxShadowColor + ", -2px -2px 1px " + obj.gainDisplayBoxShadowColor + ", -3px -3px 1px " + obj.gainDisplayBoxShadowColor + ", -4px -4px 1px " + obj.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+              speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 1;");
+              nameAndInputDiv.setAttribute("style", "float: left; width: " + obj.verticalWidth + "px; background: url(" + obj.topPath + "); background-size: " + obj.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (obj.verticalHeight/5) + "px; filter: sepia(0);");
+            }
+          }, 500);
+        } else {
+          displaySpan.innerHTML = '';
+          masterGainDisplay.setAttribute("style", "color: " + obj.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + obj.displayPath + "); background-size: " + obj.gainDisplaySize + "; box-shadow: -1px -1px 1px " + obj.gainDisplayBoxShadowColor + ", -2px -2px 1px " + obj.gainDisplayBoxShadowColor + ", -3px -3px 1px " + obj.gainDisplayBoxShadowColor + ", -4px -4px 1px " + obj.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+          nameAndInputDiv.setAttribute("style", "float: left; width: " + obj.verticalWidth + "px; background: url(" + obj.topPath + "); background-size: " + obj.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (obj.verticalHeight/5) + "px; filter: sepia(0);");
+          speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 1;");
         }
       }
     }
@@ -405,6 +454,87 @@ var MasterVolume = (function(settings, skin) {
 
       this.userVolumeInput(masterGainDisplay, amountRange);
       this.userMuteRack(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
+
+      inputPort.addEventListener('click', () => {
+        alert('Master Volume Input Port -- id: ' + this.id);
+      });
+
+      return(div);
+    }
+
+    this.renderRackVertical = (x, y) => {
+      let div = document.createElement('div');
+      let nameAndInputDiv = document.createElement('div');
+      div.appendChild(nameAndInputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndInputDiv.appendChild(nameTag);
+      let inputPort = document.createElement('h1');
+      let inputLabel = document.createElement('p');
+      nameAndInputDiv.appendChild(inputLabel);
+      inputLabel.innerHTML = 'input';
+      nameAndInputDiv.appendChild(inputPort);
+      inputPort.innerHTML = '◦';
+      inputPort.id = 'input' + this.name + this.id;
+      let displayDiv = document.createElement('div');
+      div.appendChild(displayDiv);
+      let displayAnchor = document.createElement('a');
+      displayDiv.appendChild(displayAnchor);
+      let masterGainDisplay = document.createElement('input');
+      displayAnchor.appendChild(masterGainDisplay);
+      masterGainDisplay.id = 'masterGainDisplay' + this.id;
+      masterGainDisplay.type = 'number';
+      masterGainDisplay.name = 'amountInput';
+      masterGainDisplay.min = '0';
+      masterGainDisplay.max = '100';
+      masterGainDisplay.value = this.gainValue.toString();
+      masterGainDisplay.stepvalue = '1';
+      let displaySpan = document.createElement('span');
+      displayAnchor.appendChild(displaySpan);
+      let rangeDiv = document.createElement('div');
+      div.appendChild(rangeDiv);
+      let amountRange = document.createElement('input');
+      rangeDiv.appendChild(amountRange);
+      amountRange.className = 'volumeSliderVertical';
+      amountRange.name = 'amountRange';
+      amountRange.type = 'range';
+      amountRange.min = '0';
+      amountRange.max = '100';
+      amountRange.value = this.gainValue.toString();
+      amountRange.stepvalue = '1';
+      amountRange.id = 'masterVolume' + this.id;
+      let muteButtonDiv = document.createElement('div');
+      div.appendChild(muteButtonDiv);
+      let masterMute = document.createElement('button');
+      muteButtonDiv.appendChild(masterMute);
+      masterMute.type = '';
+      masterMute.id = 'masterMute';
+      let speakerIcon = document.createElement('img');
+      masterMute.appendChild(speakerIcon);
+      speakerIcon.src = './img/january/loudspeaker-155807_1280.png';
+      let muteNote = document.createElement('p');
+      masterMute.appendChild(muteNote);
+      muteNote.innerHTML = 'mute';
+
+      div.setAttribute("style", "width: " + this.verticalWidth + "px; height: " + this.verticalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + (this.faceSize * 5) + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.masterVolumeBoxShadow + ", -2px -2px 1px " + this.masterVolumeBoxShadow + ", -3px -3px 1px " + this.masterVolumeBoxShadow + ", -4px -4px 1px " + this.masterVolumeBoxShadow + ";");
+      nameAndInputDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.verticalHeight/5) + "px;");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 20px; margin-top: 0; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadow + ", -2px -2px 1px " + this.topFontShadow + ";");
+      inputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 55px; margin-top: 25px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin-left: 55px; margin-top: -5px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      displayDiv.setAttribute("style", "float: left; width: " + this.horizontalHeight + "px; padding: 10px;");
+      displayAnchor.setAttribute("style", "width: 100%;");
+      masterGainDisplay.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + this.displayPath + "); background-size: " + this.gainDisplaySize + "; box-shadow: -1px -1px 1px " + this.gainDisplayBoxShadowColor + ", -2px -2px 1px " + this.gainDisplayBoxShadowColor + ", -3px -3px 1px " + this.gainDisplayBoxShadowColor + ", -4px -4px 1px " + this.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+      displaySpan.setAttribute("style", "position: absolute; font-family: 'Righteous', cursive; font-size: 40px; color: black; margin-left: -130px; margin-top: 35px; opacity: 1; color: #fff000; width: 140px;");
+      rangeDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px;");
+      amountRange.setAttribute("style", "background: url(" + this.displayPath + "); background-size: " + this.masterVolumeSize + "; background-repeat: " + this.masterVolumeRepeat + "; box-shadow: 1px -1px 1px " + this.masterVolumeBoxShadow + ", 2px -2px 1px " + this.masterVolumeBoxShadow + ", 3px -3px 1px " + this.masterVolumeBoxShadow + ", 4px -4px 1px " + this.masterVolumeBoxShadow + ";");
+      muteButtonDiv.className = 'pure-u-1-5';
+      muteButtonDiv.setAttribute("style", "float: left; width: " + (this.verticalWidth) + "px; margin-left: 30px; margin-top: 150px;");
+      masterMute.setAttribute("style", "width: 100px; height: auto; background: transparent; margin-left: 0; margin-top: 0; cursor: pointer;");
+      speakerIcon.setAttribute("style", "width: 70%; margin-left: 0; margin-top: 0; opacity: 1;");
+      muteNote.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 32px; margin-bottom: 0; margin-top: -5px; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+
+      this.userVolumeInput(masterGainDisplay, amountRange);
+      this.userMuteRackVertical(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
 
       inputPort.addEventListener('click', () => {
         alert('Master Volume Input Port -- id: ' + this.id);

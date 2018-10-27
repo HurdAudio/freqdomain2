@@ -5,6 +5,7 @@
   z-index: 5;
   opacity: 1;
   padding: 6vmin;
+  overflow: scroll;
 }
 
 #renderTestingSpace h1 {

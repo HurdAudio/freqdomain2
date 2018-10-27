@@ -64,3 +64,38 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
+.volumeSliderVertical {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 310px;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: -70px;
+  margin-top: 130px;
+}
+
+.volumeSliderVertical::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 48px;
+  height: 49px;
+  border: solid 2px black;
+  background: url(../img/noun_149738_cc.png);
+  background-size: 110%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.volumeSliderVertical::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  border: solid 2px black;
+  background: url(../img/noun_149738_cc.png);
+  background-size: 110%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
