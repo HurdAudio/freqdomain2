@@ -57,6 +57,12 @@
         url: '/airlinemoduletest',
         parent: 'app',
         component: 'airlinemoduletest'
+      })
+      .state({
+        name: 'rendertest',
+        url: '/rendertest',
+        parent: 'app',
+        component: 'rendertest'
       });
       // .state({
       //   name: 'weekview',

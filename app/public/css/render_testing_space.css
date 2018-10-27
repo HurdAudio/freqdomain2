@@ -1,0 +1,78 @@
+#renderTestingSpace {
+  height: 1000px;
+  width: 100%;
+  background: #000000;
+  z-index: 5;
+  opacity: 1;
+  padding: 6vmin;
+}
+
+#renderTestingSpace h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  color: #ED4E0E;
+}
+
+#renderTestingSpace p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  color: #ED4E0E;
+}
+
+#renderTestingSpace select {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  color: #ED4E0E;
+}
+
+#renderButton {
+  float: left;
+  margin-left: 3vmin;
+  margin-top: 4vmin;
+  margin-right: 3vmin;
+  margin-bottom: 4vmin;
+  padding-bottom: 4vmin;
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  height: 5vmin;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+  cursor: pointer;
+  border: 5px solid #ED4E0E;
+  background: #4372E1;
+}
+
+#renderButton p:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#renderButton p:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#clearButton {
+  float: left;
+  margin-left: 3vmin;
+  margin-top: 4vmin;
+  margin-right: 3vmin;
+  margin-bottom: 4vmin;
+  padding-bottom: 4vmin;
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  height: 5vmin;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+  cursor: pointer;
+  border: 5px solid #ED4E0E;
+  background: #4372E1;
+}
+
+#clearButton p:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#clearButton p:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}

@@ -9,6 +9,8 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           name: 'master volume',
+          positionX: 1000,
+          positionY: 400,
           master_volume_gain_value: 40,
           input: null,
           mute: false,

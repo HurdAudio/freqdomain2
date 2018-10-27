@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     master_volume_gain_value: req.body.master_volume_gain_value,
     input: req.body.input,
     mute: req.body.mute
@@ -60,6 +62,8 @@ router.patch('/:id', (req, res, next) => {
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     master_volume_gain_value: req.body.master_volume_gain_value,
     input: req.body.input,
     mute: req.body.mute
@@ -98,6 +102,8 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            positionX: record.positionX,
+            positionY: record.positionY,
             master_volume_gain_value: record.master_volume_gain_value,
             input: record.input,
             mute: record.mute,

@@ -66,11 +66,6 @@ body {
   color: #000000;
   background: url(../img/january/blue_ice.png);
   background-size: 100%;
-  /*background: #224CBC;
-  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
-  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
-  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
-  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
   text-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF;
   box-shadow: -1px -1px 1px #7DF9FF, -2px -2px 1px #7DF9FF;
   cursor: pointer;

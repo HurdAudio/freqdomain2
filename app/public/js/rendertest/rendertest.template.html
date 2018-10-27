@@ -1,0 +1,25 @@
+<div id="renderTestingSpace">
+  <h1>Render Testing</h1>
+  <p>Select Module</p>
+  <select id="moduleSelector" value="MasterVolume">
+
+    <option value="MasterVolume">Master Volume</option>
+  </select>
+  <p>Select Skin</p>
+
+  <select id="skinSelector">
+
+  </select>
+
+  <p>Render Style</p>
+  <select id="renderSizeSelector" value="draggable">
+    <option value="draggable">Draggable</option>
+    <option value="rackHorizontal">Rackmount Horizontal</option>
+    <option value="rackVertical">Rackmount Vertical</option>
+  </select>
+
+  <p></p>
+
+  <a class="button" id="renderButton" ng-click="$ctrl.renderNow()"><p>render</p></a>
+  <a class="button" id="clearButton" ng-click="$ctrl.clearNow()"><p>clear</p></a>
+</div>
