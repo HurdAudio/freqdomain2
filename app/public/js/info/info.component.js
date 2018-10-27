@@ -19,6 +19,11 @@
       vm.userLogout = userLogout;
       vm.userProfileEditor = userProfileEditor;
       vm.returnToHub = returnToHub;
+      vm.navMixer = navMixer;
+
+      function navMixer() {
+        $state.go('mixer', {id: currentUserId});
+      }
 
       function returnToHub() {
         $state.go('userhub', {id: currentUserId});

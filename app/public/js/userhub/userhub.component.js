@@ -33,6 +33,11 @@
       vm.collapseUnreadMessage = collapseUnreadMessage;
       vm.uncollapseReadMessage = uncollapseReadMessage;
       vm.collapseReadMessageAction = collapseReadMessageAction;
+      vm.navMixer = navMixer;
+
+      function navMixer() {
+        $state.go('mixer', {id: currentUserId});
+      }
 
       function collapseReadMessageAction(msgId) {
         let collapsedReadMessage = document.getElementById('collapsedReadMessage' + msgId);

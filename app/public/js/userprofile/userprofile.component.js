@@ -38,6 +38,11 @@
       vm.undisplayContactInfos = undisplayContactInfos;
       vm.loadInfo = loadInfo;
       vm.updateUserProfile = updateUserProfile;
+      vm.navMixer = navMixer;
+
+      function navMixer() {
+        $state.go('mixer', {id: currentUserId});
+      }
 
       function updateUserProfile() {
         $http.get(`/users/${currentUserId}`)

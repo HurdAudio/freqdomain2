@@ -63,6 +63,12 @@
         url: '/rendertest',
         parent: 'app',
         component: 'rendertest'
+      })
+      .state({
+        name: 'mixer',
+        url: '/mixer/:id',
+        parent: 'app',
+        component: 'mixer'
       });
       // .state({
       //   name: 'weekview',
