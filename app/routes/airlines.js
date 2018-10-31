@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('input_managers')
+  knex('airlines')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('input_managers')
+  knex('airlines')
     .select()
     .where('id', req.params.id)
     .first()
@@ -37,11 +37,10 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  knex('input_managers')
+  knex('airlines')
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
-    input_strip: req.body.input_strip,
     output: req.body.output
   }, '*')
   .then((result) => {
@@ -54,12 +53,11 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('input_managers')
+  knex('airlines')
   .where('id', req.params.id)
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
-    input_strip: req.body.input_strip,
     output: req.body.output
   }, '*')
     .then((results)=>{
@@ -73,7 +71,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('input_managers')
+      knex('airlines')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -84,7 +82,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('input_managers')
+          return knex('airlines')
             .del()
             .where('id', req.params.id);
         })
@@ -96,6 +94,7 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            input_strip: record.input_strip,
             output: record.output,
             created_at: record.created_at,
             updated_at: record.updated_at
