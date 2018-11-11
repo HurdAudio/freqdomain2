@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Random Number Generator (module 6). Stage 12 March Consequence - March Skins added to Skins table. Class Constructor.',
+          headline: 'Currently working on: Dynamic Compressor (module 5). Stage 13 April A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')

@@ -521,24 +521,42 @@
         //
         // console.log(testTestTone);
 
-        let dynamicCompressor = new DynamicCompressor({
+        // let dynamicCompressor = new DynamicCompressor({
+        //   id: 1,
+        //   name: 'dynamic compressor',
+        //   threshold: -24.00,
+        //   threshold_modulator: null,
+        //   knee: 30.00,
+        //   knee_modulator: null,
+        //   ratio: 12.000,
+        //   ratio_modulator: null,
+        //   attack: 0.003,
+        //   attack_modulator: null,
+        //   release: 0.250,
+        //   release_modulator: null,
+        //   input: null,
+        //   output: null
+        // }, {});
+
+        let randomNumberGenerator = new RandomNumberGenerator({
           id: 1,
-          name: 'dynamic compressor',
-          threshold: -24.00,
-          threshold_modulator: null,
-          knee: 30.00,
-          knee_modulator: null,
-          ratio: 12.000,
-          ratio_modulator: null,
-          attack: 0.003,
-          attack_modulator: null,
-          release: 0.250,
-          release_modulator: null,
-          input: null,
+          user_id: 1,
+          name: "random number generator",
+          interval: 1,
+          interval_modulator: null,
+          maximum: 0,
+          maximum_modulator: null,
+          minimum: 0,
+          minimum_modulator: null,
+          continuous: false,
+          exponential: false,
+          convex: false,
+          slope: 4,
           output: null
         }, {});
 
-        console.log(dynamicCompressor);
+
+        console.log(randomNumberGenerator);
 
 
 

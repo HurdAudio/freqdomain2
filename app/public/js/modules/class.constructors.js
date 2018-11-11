@@ -615,7 +615,6 @@ var TestToneModule = (function(settings, skin) {
 var DynamicCompressor = (function(settings, skin) {
 
   let dynamicCompressorNode = function(settings, skin) {
-    console.log(settings);
     this.id = settings.id;
     this.name = settings.name;
     this.threshold = settings.threshold;
@@ -639,4 +638,26 @@ var DynamicCompressor = (function(settings, skin) {
   }
 
   return(dynamicCompressorNode);
+})();
+
+var RandomNumberGenerator = (function(settings, skin) {
+
+  let randomNumberGenerator = function(settings, skin) {
+    console.log(settings);
+    this.id = settings.id;
+    this.name = settings.name;
+    this.interval = settings.interval;
+    this.interval_modulator = settings.interval_modulator;
+    this.maximum = settings.maximum;
+    this.maximum_modulator = settings.maximum_modulator;
+    this.minimum = settings.minimum;
+    this.minimum_modulator = settings.minimum_modulator;
+    this.continuous = settings.continuous;
+    this.exponential = settings.exponential;
+    this.convex = settings.convex;
+    this.slope = settings.slope;
+    this.output = settings.output;
+  }
+
+  return(randomNumberGenerator);
 })();
