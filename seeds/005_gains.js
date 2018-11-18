@@ -9,6 +9,8 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           name: 'gain',
+          positionX: 1000,
+          positionY: 400,
           gain_value: 40,
           gain_modulator: null,
           input: null,

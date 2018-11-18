@@ -3,6 +3,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('gains', function(table) {
     table.increments().primary();
     table.integer('user_id').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
+    table.integer('positionX').notNullable().defaultTo(400);
+    table.integer('positionY').notNullable().defaultTo(500);
     table.string('name').notNullable().defaultTo('gain');
     table.integer('gain_value').notNullable().defaultTo(0);
     table.json('gain_modulator').defaultTo(null);
