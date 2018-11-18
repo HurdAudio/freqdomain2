@@ -102,14 +102,14 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
-              // if (renderSizeSelector.value === 'rackHorizontal') {
-              //   if (rackPositionY > 0) {
-              //     masterDiv = masterVolume.renderRackHorizontal(rackPositionX, rackPositionY);
-              //     rackPositionY -= 162;
-              //     modDiv.push(masterDiv);
-              //     renderTestingSpace.appendChild(masterDiv);
-              //   }
-              // }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 0) {
+                  masterDiv = gain.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
               // if (renderSizeSelector.value === 'rackVertical') {
               //   if (verticalRackPositionX > 324) {
               //     masterDiv = masterVolume.renderRackVertical(verticalRackPositionX, verticalRackPositionY);

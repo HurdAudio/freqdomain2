@@ -771,6 +771,98 @@ var GainModule = (function(settings, skin) {
       return(div);
     }
 
+    this.renderRackHorizontal = (x, y) => {
+      let div = document.createElement('div');
+      let nameAndInputOutputDiv = document.createElement('div');
+      div.appendChild(nameAndInputOutputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndInputOutputDiv.appendChild(nameTag);
+      let inputPort = document.createElement('h1');
+      let inputLabel = document.createElement('p');
+      nameAndInputOutputDiv.appendChild(inputLabel);
+      inputLabel.innerHTML = 'input';
+      nameAndInputOutputDiv.appendChild(inputPort);
+      inputPort.innerHTML = '◦';
+      inputPort.id = 'input' + this.name + this.id;
+      let outputPort = document.createElement('h1');
+      let outputLabel = document.createElement('p');
+      nameAndInputOutputDiv.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      nameAndInputOutputDiv.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output' + this.name + this.id;
+      let displayDiv = document.createElement('div');
+      div.appendChild(displayDiv);
+      let gainDisplay = document.createElement('input');
+      displayDiv.appendChild(gainDisplay);
+      gainDisplay.id = 'gainDisplay' + this.id;
+      gainDisplay.type = 'number';
+      gainDisplay.name = 'amountInput';
+      gainDisplay.min = '0';
+      gainDisplay.max = '100';
+      gainDisplay.value = this.gainValue.toString();
+      gainDisplay.stepvalue = '1';
+      let rangeDiv = document.createElement('div');
+      div.appendChild(rangeDiv);
+      let amountRange = document.createElement('input');
+      rangeDiv.appendChild(amountRange);
+      amountRange.className = 'volumeSliderHorizontal';
+      amountRange.name = 'amountRange';
+      amountRange.type = 'range';
+      amountRange.min = '0';
+      amountRange.max = '100';
+      amountRange.value = this.gainValue.toString();
+      amountRange.stepvalue = '1';
+      amountRange.id = 'gainSlider' + this.id;
+      let modulationDiv = document.createElement('div');
+      div.appendChild(modulationDiv);
+      let modulationInputLabel = document.createElement('p');
+      modulationDiv.appendChild(modulationInputLabel);
+      modulationInputLabel.innerHTML = 'modulation input';
+      let modulationInputPort = document.createElement('h1');
+      modulationDiv.appendChild(modulationInputPort);
+      modulationInputPort.innerHTML = '◦';
+      modulationInputPort.id = 'modulationInput' + this.name + this.id;
+
+      div.setAttribute("style", "width: " + this.horizontalWidth + "px; height: " + this.horizontalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.gainVolumeBoxShadow + ", -2px -2px 1px " + this.gainVolumeBoxShadow + ", -3px -3px 1px " + this.gainVolumeBoxShadow + ", -4px -4px 1px " + this.gainVolumeBoxShadow + ";");
+      div.className = 'pure-g';
+      nameAndInputOutputDiv.className = "pure-u-1-5";
+      nameAndInputOutputDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/5) + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 5px; margin-top: 0; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadow + ", -2px -2px 1px " + this.topFontShadow + ";");
+      inputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 10px; margin-top: -5px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 15px; margin-top: -10px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 95px; margin-top: -135px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 110px; margin-top: -10px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      displayDiv.className = "pure-u-1-5";
+      displayDiv.setAttribute("style", "float: left; width: " + this.horizontalHeight + "px; padding: 10px;");
+      gainDisplay.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 35px; background: url(" + this.displayPath + "); background-size: " + this.gainDisplaySize + "; box-shadow: -1px -1px 1px " + this.gainDisplayBoxShadowColor + ", -2px -2px 1px " + this.gainDisplayBoxShadowColor + ", -3px -3px 1px " + this.gainDisplayBoxShadowColor + ", -4px -4px 1px " + this.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 140px; height: 80px;");
+      rangeDiv.className = 'pure-u-2-5';
+      rangeDiv.setAttribute("style", "float: left; width: " + ((this.horizontalWidth * 2)/5) + "px;");
+      amountRange.setAttribute("style", "background: url(" + this.displayPath + "); background-size: " + this.gainVolumeSize + "; background-repeat: " + this.gainVolumeRepeat + "; box-shadow: 1px -1px 1px " + this.gainVolumeBoxShadow + ", -2px -2px 1px " + this.gainVolumeBoxShadow + ", -3px -3px 1px " + this.gainVolumeBoxShadow + ", -4px -4px 1px " + this.gainVolumeBoxShadow + ";");
+      modulationDiv.className = "pure-u-1-5";
+      modulationDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/5) + "px;");
+      modulationInputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 30px; margin-top: 15px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      modulationInputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 65px; margin-top: -10px; width: 40px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+
+      this.userVolumeInput(gainDisplay, amountRange);
+      // this.userMuteRack(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
+
+      inputPort.addEventListener('click', () => {
+        alert('Gain Input Port -- id: ' + this.id);
+      });
+
+      outputPort.addEventListener('click', () => {
+        alert('Gain Output Port -- id: ' + this.id);
+      });
+
+      modulationInputPort.addEventListener('click', () => {
+        alert('Gain Modulation Input Port -- id: ' + this.id);
+      });
+
+      return(div);
+    }
+
   }
 
   return(gainNode);
