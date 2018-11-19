@@ -846,7 +846,92 @@ var GainModule = (function(settings, skin) {
       modulationInputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 65px; margin-top: -10px; width: 40px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
 
       this.userVolumeInput(gainDisplay, amountRange);
-      // this.userMuteRack(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
+
+      inputPort.addEventListener('click', () => {
+        alert('Gain Input Port -- id: ' + this.id);
+      });
+
+      outputPort.addEventListener('click', () => {
+        alert('Gain Output Port -- id: ' + this.id);
+      });
+
+      modulationInputPort.addEventListener('click', () => {
+        alert('Gain Modulation Input Port -- id: ' + this.id);
+      });
+
+      return(div);
+    }
+
+    this.renderRackVertical = (x, y) => {
+      let div = document.createElement('div');
+      let nameAndInputOutputDiv = document.createElement('div');
+      div.appendChild(nameAndInputOutputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndInputOutputDiv.appendChild(nameTag);
+      let inputPort = document.createElement('h1');
+      let inputLabel = document.createElement('p');
+      nameAndInputOutputDiv.appendChild(inputLabel);
+      inputLabel.innerHTML = 'input';
+      nameAndInputOutputDiv.appendChild(inputPort);
+      inputPort.innerHTML = '◦';
+      inputPort.id = 'input' + this.name + this.id;
+      let outputLabel = document.createElement('p');
+      nameAndInputOutputDiv.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      let displayDiv = document.createElement('div');
+      div.appendChild(displayDiv);
+      let outputPort = document.createElement('h1');
+      nameAndInputOutputDiv.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output' + this.name + this.id;
+      let gainDisplay = document.createElement('input');
+      displayDiv.appendChild(gainDisplay);
+      gainDisplay.id = 'gainDisplay' + this.id;
+      gainDisplay.type = 'number';
+      gainDisplay.name = 'amountInput';
+      gainDisplay.min = '0';
+      gainDisplay.max = '100';
+      gainDisplay.value = this.gainValue.toString();
+      gainDisplay.stepvalue = '1';
+      let rangeDiv = document.createElement('div');
+      div.appendChild(rangeDiv);
+      let amountRange = document.createElement('input');
+      rangeDiv.appendChild(amountRange);
+      amountRange.className = 'volumeSliderVertical';
+      amountRange.name = 'amountRange';
+      amountRange.type = 'range';
+      amountRange.min = '0';
+      amountRange.max = '100';
+      amountRange.value = this.gainValue.toString();
+      amountRange.stepvalue = '1';
+      amountRange.id = 'gainSlider' + this.id;
+      let modulationDiv = document.createElement('div');
+      div.appendChild(modulationDiv);
+      let modulationInputLabel = document.createElement('p');
+      modulationDiv.appendChild(modulationInputLabel);
+      modulationInputLabel.innerHTML = 'modulation input';
+      let modulationInputPort = document.createElement('h1');
+      modulationDiv.appendChild(modulationInputPort);
+      modulationInputPort.innerHTML = '◦';
+      modulationInputPort.id = 'modulationInput' + this.name + this.id;
+
+      div.setAttribute("style", "width: " + this.verticalWidth + "px; height: " + this.verticalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + (this.faceSize * 5) + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.gainVolumeBoxShadow + ", -2px -2px 1px " + this.gainVolumeBoxShadow + ", -3px -3px 1px " + this.gainVolumeBoxShadow + ", -4px -4px 1px " + this.gainVolumeBoxShadow + ";");
+      nameAndInputOutputDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.verticalHeight/5) + "px;");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 20px; margin-top: 0; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadow + ", -2px -2px 1px " + this.topFontShadow + ";");
+      inputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 10px; margin-top: -5px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin-left: 15px; margin-top: -5px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 95px; margin-top: -115px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin-left: 100px; margin-top: -5px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      displayDiv.setAttribute("style", "float: left; width: " + this.horizontalHeight + "px; padding: 10px;");
+      gainDisplay.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 60px; margin-left: 0; margin-top: 15px; background: url(" + this.displayPath + "); background-size: " + this.gainDisplaySize + "; box-shadow: -1px -1px 1px " + this.gainDisplayBoxShadowColor + ", -2px -2px 1px " + this.gainDisplayBoxShadowColor + ", -3px -3px 1px " + this.gainDisplayBoxShadowColor + ", -4px -4px 1px " + this.gainDisplayBoxShadowColor + "; padding-left: 1vmin; padding-right: 0; width: 130px; height: 80px;");
+      rangeDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px;");
+      amountRange.setAttribute("style", "background: url(" + this.displayPath + "); background-size: " + this.gainVolumeSize + "; background-repeat: " + this.gainVolumeRepeat + "; box-shadow: 1px -1px 1px " + this.gainVolumeBoxShadow + ", 2px -2px 1px " + this.gainVolumeBoxShadow + ", 3px -3px 1px " + this.gainVolumeBoxShadow + ", 4px -4px 1px " + this.gainVolumeBoxShadow + ";");
+      modulationDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; margin-top: 100px;");
+      modulationInputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 20px; margin-top: 35px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      modulationInputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 65px; margin-top: -10px; width: 40px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+
+      this.userVolumeInput(gainDisplay, amountRange);
 
       inputPort.addEventListener('click', () => {
         alert('Gain Input Port -- id: ' + this.id);
