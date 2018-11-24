@@ -64,6 +64,11 @@
         }
       ];
       vm.selectMixPath = selectMixPath;
+      vm.loadInfo = loadInfo;
+
+      function loadInfo() {
+        $state.go('info', {id: currentUserId});
+      }
 
       function selectMixPath(index) {
         for (let i = 0; i < vm.userMixerPaths.length; i++) {
@@ -192,6 +197,19 @@
 
       }
 
+      function handleSidebar() {
+        let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
+        let mixerSidebar = document.getElementById('mixerSidebar');
+
+        signalPathEditorSpace.addEventListener('mouseout', () => {
+          mixerSidebar.className = "pure-u-1-6 mixerSideOnScreen";
+        });
+
+        signalPathEditorSpace.addEventListener('mouseover', () => {
+          mixerSidebar.className = "pure-u-1-6 mixerSideOffScreen";
+        });
+      }
+
 
       function onInit() {
         console.log("Mixer is lit");
@@ -200,6 +218,7 @@
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
         document.getElementById("mixerOnMixer").setAttribute("style", "visibility: hidden;");
         currentUserId = $stateParams.id;
+        handleSidebar();
 
         // let theBody = document.getElementsByTagName("body")[0];
 

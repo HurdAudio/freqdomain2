@@ -10,14 +10,14 @@
       <a class="button" id="mixerOnMixer"><p>Mixer</p></a>
       <a class="button"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
-      <a class="button"><p>Info</p></a>
+      <a class="button" ng-click="$ctrl.loadInfo()"><p>Info</p></a>
       <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
 
     </div>
   </div>
   <div id="masterMixerDiv" class="pure-g">
 
-    <div id="mixerSidebar" class="pure-u-1-6">
+    <div id="mixerSidebar" class="pure-u-1-6 mixerSideOffScreen">
 
       <div id="mixerSidebarTitle">
 
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <div id="signalPathEditorSpace" class="pure-u-5-6">
+  <div id="signalPathEditorSpace" class="signalPathEditorFull">
 
   </div>
 

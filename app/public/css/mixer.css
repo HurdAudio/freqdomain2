@@ -96,7 +96,7 @@
 #signalPathEditorSpace {
   opacity: 0.9;
   position: inherit;
-  margin-left: 16%;
+  margin-left: 3%;
   margin-top: 2px;
   margin-right: 5px;
   display: block;
@@ -105,4 +105,18 @@
   /* border-bottom: solid 4px #00FF66; */
   background: #282828;
   overflow-y: scroll;
+}
+
+.mixerSideOffScreen {
+  position: absolute;
+  left: -16%;
+  z-index: 77;
+  transition: left 0.5s linear;
+}
+
+.mixerSideOnScreen {
+  position: absolute;
+  left: 0%;
+  z-index: 77;
+  transition: left 0.5s linear;
 }
