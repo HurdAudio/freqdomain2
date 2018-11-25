@@ -1,0 +1,112 @@
+<div id="financialModuleDiv">
+  <div id="financialModuleTop">
+
+    <h1>Financial Module</h1>
+  </div>
+  <div id="financialModuleSignalFlow">
+
+
+    <div id="randomNumberGeneratorOutput">
+      <p>out</p>
+      <h2>◦</h2>
+    </div>
+  </div>
+
+
+  <div id="financialModuleFace" class="pure-g">
+    <div id="financialModuleDisplays" class="pure-u-1-4">
+
+      <p id="outputLabel">Price </p>
+      <div id="outputDisplay" class="volumeRead"></div>
+      <p id="highLabel">High </p>
+      <div id="highDisplay" class="volumeRead"></div>
+      <p id="lowLabel">Low </p>
+      <div id="lowDisplay" class="volumeRead"></div>
+    </div>
+    <div id="inputSpace" class="pure-u-3-4">
+      <div id="financialInstrumentSelector">
+        <div id="stocksSelector">
+          <img src="./img/fluctuation.png">
+          <button ng-click="$ctrl.stocksSelectedByUser()">Stocks</button>
+          <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/geotatah" title="geotatah">geotatah</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+        </div>
+        <div id="mutualFundsSelector">
+          <img src="./img/growth.png">
+          <button>Mutual Funds</button>
+        </div>
+        <div id="currencySelector">
+          <img src="./img/benefits.png">
+          <button>Currency</button>
+        </div>
+
+      </div>
+      <div id="stockPicker">
+
+        <div id="stockSymbolEditorPane">
+
+          <img src="./img/fluctuation.png" ng-click="$ctrl.stockPickerToBeginning()">
+          <form>
+            <label for="stockSymbolInput">Stock Symbol:</label>
+            <input type="text" id="stockSymbolInput" name="stockSymbolInput">
+            <button type="submit" ng-click="$ctrl.submitStockSymbol()">submit</button>
+            <button ng-click="$ctrl.randomizeStockSymbol()">random</button>
+          </form>
+        </div>
+        <div id="stockSymbolSelectionDiv">
+
+          <main ng-repeat="company in $ctrl.stockSymbolResults | orderBy : $ctrl.sortBy">
+            <div ng-click="$ctrl.selectCompany(company)" class="companyListing">
+
+              <p>{{company.name}} - {{company.symbol}}</p>
+              <p>{{company.stock_exchange_long}}</p>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div id="companyDisplayPickDataStream">
+
+        <div id="companyDataStreamPicker">
+          <img src="./img/fluctuation.png" ng-click="$ctrl.companyDisplayToInitial()">
+          <div id="companyDataStreamPickerButtonDiv">
+            <button id="companyDataStreamPickerRealTimeButton">Real Time</button>
+            <button>Intraday</button>
+            <button>Historical</button>
+          </div>
+        </div>
+        <div id="companyInfosPane">
+          <p id="companyInfoPaneCompanyName"></p>
+          <p id="companyInfoPaneSymbol"></p>
+          <p id="companyInfoPaneStockExchange"></p>
+          <p id="companyInfoCurrencyTraded"></p>
+          <p id="companyInfoPaneCurrentPrice"></p>
+        </div>
+      </div>
+      <div id="realtimeStockAction">
+
+        <div id="companyStockRealtime">
+          <img id="companyStockRealtimeReturnImg" src="./img/fluctuation.png" ng-click="$ctrl.realitimeToInitial()">
+          <form>
+            <p>Update Interval (in seconds):</p>
+            <a><input id="realtimeStockInterval" class="intervalDisplay" type="number" name="amountInput" min="30.0" max="600.0" value="30.0" step="0.5" oninput="this.form.amountRange.value=this.value"><span id="displaySpan"></span></a>
+
+            <input name="amountRange" type="range" min="30.0" max="600.0" value="30.0" step="0.5" oninput="this.form.amountInput.value=this.value" id="realtimeStockIntervalSlider" class="intervalSlider">
+
+          </form>
+          <div id="realTimeStockButtonsDiv">
+            <button id="companyRealtimeStockQuoteStartButton">start</button>
+            <button id="companyRealtimeStockQuoteStopButton">stop</button>
+          </div>
+
+        </div>
+        <div id="companyInfosRealtimePane">
+          <p id="companyInfoRealtimePaneCompanyName"></p>
+          <p id="companyInfoRealtimePaneStockExchange"></p>
+          <p id="companyInfoRealtimeCurrencyTraded"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

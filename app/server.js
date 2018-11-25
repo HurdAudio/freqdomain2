@@ -106,6 +106,21 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 //
 // });
 
+app.get('/realtime_stock_quotes/:code', (req, res, next) => {
+  let queryString = 'https://www.worldtradingdata.com/api/v1/stock?symbol=' + req.params.code + '&api_token=' + process.env.WORLD_TRADING_KEY;
+  return request(queryString).pipe(res);
+});
+
+app.get('/currency_type_query/:code', (req, res, next) => {
+  let queryString = 'https://restcountries.eu/rest/v2/currency/' + req.params.code;
+  return request(queryString).pipe(res);
+});
+
+app.get('/stock_symbol_query/:code', (req, res, next) => {
+  let queryString = 'https://www.worldtradingdata.com/api/v1/stock_search?search_term=' + req.params.code + '&search_by=symbol,name&limit=5&page=1&api_token=' + process.env.WORLD_TRADING_KEY;
+  return request(queryString).pipe(res);
+});
+
 app.get('/flights_from_tiles/:x/:y', (req, res, next)=>{
   let queryString = 'https://api.laminardata.aero/v1/tiles/3/' + req.params.x + '/' + req.params.y + '/flights?user_key=' + process.env.LARIMAR_KEY + '&format=json';
   return request(queryString).pipe(res);
