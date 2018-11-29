@@ -69,7 +69,7 @@
           <img src="./img/fluctuation.png" ng-click="$ctrl.companyDisplayToInitial()">
           <div id="companyDataStreamPickerButtonDiv">
             <button id="companyDataStreamPickerRealTimeButton">Real Time</button>
-            <button>Intraday</button>
+            <button id="companyDataStreamPickerIntradayButton">Intraday</button>
             <button>Historical</button>
           </div>
         </div>
@@ -102,6 +102,32 @@
           <p id="companyInfoRealtimePaneCompanyName"></p>
           <p id="companyInfoRealtimePaneStockExchange"></p>
           <p id="companyInfoRealtimeCurrencyTraded"></p>
+        </div>
+      </div>
+
+      <div id="intradayStockAction">
+
+        <div id="companyStockIntraday">
+          <img id="companyStockIntradayReturnImg" src="./img/fluctuation.png" ng-click="$ctrl.intradayStockToInitial()">
+          <form>
+            <p>1 Minute per x seconds:</p>
+            <input id="intradayStockInterval" class="intervalDisplay" type="number" name="amountInput" min="0.50" max="60.00" value="10.00" step="0.01" oninput="this.form.amountRange.value=this.value">
+
+            <input name="amountRange" type="range" min="0.50" max="60.00" value="10.00" step="0.10" oninput="this.form.amountInput.value=this.value" id="intradayStockIntervalSlider" class="intervalSlider">
+
+          </form>
+          <div id="intradayStockButtonsDiv">
+            <button id="companyIntradayStockQuoteStartButton">start</button>
+            <button id="companyIntradayStockQuoteStopButton">stop</button>
+          </div>
+
+        </div>
+        <div id="companyInfosStockIntradayPane">
+          <p id="companyInfoStockIntradayPaneCompanyName"></p>
+          <p id="companyInfoStockIntradayPaneStockExchange"></p>
+          <p id="companyInfoStockIntradayCurrencyTraded"></p>
+          <p id="companyInfoStockIntradayMinute"></p>
+          <p id="companyInfoStockIntradayMinuteVolume"></p>
         </div>
       </div>
     </div>

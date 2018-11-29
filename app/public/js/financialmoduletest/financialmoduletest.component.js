@@ -25,6 +25,33 @@
       vm.stockPickerToBeginning = stockPickerToBeginning;
       vm.companyDisplayToInitial = companyDisplayToInitial;
       vm.realitimeToInitial = realitimeToInitial;
+      vm.intradayStockToInitial = intradayStockToInitial;
+
+      function intradayStockToInitial() {
+        let intradayStockAction = document.getElementById('intradayStockAction');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        intradayStockAction.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
 
       function realitimeToInitial() {
         let realtimeStockAction = document.getElementById('realtimeStockAction');
@@ -92,6 +119,152 @@
 
         stockSymbolInput.value = symbol;
 
+      }
+
+      function stockCompanyIntradayManager(company) {
+        let intradayHigh = 0;
+        let intradayLow = 1000000;
+        let intradayFeed = [];
+        let intradayIndex = 0;
+        let tracking = false;
+        let companyDisplayPickDataStream = document.getElementById('companyDisplayPickDataStream');
+        let intradayStockAction = document.getElementById('intradayStockAction');
+        let companyInfoStockIntradayPaneCompanyName = document.getElementById('companyInfoStockIntradayPaneCompanyName');
+        let companyInfoStockIntradayPaneStockExchange = document.getElementById('companyInfoStockIntradayPaneStockExchange');
+        let companyInfoStockIntradayCurrencyTraded = document.getElementById('companyInfoStockIntradayCurrencyTraded');
+        let companyInfoStockIntradayMinute = document.getElementById('companyInfoStockIntradayMinute');
+        let companyInfoStockIntradayMinuteVolume = document.getElementById('companyInfoStockIntradayMinuteVolume');
+        let intradayStockButtonsDiv = document.getElementById('intradayStockButtonsDiv');
+        let companyIntradayStockQuoteStartButton = document.getElementById('companyIntradayStockQuoteStartButton');
+        if (companyIntradayStockQuoteStartButton) {
+          companyIntradayStockQuoteStartButton.parentNode.removeChild(companyIntradayStockQuoteStartButton);
+          companyIntradayStockQuoteStartButton = document.createElement('button');
+          intradayStockButtonsDiv.appendChild(companyIntradayStockQuoteStartButton);
+          companyIntradayStockQuoteStartButton.id = 'companyIntradayStockQuoteStartButton';
+          companyIntradayStockQuoteStartButton.innerHTML = 'start';
+          companyIntradayStockQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+        }
+        let companyIntradayStockQuoteStopButton = document.getElementById('companyIntradayStockQuoteStopButton');
+        if (companyIntradayStockQuoteStopButton) {
+          companyIntradayStockQuoteStopButton.parentNode.removeChild(companyIntradayStockQuoteStopButton);
+          companyIntradayStockQuoteStopButton = document.createElement('button');
+          intradayStockButtonsDiv.appendChild(companyIntradayStockQuoteStopButton);
+          companyIntradayStockQuoteStopButton.id = 'companyIntradayStockQuoteStopButton';
+          companyIntradayStockQuoteStopButton.innerHTML = 'stop';
+          companyIntradayStockQuoteStopButton.setAttribute("style", "cursor: pointer; visibiity: hidden;");
+        }
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        outputDisplay.innerHTML = '';
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        highDisplay.innerHTML = '';
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+        lowDisplay.innerHTML = '';
+        let intradayStockInterval = document.getElementById('intradayStockInterval');
+        let companyStockIntradayReturnImg = document.getElementById('companyStockIntradayReturnImg');
+
+        $http.get(`/currency_type_query/${company.currency}`)
+        .then(currencyTypeData => {
+          let currencyType = currencyTypeData.data;
+          window.clearInterval(populateIntradayQuotes);
+          console.log(currencyType);
+          companyInfoStockIntradayCurrencyTraded.innerHTML = currencyType[0].currencies[0].name + ' : ' +  currencyType[0].currencies[0].symbol;
+          companyInfoStockIntradayMinute.innerHTML = '';
+          companyInfoStockIntradayMinuteVolume.innerHTML = '';
+
+          function displayIntradayFeed() {
+            let transactionTime;
+            let cleanDate = '';
+            let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+            let months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+
+            if (intradayIndex === intradayFeed.length) {
+              intradayIndex = 0;
+            }
+            transactionTime = new Date(intradayFeed[intradayIndex].timestamp);
+            outputDisplay.innerHTML = intradayFeed[intradayIndex].open;
+            if (parseFloat(intradayFeed[intradayIndex].low) < intradayLow) {
+              intradayLow = parseFloat(intradayFeed[intradayIndex].low);
+              lowDisplay.innerHTML = intradayLow;
+            }
+            if (parseFloat(intradayFeed[intradayIndex].high) > intradayHigh) {
+              intradayHigh = parseFloat(intradayFeed[intradayIndex].high);
+              highDisplay.innerHTML = intradayHigh;
+            }
+            companyInfoStockIntradayMinuteVolume.innerHTML = 'Volume: ' + intradayFeed[intradayIndex].volume;
+            console.log(transactionTime.getHours());
+            cleanDate = days[transactionTime.getDay()] + ', ' + transactionTime.getFullYear() + ' ' + months[transactionTime.getMonth()] + ' ' + transactionTime.getDate() + ' - ' + transactionTime.getHours() + ':' + transactionTime.getMinutes();
+            companyInfoStockIntradayMinute.innerHTML = cleanDate;
+            ++intradayIndex;
+          }
+
+          function populateIntradayQuotes() {
+            $http.get(`/intraday_stock_quotes/${company.symbol}`)
+            .then(intradayFeedData => {
+              let intradayObject = intradayFeedData.data.intraday;
+              console.log(intradayObject);
+              intradayFeed = [];
+              for (let key in intradayObject) {
+                intradayFeed[intradayIndex] = {
+                  timestamp: key,
+                  close: intradayObject[key].close,
+                  high: intradayObject[key].high,
+                  low: intradayObject[key].low,
+                  open: intradayObject[key].open,
+                  volume: intradayObject[key].volume
+                };
+                ++intradayIndex;
+              }
+              console.log(intradayFeed);
+              intradayIndex = 0;
+              displayIntradayFeed()
+              setTimeout(() => {
+                let quoter = setInterval(displayIntradayFeed, (parseInt(intradayStockInterval.value) * 1000));
+              }, (parseInt(intradayStockInterval.value) * 1000));
+
+            });
+          }
+
+          companyIntradayStockQuoteStartButton.addEventListener('click', () => {
+            companyStockIntradayReturnImg.setAttribute("style", "visibility: hidden;");
+            companyIntradayStockQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+            companyIntradayStockQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+            outputLabel.innerHTML = 'Price in ' + currencyType[0].currencies[0].symbol;
+            highLabel.innerHTML = 'High in ' + currencyType[0].currencies[0].symbol;
+            lowLabel.innerHTML = 'Low in ' + currencyType[0].currencies[0].symbol;
+            if (intradayFeed.length === 0) {
+              intradayIndex = 0;
+              intradayHigh = 0;
+              intradayLow = 1000000;
+              populateIntradayQuotes();
+            } else {
+              displayIntradayFeed();
+              setTimeout(() => {
+                let quoter = setInterval(displayIntradayFeed, (parseInt(intradayStockInterval.value) * 1000));
+              }, (parseInt(intradayStockInterval.value) * 1000));
+
+            }
+          });
+
+          companyIntradayStockQuoteStopButton.addEventListener('click', () => {
+            window.clearInterval(populateIntradayQuotes);
+            companyIntradayStockQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+            companyIntradayStockQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+            outputLabel.innerHTML = 'Price';
+            highLabel.innerHTML = 'High';
+            lowLabel.innerHTML = 'Low';
+            companyStockIntradayReturnImg.setAttribute("style", "visibility: visible;");
+          });
+
+        });
+
+
+        companyDisplayPickDataStream.setAttribute("style", "display: none;");
+        intradayStockAction.setAttribute("style", "display: initial;");
+        companyInfoStockIntradayPaneCompanyName.innerHTML = company.name;
+        companyInfoStockIntradayPaneStockExchange.innerHTML = company.stock_exchange_long;
       }
 
       function stockCompanyRealtimeManager(company) {
@@ -198,6 +371,14 @@
           companyDataStreamPickerRealTimeButton.id = 'companyDataStreamPickerRealTimeButton';
           companyDataStreamPickerRealTimeButton.innerHTML = 'Real Time';
         }
+        let companyDataStreamPickerIntradayButton = document.getElementById('companyDataStreamPickerIntradayButton');
+        if (companyDataStreamPickerIntradayButton) {
+          companyDataStreamPickerIntradayButton.parentNode.removeChild(companyDataStreamPickerIntradayButton);
+          companyDataStreamPickerIntradayButton = document.createElement('button');
+          companyDataStreamPickerButtonDiv.appendChild(companyDataStreamPickerIntradayButton);
+          companyDataStreamPickerIntradayButton.id = 'companyDataStreamPickerIntradayButton';
+          companyDataStreamPickerIntradayButton.innerHTML = 'Intraday';
+        }
 
         stockPicker.setAttribute("style", "display: none;");
         companyDisplayPickDataStream.setAttribute("style", "display: initial;");
@@ -209,6 +390,10 @@
 
         companyDataStreamPickerRealTimeButton.addEventListener('click', () => {
           stockCompanyRealtimeManager(company);
+        });
+
+        companyDataStreamPickerIntradayButton.addEventListener('click', () => {
+          stockCompanyIntradayManager(company);
         });
       }
 
