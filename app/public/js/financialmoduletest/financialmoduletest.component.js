@@ -27,6 +27,38 @@
       vm.realitimeToInitial = realitimeToInitial;
       vm.intradayStockToInitial = intradayStockToInitial;
       vm.historicalStockToInitial = historicalStockToInitial;
+      vm.mutualFundsSelectedByUser = mutualFundsSelectedByUser;
+      vm.mutualFundPickerToBeginning = mutualFundPickerToBeginning;
+      vm.submitMutualFundSymbol = submitMutualFundSymbol;
+      vm.randomizeMutualFundSymbol = randomizeMutualFundSymbol;
+
+
+
+      function mutualFundPickerToBeginning() {
+        let mutualFundPicker = document.getElementById('mutualFundPicker');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        mutualFundPicker.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
 
       function historicalStockToInitial() {
         let historicalStockAction = document.getElementById('historicalStockAction');
@@ -132,6 +164,18 @@
         currencySelector.setAttribute("style", "opacity: 1;");
         mutualFundsSelector.setAttribute("style", "opacity: 1;");
         stocksSelector.setAttribute("style", "opacity: 1;");
+      }
+
+      function randomizeMutualFundSymbol() {
+        let mutualFundSymbolInput = document.getElementById('mutualFundSymbolInput');
+        let symbolLength = 5;
+        let symbol = '';
+
+        for (let i = 0; i < symbolLength; i++) {
+          symbol += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        }
+
+        mutualFundSymbolInput.value = symbol.toUpperCase();
       }
 
       function randomizeStockSymbol() {
@@ -590,6 +634,44 @@
         });
       }
 
+      function submitMutualFundSymbol() {
+        let mutualFundSymbolInput = document.getElementById('mutualFundSymbolInput');
+
+        if (mutualFundSymbolInput.value !== '') {
+          $http.get(`/mutual_fund_symbol_query/${mutualFundSymbolInput.value}`)
+          .then(mutualFundResultData => {
+            let mutualFundResult = mutualFundResultData.data.data;
+            console.log(mutualFundResult);
+            vm.mutualFundSymbolResults = [];
+            for (let i = 0; i < mutualFundResult.length; i++) {
+              vm.mutualFundSymbolResults[i] = {
+                name: mutualFundResult[i].name,
+                symbol: mutualFundResult[i].symbol,
+                yield_pct: mutualFundResult[i].yield_pct,
+                price: mutualFundResult[i].price,
+                close_yesterday: mutualFundResult[i].close_yesterday,
+                return_ytd: mutualFundResult[i].return_ytd,
+                net_assets: mutualFundResult[i].net_assets,
+                change_asset_value: mutualFundResult[i].change_asset_value,
+                change_pct: mutualFundResult[i].change_pct,
+                yield_pct: mutualFundResult[i].yield_pct,
+                return_day: mutualFundResult[i].return_day,
+                return_1week: mutualFundResult[i].return_1week,
+                return_4week: mutualFundResult[i].return_4week,
+                return_13week: mutualFundResult[i].return_13week,
+                return_52week: mutualFundResult[i].return_52week,
+                return_156week: mutualFundResult[i].return_156week,
+                return_260week: mutualFundResult[i].return_260week,
+                income_dividend: mutualFundResult[i].income_dividend,
+                income_dividend_date: mutualFundResult[i].income_dividend_date,
+                capital_gain: mutualFundResult[i].capital_gain,
+                expense_ratio: mutualFundResult[i].expense_ratio
+              }
+            }
+          });
+        }
+      }
+
       function submitStockSymbol() {
         let stockSymbolInput = document.getElementById('stockSymbolInput');
 
@@ -612,6 +694,27 @@
         } else {
           vm.stockSymbolResults = [];
         }
+      }
+
+      function mutualFundsSelectedByUser() {
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let mutualFundPicker = document.getElementById('mutualFundPicker');
+        let mutualFundSymbolInput = document.getElementById('mutualFundSymbolInput');
+
+        currencySelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+        setTimeout(() => {
+          stocksSelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+          setTimeout(() => {
+            mutualFundsSelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+            setTimeout(() => {
+              financialInstrumentSelector.setAttribute("style", "display: none;");
+              mutualFundPicker.setAttribute("style", "display: initial;");
+              mutualFundSymbolInput.focus();
+            }, 400);
+          }, 200);
+        }, 200);
       }
 
       function stocksSelectedByUser() {

@@ -106,6 +106,12 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 //
 // });
 
+app.get('/mutual_fund_symbol_query/:code', (req, res, next) => {
+  let queryString = 'https://www.worldtradingdata.com/api/v1/mutualfund?symbol=' + req.params.code + '&api_token=' + process.env.WORLD_TRADING_KEY;
+
+  return request(queryString).pipe(res);
+});
+
 app.get('/historical_stock_quotes/:code', (req, res, next) => {
   let queryString = 'https://www.worldtradingdata.com/api/v1/history?symbol=' + req.params.code + '&sort=oldest&api_token=' + process.env.WORLD_TRADING_KEY;
 

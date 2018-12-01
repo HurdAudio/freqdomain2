@@ -32,7 +32,7 @@
         </div>
         <div id="mutualFundsSelector">
           <img src="./img/growth.png">
-          <button>Mutual Funds</button>
+          <button ng-click="$ctrl.mutualFundsSelectedByUser()">Mutual Funds</button>
         </div>
         <div id="currencySelector">
           <img src="./img/benefits.png">
@@ -154,6 +154,47 @@
           <p id="companyInfoStockHistoricalCurrencyTraded"></p>
           <p id="companyInfoStockHistoricalDay"></p>
           <p id="companyInfoStockHistoricalDayVolume"></p>
+        </div>
+      </div>
+      <div id="mutualFundPicker">
+
+        <div id="mutualFundsSymbolEditorPane">
+
+          <img src="./img/benefits.png" ng-click="$ctrl.mutualFundPickerToBeginning()">
+          <form>
+            <label for="mutualFundSymbolInput">Mutual Fund Symbol:</label>
+            <input type="text" id="mutualFundSymbolInput" name="mutualFundSymbolInput">
+            <button type="submit" ng-click="$ctrl.submitMutualFundSymbol()">submit</button>
+            <button ng-click="$ctrl.randomizeMutualFundSymbol()">random</button>
+          </form>
+        </div>
+        <div id="mutualFundSymbolSelectionDiv">
+
+          <main ng-repeat="fund in $ctrl.mutualFundSymbolResults | orderBy : $ctrl.sortBy">
+            <div ng-click="$ctrl.selectFund(fund)" class="companyListing">
+
+              <p>{{fund.name}} - {{fund.symbol}}</p>
+              <p>Yeild %: {{fund.yield_pct}}</p>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div id="mutualFundDisplayPickDataStream">
+
+        <div id="mutualFundDataStreamPicker">
+          <img src="./img/benefits.png" ng-click="$ctrl.mutualFundDisplayToInitial()">
+          <div id="mutualFundDataStreamPickerButtonDiv">
+            <button id="mutualFundDataStreamPickerRealTimeButton">Real Time</button>
+            <button id="mutualFundDataStreamPickerIntradayButton">Intraday</button>
+            <button id="mutualFundDataStreamPickerHistoricalButton">Historical</button>
+          </div>
+        </div>
+        <div id="mutualFundInfosPane">
+          <p id="mutualFundInfoPaneCompanyName"></p>
+          <p id="mutualFundInfoPaneSymbol"></p>
+          <p id="mutualFundInfoPaneStockExchange"></p>
+          <p id="mutualFundInfoCurrencyTraded"></p>
+          <p id="mutualFundInfoPaneCurrentPrice"></p>
         </div>
       </div>
     </div>
