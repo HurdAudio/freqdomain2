@@ -255,7 +255,15 @@ button:active {
   display: none;
 }
 
+#realtimeMutualFundAction {
+  display: none;
+}
+
 #intradayStockAction {
+  display: none;
+}
+
+#intradayMutualFundAction {
   display: none;
 }
 
@@ -280,6 +288,23 @@ button:active {
   margin: 30px 5px 5px 5px;
 }
 
+#mutualFundRealtime {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundRealtime p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundRealtime img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
 #companyStockIntraday {
   float: left;
   width: 33%;
@@ -293,6 +318,23 @@ button:active {
 }
 
 #companyStockIntraday img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundIntraday {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundIntraday p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundIntraday img {
   width: 15%;
   margin: 30px 5px 5px 5px;
 }
@@ -374,7 +416,43 @@ button:active {
   margin-top: 30px;
 }
 
+#mutualFundInfosRealtimePane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
 #companyInfosStockIntradayPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#mutualFundInfosIntradayPane {
   float: left;
   font-family: 'Righteous', cursive;
   font-size: 36px;

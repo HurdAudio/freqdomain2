@@ -160,7 +160,7 @@
 
         <div id="mutualFundsSymbolEditorPane">
 
-          <img src="./img/benefits.png" ng-click="$ctrl.mutualFundPickerToBeginning()">
+          <img src="./img/growth.png" ng-click="$ctrl.mutualFundPickerToBeginning()">
           <form>
             <label for="mutualFundSymbolInput">Mutual Fund Symbol:</label>
             <input type="text" id="mutualFundSymbolInput" name="mutualFundSymbolInput">
@@ -182,7 +182,7 @@
       <div id="mutualFundDisplayPickDataStream">
 
         <div id="mutualFundDataStreamPicker">
-          <img src="./img/benefits.png" ng-click="$ctrl.mutualFundDisplayToInitial()">
+          <img src="./img/growth.png" ng-click="$ctrl.mutualFundDisplayToInitial()">
           <div id="mutualFundDataStreamPickerButtonDiv">
             <button id="mutualFundDataStreamPickerRealTimeButton">Real Time</button>
             <button id="mutualFundDataStreamPickerIntradayButton">Intraday</button>
@@ -192,9 +192,58 @@
         <div id="mutualFundInfosPane">
           <p id="mutualFundInfoPaneCompanyName"></p>
           <p id="mutualFundInfoPaneSymbol"></p>
-          <p id="mutualFundInfoPaneStockExchange"></p>
-          <p id="mutualFundInfoCurrencyTraded"></p>
+          <p id="mutualFundInfoPaneNetAssets"></p>
           <p id="mutualFundInfoPaneCurrentPrice"></p>
+        </div>
+      </div>
+
+      <div id="realtimeMutualFundAction">
+
+        <div id="mutualFundRealtime">
+          <img id="mutualFundRealtimeReturnImg" src="./img/growth.png" ng-click="$ctrl.realitimeMutualFundToInitial()">
+          <form>
+
+            <p>Update Interval (in seconds):</p>
+            <input id="realtimeMutualFundInterval" class="intervalDisplay" type="number" name="amountInput" min="30.0" max="600.0" value="30.0" step="0.5" oninput="this.form.amountRange.value=this.value">
+
+            <input name="amountRange" type="range" min="30.0" max="600.0" value="30.0" step="0.5" oninput="this.form.amountInput.value=this.value" id="realtimeMutualFundIntervalSlider" class="intervalSlider">
+
+          </form>
+          <div id="realTimeMutualFundButtonsDiv">
+            <button id="realtimeMutualFundQuoteStartButton">start</button>
+            <button id="realtimeMutualFundQuoteStopButton">stop</button>
+          </div>
+
+        </div>
+        <div id="mutualFundInfosRealtimePane">
+          <p id="mutualFundInfoRealtimePaneName"></p>
+          <p id="mutualFundInfoRealtimePaneSymbol"></p>
+          <p id="mutualFundInfoRealtimeNetAssets"></p>
+        </div>
+      </div>
+
+      <div id="intradayMutualFundAction">
+
+        <div id="mutualFundIntraday">
+          <img id="mutualFundIntradayReturnImg" src="./img/growth.png" ng-click="$ctrl.intradayMutualToInitial()">
+          <form>
+            <p>1 Day per x seconds:</p>
+            <input id="intradayMutualFundInterval" class="intervalDisplay" type="number" name="amountInput" min="0.50" max="60.00" value="10.00" step="0.01" oninput="this.form.amountRange.value=this.value">
+
+            <input name="amountRange" type="range" min="0.50" max="60.00" value="10.00" step="0.10" oninput="this.form.amountInput.value=this.value" id="intradayMutualFundIntervalSlider" class="intervalSlider">
+
+          </form>
+          <div id="intradayMutualFundButtonsDiv">
+            <button id="mutualFundsIntradayQuoteStartButton">start</button>
+            <button id="mutualFundsIntradayQuoteStopButton">stop</button>
+          </div>
+
+        </div>
+        <div id="mutualFundInfosIntradayPane">
+          <p id="mutualFundInfoIntradayPaneName"></p>
+          <p id="mutualFundInfoIntradayPaneSymbol"></p>
+          <p id="mutualFundInfoIntradayNetAssets"></p>
+          <p id="mutualFundInfoIntradayDate"></p>
         </div>
       </div>
     </div>
