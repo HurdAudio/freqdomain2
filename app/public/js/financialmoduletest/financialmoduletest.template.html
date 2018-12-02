@@ -246,6 +246,30 @@
           <p id="mutualFundInfoIntradayDate"></p>
         </div>
       </div>
+      <div id="historicalMutualFundAction">
+
+        <div id="mutualFundHistorical">
+          <img id="mutualFundHistoricalReturnImg" src="./img/growth.png" ng-click="$ctrl.historicalMutualFundToInitial()">
+          <form>
+            <p>1 Day per x seconds:</p>
+            <input id="historicalMutualFundInterval" class="intervalDisplay" type="number" name="amountInput" min="0.10" max="60.00" value="10.00" step="0.01" oninput="this.form.amountRange.value=this.value">
+
+            <input name="amountRange" type="range" min="0.10" max="60.00" value="10.00" step="0.01" oninput="this.form.amountInput.value=this.value" id="historicalMutualFundIntervalSlider" class="intervalSlider">
+
+          </form>
+          <div id="historicalMutualFundButtonsDiv">
+            <button id="companyHistoricalMutualFundQuoteStartButton">start</button>
+            <button id="companyHistoricalMutualFundQuoteStopButton">stop</button>
+          </div>
+
+        </div>
+        <div id="companyInfosMutualFundHistoricalPane">
+          <p id="infoMutualFundHistoricalPaneName"></p>
+          <p id="infoMutualFundHistoricalPaneSymbol"></p>
+          <p id="infoMutualFundHistoricalNetAssets"></p>
+          <p id="infoMutualFundHistoricalDate"></p>
+        </div>
+      </div>
     </div>
   </div>
 

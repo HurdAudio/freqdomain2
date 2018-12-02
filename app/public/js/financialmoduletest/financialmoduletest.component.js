@@ -34,6 +34,33 @@
       vm.selectFund = selectFund;
       vm.realitimeMutualFundToInitial = realitimeMutualFundToInitial;
       vm.intradayMutualToInitial = intradayMutualToInitial;
+      vm.historicalMutualFundToInitial = historicalMutualFundToInitial;
+
+      function historicalMutualFundToInitial() {
+        let historicalMutualFundAction = document.getElementById('historicalMutualFundAction');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        historicalMutualFundAction.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
 
       function intradayMutualToInitial() {
         let intradayMutualFundAction = document.getElementById('intradayMutualFundAction');
@@ -243,6 +270,125 @@
 
         stockSymbolInput.value = symbol;
 
+      }
+
+      function mutualFundHistoricalManager(fund) {
+        let historicalHigh = 0;
+        let historicalLow = 1000000;
+        let historicalFeed = [];
+        let historicalIndex = 0;
+        let tracking = false;
+        let historicalMutualFundAction = document.getElementById('historicalMutualFundAction');
+        let mutualFundDisplayPickDataStream = document.getElementById('mutualFundDisplayPickDataStream');
+        let infoMutualFundHistoricalPaneName = document.getElementById('infoMutualFundHistoricalPaneName');
+        let infoMutualFundHistoricalPaneSymbol = document.getElementById('infoMutualFundHistoricalPaneSymbol');
+        let infoMutualFundHistoricalNetAssets = document.getElementById('infoMutualFundHistoricalNetAssets');
+        let infoMutualFundHistoricalDate = document.getElementById('infoMutualFundHistoricalDate');
+        infoMutualFundHistoricalDate.innerHTML = '';
+        let historicalMutualFundButtonsDiv = document.getElementById('historicalMutualFundButtonsDiv');
+        let companyHistoricalMutualFundQuoteStartButton = document.getElementById('companyHistoricalMutualFundQuoteStartButton');
+        if (companyHistoricalMutualFundQuoteStartButton) {
+          companyHistoricalMutualFundQuoteStartButton.parentNode.removeChild(companyHistoricalMutualFundQuoteStartButton);
+          companyHistoricalMutualFundQuoteStartButton = document.createElement('button');
+          historicalMutualFundButtonsDiv.appendChild(companyHistoricalMutualFundQuoteStartButton);
+          companyHistoricalMutualFundQuoteStartButton.id = 'companyHistoricalMutualFundQuoteStartButton';
+          companyHistoricalMutualFundQuoteStartButton.innerHTML = 'start';
+          companyHistoricalMutualFundQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible");
+        }
+        let companyHistoricalMutualFundQuoteStopButton = document.getElementById('companyHistoricalMutualFundQuoteStopButton');
+        if (companyHistoricalMutualFundQuoteStopButton) {
+          companyHistoricalMutualFundQuoteStopButton.parentNode.removeChild(companyHistoricalMutualFundQuoteStopButton);
+          companyHistoricalMutualFundQuoteStopButton = document.createElement('button');
+          historicalMutualFundButtonsDiv.appendChild(companyHistoricalMutualFundQuoteStopButton);
+          companyHistoricalMutualFundQuoteStopButton.id = 'companyHistoricalMutualFundQuoteStopButton';
+          companyHistoricalMutualFundQuoteStopButton.innerHTML = 'stop';
+          companyHistoricalMutualFundQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+        }
+        let mutualFundHistoricalReturnImg = document.getElementById('mutualFundHistoricalReturnImg');
+        window.clearInterval(displayMutualFundFeed);
+        let outputDisplay = document.getElementById('outputDisplay');
+        outputDisplay.innerHTML = '';
+        let highDisplay = document.getElementById('highDisplay');
+        highDisplay.innerHTML = '';
+        let lowDisplay = document.getElementById('lowDisplay');
+        lowDisplay.innerHTML = '';
+        infoMutualFundHistoricalDate.innerHTML = '';
+        let historicalMutualFundInterval = document.getElementById('historicalMutualFundInterval');
+
+        function displayMutualFundFeed() {
+          if (tracking) {
+            let quoteDate = new Date(historicalFeed[historicalIndex].timestamp);
+            let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+            let months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+            let dateString = days[quoteDate.getDay() + 1] + ', ' + quoteDate.getFullYear().toString() + ' ' + months[quoteDate.getMonth()] + ' ' + quoteDate.getDate().toString();
+            infoMutualFundHistoricalDate.innerHTML = dateString;
+
+            outputDisplay.innerHTML = historicalFeed[historicalIndex].close;
+            if (historicalHigh < parseFloat(historicalFeed[historicalIndex].close)) {
+              historicalHigh = parseFloat(historicalFeed[historicalIndex].close);
+              highDisplay.innerHTML = historicalHigh;
+            }
+            if (historicalLow > parseFloat(historicalFeed[historicalIndex].close)) {
+              historicalLow = parseFloat(historicalFeed[historicalIndex].close);
+              lowDisplay.innerHTML = historicalLow;
+            }
+            ++historicalIndex;
+            if (historicalIndex === historicalFeed.length) {
+              historicalIndex = 0;
+            }
+          }
+        }
+
+        function populateMutualFundHistory() {
+          historicalFeed = [];
+          historicalIndex = 0;
+
+          $http.get(`/mutual_fund_history/${fund.symbol}`)
+          .then(fullMutualFundHistoryData => {
+            let fullMutualFundHistory = fullMutualFundHistoryData.data.history;
+            for (let key in fullMutualFundHistory) {
+              historicalFeed[historicalIndex] = {
+                timestamp: key,
+                close: fullMutualFundHistory[key].close
+              };
+              ++historicalIndex;
+            }
+            historicalIndex = 0;
+            displayMutualFundFeed();
+            setTimeout(() => {
+              let qtqt = setInterval(displayMutualFundFeed, (parseFloat(historicalMutualFundInterval.value) * 1000));
+            }, (parseFloat(historicalMutualFundInterval.value) * 1000));
+          });
+        }
+
+        companyHistoricalMutualFundQuoteStartButton.addEventListener('click', () => {
+          tracking = true;
+          companyHistoricalMutualFundQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          companyHistoricalMutualFundQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          mutualFundHistoricalReturnImg.setAttribute("style", "visibility: hidden;");
+          if (historicalFeed.length === 0) {
+            historicalIndex = 0;
+            historicalHigh = 0;
+            historicalLow = 1000000;
+            populateMutualFundHistory();
+          } else {
+            let qot = setInterval(displayMutualFundFeed, (parseFloat(historicalMutualFundInterval.value) * 1000));
+          }
+        });
+
+        companyHistoricalMutualFundQuoteStopButton.addEventListener('click', () => {
+          tracking = false;
+          companyHistoricalMutualFundQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          companyHistoricalMutualFundQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          mutualFundHistoricalReturnImg.setAttribute("style", "visibility: visible;");
+          window.clearInterval(displayMutualFundFeed);
+        });
+
+        historicalMutualFundAction.setAttribute("style", "display: initial;");
+        mutualFundDisplayPickDataStream.setAttribute("style", "display: none;");
+        infoMutualFundHistoricalPaneName.innerHTML = fund.name;
+        infoMutualFundHistoricalPaneSymbol.innerHTML = fund.symbol;
+        infoMutualFundHistoricalNetAssets.innerHTML = 'Net Assets: ' + fund.net_assets;
       }
 
       function stockCompanyHistoricalManager(company) {
@@ -910,6 +1056,15 @@
           mutualFundDataStreamPickerIntradayButton.innerHTML = 'Intraday';
           mutualFundDataStreamPickerIntradayButton.setAttribute("style", "cursor: pointer;");
         }
+        let mutualFundDataStreamPickerHistoricalButton = document.getElementById('mutualFundDataStreamPickerHistoricalButton');
+        if (mutualFundDataStreamPickerHistoricalButton) {
+          mutualFundDataStreamPickerHistoricalButton.parentNode.removeChild(mutualFundDataStreamPickerHistoricalButton);
+          mutualFundDataStreamPickerHistoricalButton = document.createElement('button');
+          mutualFundDataStreamPickerButtonDiv.appendChild(mutualFundDataStreamPickerHistoricalButton);
+          mutualFundDataStreamPickerHistoricalButton.id = 'mutualFundDataStreamPickerHistoricalButton';
+          mutualFundDataStreamPickerHistoricalButton.innerHTML = 'Historical';
+          mutualFundDataStreamPickerHistoricalButton.setAttribute("style", "cursor: pointer;");
+        }
 
         mutualFundDataStreamPickerRealTimeButton.addEventListener('click', () => {
           mutualFundRealtimeManager(fund);
@@ -917,6 +1072,10 @@
 
         mutualFundDataStreamPickerIntradayButton.addEventListener('click', () => {
           mutualFundIntradayManager(fund);
+        });
+
+        mutualFundDataStreamPickerHistoricalButton.addEventListener('click', () => {
+          mutualFundHistoricalManager(fund);
         });
 
         mutualFundPicker.setAttribute("style", "display: none;");

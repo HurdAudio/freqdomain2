@@ -271,6 +271,10 @@ button:active {
   display: none;
 }
 
+#historicalMutualFundAction {
+  display: none;
+}
+
 #companyStockRealtime {
   float: left;
   width: 33%;
@@ -352,6 +356,23 @@ button:active {
 }
 
 #companyStockHistorical img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundHistorical {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundHistorical p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundHistorical img {
   width: 15%;
   margin: 30px 5px 5px 5px;
 }
@@ -471,6 +492,24 @@ button:active {
 }
 
 #companyInfosStockHistoricalPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosMutualFundHistoricalPane {
   float: left;
   font-family: 'Righteous', cursive;
   font-size: 36px;
