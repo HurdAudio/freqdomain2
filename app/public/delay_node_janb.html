@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+    <!-- <link rel="icon" href="./img/clock-145560_640.png" type="image/gif" sizes="16x16"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous"> -->
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/delay_node_janb.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./delay_node_janb.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="delayDiv">
+      <div id="delayTop">
+
+        <h1>Delay</h1>
+      </div>
+      <div id="delaySignalFlow">
+        <div id="delayInput">
+          <p>in</p>
+          <h2>◦</h2>
+        </div>
+        <div id="displayOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="delayFace">
+
+        <form>
+          <p id="displayLabel">Delay(Seconds)</p>
+          <a><input id="delayDisplay" class="volumeRead" type="number" step="0.001" name="amountInput" min="0.000" max="60.000" value="0.500" oninput="this.form.amountRange.value=this.value"></a>
+          <input name="amountRange" type="range" min="0.000" max="60.000" value="0.500" step="0.001" oninput="this.form.amountInput.value=this.value" id="displayAmount">
+
+        </form>
+        <div id="delayModulator">
+          <p>Delay Modulator:</p>
+          <select id="delayModulatorSelect">
+            <option value="none">none</option>
+            <option value="envelope1">envelope1</option>
+            <option value="envelope2">envelope2</option>
+            <option value="envelope3">envelope3</option>
+            <option value="envelope4">envelope4</option>
+            <option value="frequency1">frequency1</option>
+            <option value="frequency2">frequency2</option>
+            <option value="frequency3">frequency3</option>
+          </select>
+          <br>
+          <button id="delayModulateEdit">edit</button>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
