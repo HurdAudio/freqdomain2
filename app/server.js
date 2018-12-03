@@ -106,6 +106,18 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 //
 // });
 
+app.get('/currency_history/:base/:secondary', (req, res, next) => {
+  let queryString = 'https://www.worldtradingdata.com/api/v1/forex_history?base=' + req.params.base + '&convert_to=' + req.params.secondary + '&sort=oldest&api_token=' + process.env.WORLD_TRADING_KEY;
+
+  return request(queryString).pipe(res);
+});
+
+app.get('/currency_exchange_from_base/:base', (req, res, next) => {
+  let queryString = 'https://www.worldtradingdata.com/api/v1/forex?base=' + req.params.base + '&sort=newest&api_token=' + process.env.WORLD_TRADING_KEY;
+
+  return request(queryString).pipe(res);
+});
+
 app.get('/mutual_fund_history/:code', (req, res, next) => {
   let queryString = 'https://www.worldtradingdata.com/api/v1/history?symbol=' + req.params.code + '&sort=asc&api_token=' + process.env.WORLD_TRADING_KEY;
 

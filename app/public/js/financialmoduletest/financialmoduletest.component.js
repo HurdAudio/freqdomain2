@@ -35,6 +35,118 @@
       vm.realitimeMutualFundToInitial = realitimeMutualFundToInitial;
       vm.intradayMutualToInitial = intradayMutualToInitial;
       vm.historicalMutualFundToInitial = historicalMutualFundToInitial;
+      vm.currencySelectedByUser = currencySelectedByUser;
+      vm.submitCurrencySymbol = submitCurrencySymbol;
+      vm.selectCurrencyCombination = selectCurrencyCombination;
+      vm.currencyPickerToBeginning = currencyPickerToBeginning;
+      vm.randomizeCurrencySymbol = randomizeCurrencySymbol;
+      vm.currencyDisplayToInitial = currencyDisplayToInitial;
+      vm.realitimeCurrencyToInitial = realitimeCurrencyToInitial;
+      vm.historicalCurrencyToInitial = historicalCurrencyToInitial;
+
+      function historicalCurrencyToInitial() {
+        let historicalCurrencyAction = document.getElementById('historicalCurrencyAction');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        historicalCurrencyAction.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
+
+      function realitimeCurrencyToInitial() {
+        let realtimeCurrencyAction = document.getElementById('realtimeCurrencyAction');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        realtimeCurrencyAction.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
+
+      function currencyDisplayToInitial() {
+        let currencyDisplayPickDataStream = document.getElementById('currencyDisplayPickDataStream');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        currencyDisplayPickDataStream.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
+
+      function currencyPickerToBeginning() {
+        let currencyPicker = document.getElementById('currencyPicker');
+        let financialInstrumentSelector = document.getElementById('financialInstrumentSelector');
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+
+        currencyPicker.setAttribute("style", "display: none;");
+        financialInstrumentSelector.setAttribute("style", "display: initial;");
+        currencySelector.setAttribute("style", "opacity: 1;");
+        mutualFundsSelector.setAttribute("style", "opacity: 1;");
+        stocksSelector.setAttribute("style", "opacity: 1;");
+        outputLabel.innerHTML = 'Price';
+        outputDisplay.innerHTML = '';
+        highLabel.innerHTML = 'High';
+        highDisplay.innerHTML = '';
+        lowLabel.innerHTML = 'Low';
+        lowDisplay.innerHTML = '';
+      }
 
       function historicalMutualFundToInitial() {
         let historicalMutualFundAction = document.getElementById('historicalMutualFundAction');
@@ -246,6 +358,18 @@
         stocksSelector.setAttribute("style", "opacity: 1;");
       }
 
+      function randomizeCurrencySymbol() {
+        let currencySymbolInput = document.getElementById('currencySymbolInput');
+        let symbolLength = 3;
+        let symbol = '';
+
+        for (let i = 0; i < symbolLength; i++) {
+          symbol += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        }
+
+        currencySymbolInput.value = symbol.toUpperCase();
+      }
+
       function randomizeMutualFundSymbol() {
         let mutualFundSymbolInput = document.getElementById('mutualFundSymbolInput');
         let symbolLength = 5;
@@ -270,6 +394,139 @@
 
         stockSymbolInput.value = symbol;
 
+      }
+
+      function currencyHistoricalManager() {
+        let tracking = false;
+        let historicalHigh = 0;
+        let historicalLow = 1000000;
+        let historicalFeed = [];
+        let historicalIndex = 0;
+        let currencyDisplayPickDataStream = document.getElementById('currencyDisplayPickDataStream');
+        let historicalCurrencyAction = document.getElementById('historicalCurrencyAction');
+        let infoCurrencyHistoricalPaneBaseCurrencyCode = document.getElementById('infoCurrencyHistoricalPaneBaseCurrencyCode');
+        let infoCurrencyHistoricalPaneBaseCurrencyNameAndSymbol = document.getElementById('infoCurrencyHistoricalPaneBaseCurrencyNameAndSymbol');
+        let infoCurrencyHistoricalPaneSecondaryCurrencyCode = document.getElementById('infoCurrencyHistoricalPaneSecondaryCurrencyCode');
+        let infoCurrencyHistoricalPaneSecondaryCurrencyNameAndSymbol = document.getElementById('infoCurrencyHistoricalPaneSecondaryCurrencyNameAndSymbol');
+        let historicalCurrencyButtonsDiv = document.getElementById('historicalCurrencyButtonsDiv');
+        let companyHistoricalCurrencyQuoteStartButton = document.getElementById('companyHistoricalCurrencyQuoteStartButton');
+        if (companyHistoricalCurrencyQuoteStartButton) {
+          companyHistoricalCurrencyQuoteStartButton.parentNode.removeChild(companyHistoricalCurrencyQuoteStartButton);
+          companyHistoricalCurrencyQuoteStartButton = document.createElement('button');
+          historicalCurrencyButtonsDiv.appendChild(companyHistoricalCurrencyQuoteStartButton);
+          companyHistoricalCurrencyQuoteStartButton.id = 'companyHistoricalCurrencyQuoteStartButton';
+          companyHistoricalCurrencyQuoteStartButton.innerHTML = 'start';
+          companyHistoricalCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+        }
+        let companyHistoricalCurrencyQuoteStopButton = document.getElementById('companyHistoricalCurrencyQuoteStopButton');
+        if (companyHistoricalCurrencyQuoteStopButton) {
+          companyHistoricalCurrencyQuoteStopButton.parentNode.removeChild(companyHistoricalCurrencyQuoteStopButton);
+          companyHistoricalCurrencyQuoteStopButton = document.createElement('button');
+          historicalCurrencyButtonsDiv.appendChild(companyHistoricalCurrencyQuoteStopButton);
+          companyHistoricalCurrencyQuoteStopButton.id = 'companyHistoricalCurrencyQuoteStopButton';
+          companyHistoricalCurrencyQuoteStopButton.innerHTML = 'stop';
+          companyHistoricalCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+        }
+        let outputLabel = document.getElementById('outputLabel');
+        let outputDisplay = document.getElementById('outputDisplay');
+        outputDisplay.innerHTML = '';
+        let highLabel = document.getElementById('highLabel');
+        let highDisplay = document.getElementById('highDisplay');
+        highDisplay.innerHTML = '';
+        let lowLabel = document.getElementById('lowLabel');
+        let lowDisplay = document.getElementById('lowDisplay');
+        lowDisplay.innerHTML = '';
+        let currencyHistoryDate = document.getElementById('currencyHistoryDate');
+        let historicalCurrencyInterval = document.getElementById('historicalCurrencyInterval');
+        window.clearInterval(displayHistoricalCurrencyValues);
+        let currencyHistoricalReturnImg = document.getElementById('currencyHistoricalReturnImg');
+
+        function displayHistoricalCurrencyValues() {
+          if (tracking) {
+            let quoteDate = new Date(historicalFeed[historicalIndex].timestamp);
+            let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+            let months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+            let dateString = days[quoteDate.getDay() + 1] + ', ' + quoteDate.getFullYear().toString() + ' ' + months[quoteDate.getMonth()] + ' ' + quoteDate.getDate().toString();
+
+            currencyHistoryDate.innerHTML = dateString;
+
+            outputDisplay.innerHTML = historicalFeed[historicalIndex].price;
+            if (historicalHigh < parseFloat(historicalFeed[historicalIndex].price)) {
+              historicalHigh = parseFloat(historicalFeed[historicalIndex].price);
+              highDisplay.innerHTML = historicalHigh;
+            }
+            if (historicalLow > parseFloat(historicalFeed[historicalIndex].price)) {
+              historicalLow = parseFloat(historicalFeed[historicalIndex].price);
+              lowDisplay.innerHTML = historicalLow;
+            }
+
+            ++historicalIndex;
+            if (historicalIndex === historicalFeed.length) {
+              historicalIndex = 0;
+            }
+          }
+        }
+
+        function populateHistoricalFeed() {
+          if (tracking) {
+            $http.get(`/currency_history/${vm.baseCurrency.code}/${vm.secondaryCurrency.code}`)
+            .then(completeCurrencyHistoryData => {
+              let completeCurrencyHistory = completeCurrencyHistoryData.data.history;
+              historicalFeed = [];
+              historicalIndex = 0;
+              for (let key in completeCurrencyHistory) {
+                historicalFeed[historicalIndex] = {
+                  timestamp: key,
+                  price: completeCurrencyHistory[key]
+                };
+                ++historicalIndex;
+              }
+              historicalIndex = 0;
+              historicalHigh = 0;
+              historicalLow = 1000000;
+              displayHistoricalCurrencyValues();
+              setTimeout(() => {
+                let qwo = setInterval(displayHistoricalCurrencyValues, (parseFloat(historicalCurrencyInterval.value) * 1000));
+              }, (parseFloat(historicalCurrencyInterval.value) * 1000));
+            });
+          }
+        }
+
+        companyHistoricalCurrencyQuoteStartButton.addEventListener('click', () => {
+          tracking = true;
+          outputLabel.innerHTML = 'Price in ' + vm.secondaryCurrency.symbol;
+          highLabel.innerHTML = 'High in ' + vm.secondaryCurrency.symbol;
+          lowLabel.innerHTML = 'Low in ' + vm.secondaryCurrency.symbol;
+          currencyHistoricalReturnImg.setAttribute("style", "visibility: hidden;");
+          companyHistoricalCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          companyHistoricalCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          if (historicalFeed.length === 0) {
+            historicalIndex = 0;
+            populateHistoricalFeed();
+          } else {
+            let qwote = setInterval(displayHistoricalCurrencyValues, (parseFloat(historicalCurrencyInterval.value) * 1000));
+          }
+        });
+
+        companyHistoricalCurrencyQuoteStopButton.addEventListener('click', () => {
+          tracking = false;
+          outputLabel.innerHTML = 'Price';
+          highLabel.innerHTML = 'High';
+          lowLabel.innerHTML = 'Low';
+          currencyHistoricalReturnImg.setAttribute("style", "visibility: visible;");
+          companyHistoricalCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          companyHistoricalCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          outputDisplay.innerHTML = '';
+          highDisplay.innerHTML = '';
+          lowDisplay.innerHTML = '';
+        });
+
+        currencyDisplayPickDataStream.setAttribute("style", "display: none;");
+        historicalCurrencyAction.setAttribute("style", "display: initial;");
+        infoCurrencyHistoricalPaneBaseCurrencyCode.innerHTML = vm.baseCurrency.code;
+        infoCurrencyHistoricalPaneBaseCurrencyNameAndSymbol.innerHTML = vm.baseCurrency.name + ' : ' + vm.baseCurrency.symbol;
+        infoCurrencyHistoricalPaneSecondaryCurrencyCode.innerHTML = vm.secondaryCurrency.code;
+        infoCurrencyHistoricalPaneSecondaryCurrencyNameAndSymbol.innerHTML = vm.secondaryCurrency.name + ' : ' + vm.secondaryCurrency.symbol;
       }
 
       function mutualFundHistoricalManager(fund) {
@@ -955,6 +1212,117 @@
         companyInfoRealtimePaneStockExchange.innerHTML = company.stock_exchange_long;
       }
 
+      function currencyRealtimeManager() {
+        let tracking = false;
+        let currencyDisplayPickDataStream = document.getElementById('currencyDisplayPickDataStream');
+        let realtimeCurrencyAction = document.getElementById('realtimeCurrencyAction');
+        let currencyInfoRealtimePaneBaseCurrencyCode = document.getElementById('currencyInfoRealtimePaneBaseCurrencyCode');
+        let currencyInfoRealtimePaneBaseCurrencyNameAndSymbol = document.getElementById('currencyInfoRealtimePaneBaseCurrencyNameAndSymbol');
+        let currencyInfoRealtimePaneSecondaryCurrencyCode = document.getElementById('currencyInfoRealtimePaneSecondaryCurrencyCode');
+        let currencyInfoRealtimePaneSecondaryCurrencyNameAndSymbol = document.getElementById('currencyInfoRealtimePaneSecondaryCurrencyNameAndSymbol');
+        let realTimeCurrencyButtonsDiv = document.getElementById('realTimeCurrencyButtonsDiv');
+        let realtimeCurrencyQuoteStartButton = document.getElementById('realtimeCurrencyQuoteStartButton');
+        if (realtimeCurrencyQuoteStartButton) {
+          realtimeCurrencyQuoteStartButton.parentNode.removeChild(realtimeCurrencyQuoteStartButton);
+          realtimeCurrencyQuoteStartButton = document.createElement('button');
+          realTimeCurrencyButtonsDiv.appendChild(realtimeCurrencyQuoteStartButton);
+          realtimeCurrencyQuoteStartButton.id = 'realtimeCurrencyQuoteStartButton';
+          realtimeCurrencyQuoteStartButton.innerHTML = 'start';
+          realtimeCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+        }
+        let realtimeCurrencyQuoteStopButton = document.getElementById('realtimeCurrencyQuoteStopButton');
+        if (realtimeCurrencyQuoteStopButton) {
+          realtimeCurrencyQuoteStopButton.parentNode.removeChild(realtimeCurrencyQuoteStopButton);
+          realtimeCurrencyQuoteStopButton = document.createElement('button');
+          realTimeCurrencyButtonsDiv.appendChild(realtimeCurrencyQuoteStopButton);
+          realtimeCurrencyQuoteStopButton.id = 'realtimeCurrencyQuoteStopButton';
+          realtimeCurrencyQuoteStopButton.innerHTML = 'stop';
+          realtimeCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+        }
+        let currentQuote = null;
+        let currencyRealtimeReturnImg = document.getElementById('currencyRealtimeReturnImg');
+        let realtimeHigh = 0;
+        let realtimeLow = 1000000;
+        let outputLabel = document.getElementById('outputLabel');
+        outputLabel.innerHTML = 'Price in ' + vm.secondaryCurrency.symbol;
+        let outputDisplay = document.getElementById('outputDisplay');
+        outputDisplay.innerHTML = '';
+        let highLabel = document.getElementById('highLabel');
+        highLabel.innerHTML = 'High in ' + vm.secondaryCurrency.symbol;
+        let highDisplay = document.getElementById('highDisplay');
+        highDisplay.innerHTML = '';
+        let lowLabel = document.getElementById('lowLabel');
+        lowLabel.innerHTML = 'Low in ' + vm.secondaryCurrency.symbol;
+        let lowDisplay = document.getElementById('lowDisplay');
+        lowDisplay.innerHTML = '';
+        let realtimeCurrencyInterval = document.getElementById('realtimeCurrencyInterval');
+
+        function displayRealtimeCurrencyExchange() {
+          if (tracking) {
+            outputDisplay.innerHTML = currentQuote[vm.secondaryCurrency.code.toUpperCase()];
+            if (realtimeHigh < parseFloat(currentQuote[vm.secondaryCurrency.code.toUpperCase()])) {
+              realtimeHigh = parseFloat(currentQuote[vm.secondaryCurrency.code.toUpperCase()]);
+              highDisplay.innerHTML = realtimeHigh;
+            }
+            if (realtimeLow > parseFloat(currentQuote[vm.secondaryCurrency.code.toUpperCase()])) {
+              realtimeLow = parseFloat(currentQuote[vm.secondaryCurrency.code.toUpperCase()]);
+              lowDisplay.innerHTML = realtimeLow;
+            }
+            if (tracking) {
+              setTimeout(() => {
+                if (tracking) {
+                  populateCurrentQuote();
+                }
+              }, (parseFloat(realtimeCurrencyInterval.value) * 1000));
+            }
+          }
+        }
+
+        function populateCurrenQuote() {
+          if (tracking) {
+            $http.get(`/currency_exchange_from_base/${vm.baseCurrency.code}`)
+            .then(currentQuoteData => {
+              currentQuote = currentQuoteData.data.data;
+              displayRealtimeCurrencyExchange();
+            });
+          }
+        }
+
+        realtimeCurrencyQuoteStartButton.addEventListener('click', () => {
+          tracking = true;
+          realtimeCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          realtimeCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          currencyRealtimeReturnImg.setAttribute("style", "visibility: hidden;");
+          if (currentQuote === null) {
+            populateCurrenQuote();
+          } else {
+            displayRealtimeCurrencyExchange();
+          }
+        });
+
+        realtimeCurrencyQuoteStopButton.addEventListener('click', () => {
+          tracking = false;
+          realtimeCurrencyQuoteStartButton.setAttribute("style", "cursor: pointer; visibility: visible;");
+          realtimeCurrencyQuoteStopButton.setAttribute("style", "cursor: pointer; visibility: hidden;");
+          currencyRealtimeReturnImg.setAttribute("style", "visibility: visible;");
+          outputLabel.innerHTML = 'Price';
+          outputDisplay.innerHTML = '';
+          highLabel.innerHTML = 'High';
+          highDisplay.innerHTML = '';
+          lowLabel.innerHTML = 'Low'
+          let lowDisplay = document.getElementById('lowDisplay');
+          lowDisplay.innerHTML = '';
+        });
+
+        currencyDisplayPickDataStream.setAttribute("style", "display: none;");
+        realtimeCurrencyAction.setAttribute("style", "display: initial;");
+        currencyInfoRealtimePaneBaseCurrencyCode.innerHTML = vm.baseCurrency.code;
+        currencyInfoRealtimePaneBaseCurrencyNameAndSymbol.innerHTML = vm.baseCurrency.name + ' : ' + vm.baseCurrency.symbol;
+        currencyInfoRealtimePaneSecondaryCurrencyCode.innerHTML = vm.secondaryCurrency.code;
+        currencyInfoRealtimePaneSecondaryCurrencyNameAndSymbol.innerHTML = vm.secondaryCurrency.name + ' : ' + vm.secondaryCurrency.symbol;
+
+      }
+
       function mutualFundRealtimeManager(fund) {
         let tracking = false;
         let mutualFundDisplayPickDataStream = document.getElementById('mutualFundDisplayPickDataStream');
@@ -1028,6 +1396,51 @@
         mutualFundInfoRealtimePaneName.innerHTML = fund.name;
         mutualFundInfoRealtimePaneSymbol.innerHTML = fund.symbol;
         mutualFundInfoRealtimeNetAssets.innerHTML = 'Net Assets: ' + fund.net_assets;
+      }
+
+      function selectCurrencyCombination() {
+        if ((vm.baseCurrency) && (vm.secondaryCurrency)) {
+          let currencyDisplayPickDataStream = document.getElementById('currencyDisplayPickDataStream');
+          let currencyPicker = document.getElementById('currencyPicker');
+          let currencyInfoPaneBaseCurrencyCode = document.getElementById('currencyInfoPaneBaseCurrencyCode');
+          let currencyInfoPaneBaseCurrencyNameAndSymbol = document.getElementById('currencyInfoPaneBaseCurrencyNameAndSymbol');
+          let currencyInfoPaneSecondaryCurrencyCode = document.getElementById('currencyInfoPaneSecondaryCurrencyCode');
+          let currencyInfoPaneSecondaryCurrencyNameAndSymbol = document.getElementById('currencyInfoPaneSecondaryCurrencyNameAndSymbol');
+          let currencyDataStreamPickerButtonDiv = document.getElementById('currencyDataStreamPickerButtonDiv');
+          let currencyDataStreamPickerRealTimeButton = document.getElementById('currencyDataStreamPickerRealTimeButton');
+          if (currencyDataStreamPickerRealTimeButton) {
+            currencyDataStreamPickerRealTimeButton.parentNode.removeChild(currencyDataStreamPickerRealTimeButton);
+            currencyDataStreamPickerRealTimeButton = document.createElement('button');
+            currencyDataStreamPickerButtonDiv.appendChild(currencyDataStreamPickerRealTimeButton);
+            currencyDataStreamPickerRealTimeButton.id = 'currencyDataStreamPickerRealTimeButton';
+            currencyDataStreamPickerRealTimeButton.innerHTML = 'Real Time';
+            currencyDataStreamPickerRealTimeButton.setAttribute("style", "cursor: pointer;");
+          }
+          let currencyDataStreamPickerHistoricalButton = document.getElementById('currencyDataStreamPickerHistoricalButton');
+          if (currencyDataStreamPickerHistoricalButton) {
+            currencyDataStreamPickerHistoricalButton.parentNode.removeChild(currencyDataStreamPickerHistoricalButton);
+            currencyDataStreamPickerHistoricalButton = document.createElement('button');
+            currencyDataStreamPickerButtonDiv.appendChild(currencyDataStreamPickerHistoricalButton);
+            currencyDataStreamPickerHistoricalButton.id = 'currencyDataStreamPickerHistoricalButton';
+            currencyDataStreamPickerHistoricalButton.innerHTML = 'Historical';
+            currencyDataStreamPickerHistoricalButton.setAttribute("style", "cursor: pointer;");
+          }
+
+          currencyDataStreamPickerRealTimeButton.addEventListener('click', () => {
+            currencyRealtimeManager();
+          });
+
+          currencyDataStreamPickerHistoricalButton.addEventListener('click', () => {
+            currencyHistoricalManager();
+          });
+
+          currencyDisplayPickDataStream.setAttribute("style", "display: initial;");
+          currencyPicker.setAttribute("style", "display: none;");
+          currencyInfoPaneBaseCurrencyCode.innerHTML = vm.baseCurrency.code;
+          currencyInfoPaneBaseCurrencyNameAndSymbol.innerHTML = vm.baseCurrency.name + ' : ' + vm.baseCurrency.symbol;
+          currencyInfoPaneSecondaryCurrencyCode.innerHTML = vm.secondaryCurrency.code;
+          currencyInfoPaneSecondaryCurrencyNameAndSymbol.innerHTML = vm.secondaryCurrency.name + ' : ' + vm.secondaryCurrency.symbol;
+        }
       }
 
       function selectFund(fund) {
@@ -1141,6 +1554,69 @@
         });
       }
 
+      function submitCurrencySymbol() {
+        let currencySymbolInput = document.getElementById('currencySymbolInput');
+        let baseCurrencyNameAndSymbol = document.getElementById('baseCurrencyNameAndSymbol');
+        let option;
+        let currencySelectorDiv = document.getElementById('currencySelectorDiv');
+        let currencySelect = document.getElementById('currencySelect');
+        if (currencySelect) {
+          currencySelect.parentNode.removeChild(currencySelect);
+          currencySelect = document.createElement('select');
+          currencySelectorDiv.appendChild(currencySelect);
+          currencySelect.id = 'currencySelect';
+        }
+        let secondaryCurrencyNameAndSymbol = document.getElementById('secondaryCurrencyNameAndSymbol');
+        secondaryCurrencyNameAndSymbol.innerHTML = '';
+        let currentExchangeRate = document.getElementById('currentExchangeRate');
+        currentExchangeRate.innerHTML = '';
+
+        if ((currencySymbolInput.value !== '') && (currencySymbolInput.value.length === 3)) {
+          $http.get(`/currency_type_query/${currencySymbolInput.value}`)
+          .then(baseCurrencyData => {
+            let baseCurrency = baseCurrencyData.data;
+            console.log(baseCurrency);
+            vm.baseCurrency = {
+              code: baseCurrency[0].currencies[0].code,
+              name: baseCurrency[0].currencies[0].name,
+              symbol: baseCurrency[0].currencies[0].symbol
+            };
+            baseCurrencyNameAndSymbol.innerHTML = 'Base Currency: ' +  vm.baseCurrency.name + ' : ' + vm.baseCurrency.symbol;
+            $http.get(`/currency_exchange_from_base/${currencySymbolInput.value}`)
+            .then(exchangeRateData => {
+              console.log(exchangeRateData);
+              let exchangeRate = exchangeRateData.data.data;
+              console.log(exchangeRate);
+              option = document.createElement('option');
+              currencySelect.appendChild(option);
+              option.value = '';
+              option.innerHTML = 'exchange currency';
+              for (let key in exchangeRate) {
+                option = document.createElement('option');
+                currencySelect.appendChild(option);
+                option.value = key;
+                option.innerHTML = key;
+              }
+              currencySelect.addEventListener('change', () => {
+                if (currencySelect.value !== '') {
+                  $http.get(`/currency_type_query/${currencySelect.value}`)
+                  .then(secondaryCurrencyData => {
+                    let secondaryCurrency = secondaryCurrencyData.data;
+                    vm.secondaryCurrency = {
+                      code: secondaryCurrency[0].currencies[0].code,
+                      name: secondaryCurrency[0].currencies[0].name,
+                      symbol: secondaryCurrency[0].currencies[0].symbol
+                    };
+                    secondaryCurrencyNameAndSymbol.innerHTML = 'Exchange Currency: ' + vm.secondaryCurrency.name + ' : ' + vm.secondaryCurrency.symbol;
+                    currentExchangeRate.innerHTML = '1 ' + vm.baseCurrency.code + ' = ' + exchangeRate[vm.secondaryCurrency.code] + ' ' + vm.secondaryCurrency.code;
+                  });
+                }
+              });
+            });
+          });
+        }
+      }
+
       function submitMutualFundSymbol() {
         let mutualFundSymbolInput = document.getElementById('mutualFundSymbolInput');
 
@@ -1201,6 +1677,27 @@
         } else {
           vm.stockSymbolResults = [];
         }
+      }
+
+      function currencySelectedByUser() {
+        let currencySelector = document.getElementById('currencySelector');
+        let mutualFundsSelector = document.getElementById('mutualFundsSelector');
+        let stocksSelector = document.getElementById('stocksSelector');
+        let currencyPicker = document.getElementById('currencyPicker');
+        let currencySymbolInput = document.getElementById('mutualFundSymbolInput');
+
+        stocksSelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+        setTimeout(() => {
+          mutualFundsSelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+          setTimeout(() => {
+            currencySelector.setAttribute("style", "opacity: 0; transition: opacity 0.4s linear;");
+            setTimeout(() => {
+              financialInstrumentSelector.setAttribute("style", "display: none;");
+              currencyPicker.setAttribute("style", "display: initial;");
+              currencySymbolInput.focus();
+            }, 400);
+          }, 200);
+        }, 200);
       }
 
       function mutualFundsSelectedByUser() {

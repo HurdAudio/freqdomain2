@@ -239,6 +239,10 @@ button:active {
   display: none;
 }
 
+#currencyPicker {
+  display: none;
+}
+
 #mutualFundPicker {
   display: none;
 }
@@ -251,11 +255,23 @@ button:active {
   display: none;
 }
 
+#currencyDisplayPickDataStream {
+  display: none;
+}
+
 #realtimeStockAction {
   display: none;
 }
 
 #realtimeMutualFundAction {
+  display: none;
+}
+
+#realtimeCurrencyAction {
+  display: none;
+}
+
+#realtimeCurrencyAction {
   display: none;
 }
 
@@ -272,6 +288,10 @@ button:active {
 }
 
 #historicalMutualFundAction {
+  display: none;
+}
+
+#historicalCurrencyAction {
   display: none;
 }
 
@@ -305,6 +325,23 @@ button:active {
 }
 
 #mutualFundRealtime img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencyRealtime {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyRealtime p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#currencyRealtime img {
   width: 15%;
   margin: 30px 5px 5px 5px;
 }
@@ -377,6 +414,23 @@ button:active {
   margin: 30px 5px 5px 5px;
 }
 
+#currencyHistorical {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyHistorical p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#currencyHistorical img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
 #companyDataStreamPicker {
   float: left;
   width: 33%;
@@ -399,12 +453,33 @@ button:active {
   margin: 30px 5px 5px 5px;
 }
 
+#currencyDataStreamPicker {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyDataStreamPicker img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
 #stockSymbolEditorPane {
   float: left;
   width: 33%;
 }
 
 #stockSymbolEditorPane img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencySymbolEditorPane {
+  float: left;
+  width: 33%;
+}
+
+#currencySymbolEditorPane img {
   width: 15%;
   margin: 30px 5px 5px 5px;
 }
@@ -438,6 +513,24 @@ button:active {
 }
 
 #mutualFundInfosRealtimePane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#currencyInfosRealtimePane {
   float: left;
   font-family: 'Righteous', cursive;
   font-size: 36px;
@@ -527,6 +620,24 @@ button:active {
   margin-top: 30px;
 }
 
+#companyInfosCurrencyHistoricalPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
 #companyInfosPane {
   float: left;
   font-family: 'Righteous', cursive;
@@ -563,7 +674,39 @@ button:active {
   margin-top: 30px;
 }
 
+#currencyInfosPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
 #stockSymbolInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
+#currencySymbolInput {
   font-family: 'Righteous', cursive;
   font-size: 36px;
   margin-top: 5px;
@@ -591,6 +734,20 @@ button:active {
   margin-left: 3vmin;
 }
 
+#currencySelect {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
 label {
   color: #4c4c00;
   font-family: 'Righteous', cursive;
@@ -600,6 +757,23 @@ label {
 }
 
 #stockSymbolSelectionDiv {
+  float: left;
+  width: 62%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: url(../img/january/.jpg);
+  background-size: 100%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+  padding-left: 1vmin;
+  height: 420px;
+  /* width: 20%; */
+  margin-left: 3vmin;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+
+#currencySymbolSelectionDiv {
   float: left;
   width: 62%;
   font-family: 'Righteous', cursive;
@@ -693,4 +867,8 @@ label {
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+}
+
+#currencyComboSelectionDiv {
+  cursor: pointer;
 }
