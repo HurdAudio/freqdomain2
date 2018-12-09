@@ -40,6 +40,7 @@ const input_managers = require('./routes/input_managers.js');
 const envelope_generator_skins = require('./routes/envelope_generator_skins.js');
 const airlines = require('./routes/airlines.js');
 const weather_skins = require('./routes/weather_skins.js');
+const highshelf_filters = require('./routes/highshelf_filters.js');
 
 const port = process.env.PORT || 3007;
 
@@ -80,6 +81,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/envelope_generator_skins', envelope_generator_skins);
  app.use('/airlines', airlines);
  app.use('/weather_skins', weather_skins);
+ app.use('/highshelf_filters', highshelf_filters);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
