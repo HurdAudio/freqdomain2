@@ -538,25 +538,39 @@
         //   output: null
         // }, {});
 
-        let randomNumberGenerator = new RandomNumberGenerator({
+        // let randomNumberGenerator = new RandomNumberGenerator({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: "random number generator",
+        //   interval: 1,
+        //   interval_modulator: null,
+        //   maximum: 0,
+        //   maximum_modulator: null,
+        //   minimum: 0,
+        //   minimum_modulator: null,
+        //   continuous: false,
+        //   exponential: false,
+        //   convex: false,
+        //   slope: 4,
+        //   output: null
+        // }, {});
+
+        let lowpassFilter = new LowpassFilter({
           id: 1,
           user_id: 1,
-          name: "random number generator",
-          interval: 1,
-          interval_modulator: null,
-          maximum: 0,
-          maximum_modulator: null,
-          minimum: 0,
-          minimum_modulator: null,
-          continuous: false,
-          exponential: false,
-          convex: false,
-          slope: 4,
+          name: 'low pass filter',
+          frequency: 110.000,
+          frequency_modulator: null,
+          detune: 0.00,
+          detune_modulator: null,
+          q: 0.0000,
+          q_modulator: null,
+          input: null,
           output: null
         }, {});
 
 
-        console.log(randomNumberGenerator);
+        console.log(lowpassFilter);
 
 
 

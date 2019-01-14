@@ -1028,7 +1028,6 @@ var DynamicCompressor = (function(settings, skin) {
 var RandomNumberGenerator = (function(settings, skin) {
 
   let randomNumberGenerator = function(settings, skin) {
-    console.log(settings);
     this.id = settings.id;
     this.name = settings.name;
     this.interval = settings.interval;
@@ -1045,4 +1044,28 @@ var RandomNumberGenerator = (function(settings, skin) {
   }
 
   return(randomNumberGenerator);
+})();
+
+var LowpassFilter = (function(settings, skin) {
+
+  let lowpassFilter = function(settings, skin) {
+    this.id = settings.id;
+    this.name = settings.name;
+    this.frequency = settings.frequency;
+    this.frequency_modulator = settings.frequency_modulator;
+    this.detune = settings.detune;
+    this.detune_modulator = settings.detune_modulator;
+    this.q = settings.q;
+    this.q_modulator = settings.q_modulator,
+    this.input = settings.input;
+    this.output = settings.output;
+    this.lowpassFilter = audioContext.createBiquadFilter();
+    this.lowpassFilter.type = 'lowpass';
+    this.lowpassFilter.frequency.value = this.frequency;
+    this.lowpassFilter.detune.value = this.detune;
+    this.lowpassFilter.Q.value = this.q;
+  }
+
+  return(lowpassFilter);
+
 })();
