@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     waveform: req.body.waveform,
     waveform_modulator: req.body.waveform_modulator,
     hertz: req.body.hertz,
@@ -64,6 +66,8 @@ router.patch('/:id', (req, res, next) => {
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     waveform: req.body.waveform,
     waveform_modulator: req.body.waveform_modulator,
     hertz: req.body.hertz,
@@ -106,6 +110,8 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            positionX: record.positionX,
+            positionY: record.positionY,
             waveform: record.waveform,
             waveform_modulator: record.waveform_modulator,
             hertz: record.hertz,

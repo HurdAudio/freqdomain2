@@ -9,6 +9,8 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           name: 'oscillator',
+          positionX: 700,
+          positionY: 200,
           waveform: 'sine',
           waveform_modulator: null,
           hertz: 440.000,

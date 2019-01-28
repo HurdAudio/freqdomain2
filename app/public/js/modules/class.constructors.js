@@ -969,7 +969,456 @@ var OscillatorModule = (function(settings, skin) {
     this.oscillator.frequency.setValueAtTime(this.hertz, audioContext.currentTime);
     this.oscillator.detune.setValueAtTime(this.detune, audioContext.currentTime);
     this.oscillator.type = this.waveform;
+    this.positionX = settings.positionX;
+    this.positionY = settings.positionY;
+    this.oscillator.start();
 
+    this.skinName = skin.name;
+    this.month = skin.month;
+    this.rule = skin.rule;
+    this.facePath = skin.face_path;
+    this.faceSize = skin.face_size;
+    this.faceRepeat = skin.face_repeat;
+    this.faceBoxShadowColor = skin.face_box_shadow_color;
+    this.faceFontColor = skin.face_font_color;
+    this.faceFontShadow = skin.face_font_shadow;
+    this.topPath = skin.top_path;
+    this.topSize = skin.top_size;
+    this.topRepeat = skin.top_repeat;
+    this.topFontColor = skin.top_font_color;
+    this.topFontShadow = skin.top_font_shadow;
+    this.signalPath = skin.signal_path;
+    this.signalSize = skin.signal_size;
+    this.signalRepeat = skin.signal_repeat;
+    this.signalBoxShadowColor = skin.signal_box_shadow_color;
+    this.signalFontColor = skin.signal_font_color;
+    this.signalFontShadow = skin.signal_font_shadow;
+    this.displayPath = skin.display_path;
+    this.outputSize = skin.output_size;
+    this.outputRepeat = skin.output_repeat;
+    this.outputBoxShadowColor = skin.output_box_shadow_color;
+    this.outputFontColor = skin.output_font_color;
+    this.outputFontShadow = skin.output_font_shadow;
+    this.waveformSelectorDisplaySize = skin.waveform_selector_display_size;
+    this.waveformSelectorDisplayRepeat = skin.waveform_selector_display_repeat;
+    this.waveformSelectorDisplayBoxShadowColor = skin.waveform_selector_display_box_shadow_color;
+    this.waveformSelectorDisplayFontColor = skin.waveform_selector_display_font_color;
+    this.frequencySize = skin.frequency_size;
+    this.frequencyRepeat = skin.frequency_repeat;
+    this.frequencyBoxShadow = skin.frequency_box_shadow;
+    this.frequencySliderPath = skin.frequency_slider_path;
+    this.frequencySliderSize = skin.frequency_slider_size;
+    this.frequencySliderRepeat = skin.frequency_slider_repeat;
+    this.frequencySliderBoxShadow = skin.frequency_slider_box_shadow;
+    this.frequencyModulatorSelectPath = skin.frequency_modulator_select_path;
+    this.frequencyModulatorSelectSize = skin.frequency_modulator_select_size;
+    this.frequencyModulatorSelectRepeat = skin.frequency_modulator_select_repeat;
+    this.frequencyModulatorSelectBoxShadowColor = skin.frequency_modulator_select_box_shadow_color;
+    this.waveformModulatorSelectPath = skin.waveform_modulator_select_path;
+    this.waveformModulatorSelectSize = skin.waveform_modulator_select_size;
+    this.waveformModulatorSelectRepeat = skin.waveform_modulator_select_repeat;
+    this.waveformModulatorSelectBoxShadowColor = skin.waveform_modulator_select_box_shadow_color;
+    this.detunePath = skin.detune_path;
+    this.detuneSize = skin.detune_size;
+    this.detuneRepeat = skin.detune_repeat;
+    this.detuneBoxShadowColor = skin.detune_box_shadow_color;
+    this.detuneSliderPath = skin.detune_slider_path;
+    this.detuneSliderSize = skin.detune_slider_size;
+    this.detuneSliderRepeat = skin.detune_slider_repeat;
+    this.detuneSliderBoxShadowColor = skin.detune_slider_box_shadow_color;
+    this.detuneModulatorPath = skin.detune_modulator_path;
+    this.detuneModulatorSize = skin.detune_modulator_size;
+    this.detuneModulatorRepeat = skin.detune_modulator_repeat;
+    this.detuneModulatorBoxShadowColor = skin.detune_modulator_box_shadow_color;
+
+    this.dragWidth = 590;
+    this.dragHeight = 450;
+    this.horizontalWidth = 900;
+    this.horizontalHeight = 160;
+    this.verticalWidth = 160;
+    this.verticalHeight = 750;
+
+    this.userWaveformInput = (sine, square, sawtooth, triangle) => {
+      sine.addEventListener('click', () => {
+        this.waveform = 'sine';
+        this.oscillator.type = this.waveform;
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      });
+      square.addEventListener('click', () => {
+        this.waveform = 'square';
+        this.oscillator.type = this.waveform;
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      });
+      sawtooth.addEventListener('click', () => {
+        this.waveform = 'sawtooth';
+        this.oscillator.type = this.waveform;
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      });
+      triangle.addEventListener('click', () => {
+        this.waveform = 'triangle';
+        this.oscillator.type = this.waveform;
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      });
+    }
+
+    this.userFrequencyInput = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.hertz = display.value;
+        this.oscillator.frequency.value = (this.hertz);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.hertz = slider.value;
+        this.oscillator.frequency.value = (this.hertz);
+      });
+    }
+
+    this.userDetuneInput = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.detune = display.value;
+        this.oscillator.detune.value = this.detune;
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.detune = display.value;
+        this.oscillator.detune.value = this.detune;
+      });
+    }
+
+    // rendering functions
+
+    this.renderDraggable = () => {
+      let div = document.createElement('div');
+      let oscillatorTop = document.createElement('div');
+      div.appendChild(oscillatorTop);
+      let nameTag = document.createElement('h1');
+      oscillatorTop.appendChild(nameTag);
+      let signalPanel = document.createElement('div');
+      div.appendChild(signalPanel);
+      let outputLabel = document.createElement('p');
+      signalPanel.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      let outputPort = document.createElement('h1');
+      signalPanel.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output ' + this.name + this.id;
+      let face = document.createElement('div');
+      div.appendChild(face);
+      let waveform = document.createElement('div');
+      face.appendChild(waveform);
+      let waveLabel = document.createElement('p');
+      waveform.appendChild(waveLabel);
+      waveLabel.innerHTML = 'waveform:';
+      let waveformSelector = document.createElement('ul');
+      waveform.appendChild(waveformSelector);
+      let sine = document.createElement('li');
+      waveformSelector.appendChild(sine);
+      let sineImg = document.createElement('img');
+      sine.appendChild(sineImg);
+      sineImg.src="./img/noun_589707_cc.png"
+      let sineLabel = document.createElement('p');
+      sine.appendChild(sineLabel);
+      sineLabel.innerHTML = 'sine';
+      let square = document.createElement('li');
+      waveformSelector.appendChild(square);
+      let squareImg = document.createElement('img');
+      square.appendChild(squareImg);
+      squareImg.src = './img/noun_538698_cc.png';
+      let squareLabel = document.createElement('p');
+      square.appendChild(squareLabel);
+      squareLabel.innerHTML = 'square';
+      let sawtooth = document.createElement('li');
+      waveformSelector.appendChild(sawtooth);
+      let sawtoothImg = document.createElement('img');
+      sawtooth.appendChild(sawtoothImg);
+      sawtoothImg.src = './img/noun_538692_cc.png';
+      let sawtoothLabel = document.createElement('p');
+      sawtooth.appendChild(sawtoothLabel);
+      sawtoothLabel.innerHTML = 'sawtooth';
+      let triangle = document.createElement('li');
+      waveformSelector.appendChild(triangle);
+      let triangleImg = document.createElement('img');
+      triangle.appendChild(triangleImg);
+      triangleImg.src = './img/noun_538696_cc.png';
+      let triangleLabel = document.createElement('p');
+      triangle.appendChild(triangleLabel);
+      triangleLabel.innerHTML = 'triangle';
+      let waveMod = document.createElement('div');
+      waveform.appendChild(waveMod);
+      let waveModLabel = document.createElement('p');
+      waveMod.appendChild(waveModLabel);
+      waveModLabel.innerHTML = 'modulator:';
+      let waveModPort = document.createElement('h1');
+      waveMod.appendChild(waveModPort);
+      waveModPort.innerHTML = '◦';
+      waveModPort.id = 'waveModulator ' + this.name + this.id;
+      let leverSpace = document.createElement('div');
+      face.appendChild(leverSpace);
+      leverSpace.className = 'pure-u-2-3';
+      let frequencyForm = document.createElement('div');
+      frequencyForm.onsubmit = "return false";
+      leverSpace.appendChild(frequencyForm);
+      let hertzLabel = document.createElement('h3');
+      frequencyForm.appendChild(hertzLabel);
+      hertzLabel.innerHTML = 'Hertz:';
+      let hertzDisplay = document.createElement('input');
+      frequencyForm.appendChild(hertzDisplay);
+      hertzDisplay.type = "number";
+      hertzDisplay.name = "amountInput";
+      hertzDisplay.min = "1.000";
+      hertzDisplay.max = "11025.000";
+      hertzDisplay.value = this.hertz.toString();
+      hertzDisplay.step = "0.001";
+      let hertzSlider = document.createElement('input');
+      frequencyForm.appendChild(hertzSlider);
+      hertzSlider.name = "amountRange";
+      hertzSlider.type = "range";
+      hertzSlider.min = "1.000";
+      hertzSlider.max = "11025.000";
+      hertzSlider.value = this.hertz.toString();
+      hertzSlider.step = "0.001";
+      hertzSlider.id = 'hertzSlider';
+      let hertzModLabel = document.createElement('p');
+      frequencyForm.appendChild(hertzModLabel);
+      hertzModLabel.innerHTML = 'modulator:';
+      let hertzModPort = document.createElement('h1');
+      frequencyForm.appendChild(hertzModPort);
+      hertzModPort.innerHTML = '◦';
+      hertzModPort.id = 'hertzModPort ' + this.name + this.id;
+      let detuneForm = document.createElement('div');
+      leverSpace.appendChild(detuneForm);
+      let detuneLabel = document.createElement('p');
+      detuneForm.appendChild(detuneLabel);
+      detuneLabel.innerHTML = 'Detune:';
+      let detuneDisplay = document.createElement('input');
+      detuneForm.appendChild(detuneDisplay);
+      detuneDisplay.type = "number";
+      detuneDisplay.name = "detuneQuantity";
+      detuneDisplay.min = "-100.00";
+      detuneDisplay.max = "100.00";
+      detuneDisplay.step = "0.01";
+      detuneDisplay.value = this.detune.toString();
+      let detuneSlider = document.createElement('input');
+      detuneForm.appendChild(detuneSlider);
+      detuneSlider.type = "range";
+      detuneSlider.name = "detuneAmountRange";
+      detuneSlider.min = "-100.00";
+      detuneSlider.max = "100.00";
+      detuneSlider.step = "0.01";
+      detuneSlider.value = this.detune.toString();
+      let detuneModLabel = document.createElement('p');
+      detuneForm.appendChild(detuneModLabel);
+      detuneModLabel.innerHTML = 'modulator:';
+      let detuneModPort = document.createElement('h1');
+      detuneForm.appendChild(detuneModPort);
+      detuneModPort.innerHTML = '◦';
+      detuneModPort.id = 'detuneModPort ' + this.name + this.id;
+      
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      oscillatorTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
+      signalPanel.setAttribute("style", "background: url(" + this.signalPath + "); background-size: " + this.signalSize + "; border: solid 1px transparent; height: 450px; width: 59px; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 45deg); margin-left: -6px; margin-top: -26px; box-shadow: 0px -1px 1px " + this.signalFontShadow + ";");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 1px; margin-top: 228px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      face.setAttribute("style", "height: 450px; width: 100%; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: " + this.faceRepeat + "; margin-top: -427px; margin-left: 58px; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ";");
+      face.className = 'pure-g';
+      waveform.className = 'pure-u-1-3';
+      waveLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin: 1vmin 0 2vmin 2vmin; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 23%; list-style-type: none;");
+      if (this.waveform === 'sine') {
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      } else {
+        sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      }
+      sineImg.setAttribute("style", "width: 60px; height 60px;");
+      sineLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      if (this.waveform === 'square') {
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      } else {
+        square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      }
+      squareImg.setAttribute("style", "width: 60px; height 60px;");
+      squareLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      if (this.waveform === 'sawtooth') {
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+
+      } else {
+        sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+
+      }
+      sawtoothImg.setAttribute("style", "width: 60px; height 60px;");
+      sawtoothLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 14px;");
+      if (this.waveform === 'triangle') {
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+
+      } else {
+        triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+
+      }
+      triangleImg.setAttribute("style", "width: 60px; height 60px;");
+      triangleLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      waveMod.setAttribute("style", "margin: 2vmin 0 0 2vmin;");
+      waveModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin: 1vmin 0 2vmin 2vmin; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      waveModPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 47px; margin-top: 5px; width: 8%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
+      leverSpace.setAttribute("style", "margin: -465px 0 0 35%;");
+      hertzLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 3px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ", -3px -3px 1px " + this.faceFontShadow + ", -4px -4px 1px " + this.faceFontShadow + ";");
+      hertzDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 5px; margin-top: -20px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; padding-left: 1vmin; width: 65%;");
+      hertzSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 150px; margin-top: 80px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + "; height: 52px;");
+      switch(this.skinName) {
+        case('Oscillator: January A'):
+          hertzSlider.className = 'oscillatorJanuaryASlider';
+          detuneSlider.className = 'oscillatorDetuneJanuaryASlider';
+          break;
+        case('Oscillator: January B'):
+          hertzSlider.className = 'oscillatorJanuaryBSlider';
+          detuneSlider.className = 'oscillatorDetuneJanuaryBSlider';
+          break;
+        case('Oscillator: January C'):
+          hertzSlider.className = 'oscillatorJanuaryCSlider';
+          detuneSlider.className = 'oscillatorDetuneJanuaryCSlider';
+          break;
+        case('Oscillator: February A'):
+          hertzSlider.className = 'oscillatorFebruaryASlider';
+          detuneSlider.className = 'oscillatorDetuneFebruaryASlider';
+          break;
+        case('Oscillator: February B'):
+          hertzSlider.className = 'oscillatorFebruaryBSlider';
+          detuneSlider.className = 'oscillatorDetuneFebruaryBSlider';
+          break;
+        case('Oscillator: February C'):
+          hertzSlider.className = 'oscillatorFebruaryCSlider';
+          detuneSlider.className = 'oscillatorDetuneFebruaryCSlider';
+          break;
+        case('Oscillator: March A'):
+          hertzSlider.className = 'oscillatorMarchASlider';
+          detuneSlider.className = 'oscillatorDetuneMarchASlider';
+          break;
+        case('Oscillator: March B'):
+          hertzSlider.className = 'oscillatorMarchBSlider';
+          detuneSlider.className = 'oscillatorDetuneMarchBSlider';
+          break;
+        case('Oscillator: March C'):
+          hertzSlider.className = 'oscillatorMarchCSlider';
+          detuneSlider.className = 'oscillatorDetuneMarchCSlider';
+          break;
+        case('Oscillator: April A'):
+          hertzSlider.className = 'oscillatorAprilASlider';
+          detuneSlider.className = 'oscillatorDetuneAprilASlider';
+          break;
+        case('Oscillator: April B'):
+          hertzSlider.className = 'oscillatorAprilBSlider';
+          detuneSlider.className = 'oscillatorDetuneAprilBSlider';
+          break;
+        case('Oscillator: April C'):
+          hertzSlider.className = 'oscillatorAprilCSlider';
+          detuneSlider.className = 'oscillatorDetuneAprilCSlider';
+          break;
+        default:
+          alert('unsupported skin slider');
+      }
+      hertzModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin: -15vmin 0 2vmin 2vmin; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      hertzModPort.setAttribute("style", "margin-top: -18px; margin-left: 45px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer;");
+      detuneLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; margin: -25px 0 0 0; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      detuneDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 1px; margin-top: 8px; background: url(" + this.detunePath + "); background-size: " + this.detuneSize + "; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + "; padding-left: 10px;");
+      detuneSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; width: 65%; height: 32px; background: url(" + this.detuneSliderPath + "); background-size: " + this.detuneSliderSize + "; outline: none; opacity: 1.0; position: relative; left: -20px; top: 15px; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + ";");
+      detuneModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; position: relative; top: -170px; left: 150px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      detuneModPort.setAttribute("style", "position: relative; top: -190px; left: 170px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer;");
+
+      this.userWaveformInput(sine, square, sawtooth, triangle);
+      this.userFrequencyInput(hertzDisplay, hertzSlider);
+      this.userDetuneInput(detuneDisplay, detuneSlider);
+
+      function dragElement(element, obj) {
+
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (oscillatorTop) {
+          oscillatorTop.onmousedown = dragMouseDown;
+        } else {
+          element.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          element.style.top = (element.offsetTop - pos2) + "px";
+          element.style.left = (element.offsetLeft - pos1) + "px";
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+
+        function closeDragElement() {
+          document.onmouseup = null;
+          document.onmousemove = null;
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+      }
+
+      dragElement(div, this);
+
+      div.addEventListener('mouseover', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      });
+
+      div.addEventListener('mouseout', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+      });
+
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
+
+      waveModPort.addEventListener('click', () => {
+        alert(waveModPort.id);
+      });
+
+      hertzModPort.addEventListener('click', () => {
+        alert(hertzModPort.id);
+      });
+
+      detuneModPort.addEventListener('click', () => {
+        alert(detuneModPort.id);
+      });
+
+      return(div);
+    }
   }
 
   return(oscillatorNode);

@@ -62,6 +62,10 @@
             moduleSelectPath = 'gains';
             skinSelectorPath = 'gain_skins';
             break;
+          case('Oscillator'):
+            moduleSelectPath = 'oscillators';
+            skinSelectorPath = 'oscillator_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -119,6 +123,14 @@
                 }
               }
             }
+            if (moduleSelector.value === 'Oscillator') {
+              let oscillator = new OscillatorModule(settings, skin);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = oscillator.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -138,6 +150,9 @@
             break;
           case('GainModule'):
             skinsTable = 'gain_skins';
+            break;
+          case('Oscillator'):
+            skinsTable = 'oscillator_skins';
             break;
           default:
             console.log('unsupported module');

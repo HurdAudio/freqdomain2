@@ -3,6 +3,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('oscillators', function(table) {
     table.increments().primary();
     table.integer('user_id').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
+    table.integer('positionX').notNullable().defaultTo(400);
+    table.integer('positionY').notNullable().defaultTo(500);
     table.string('name').notNullable().defaultTo('oscillator');
     table.string('waveform').notNullable().defaultTo('sine');
     table.json('waveform_modulator').defaultTo(null);
