@@ -717,3 +717,363 @@
   cursor: pointer;
   box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
 }
+
+.oscillatorHorizontalJanuaryASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #9CBCDB;
+  background-color: -webkit-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: -webkit-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: -o-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: linear-gradient(-135deg, #254369, #9CBCDB);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #cc0066, -2px -2px 1px #cc0066, -3px -3px 1px #cc0066, -4px -4px 1px #cc0066;
+}
+
+.oscillatorHorizontalJanuaryASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #9CBCDB;
+  background-color: -webkit-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: -webkit-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: -o-linear-gradient(-135deg, #254369, #9CBCDB);
+  background: linear-gradient(-135deg, #254369, #9CBCDB);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #cc0066, -2px -2px 1px #cc0066, -3px -3px 1px #cc0066, -4px -4px 1px #cc0066;
+}
+
+.oscillatorHorizontalJanuaryBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -o-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E, -4px -4px 1px #D2691E;
+}
+
+.oscillatorHorizontalJanuaryBSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -o-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #D2691E, -2px -2px 1px #D2691E, -3px -3px 1px #D2691E, -4px -4px 1px #D2691E;
+}
+
+.oscillatorHorizontalJanuaryCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -o-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F, -4px -4px 1px #FF003F;
+}
+
+.oscillatorHorizontalJanuaryCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: -o-linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background: linear-gradient(-135deg, #7CCBF2, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #FF003F, -2px -2px 1px #FF003F, -3px -3px 1px #FF003F, -4px -4px 1px #FF003F;
+}
+
+.oscillatorHorizontalFebruaryASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: -o-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: linear-gradient(-135deg, #FF0000, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #26FF26, -2px -2px 1px #26FF26, -3px -3px 1px #26FF26, -4px -4px 1px #26FF26;
+}
+
+.oscillatorHorizontalFebruaryASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #054BA1;
+  background-color: -webkit-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: -webkit-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: -o-linear-gradient(-135deg, #FF0000, #054BA1);
+  background: linear-gradient(-135deg, #FF0000, #054BA1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #26FF26, -2px -2px 1px #26FF26, -3px -3px 1px #26FF26, -4px -4px 1px #26FF26;
+}
+
+.oscillatorHorizontalFebruaryBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: linear-gradient(-135deg, #FF0000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #4c4c07, -2px -2px 1px #4c4c07, -3px -3px 1px #4c4c07, -4px -4px 1px #4c4c07;
+}
+
+.oscillatorHorizontalFebruaryBSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #FF0000, #ffffd1);
+  background: linear-gradient(-135deg, #FF0000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #4c4c07, -2px -2px 1px #4c4c07, -3px -3px 1px #4c4c07, -4px -4px 1px #4c4c07;
+}
+
+.oscillatorHoizontalFebruaryCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: -o-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: linear-gradient(-135deg, #f600ff, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #013300, -2px -2px 1px #013300, -3px -3px 1px #013300, -4px -4px 1px #013300;
+}
+
+.oscillatorHoizontalFebruaryCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: -o-linear-gradient(-135deg, #f600ff, #ffffd1);
+  background: linear-gradient(-135deg, #f600ff, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #013300, -2px -2px 1px #013300, -3px -3px 1px #013300, -4px -4px 1px #013300;
+}
+
+.oscillatorHorizontalMarchASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+}
+
+.oscillatorHorizontalMarchASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: -o-linear-gradient(-135deg, #e50000, #ffffd1);
+  background: linear-gradient(-135deg, #e50000, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
+}
+
+.oscillatorHorizontalMarchBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #666600, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #666600, #ffffd1);
+  background: -o-linear-gradient(-135deg, #666600, #ffffd1);
+  background: linear-gradient(-135deg, #666600, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff66, -2px -2px 1px #ffff66, -3px -3px 1px #ffff66, -4px -4px 1px #ffff66;
+}
+
+.oscillatorMarchBSlider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background-color: #ffffd1;
+  background-color: -webkit-linear-gradient(-135deg, #666600, #ffffd1);
+  background: -webkit-linear-gradient(-135deg, #666600, #ffffd1);
+  background: -o-linear-gradient(-135deg, #666600, #ffffd1);
+  background: linear-gradient(-135deg, #666600, #ffffd1);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff66, -2px -2px 1px #ffff66, -3px -3px 1px #ffff66, -4px -4px 1px #ffff66;
+}
+
+.oscillatorHorizontalMarchCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffe5e5;
+  background-color: -webkit-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: -webkit-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: -o-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #990000, -2px -2px 1px #990000, -3px -3px 1px #990000, -4px -4px 1px #990000;
+}
+
+.oscillatorHorizontalMarchCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffe5e5;
+  background-color: -webkit-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: -webkit-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: -o-linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background: linear-gradient(-135deg, #ff4c4c, #ffe5e5);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #990000, -2px -2px 1px #990000, -3px -3px 1px #990000, -4px -4px 1px #990000;
+}
+
+.oscillatorHorizontalAprilASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #fcfce5;
+  background-color: -webkit-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: -webkit-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: -o-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: linear-gradient(-135deg, #e5e500, #fcfce5);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #e7e719, -2px -2px 1px #e7e719, -3px -3px 1px #e7e719, -4px -4px 1px #e7e719;
+}
+
+.oscillatorHorizontalAprilASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #fcfce5;
+  background-color: -webkit-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: -webkit-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: -o-linear-gradient(-135deg, #e5e500, #fcfce5);
+  background: linear-gradient(-135deg, #e5e500, #fcfce5);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #e7e719, -2px -2px 1px #e7e719, -3px -3px 1px #e7e719, -4px -4px 1px #e7e719;
+}
+
+.oscillatorHorizontalAprilBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ff9898;
+  background-color: -webkit-linear-gradient(-135deg, #661414, #ff9898);
+  background: -webkit-linear-gradient(-135deg, #661414, #ff9898);
+  background: -o-linear-gradient(-135deg, #661414, #ff9898);
+  background: linear-gradient(-135deg, #661414, #ff9898);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ff4646, -2px -2px 1px #ff4646, -3px -3px 1px #ff4646, -4px -4px 1px #ff4646;
+}
+
+.oscillatorHorizontalAprilBSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ff9898;
+  background-color: -webkit-linear-gradient(-135deg, #661414, #ff9898);
+  background: -webkit-linear-gradient(-135deg, #661414, #ff9898);
+  background: -o-linear-gradient(-135deg, #661414, #ff9898);
+  background: linear-gradient(-135deg, #661414, #ff9898);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ff4646, -2px -2px 1px #ff4646, -3px -3px 1px #ff4646, -4px -4px 1px #ff4646;
+}
+
+.oscillatorHorizontalAprilCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffff7f;
+  background-color: -webkit-linear-gradient(-135deg, #333300, #ffff7f);
+  background: -webkit-linear-gradient(-135deg, #333300, #ffff7f);
+  background: -o-linear-gradient(-135deg, #333300, #ffff7f);
+  background: linear-gradient(-135deg, #333300, #ffff7f);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+}
+
+.oscillatorHorizontalAprilCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffff7f;
+  background-color: -webkit-linear-gradient(-135deg, #333300, #ffff7f);
+  background: -webkit-linear-gradient(-135deg, #333300, #ffff7f);
+  background: -o-linear-gradient(-135deg, #333300, #ffff7f);
+  background: linear-gradient(-135deg, #333300, #ffff7f);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+}

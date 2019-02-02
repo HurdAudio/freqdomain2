@@ -653,7 +653,7 @@ exports.seed = function(knex, Promise) {
             "dates": [ 6, 7, 8, 14, 15, 23, 24, 25, 26, 27 ]
           },
           face_path: '../img/april/rings-66621_1920.jpg',
-          face_size: '100%',
+          face_size: '110%',
           face_repeat: 'no-repeat',
           face_box_shadow_color: '#ff4646',
           face_font_color: '#000000',
