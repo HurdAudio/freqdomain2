@@ -75,6 +75,12 @@
         url: '/financialmoduletest',
         parent: 'app',
         component: 'financialmoduletest'
+      })
+      .state({
+        name: 'patcheditor',
+        url: '/patcheditor/:id',
+        parent: 'app',
+        component: 'patcheditor'
       });
       // .state({
       //   name: 'weekview',

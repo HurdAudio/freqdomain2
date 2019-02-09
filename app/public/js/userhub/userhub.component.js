@@ -34,6 +34,11 @@
       vm.uncollapseReadMessage = uncollapseReadMessage;
       vm.collapseReadMessageAction = collapseReadMessageAction;
       vm.navMixer = navMixer;
+      vm.navPatchEditor = navPatchEditor;
+
+      function navPatchEditor() {
+        $state.go('patcheditor', {id: currentUserId});
+      }
 
       function navMixer() {
         $state.go('mixer', {id: currentUserId});

@@ -1,0 +1,122 @@
+#patchEditorDiv {
+  width: 100%;
+  height: 655px;
+  overflow-y: scroll;
+  position: absolute;
+}
+
+#patchEditorSidebar {
+  display: block;
+  opacity: 0.9;
+  margin: 2px 0 0 0;
+  width: 16%;
+  height: 651px;
+  border: 1px solid white;
+  overflow-y: scroll;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  float: left;
+  font-family: 'Raleway', sans-serif;
+}
+#patchEditorSidebarTitle {
+  border-bottom: solid 4px #7D2301;
+}
+
+#patchEditorSidebar h2 {
+  margin: 2vmin 0 0 3vmin;
+  font-size: 30px;
+  font-variant: normal;
+  font-weight: 500;
+  color: #ED4E0E;
+}
+
+.patchNotSelected {
+  font-size: 24px;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 1vmin 2vmin 1vmin 3vmin;
+  border-bottom: 2px solid #7D2301;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  filter: grayscale(80%) hue-rotate(0deg);
+  color: #000000;
+  cursor: pointer;
+  transition: filter 0.6s linear;
+}
+
+.patchNotSelected:hover {
+  filter: grayscale(0%) hue-rotate(180deg);
+  transition: filter 0.6s linear;
+}
+
+.patchSelected {
+  font-size: 24px;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 1vmin 2vmin 1vmin 3vmin;
+  border-bottom: 2px solid #7D2301;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  filter: grayscale(0%);
+  color: #ffffff;
+  cursor: none;
+}
+
+.newPatchSelector {
+  font-size: 24px;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 1vmin 2vmin 1vmin 3vmin;
+  border-bottom: 2px solid #7D2301;
+  background: #4372E1;
+  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
+  background: -o-linear-gradient(-45deg, #4372E1, #624906);
+  background: linear-gradient(-45deg, #4372E1, #624906);
+  filter: grayscale(0%) hue-rotate(0deg);
+  color: #000000;
+  cursor: pointer;
+  transition: filter 0.6s linear;
+}
+
+.newPatchSelector:hover {
+  filter: grayscale(0%) hue-rotate(180deg);
+  transition: filter 0.6s linear;
+}
+
+#patchEditorSpace {
+  opacity: 0.9;
+  position: inherit;
+  margin-left: 3%;
+  margin-top: 2px;
+  margin-right: 5px;
+  display: block;
+  height: 1200px;
+  border: 1px solid white;
+  /* border-bottom: solid 4px #00FF66; */
+  background: #282828;
+  overflow-y: scroll;
+}
+
+.patchEditorSideOffScreen {
+  position: absolute;
+  left: -16%;
+  z-index: 77;
+  transition: left 0.5s linear;
+}
+
+.patchSideOnScreen {
+  position: absolute;
+  left: 0%;
+  z-index: 77;
+  transition: left 0.5s linear;
+}

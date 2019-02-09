@@ -15,14 +15,14 @@
 
 
   angular.module('app')
-    .component('mixer', {
-      controller: MixerController,
-      templateUrl: '/js/mixer/mixer.template.html'
+    .component('patcheditor', {
+      controller: PatchEditorController,
+      templateUrl: '/js/patcheditor/patcheditor.template.html'
     });
 
-    MixerController.$inject = ['$http', '$state', '$stateParams'];
+    PatchEditorController.$inject = ['$http', '$state', '$stateParams'];
 
-    function MixerController($http, $state, $stateParams){
+    function PatchEditorController($http, $state, $stateParams){
       const vm = this;
 
       vm.$onInit = onInit;
@@ -31,57 +31,52 @@
       vm.userProfileEditor = userProfileEditor;
       vm.returnToHub = returnToHub;
       vm.navMixer = navMixer;
-      vm.userMixerPaths = [
+      vm.userPatches = [
         {
           patch: 1,
           name: "Default",
-          selected: "mixPathSelected"
+          selected: "patchSelected"
         },
         {
           patch: 2,
-          name: "Hard Limiter",
-          selected: "mixPathNotSelected"
+          name: "Sine Tones",
+          selected: "patchNotSelected"
         },
         {
           patch: 3,
-          name: "Soft Limiter",
-          selected: "mixPathNotSelected"
+          name: "Square Wave Experiment",
+          selected: "patchNotSelected"
         },
         {
           patch: 4,
-          name: "Vocal Mixer",
-          selected: "mixPathNotSelected"
+          name: "Low Pass Drone",
+          selected: "patchNotSelected"
         },
         {
           patch: 5,
-          name: "Instrumental",
-          selected: "mixPathNotSelected"
+          name: "Evolution",
+          selected: "patchNotSelected"
         },
         {
           patch: null,
           name: "+ Add New",
-          selected: "newPatchSelector"
+          selected: "patchNotSelected"
         }
       ];
-      vm.selectMixPath = selectMixPath;
+      vm.selectPatch = selectPatch;
       vm.loadInfo = loadInfo;
-      vm.navPatchEditor = navPatchEditor;
-
-      function navPatchEditor() {
-        $state.go('patcheditor', {id: currentUserId});
-      }
 
       function loadInfo() {
         $state.go('info', {id: currentUserId});
       }
 
-      function selectMixPath(index) {
-        for (let i = 0; i < vm.userMixerPaths.length; i++) {
-          if (vm.userMixerPaths[i].patch !== null) {
+      function selectPatch(index) {
+        for (let i = 0; i < vm.userPatches.length; i++) {
+          if (vm.userPatches[i].patch !== null) {
             if (index === (i + 1)) {
-              vm.userMixerPaths[i].selected = "mixPathSelected";
+              vm.userPatches[i].selected = "patchSelected";
             } else {
-              vm.userMixerPaths[i].selected = "mixPathNotSelected";
+              vm.userPatches[i].selected = "patchNotSelected";
             }
           }
         }
@@ -127,7 +122,7 @@
 
 
       function initializeSpace(user) {
-        let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
+        let patchEditorSpace = document.getElementById('patchEditorSpace');
         let hubUserImg = document.getElementById('hubUserImg');
         let hubUserName = document.getElementById('hubUserName');
 
@@ -142,7 +137,7 @@
             let skin = skinData.data;
             let masterVolume = new MasterVolume(settings, skin);
             let masterDiv = masterVolume.renderDraggable(0, 0);
-            signalPathEditorSpace.appendChild(masterDiv);
+            patchEditorSpace.appendChild(masterDiv);
           });
         })
       }
@@ -203,15 +198,15 @@
       }
 
       function handleSidebar() {
-        let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
-        let mixerSidebar = document.getElementById('mixerSidebar');
+        let patchEditorSpace = document.getElementById('patchEditorSpace');
+        let patchEditorSidebar = document.getElementById('patchEditorSidebar');
 
-        signalPathEditorSpace.addEventListener('mouseout', () => {
-          mixerSidebar.className = "pure-u-1-6 mixerSideOnScreen";
+        patchEditorSpace.addEventListener('mouseout', () => {
+          patchEditorSidebar.className = "pure-u-1-6 patchSideOnScreen";
         });
 
-        signalPathEditorSpace.addEventListener('mouseover', () => {
-          mixerSidebar.className = "pure-u-1-6 mixerSideOffScreen";
+        patchEditorSpace.addEventListener('mouseover', () => {
+          patchEditorSidebar.className = "pure-u-1-6 patchEditorSideOffScreen";
         });
       }
 
@@ -221,7 +216,7 @@
         checkValidUser($stateParams.id);
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
-        document.getElementById("mixerOnMixer").setAttribute("style", "visibility: hidden;");
+        document.getElementById("patchEditorOnPatchEditor").setAttribute("style", "visibility: hidden;");
         currentUserId = $stateParams.id;
         handleSidebar();
 
