@@ -1,0 +1,874 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#financialModuleDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#financialModuleTop {
+  background: url(../img/january/tobias-keller-148497-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 88%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#financialModuleTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #001900;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #7fff7f, 2px 2px 1px #7fff7f;
+}
+
+#financialModuleSignalFlow {
+  background: url(../img/january/tobias-keller-148497-unsplash.jpg);
+  background-size: 900%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #7fff7f;
+}
+
+#financialModuleSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 32vmin;
+  margin-bottom: 0;
+  color: #001900;
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f;
+}
+
+#financialModuleSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #000000;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 400%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f;
+  cursor: pointer;
+}
+
+#financialModuleFace {
+  height: 450px;
+  width: 88%;
+  /*background: #7fff7f;*/
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/natalie-riedel-1201950-unsplash.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -57.3vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f;
+}
+
+#outputLabel {
+  color: #001900;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f;
+  margin: 18px;
+}
+
+#outputDisplay {
+
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+  margin-top: -2vmin;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 20%;
+  margin-left: 3vmin;
+  overflow-x: scroll;
+}
+
+#highLabel {
+  color: #001900;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f;
+  margin: 18px;
+}
+
+#highDisplay {
+
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+  margin-top: -2vmin;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 20%;
+  margin-left: 3vmin;
+  overflow-x: scroll;
+}
+
+#lowLabel {
+  color: #001900;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f;
+  margin: 18px;
+}
+
+#lowDisplay {
+
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+  margin-top: -2vmin;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 20%;
+  margin-left: 3vmin;
+  overflow-x: scroll;
+}
+
+#inputSpace {
+  border-left: solid 2px #000000;
+  width: 70%;
+  height: 105%;
+  float: left;
+  margin: -56vmin 0 0 25%;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+}
+
+#stocksSelector {
+  float: left;
+  width: 33%;
+}
+
+#stocksSelector img {
+  width 90%;
+  margin: 135px 20px 10px 50px;
+}
+
+#mutualFundsSelector {
+  float: left;
+  width: 33%;
+}
+
+#mutualFundsSelector img {
+  width: 80%;
+  margin: 80px 20px 10px 20px;
+}
+
+#currencySelector {
+  float: left;
+  width: 33%;
+}
+
+#currencySelector img {
+  width: 80%;
+  margin: 80px 0 10px 50px;
+}
+
+button {
+
+  /* visibility: hidden; */
+  width: 150px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 0;
+  margin-left: 0;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: -o-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: linear-gradient(-135deg, #004c00, #ccffcc);
+  padding: 0 10px;
+  margin: 30px 50px 10px 50px;
+  color: #001900;
+}
+
+button:active {
+  box-shadow: -1px -1px 0px #ffffff;
+}
+
+#stockPicker {
+  display: none;
+}
+
+#currencyPicker {
+  display: none;
+}
+
+#mutualFundPicker {
+  display: none;
+}
+
+#companyDisplayPickDataStream {
+  display: none;
+}
+
+#mutualFundDisplayPickDataStream {
+  display: none;
+}
+
+#currencyDisplayPickDataStream {
+  display: none;
+}
+
+#realtimeStockAction {
+  display: none;
+}
+
+#realtimeMutualFundAction {
+  display: none;
+}
+
+#realtimeCurrencyAction {
+  display: none;
+}
+
+#realtimeCurrencyAction {
+  display: none;
+}
+
+#intradayStockAction {
+  display: none;
+}
+
+#intradayMutualFundAction {
+  display: none;
+}
+
+#historicalStockAction {
+  display: none;
+}
+
+#historicalMutualFundAction {
+  display: none;
+}
+
+#historicalCurrencyAction {
+  display: none;
+}
+
+#companyStockRealtime {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#companyStockRealtime p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#companyStockRealtime img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundRealtime {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundRealtime p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundRealtime img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencyRealtime {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyRealtime p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#currencyRealtime img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#companyStockIntraday {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#companyStockIntraday p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#companyStockIntraday img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundIntraday {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundIntraday p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundIntraday img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#companyStockHistorical {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#companyStockHistorical p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#companyStockHistorical img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundHistorical {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundHistorical p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#mutualFundHistorical img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencyHistorical {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyHistorical p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: 2px 10px 5px 15px;
+}
+
+#currencyHistorical img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#companyDataStreamPicker {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#companyDataStreamPicker img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundDataStreamPicker {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#mutualFundDataStreamPicker img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencyDataStreamPicker {
+  float: left;
+  width: 33%;
+  height: 420px;
+}
+
+#currencyDataStreamPicker img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#stockSymbolEditorPane {
+  float: left;
+  width: 33%;
+}
+
+#stockSymbolEditorPane img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#currencySymbolEditorPane {
+  float: left;
+  width: 33%;
+}
+
+#currencySymbolEditorPane img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#mutualFundsSymbolEditorPane {
+  float: left;
+  width: 33%;
+}
+
+#mutualFundsSymbolEditorPane img {
+  width: 15%;
+  margin: 30px 5px 5px 5px;
+}
+
+#companyInfosRealtimePane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#mutualFundInfosRealtimePane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#currencyInfosRealtimePane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosStockIntradayPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#mutualFundInfosIntradayPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosStockHistoricalPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosMutualFundHistoricalPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosCurrencyHistoricalPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#companyInfosPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#mutualFundInfosPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#currencyInfosPane {
+  float: left;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 200%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  background-size: 100%;
+  padding-left: 1vmin;
+  height: 420px;
+  width: 60%;
+  margin-left: 3vmin;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#stockSymbolInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
+#currencySymbolInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
+#mutualFundSymbolInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
+#currencySelect {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 96px;
+  width: 80%;
+  margin-left: 3vmin;
+}
+
+label {
+  color: #001900;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f;
+  margin: 20px;
+}
+
+#stockSymbolSelectionDiv {
+  float: left;
+  width: 62%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 420px;
+  /* width: 20%; */
+  margin-left: 3vmin;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+
+#currencySymbolSelectionDiv {
+  float: left;
+  width: 62%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 420px;
+  /* width: 20%; */
+  margin-left: 3vmin;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+
+#mutualFundSymbolSelectionDiv {
+  float: left;
+  width: 62%;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  background-color: #BFBFBF;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 1vmin;
+  height: 420px;
+  /* width: 20%; */
+  margin-left: 3vmin;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+
+.companyListing {
+  margin: 5px;
+  border-bottom: solid 1px #000000;
+  cursor: pointer;
+}
+
+.intervalDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 42px;
+  margin-left: 2vmin;
+  margin-top: 0;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 150%;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+  padding-left: 5vmin;
+}
+
+.intervalSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 85%;
+  background: url(../img/january/jonas-jacobsson-507942-unsplash.jpg);
+  background-size: 500%;
+  outline: none;
+  opacity: 1.0;
+  margin-left: 15px;
+  margin-top: 2vmin;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+}
+
+.intervalSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 24px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #9CBCDB;
+    background-color: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+    background: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+    background: -o-linear-gradient(-135deg, #004c00, #ccffcc);
+    background: linear-gradient(-135deg, #004c00, #ccffcc);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+}
+
+.intervalSlider::-moz-range-thumb {
+  width: 12px;
+  height: 24px;
+  background: url(../img/noun_338545_cc.png);
+  background-color: #9CBCDB;
+  background-color: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: -webkit-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: -o-linear-gradient(-135deg, #004c00, #ccffcc);
+  background: linear-gradient(-135deg, #004c00, #ccffcc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+}
+
+#currencyComboSelectionDiv {
+  cursor: pointer;
+}
