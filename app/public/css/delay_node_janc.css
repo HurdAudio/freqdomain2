@@ -4,13 +4,13 @@ body {
 
 #delayDiv {
   position: fixed;
-  /* bottom: -34.5%; */
-  /* right: 0%; */
+  bottom: -34.5%;
+  right: 0%;
   margin: 10em;
   height: 450px;
   width: 450px;
   background-color: transparent;
-  /* transform: scale(0.5); */
+  transform: scale(0.5);
 }
 
 #delayTop {
