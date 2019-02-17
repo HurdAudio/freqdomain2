@@ -42,6 +42,7 @@ const airlines = require('./routes/airlines.js');
 const weather_skins = require('./routes/weather_skins.js');
 const highshelf_filters = require('./routes/highshelf_filters.js');
 const bandpass_filter_skins = require('./routes/bandpass_filter_skins.js');
+const peaking_filters = require('./routes/peaking_filters.js');
 
 const port = process.env.PORT || 3007;
 
@@ -84,6 +85,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/weather_skins', weather_skins);
  app.use('/highshelf_filters', highshelf_filters);
  app.use('/bandpass_filter_skins', bandpass_filter_skins);
+ app.use('/peaking_filters', peaking_filters);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
