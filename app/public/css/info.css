@@ -92,7 +92,8 @@ ul {
   background: #C4C4C4;
   width: 40%;
   height: 350px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   box-shadow: -1px -1px 1px #A2A2A2, -2px -2px 1px #A2A2A2, -3px -3px 1px #A2A2A2, -4px -4px 1px #A2A2A2, -5px -5px 1px #A2A2A2;
 }
 

@@ -560,22 +560,36 @@
         //   output: null
         // }, {});
 
-        let lowpassFilter = new LowpassFilter({
-          id: 1,
-          user_id: 1,
-          name: 'low pass filter',
-          frequency: 110.000,
-          frequency_modulator: null,
-          detune: 0.00,
-          detune_modulator: null,
-          q: 0.0000,
-          q_modulator: null,
-          input: null,
-          output: null
+        // let lowpassFilter = new LowpassFilter({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: 'low pass filter',
+        //   frequency: 110.000,
+        //   frequency_modulator: null,
+        //   detune: 0.00,
+        //   detune_modulator: null,
+        //   q: 0.0000,
+        //   q_modulator: null,
+        //   input: null,
+        //   output: null
+        // }, {});
+
+        let highpassFilter = new HighpassFilter({
+            id: 1,
+            user_id: 1,
+            name: 'high pass filter',
+            frequency: 110.000,
+            frequency_modulator: null,
+            detune: 0.00,
+            detune_modulator: null,
+            q: 0.0000,
+            q_modulator: null,
+            input: null,
+            output: null
         }, {});
 
 
-        console.log(lowpassFilter);
+        console.log(highpassFilter);
 
 
 
