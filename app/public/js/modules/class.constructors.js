@@ -1107,6 +1107,7 @@ var OscillatorModule = (function(settings, skin) {
       });
     }
 
+
     // rendering functions
 
     this.renderDraggable = () => {
@@ -2016,6 +2017,23 @@ var TestToneModule = (function(settings, skin) {
     this.verticalWidth = 160;
     this.verticalHeight = 750;
 
+    this.userFrequencyInput = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.hertz = display.value;
+        this.oscillator.frequency.value = (this.hertz);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.hertz = slider.value;
+        this.oscillator.frequency.value = (this.hertz);
+      });
+    }
+
     // rendering functions
 
     this.renderDraggable = () => {
@@ -2047,6 +2065,13 @@ var TestToneModule = (function(settings, skin) {
       testToneFrequency.max = "11025.000";
       testToneFrequency.step = "0.001";
       testToneFrequency.value = this.hertz;
+      let testToneFrequencySlider = document.createElement('input');
+      frequencyPane.appendChild(testToneFrequencySlider);
+      testToneFrequencySlider.type = "range";
+      testToneFrequencySlider.min = "1.000";
+      testToneFrequencySlider.max = "11025.000";
+      testToneFrequencySlider.step = "0.001";
+      testToneFrequencySlider.value = this.hertz;
       // let waveform = document.createElement('div');
       // face.appendChild(waveform);
       // let waveLabel = document.createElement('p');
@@ -2170,6 +2195,47 @@ var TestToneModule = (function(settings, skin) {
       frequencyPane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px;");
       hertzLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; padding: 5px 0 3px 15px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
       testToneFrequency.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; position: relative; margin: -40px 0 0 15px;");
+      testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 190px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
+      switch(this.skinName) {
+        case('Test Tone: January A'):
+          testToneFrequencySlider.className = 'testtoneJanuaryASlider';
+          break;
+        case('Test Tone: January B'):
+          testToneFrequencySlider.className = 'testtoneJanuaryBSlider';
+          break;
+        case('Test Tone: January C'):
+          testToneFrequencySlider.className = 'testtoneJanuaryCSlider';
+          break;
+        case('Test Tone: February A'):
+          testToneFrequencySlider.className = 'testtoneFebruaryASlider';
+          break;
+        case('Test Tone: February B'):
+          testToneFrequencySlider.className = 'testtoneFebruaryBSlider';
+          break;
+        case('Test Tone: February C'):
+          testToneFrequencySlider.className = 'testtoneFebruaryCSlider';
+          break;
+        case('Test Tone: March A'):
+          testToneFrequencySlider.className = 'testtoneMarchASlider';
+          break;
+        case('Test Tone: March B'):
+          testToneFrequencySlider.className = 'testtoneMarchBSlider';
+          break;
+        case('Test Tone: March C'):
+          testToneFrequencySlider.className = 'testtoneMarchCSlider';
+          break;
+        case('Test Tone: April A'):
+          testToneFrequencySlider.className = 'testtoneAprilASlider';
+          break;
+        case('Test Tone: April B'):
+          testToneFrequencySlider.className = 'testtoneAprilBSlider';
+          break;
+        case('Test Tone: April C'):
+          testToneFrequencySlider.className = 'testtoneAprilCSlider';
+          break;
+        default:
+          console.log('unsupported test tone skin');
+      }
       // waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 23%; list-style-type: none;");
       // if (this.waveform === 'sine') {
       //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
@@ -2271,7 +2337,7 @@ var TestToneModule = (function(settings, skin) {
       // detuneModPort.setAttribute("style", "position: relative; top: -190px; left: 170px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer;");
 
       // this.userWaveformInput(sine, square, sawtooth, triangle);
-      // this.userFrequencyInput(hertzDisplay, hertzSlider);
+      this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
       // this.userDetuneInput(detuneDisplay, detuneSlider);
 
       function dragElement(element, obj) {
