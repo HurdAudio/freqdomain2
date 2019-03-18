@@ -66,6 +66,9 @@
             moduleSelectPath = 'oscillators';
             skinSelectorPath = 'oscillator_skins';
             break;
+          case('TestTone'):
+            moduleSelectPath = 'test_tones';
+            skinSelectorPath = 'test_tone_skins';
           default:
             console.log('unsupported module');
         }
@@ -147,6 +150,14 @@
                 }
               }
             }
+            if (moduleSelector.value === 'TestTone') {
+              let testTone = new TestToneModule(settings, skin);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = testTone.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -169,6 +180,9 @@
             break;
           case('Oscillator'):
             skinsTable = 'oscillator_skins';
+            break;
+          case('TestTone'):
+            skinsTable = 'test_tone_skins';
             break;
           default:
             console.log('unsupported module');

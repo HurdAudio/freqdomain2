@@ -9,6 +9,8 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           name: 'test tone',
+          positionX: 700,
+          positionY: 200,
           gain_value: 40,
           waveform: 'sine',
           hertz: 440.000,

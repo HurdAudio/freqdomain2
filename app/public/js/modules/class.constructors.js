@@ -1959,6 +1959,56 @@ var TestToneModule = (function(settings, skin) {
     this.oscillator.type = this.waveform;
     this.oscillator.connect(this.gain);
 
+    this.skinName = skin.name;
+    this.month = skin.month;
+    this.rule = skin.rule;
+    this.facePath = skin.face_path;
+    this.faceSize = skin.face_size;
+    this.faceRepeat = skin.face_repeat;
+    this.faceBoxShadowColor = skin.face_box_shadow_color;
+    this.faceFontColor = skin.face_font_color;
+    this.faceFontShadow = skin.face_font_shadow;
+    this.topPath = skin.top_path;
+    this.topSize = skin.top_size;
+    this.topRepeat = skin.top_repeat;
+    this.topFontColor = skin.top_font_color;
+    this.topFontShadow = skin.top_font_shadow;
+    this.signalPath = skin.signal_path;
+    this.signalSize = skin.signal_size;
+    this.signalRepeat = skin.signal_repeat;
+    this.signalBoxShadowColor = skin.signal_box_shadow_color;
+    this.signalFontColor = skin.signal_font_color;
+    this.signalFontShadow = skin.signal_font_shadow;
+    this.displayPath = skin.display_path;
+    this.outputSize = skin.output_size;
+    this.outputRepeat = skin.output_repeat;
+    this.outputBoxShadowColor = skin.output_box_shadow_color;
+    this.outputFontColor = skin.output_font_color;
+    this.outputFontShadow = skin.output_font_shadow;
+    this.waveformSelectorDisplaySize = skin.waveform_selector_display_size;
+    this.waveformSelectorDisplayRepeat = skin.waveform_selector_display_repeat;
+    this.waveformSelectorDisplayBoxShadowColor = skin.waveform_selector_display_box_shadow_color;
+    this.waveformSelectorDisplayFontColor = skin.waveform_selector_display_font_color;
+    this.frequencySize = skin.frequency_size;
+    this.frequencyRepeat = skin.frequency_repeat;
+    this.frequencyBoxShadow = skin.frequency_box_shadow;
+    this.frequencySliderPath = skin.frequency_slider_path;
+    this.frequencySliderSize = skin.frequency_slider_size;
+    this.frequencySliderRepeat = skin.frequency_slider_repeat;
+    this.frequenySliderBoxShadow = skin.frequency_slider_box_shadow;
+    this.volumePath = skin.volume_path;
+    this.volumeSize = skin.volume_size;
+    this.volumeRepeat = skin.volume_repeat;
+    this.volumeBoxShadowColor = skin.volume_box_shadow_color;
+    this.volumeSliderPath = skin.volume_slider_path;
+    this.volumeSliderSize = skin.volume_slider_size;
+    this.volumeSliderRepeat = skin.volume_slider_repeat;
+    this.volumeSliderBoxShadowColor = skin.volume_slider_box_shadow_color;
+    this.sliderShaderColor1 = skin.slider_shader_color_1;
+    this.sliderShaderColor2 = skin.slider_shader_color_2;
+
+    
+
   }
 
   return(testToneNode);
