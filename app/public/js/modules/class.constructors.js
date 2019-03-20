@@ -1956,11 +1956,16 @@ var TestToneModule = (function(settings, skin) {
     this.deviceOn = settings.device_on;
     this.output = settings.output;
     this.gain = audioContext.createGain();
-    this.gain.gain.value = (this.gainValue/100);
+    if (this.deviceOn) {
+      this.gain.gain.value = (this.gainValue/100);
+    } else {
+      this.gain.gain.value = 0;
+    }
     this.oscillator = audioContext.createOscillator();
     this.oscillator.frequency.setValueAtTime(this.hertz, audioContext.currentTime);
     this.oscillator.type = this.waveform;
     this.oscillator.connect(this.gain);
+    this.oscillator.start();
 
     this.skinName = skin.name;
     this.month = skin.month;
@@ -2016,6 +2021,87 @@ var TestToneModule = (function(settings, skin) {
     this.horizontalHeight = 160;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
+
+    this.manageWaveformSelector = (waves) => {
+      let flashDelay = 90;
+      let animTime = 0.5;
+
+      waves.waveFormsContainer.addEventListener('click', () => {
+        waves.waveFormsContainer.setAttribute("style", "box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; width: 320px; height: 230px; cursor: pointer; filter: brightness(500%) sepia(100%); transition: filter " + flashDelay + "ms linear;");
+        setTimeout(() =>{
+          waves.waveFormsContainer.setAttribute("style", "box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; width: 320px; height: 230px; cursor: pointer; filter: brightness(100%) sepia(0%); transition: filter " + flashDelay + "ms linear;");
+
+          switch(this.waveform) {
+            case('sine'):
+              this.waveform = 'square';
+              this.oscillator.type = this.waveform;
+              waves.sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+              waves.sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+              waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(180deg); backface-visibility: visible; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.triangleImage.setAttribute("style", "visibility: hidden;");
+              waves.triangleLabel.setAttribute("style", "visibility: hidden;");
+              setTimeout(() => {
+                waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: visible; visibility: hidden;");
+                waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: visible;");
+              }, (animTime * 1000));
+              break;
+            case('square'):
+              this.waveform = 'sawtooth';
+              this.oscillator.type = this.waveform;
+              waves.sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(180deg); backface-visibility: hidden; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sineImage.setAttribute("style", "visibility: hidden;");
+              waves.sineLabel.setAttribute("style", "visibility: hidden;");
+              waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden; visibility: visible; transition: transform " + animTime + "s linear;");
+              waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible; visibility: hidden; transition: transform " + animTime + "s linear;");
+              setTimeout(() => {
+                waves.sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+                waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible; visibility: visible;");
+              }, (animTime * 1000));
+              break;
+            case('sawtooth'):
+              this.waveform = 'triangle';
+              this.oscillator.type = this.waveform;
+              waves.sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; visibility: visible; transform: rotateY(-90deg); backface-visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(180deg); backface-visibility: hidden; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.squareImage.setAttribute("style", "visibility: hidden;");
+              waves.squareLabel.setAttribute("style", "visibility: hidden;");
+              waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden; visibility: visible; transition: transform " + animTime + "s linear;");
+              waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: visible; visibility: visible; transition: transform " + animTime + "s linear;");
+              waves.triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+              waves.triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+              setTimeout(() => {
+                waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+                waves.sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+                waves.sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+              }, (animTime * 1000));
+              break;
+            case('triangle'):
+              this.waveform = 'sine';
+              this.oscillator.type = this.waveform;
+              waves.sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden; visibility: visible; transition: transform " + animTime + "s linear;");
+              waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(180deg); backface-visibility: hidden; visibility: hidden; transition: transform " + animTime + "s linear;");
+              waves.sawtoothImage.setAttribute("style", "visibility: hidden;");
+              waves.sawtoothLabel.setAttribute("style", "visibility: hidden;");
+              waves.triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: visible; visibility: hidden; transition: transform " + animTime + "s linear;");
+              setTimeout(() => {
+                waves.square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: visible;");
+                waves.squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+                waves.squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+                waves.sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+              }, (animTime * 1000));
+              break;
+            default:
+              alert('unsupported waveform');
+          }
+        }, flashDelay);
+      });
+
+    }
 
     this.userFrequencyInput = (display, slider) => {
 
@@ -2099,7 +2185,7 @@ var TestToneModule = (function(settings, skin) {
       waveFormsContainer.appendChild(sawtooth);
       let sawtoothLabel = document.createElement('p');
       sawtooth.appendChild(sawtoothLabel);
-      sawtoothLabel.innerHTML = "saw";
+      sawtoothLabel.innerHTML = "sawtooth";
       let sawtoothImage = document.createElement('img');
       sawtooth.appendChild(sawtoothImage);
       sawtoothImage.src = "./img/noun_538692_cc.png";
@@ -2107,7 +2193,7 @@ var TestToneModule = (function(settings, skin) {
       waveFormsContainer.appendChild(triangle);
       let triangleLabel = document.createElement('p');
       triangle.appendChild(triangleLabel);
-      triangleLabel.innerHTML = "tri";
+      triangleLabel.innerHTML = "triangle";
       let triangleImage = document.createElement('img');
       triangle.appendChild(triangleImage);
       triangleImage.src = "./img/noun_538696_cc.png";
@@ -2334,6 +2420,21 @@ var TestToneModule = (function(settings, skin) {
         triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
         triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
       }
+      let waveFormsObject = {
+        sine: sine,
+        sineLabel: sineLabel,
+        sineImage: sineImage,
+        square: square,
+        squareLabel: squareLabel,
+        squareImage: squareImage,
+        sawtooth: sawtooth,
+        sawtoothLabel: sawtoothLabel,
+        sawtoothImage: sawtoothImage,
+        triangle: triangle,
+        triangleLabel: triangleLabel,
+        triangleImage: triangleImage,
+        waveFormsContainer: waveFormsContainer
+      };
       // waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 23%; list-style-type: none;");
       // if (this.waveform === 'sine') {
       //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
@@ -2436,6 +2537,7 @@ var TestToneModule = (function(settings, skin) {
 
       // this.userWaveformInput(sine, square, sawtooth, triangle);
       this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
+      this.manageWaveformSelector(waveFormsObject);
       // this.userDetuneInput(detuneDisplay, detuneSlider);
 
       function dragElement(element, obj) {

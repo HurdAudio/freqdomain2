@@ -52,7 +52,6 @@
         let skinSelectorPath = '';
         let renderSizeSelector = document.getElementById('renderSizeSelector');
         let masterDiv;
-
         switch(moduleSelector.value) {
           case('MasterVolume'):
             moduleSelectPath = 'master_volumes';
@@ -69,6 +68,7 @@
           case('TestTone'):
             moduleSelectPath = 'test_tones';
             skinSelectorPath = 'test_tone_skins';
+            break;
           default:
             console.log('unsupported module');
         }
