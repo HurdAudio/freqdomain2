@@ -2508,21 +2508,9 @@ var TestToneModule = (function(settings, skin) {
         }
       });
 
-      // outputPort.addEventListener('click', () => {
-      //   alert(outputPort.id);
-      // });
-      //
-      // waveModPort.addEventListener('click', () => {
-      //   alert(waveModPort.id);
-      // });
-      //
-      // hertzModPort.addEventListener('click', () => {
-      //   alert(hertzModPort.id);
-      // });
-      //
-      // detuneModPort.addEventListener('click', () => {
-      //   alert(detuneModPort.id);
-      // });
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
 
       return(div);
     }
