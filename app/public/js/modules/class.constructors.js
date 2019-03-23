@@ -2022,6 +2022,54 @@ var TestToneModule = (function(settings, skin) {
     this.verticalWidth = 160;
     this.verticalHeight = 750;
 
+    this.onOffFunctionalityDrag = (testToneOnOff, light, div) => {
+      testToneOnOff.addEventListener('change', () => {
+        if (testToneOnOff.checked) {
+          this.deviceOn = true;
+          this.gain.gain.value = this.gainValue;
+          light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%); transition: filter 0.5s linear;");
+        } else {
+          this.deviceOn = false;
+          this.gain.gain.value = 0;
+          light.setAttribute("style", "visibility: hidden;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%); transition: filter 0.5s linear;");
+        }
+      });
+    }
+
+    this.manageVolumeInput = (display, slider, light) => {
+
+      slider.addEventListener('mousemove', (e) => {
+
+        e.stopPropagation();
+        display.value = slider.value;
+        this.gainValue = display.value;
+        if (this.deviceOn) {
+          this.gain.gain.value = (this.gainValue/100);
+          light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
+        } else {
+          this.gain.gain.value = 0;
+          light.setAttribute("style", "visibility: hidden;");
+        }
+
+      });
+
+      display.addEventListener('change', (e) => {
+
+        e.stopPropagation();
+        slider.value = display.value;
+        this.gainValue = slider.value;
+        if (this.deviceOn) {
+          this.gain.gain.value = (this.gainValue/100);
+          light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" +    (this.gainValue) + "%) hue-rotate(" (100 - this.gainValue) + "deg); visibility: visible;");
+        } else {
+          this.gain.gain.value = 0;
+          light.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
     this.manageWaveformSelector = (waves) => {
       let flashDelay = 90;
       let animTime = 0.5;
@@ -2197,6 +2245,37 @@ var TestToneModule = (function(settings, skin) {
       let triangleImage = document.createElement('img');
       triangle.appendChild(triangleImage);
       triangleImage.src = "./img/noun_538696_cc.png";
+      let volumePane = document.createElement('div');
+      face.appendChild(volumePane);
+      let volumeLabel = document.createElement('h3');
+      volumePane.appendChild(volumeLabel);
+      volumeLabel.innerHTML = 'Volume:';
+      let testToneVolume = document.createElement('input');
+      volumePane.appendChild(testToneVolume);
+      testToneVolume.type = "number";
+      testToneVolume.min = "0";
+      testToneVolume.max = "100";
+      testToneVolume.step = "1";
+      testToneVolume.value = this.gainValue;
+      let testToneVolumeSlider = document.createElement('input');
+      volumePane.appendChild(testToneVolumeSlider);
+      testToneVolumeSlider.type = "range";
+      testToneVolumeSlider.min = "0";
+      testToneVolumeSlider.max = "100";
+      testToneVolumeSlider.step = "1";
+      testToneVolumeSlider.value = this.gainValue;
+      let light = document.createElement('div');
+      volumePane.appendChild(light);
+      let switchLabel = document.createElement('label');
+      volumePane.appendChild(switchLabel);
+      switchLabel.className = "testToneSwitch";
+      let testToneOnOff = document.createElement('input');
+      switchLabel.appendChild(testToneOnOff);
+      testToneOnOff.type = "checkbox";
+      testToneOnOff.checked = this.deviceOn;
+      let sliderSpan = document.createElement('span');
+      switchLabel.appendChild(sliderSpan);
+      sliderSpan.className = "testToneSlider";
       // let waveform = document.createElement('div');
       // face.appendChild(waveform);
       // let waveLabel = document.createElement('p');
@@ -2324,39 +2403,51 @@ var TestToneModule = (function(settings, skin) {
       switch(this.skinName) {
         case('Test Tone: January A'):
           testToneFrequencySlider.className = 'testtoneJanuaryASlider';
+          testToneVolumeSlider.className = 'testtoneJanuaryASlider';
           break;
         case('Test Tone: January B'):
           testToneFrequencySlider.className = 'testtoneJanuaryBSlider';
+          testToneVolumeSlider.className = 'testtoneJanuaryBSlider';
           break;
         case('Test Tone: January C'):
           testToneFrequencySlider.className = 'testtoneJanuaryCSlider';
+          testToneVolumeSlider.className = 'testtoneJanuaryCSlider';
           break;
         case('Test Tone: February A'):
           testToneFrequencySlider.className = 'testtoneFebruaryASlider';
+          testToneVolumeSlider.className = 'testtoneFebruaryASlider';
           break;
         case('Test Tone: February B'):
           testToneFrequencySlider.className = 'testtoneFebruaryBSlider';
+          testToneVolumeSlider.className = 'testtoneFebruaryBSlider';
           break;
         case('Test Tone: February C'):
           testToneFrequencySlider.className = 'testtoneFebruaryCSlider';
+          testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
           break;
         case('Test Tone: March A'):
           testToneFrequencySlider.className = 'testtoneMarchASlider';
+          testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
           break;
         case('Test Tone: March B'):
           testToneFrequencySlider.className = 'testtoneMarchBSlider';
+          testToneVolumeSlider.className = 'testtoneMarchBSlider';
           break;
         case('Test Tone: March C'):
           testToneFrequencySlider.className = 'testtoneMarchCSlider';
+          testToneVolumeSlider.className = 'testtoneMarchCSlider';
           break;
         case('Test Tone: April A'):
           testToneFrequencySlider.className = 'testtoneAprilASlider';
+          testToneVolumeSlider.className = 'testtoneAprilASlider';
           break;
         case('Test Tone: April B'):
           testToneFrequencySlider.className = 'testtoneAprilBSlider';
+          testToneVolumeSlider.className = 'testtoneAprilBSlider';
           break;
         case('Test Tone: April C'):
           testToneFrequencySlider.className = 'testtoneAprilCSlider';
+          testToneVolumeSlider.className = 'testtoneAprilCSlider';
           break;
         default:
           console.log('unsupported test tone skin');
@@ -2435,6 +2526,19 @@ var TestToneModule = (function(settings, skin) {
         triangleImage: triangleImage,
         waveFormsContainer: waveFormsContainer
       };
+      volumePane.classname = "pure-u-1-3";
+      volumePane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px; float: right; position: relative; top: 0; margin-top: -453px;");
+      volumeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      testToneVolume.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.volumePath + "); background-size: " + this.volumeSize + "; box-shadow: -1px -1px 1px " + this.volumeBoxShadowColor + ", -2px -2px 1px " + this.volumeBoxShadowColor + ", -3px -3px 1px " + this.volumeBoxShadowColor + ", -4px -4px 1px " + this.volumeBoxShadowColor + "; position: relative; margin: 0 0 0 25px;");
+      testToneVolumeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 20px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
+      if (this.deviceOn) {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%);");
+        light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
+      } else {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%);");
+        light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: hidden;");
+      }
+      switchLabel.setAttribute("style", "float: right; margin: 0 50px 0 0;");
       // waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 23%; list-style-type: none;");
       // if (this.waveform === 'sine') {
       //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
@@ -2538,6 +2642,8 @@ var TestToneModule = (function(settings, skin) {
       // this.userWaveformInput(sine, square, sawtooth, triangle);
       this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
       this.manageWaveformSelector(waveFormsObject);
+      this.manageVolumeInput(testToneVolume, testToneVolumeSlider, light);
+      this.onOffFunctionalityDrag(testToneOnOff, light, div);
       // this.userDetuneInput(detuneDisplay, detuneSlider);
 
       function dragElement(element, obj) {

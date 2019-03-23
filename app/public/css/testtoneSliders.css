@@ -357,3 +357,64 @@
   cursor: pointer;
   box-shadow: 1px -1px 1px #ffff19, 2px -2px 1px #ffff19, 3px -3px 1px #ffff19, 4px -4px 1px #ffff19;
 }
+
+.testToneSwitch {
+  margin: 6vmin 0 0 1vmin;
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 48px;
+  box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F;
+}
+
+.testToneSwitch input {
+  display:none;
+}
+
+.testToneSlider {
+  background: url(../img/february/6720216_20.jpg);
+  background-size: 600%;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.testToneSlider:before {
+  position: absolute;
+  content: "";
+  height: 43px;
+  width: 43px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(135deg, #20B2AA, #73899E);
+  background: -webkit-linear-gradient(135deg, #20B2AA, #73899E);
+  background: -o-linear-gradient(135deg, #20B2AA, #73899E);
+  background: linear-gradient(135deg, #20B2AA, #73899E);
+
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .testToneSlider {
+  filter: hue-rotate(-135deg);
+  background-color: #2196F3;
+}
+
+input:focus + .testToneSlider {
+
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .testToneSlider:before {
+
+  -webkit-transform: translateX(40px);
+  -ms-transform: translateX(40px);
+  transform: translateX(40    px);
+}
