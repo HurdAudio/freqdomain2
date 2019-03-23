@@ -416,5 +416,5 @@ input:checked + .testToneSlider:before {
 
   -webkit-transform: translateX(40px);
   -ms-transform: translateX(40px);
-  transform: translateX(40    px);
+  transform: translateX(40px);
 }

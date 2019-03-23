@@ -157,6 +157,14 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 0) {
+                  masterDiv = testTone.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
             }
           });
         });

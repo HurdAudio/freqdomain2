@@ -2021,6 +2021,7 @@ var TestToneModule = (function(settings, skin) {
     this.horizontalHeight = 160;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
+    this.mouseOn = false;
 
     this.onOffFunctionalityDrag = (testToneOnOff, light, div) => {
       testToneOnOff.addEventListener('change', () => {
@@ -2028,12 +2029,22 @@ var TestToneModule = (function(settings, skin) {
           this.deviceOn = true;
           this.gain.gain.value = this.gainValue;
           light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%); transition: filter 0.5s linear;");
+          if (this.mouseOn) {
+            div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.7); filter: hue-rotate(0deg) contrast(100%); transition: filter 0.5s linear;");
+          } else {
+            div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%); transition: filter 0.5s linear;");
+          }
+
         } else {
           this.deviceOn = false;
           this.gain.gain.value = 0;
           light.setAttribute("style", "visibility: hidden;");
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%); transition: filter 0.5s linear;");
+          if (this.mouseOn) {
+            div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.7); filter: hue-rotate(180deg) contrast(50%); transition: filter 0.5s linear;");
+          } else {
+            div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%); transition: filter 0.5s linear;");
+          }
+
         }
       });
     }
@@ -2276,115 +2287,6 @@ var TestToneModule = (function(settings, skin) {
       let sliderSpan = document.createElement('span');
       switchLabel.appendChild(sliderSpan);
       sliderSpan.className = "testToneSlider";
-      // let waveform = document.createElement('div');
-      // face.appendChild(waveform);
-      // let waveLabel = document.createElement('p');
-      // waveform.appendChild(waveLabel);
-      // waveLabel.innerHTML = 'waveform:';
-      // let waveformSelector = document.createElement('ul');
-      // waveform.appendChild(waveformSelector);
-      // let sine = document.createElement('li');
-      // waveformSelector.appendChild(sine);
-      // let sineImg = document.createElement('img');
-      // sine.appendChild(sineImg);
-      // sineImg.src="./img/noun_589707_cc.png"
-      // let sineLabel = document.createElement('p');
-      // sine.appendChild(sineLabel);
-      // sineLabel.innerHTML = 'sine';
-      // let square = document.createElement('li');
-      // waveformSelector.appendChild(square);
-      // let squareImg = document.createElement('img');
-      // square.appendChild(squareImg);
-      // squareImg.src = './img/noun_538698_cc.png';
-      // let squareLabel = document.createElement('p');
-      // square.appendChild(squareLabel);
-      // squareLabel.innerHTML = 'square';
-      // let sawtooth = document.createElement('li');
-      // waveformSelector.appendChild(sawtooth);
-      // let sawtoothImg = document.createElement('img');
-      // sawtooth.appendChild(sawtoothImg);
-      // sawtoothImg.src = './img/noun_538692_cc.png';
-      // let sawtoothLabel = document.createElement('p');
-      // sawtooth.appendChild(sawtoothLabel);
-      // sawtoothLabel.innerHTML = 'sawtooth';
-      // let triangle = document.createElement('li');
-      // waveformSelector.appendChild(triangle);
-      // let triangleImg = document.createElement('img');
-      // triangle.appendChild(triangleImg);
-      // triangleImg.src = './img/noun_538696_cc.png';
-      // let triangleLabel = document.createElement('p');
-      // triangle.appendChild(triangleLabel);
-      // triangleLabel.innerHTML = 'triangle';
-      // let waveMod = document.createElement('div');
-      // waveform.appendChild(waveMod);
-      // let waveModLabel = document.createElement('p');
-      // waveMod.appendChild(waveModLabel);
-      // waveModLabel.innerHTML = 'modulator:';
-      // let waveModPort = document.createElement('h1');
-      // waveMod.appendChild(waveModPort);
-      // waveModPort.innerHTML = '◦';
-      // waveModPort.id = 'waveModulator ' + this.name + this.id;
-      // let leverSpace = document.createElement('div');
-      // face.appendChild(leverSpace);
-      // leverSpace.className = 'pure-u-2-3';
-      // let frequencyForm = document.createElement('div');
-      // frequencyForm.onsubmit = "return false";
-      // leverSpace.appendChild(frequencyForm);
-      // let hertzLabel = document.createElement('h3');
-      // frequencyForm.appendChild(hertzLabel);
-      // hertzLabel.innerHTML = 'Hertz:';
-      // let hertzDisplay = document.createElement('input');
-      // frequencyForm.appendChild(hertzDisplay);
-      // hertzDisplay.type = "number";
-      // hertzDisplay.name = "amountInput";
-      // hertzDisplay.min = "1.000";
-      // hertzDisplay.max = "11025.000";
-      // hertzDisplay.value = this.hertz.toString();
-      // hertzDisplay.step = "0.001";
-      // let hertzSlider = document.createElement('input');
-      // frequencyForm.appendChild(hertzSlider);
-      // hertzSlider.name = "amountRange";
-      // hertzSlider.type = "range";
-      // hertzSlider.min = "1.000";
-      // hertzSlider.max = "11025.000";
-      // hertzSlider.value = this.hertz.toString();
-      // hertzSlider.step = "0.001";
-      // hertzSlider.id = 'hertzSlider';
-      // let hertzModLabel = document.createElement('p');
-      // frequencyForm.appendChild(hertzModLabel);
-      // hertzModLabel.innerHTML = 'modulator:';
-      // let hertzModPort = document.createElement('h1');
-      // frequencyForm.appendChild(hertzModPort);
-      // hertzModPort.innerHTML = '◦';
-      // hertzModPort.id = 'hertzModPort ' + this.name + this.id;
-      // let detuneForm = document.createElement('div');
-      // leverSpace.appendChild(detuneForm);
-      // let detuneLabel = document.createElement('p');
-      // detuneForm.appendChild(detuneLabel);
-      // detuneLabel.innerHTML = 'Detune:';
-      // let detuneDisplay = document.createElement('input');
-      // detuneForm.appendChild(detuneDisplay);
-      // detuneDisplay.type = "number";
-      // detuneDisplay.name = "detuneQuantity";
-      // detuneDisplay.min = "-100.00";
-      // detuneDisplay.max = "100.00";
-      // detuneDisplay.step = "0.01";
-      // detuneDisplay.value = this.detune.toString();
-      // let detuneSlider = document.createElement('input');
-      // detuneForm.appendChild(detuneSlider);
-      // detuneSlider.type = "range";
-      // detuneSlider.name = "detuneAmountRange";
-      // detuneSlider.min = "-100.00";
-      // detuneSlider.max = "100.00";
-      // detuneSlider.step = "0.01";
-      // detuneSlider.value = this.detune.toString();
-      // let detuneModLabel = document.createElement('p');
-      // detuneForm.appendChild(detuneModLabel);
-      // detuneModLabel.innerHTML = 'modulator:';
-      // let detuneModPort = document.createElement('h1');
-      // detuneForm.appendChild(detuneModPort);
-      // detuneModPort.innerHTML = '◦';
-      // detuneModPort.id = 'detuneModPort ' + this.name + this.id;
 
       div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
       testtoneTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
@@ -2539,112 +2441,11 @@ var TestToneModule = (function(settings, skin) {
         light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: hidden;");
       }
       switchLabel.setAttribute("style", "float: right; margin: 0 50px 0 0;");
-      // waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 23%; list-style-type: none;");
-      // if (this.waveform === 'sine') {
-      //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
-      // } else {
-      //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
-      // }
-      // sineImg.setAttribute("style", "width: 60px; height 60px;");
-      // sineLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
-      // if (this.waveform === 'square') {
-      //   square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
-      // } else {
-      //   square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
-      // }
-      // squareImg.setAttribute("style", "width: 60px; height 60px;");
-      // squareLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
-      // if (this.waveform === 'sawtooth') {
-      //   sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
-      //
-      // } else {
-      //   sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
-      //
-      // }
-      // sawtoothImg.setAttribute("style", "width: 60px; height 60px;");
-      // sawtoothLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 14px;");
-      // if (this.waveform === 'triangle') {
-      //   triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
-      //
-      // } else {
-      //   triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
-      //
-      // }
-      // triangleImg.setAttribute("style", "width: 60px; height 60px;");
-      // triangleLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
-      // waveMod.setAttribute("style", "margin: 2vmin 0 0 2vmin;");
-      // waveModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin: 1vmin 0 2vmin 2vmin; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // waveModPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 47px; margin-top: 5px; width: 8%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
-      // leverSpace.setAttribute("style", "margin: -465px 0 0 35%;");
-      // hertzLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 3px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ", -3px -3px 1px " + this.faceFontShadow + ", -4px -4px 1px " + this.faceFontShadow + ";");
-      // hertzDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 5px; margin-top: -20px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; padding-left: 1vmin; width: 65%;");
-      // hertzSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 150px; margin-top: 80px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + "; height: 52px;");
-      // switch(this.skinName) {
-      //   case('Oscillator: January A'):
-      //     hertzSlider.className = 'oscillatorJanuaryASlider';
-      //     detuneSlider.className = 'oscillatorDetuneJanuaryASlider';
-      //     break;
-      //   case('Oscillator: January B'):
-      //     hertzSlider.className = 'oscillatorJanuaryBSlider';
-      //     detuneSlider.className = 'oscillatorDetuneJanuaryBSlider';
-      //     break;
-      //   case('Oscillator: January C'):
-      //     hertzSlider.className = 'oscillatorJanuaryCSlider';
-      //     detuneSlider.className = 'oscillatorDetuneJanuaryCSlider';
-      //     break;
-      //   case('Oscillator: February A'):
-      //     hertzSlider.className = 'oscillatorFebruaryASlider';
-      //     detuneSlider.className = 'oscillatorDetuneFebruaryASlider';
-      //     break;
-      //   case('Oscillator: February B'):
-      //     hertzSlider.className = 'oscillatorFebruaryBSlider';
-      //     detuneSlider.className = 'oscillatorDetuneFebruaryBSlider';
-      //     break;
-      //   case('Oscillator: February C'):
-      //     hertzSlider.className = 'oscillatorFebruaryCSlider';
-      //     detuneSlider.className = 'oscillatorDetuneFebruaryCSlider';
-      //     break;
-      //   case('Oscillator: March A'):
-      //     hertzSlider.className = 'oscillatorMarchASlider';
-      //     detuneSlider.className = 'oscillatorDetuneMarchASlider';
-      //     break;
-      //   case('Oscillator: March B'):
-      //     hertzSlider.className = 'oscillatorMarchBSlider';
-      //     detuneSlider.className = 'oscillatorDetuneMarchBSlider';
-      //     break;
-      //   case('Oscillator: March C'):
-      //     hertzSlider.className = 'oscillatorMarchCSlider';
-      //     detuneSlider.className = 'oscillatorDetuneMarchCSlider';
-      //     break;
-      //   case('Oscillator: April A'):
-      //     hertzSlider.className = 'oscillatorAprilASlider';
-      //     detuneSlider.className = 'oscillatorDetuneAprilASlider';
-      //     break;
-      //   case('Oscillator: April B'):
-      //     hertzSlider.className = 'oscillatorAprilBSlider';
-      //     detuneSlider.className = 'oscillatorDetuneAprilBSlider';
-      //     break;
-      //   case('Oscillator: April C'):
-      //     hertzSlider.className = 'oscillatorAprilCSlider';
-      //     detuneSlider.className = 'oscillatorDetuneAprilCSlider';
-      //     break;
-      //   default:
-      //     alert('unsupported skin slider');
-      // }
-      // hertzModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin: -15vmin 0 2vmin 2vmin; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // hertzModPort.setAttribute("style", "margin-top: -18px; margin-left: 45px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer;");
-      // detuneLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; margin: -25px 0 0 0; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // detuneDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 1px; margin-top: 8px; background: url(" + this.detunePath + "); background-size: " + this.detuneSize + "; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + "; padding-left: 10px;");
-      // detuneSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; width: 65%; height: 32px; background: url(" + this.detuneSliderPath + "); background-size: " + this.detuneSliderSize + "; outline: none; opacity: 1.0; position: relative; left: -20px; top: 15px; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + ";");
-      // detuneModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; position: relative; top: -170px; left: 150px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // detuneModPort.setAttribute("style", "position: relative; top: -190px; left: 170px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer;");
 
-      // this.userWaveformInput(sine, square, sawtooth, triangle);
       this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
       this.manageWaveformSelector(waveFormsObject);
       this.manageVolumeInput(testToneVolume, testToneVolumeSlider, light);
       this.onOffFunctionalityDrag(testToneOnOff, light, div);
-      // this.userDetuneInput(detuneDisplay, detuneSlider);
 
       function dragElement(element, obj) {
 
@@ -2688,14 +2489,25 @@ var TestToneModule = (function(settings, skin) {
 
       dragElement(div, this);
 
-      // div.addEventListener('mouseover', () => {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      // });
-      //
-      // div.addEventListener('mouseout', () => {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
-      // });
-      //
+      div.addEventListener('mouseover', () => {
+        this.mouseOn = true;
+        if (this.deviceOn) {
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        } else {
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        }
+
+      });
+
+      div.addEventListener('mouseout', () => {
+        this.mouseOn = false;
+        if (this.deviceOn) {
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        } else {
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        }
+      });
+
       // outputPort.addEventListener('click', () => {
       //   alert(outputPort.id);
       // });
@@ -2711,6 +2523,13 @@ var TestToneModule = (function(settings, skin) {
       // detuneModPort.addEventListener('click', () => {
       //   alert(detuneModPort.id);
       // });
+
+      return(div);
+    }
+
+    this.renderRackHorizontal = (x, y) => {
+
+      let div = document.createElement('div');
 
       return(div);
     }
