@@ -2317,7 +2317,7 @@ var TestToneModule = (function(settings, skin) {
       frequencyPane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px;");
       hertzLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; padding: 5px 0 3px 15px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
       testToneFrequency.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; position: relative; margin: -40px 0 0 15px;");
-      testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 190px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
+      testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 190px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
       switch(this.skinName) {
         case('Test Tone: January A'):
           testToneFrequencySlider.className = 'testtoneJanuaryASlider';
@@ -2806,6 +2806,448 @@ var TestToneModule = (function(settings, skin) {
     this.renderRackVertical = (x, y) => {
 
       let div = document.createElement('div');
+      let nameAndOutputDiv = document.createElement('div');
+      div.appendChild(nameAndOutputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndOutputDiv.appendChild(nameTag);
+      nameTag.innerHTML = this.name;
+      let outputLabel = document.createElement('p');
+      nameAndOutputDiv.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      let outputPort = document.createElement('h1');
+      nameAndOutputDiv.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output' + this.name + this.id;
+      let frequencySelectorDiv = document.createElement('div');
+      div.appendChild(frequencySelectorDiv);
+      let hertzLabel = document.createElement('h3');
+      frequencySelectorDiv.appendChild(hertzLabel);
+      hertzLabel.innerHTML = 'Hertz:';
+      let testToneFrequency = document.createElement('input');
+      frequencySelectorDiv.appendChild(testToneFrequency);
+      testToneFrequency.type = "number";
+      testToneFrequency.min = "1.000";
+      testToneFrequency.max = "11025.000";
+      testToneFrequency.step = "0.001";
+      testToneFrequency.value = this.gainValue;
+      let testToneFrequencySlider = document.createElement('input');
+      frequencySelectorDiv.appendChild(testToneFrequencySlider);
+      testToneFrequencySlider.type = "range";
+      testToneFrequencySlider.min = "1.000";
+      testToneFrequencySlider.max = "11025.000";
+      testToneFrequencySlider.step = "0.001";
+      testToneFrequencySlider.value = this.gainValue;
+      let waveFormSelectorDiv = document.createElement('div');
+      div.appendChild(waveFormSelectorDiv);
+      let waveformLabel = document.createElement('h3');
+      waveFormSelectorDiv.appendChild(waveformLabel);
+      waveformLabel.innerHTML = 'Waveform:';
+      let waveFormsContainer = document.createElement('div');
+      waveFormSelectorDiv.appendChild(waveFormsContainer);
+      let sine = document.createElement('div');
+      waveFormsContainer.appendChild(sine);
+      let sineLabel = document.createElement('p');
+      sine.appendChild(sineLabel);
+      sineLabel.innerHTML = "sine";
+      let sineImage = document.createElement('img');
+      sine.appendChild(sineImage);
+      sineImage.src = "./img/noun_589707_cc.png";
+      let square = document.createElement('div');
+      waveFormsContainer.appendChild(square);
+      let squareLabel = document.createElement('p');
+      square.appendChild(squareLabel);
+      squareLabel.innerHTML = "square";
+      let squareImage = document.createElement('img');
+      square.appendChild(squareImage);
+      squareImage.src = "./img/noun_538698_cc.png";
+      let sawtooth = document.createElement('div');
+      waveFormsContainer.appendChild(sawtooth);
+      let sawtoothLabel = document.createElement('p');
+      sawtooth.appendChild(sawtoothLabel);
+      sawtoothLabel.innerHTML = "sawtooth";
+      let sawtoothImage = document.createElement('img');
+      sawtooth.appendChild(sawtoothImage);
+      sawtoothImage.src = "./img/noun_538692_cc.png";
+      let triangle = document.createElement('div');
+      waveFormsContainer.appendChild(triangle);
+      let triangleLabel = document.createElement('p');
+      triangle.appendChild(triangleLabel);
+      triangleLabel.innerHTML = "triangle";
+      let triangleImage = document.createElement('img');
+      triangle.appendChild(triangleImage);
+      triangleImage.src = "./img/noun_538696_cc.png";
+      // let waveformDiv = document.createElement('div');
+      // div.appendChild(waveformDiv);
+      // let waveformLabel = document.createElement('p');
+      // waveformDiv.appendChild(waveformLabel);
+      // waveformLabel.innerHTML = 'waveform:';
+      // let waveformSelector = document.createElement('ul');
+      // waveformDiv.appendChild(waveformSelector);
+      // let sine = document.createElement('li');
+      // waveformSelector.appendChild(sine);
+      // let sineImg = document.createElement('img');
+      // sine.appendChild(sineImg);
+      // sineImg.src="./img/noun_589707_cc.png"
+      // let sineLabel = document.createElement('p');
+      // sine.appendChild(sineLabel);
+      // sineLabel.innerHTML = 'sine';
+      // let square = document.createElement('li');
+      // waveformSelector.appendChild(square);
+      // let squareImg = document.createElement('img');
+      // square.appendChild(squareImg);
+      // squareImg.src = './img/noun_538698_cc.png';
+      // let squareLabel = document.createElement('p');
+      // square.appendChild(squareLabel);
+      // squareLabel.innerHTML = 'sqr';
+      // let waveformSelector2 = document.createElement('ul');
+      // waveformDiv.appendChild(waveformSelector2);
+      // let sawtooth = document.createElement('li');
+      // waveformSelector2.appendChild(sawtooth);
+      // let sawtoothImg = document.createElement('img');
+      // sawtooth.appendChild(sawtoothImg);
+      // sawtoothImg.src = './img/noun_538692_cc.png';
+      // let sawtoothLabel = document.createElement('p');
+      // sawtooth.appendChild(sawtoothLabel);
+      // sawtoothLabel.innerHTML = 'saw';
+      // let triangle = document.createElement('li');
+      // waveformSelector2.appendChild(triangle);
+      // let triangleImg = document.createElement('img');
+      // triangle.appendChild(triangleImg);
+      // triangleImg.src = './img/noun_538696_cc.png';
+      // let triangleLabel = document.createElement('p');
+      // triangle.appendChild(triangleLabel);
+      // triangleLabel.innerHTML = 'tri-';
+      // let waveModDiv = document.createElement('div');
+      // waveformDiv.appendChild(waveModDiv);
+      // let waveformModLabel = document.createElement('p');
+      // waveModDiv.appendChild(waveformModLabel);
+      // waveformModLabel.innerHTML = 'modulator:';
+      // let waveModPort = document.createElement('h1');
+      // waveModDiv.appendChild(waveModPort);
+      // waveModPort.innerHTML = '◦';
+      // waveModPort.id = 'wave selector ' + this.name + this.id;
+      // let frequencyDiv = document.createElement('div');
+      // div.appendChild(frequencyDiv);
+      // let frequencyLabel = document.createElement('h3');
+      // frequencyDiv.appendChild(frequencyLabel);
+      // frequencyLabel.innerHTML = 'Hertz:';
+      // let frequencyDisplay = document.createElement('input');
+      // frequencyDiv.appendChild(frequencyDisplay);
+      // frequencyDisplay.type = "number";
+      // frequencyDisplay.name = "amountInput";
+      // frequencyDisplay.min = "1.000";
+      // frequencyDisplay.max = "11025.000";
+      // frequencyDisplay.step = "0.001";
+      // frequencyDisplay.value = this.hertz.toString();
+      // let frequencySlider = document.createElement('input');
+      // frequencyDiv.appendChild(frequencySlider);
+      // frequencySlider.type = "range";
+      // frequencySlider.name = "amountRange";
+      // frequencySlider.min = "1.000";
+      // frequencySlider.max = "11025.000";
+      // frequencySlider.step = "0.001";
+      // frequencySlider.value = this.hertz.toString();
+      // let frequencyModDiv = document.createElement('div');
+      // frequencyDiv.appendChild(frequencyModDiv);
+      // let frequencyModLabel = document.createElement('p');
+      // frequencyModDiv.appendChild(frequencyModLabel);
+      // frequencyModLabel.innerHTML = "modulator:";
+      // let frequencyModPort = document.createElement('h1');
+      // frequencyDiv.appendChild(frequencyModPort);
+      // frequencyModPort.innerHTML = '◦';
+      // frequencyModPort.id = 'frequency modulator ' + this.name + this.id;
+      // let detuneDiv = document.createElement('div');
+      // div.appendChild(detuneDiv);
+      // let detuneLabel = document.createElement('h3');
+      // detuneDiv.appendChild(detuneLabel);
+      // detuneLabel.innerHTML = 'detune:';
+      // let detuneDisplay = document.createElement('input');
+      // detuneDiv.appendChild(detuneDisplay);
+      // detuneDisplay.type = "number";
+      // detuneDisplay.name = "detuneQuantity";
+      // detuneDisplay.min = "-100.00";
+      // detuneDisplay.max = "100.00";
+      // detuneDisplay.step = "0.01";
+      // detuneDisplay.value = this.detune.toString();
+      // let detuneSlider = document.createElement('input');
+      // detuneDiv.appendChild(detuneSlider);
+      // detuneSlider.type = "range";
+      // detuneSlider.name = "detuneAmountRange";
+      // detuneSlider.min = "-100.00";
+      // detuneSlider.max = "100.00";
+      // detuneSlider.step = "0.01";
+      // detuneSlider.value = this.detune.toString();
+      // let detuneModDiv = document.createElement('div');
+      // detuneDiv.appendChild(detuneModDiv);
+      // let detuneModLabel = document.createElement('p');
+      // detuneModDiv.appendChild(detuneModLabel);
+      // detuneModLabel.innerHTML = 'modulator:';
+      // let detuneModPort = document.createElement('h1');
+      // detuneModDiv.appendChild(detuneModPort);
+      // detuneModPort.innerHTML = '◦';
+      // detuneModPort.id = 'detune modulator ' + this.name + this.id;
+
+      div.setAttribute("style", "width: " + this.verticalWidth + "px; height: " + this.verticalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + (this.faceSize * 5) + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + ";");
+      nameAndOutputDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.verticalHeight/8) + "px;");
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadow + ", -2px -2px 1px " + this.topFontShadow + "; position: relative; top: -10px; left: 5px;");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + "; margin-left: 8px; margin-top: -12px;");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px; position: relative; left: 80px; top: -62px;");
+      frequencySelectorDiv.setAttribute("style", "width: " + this.verticalWidth + "px; height: " + ((this.verticalHeight/16) * 7) + "px;");
+      hertzLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; padding: 3px 0 3px 10px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      testToneFrequency.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; position: relative; margin: -55px 0 0 8px;");
+      testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 60px; margin-top: 70px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 32px;");
+      switch(this.skinName) {
+        case('Test Tone: January A'):
+          testToneFrequencySlider.className = 'testtoneJanuaryASliderVertical';
+          // testToneVolumeSlider.className = 'testtoneJanuaryASliderVertical';
+          break;
+        case('Test Tone: January B'):
+          testToneFrequencySlider.className = 'testtoneJanuaryBSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneJanuaryBSliderVertical';
+          break;
+        case('Test Tone: January C'):
+          testToneFrequencySlider.className = 'testtoneJanuaryCSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneJanuaryCSliderVertical';
+          break;
+        case('Test Tone: February A'):
+          testToneFrequencySlider.className = 'testtoneFebruaryASliderVertical';
+          // testToneVolumeSlider.className = 'testtoneFebruaryASliderVertical';
+          break;
+        case('Test Tone: February B'):
+          testToneFrequencySlider.className = 'testtoneFebruaryBSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneFebruaryBSliderVertical';
+          break;
+        case('Test Tone: February C'):
+          testToneFrequencySlider.className = 'testtoneFebruaryCSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneFebruaryCSliderVertical';
+          break;
+        case('Test Tone: March A'):
+          testToneFrequencySlider.className = 'testtoneMarchASliderVertical';
+          // testToneVolumeSlider.className = 'testtoneFebruaryCSliderVertical';
+          break;
+        case('Test Tone: March B'):
+          testToneFrequencySlider.className = 'testtoneMarchBSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneMarchBSliderVertical';
+          break;
+        case('Test Tone: March C'):
+          testToneFrequencySlider.className = 'testtoneMarchCSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneMarchCSliderVertical';
+          break;
+        case('Test Tone: April A'):
+          testToneFrequencySlider.className = 'testtoneAprilASliderVertical';
+          // testToneVolumeSlider.className = 'testtoneAprilASliderVertical';
+          break;
+        case('Test Tone: April B'):
+          testToneFrequencySlider.className = 'testtoneAprilBSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneAprilBSliderVertical';
+          break;
+        case('Test Tone: April C'):
+          testToneFrequencySlider.className = 'testtoneAprilCSliderVertical';
+          // testToneVolumeSlider.className = 'testtoneAprilCSliderVertical';
+          break;
+        default:
+          console.log('unsupported test tone skin');
+      }
+      waveFormSelectorDiv.setAttribute("style", "width: " + (this.verticalWidth * 2) + "px; height: " + ((this.verticalHeight/8) * 3) + "px; transform: scale(0.5); margin: -80px 0 0 -80px;");
+      waveformLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 48px; margin: -25px 0 2px 4px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      waveFormsContainer.setAttribute("style", "box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; width: 320px; height: 230px; cursor: pointer;");
+      if (this.waveform === 'sine') {
+        sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
+        sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden;");
+        squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+        sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+        sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+        triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: visible;");
+        triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      }
+      if (this.waveform === 'square') {
+        sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
+        sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
+        squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+        sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+        triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+        triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      }
+      if (this.waveform === 'sawtooth') {
+        sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+        sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+        sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+        square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
+        squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+        sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+        sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+        triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+        triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      }
+      if (this.waveform === 'triangle') {
+        sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: visible;");
+        sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+        squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+        squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+        sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+        sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+        triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: visible;");
+        triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+        triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      }
+      let waveFormsObject = {
+        sine: sine,
+        sineLabel: sineLabel,
+        sineImage: sineImage,
+        square: square,
+        squareLabel: squareLabel,
+        squareImage: squareImage,
+        sawtooth: sawtooth,
+        sawtoothLabel: sawtoothLabel,
+        sawtoothImage: sawtoothImage,
+        triangle: triangle,
+        triangleLabel: triangleLabel,
+        triangleImage: triangleImage,
+        waveFormsContainer: waveFormsContainer
+      };
+
+      // waveformDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; height: " + (this.verticalHeight * 9/32) + "px;");
+      // waveformLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + "; margin-left: 8px; margin-top: 3px;");
+      // waveformSelector.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 105px; list-style-type: none; transform: scale(0.7); position: relative; left: -45px; top: -30px;");
+      // if (this.waveform === 'sine') {
+      //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      // } else {
+      //   sine.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      // }
+      // sineImg.setAttribute("style", "width: 60px; height 60px;");
+      // sineLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      // if (this.waveform === 'square') {
+      //   square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      // } else {
+      //   square.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      // }
+      // squareImg.setAttribute("style", "width: 60px; height 60px;");
+      // squareLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      // waveformSelector2.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; width: 105px; list-style-type: none; transform: scale(0.7); float: left; margin-left: 32px; margin-top: -183px;");
+      // if (this.waveform === 'sawtooth') {
+      //   sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      //
+      // } else {
+      //   sawtooth.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      //
+      // }
+      // sawtoothImg.setAttribute("style", "width: 60px; height 60px;");
+      // sawtoothLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 14px;");
+      // if (this.waveform === 'triangle') {
+      //   triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(180deg) invert(1); opacity: 1;");
+      //
+      // } else {
+      //   triangle.setAttribute("style", "border: solid 1px black; cursor: pointer; box-shadow: 1px 1px 1px " +  this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; background: url(" + this.displayPath + "); background-size: 100%; filter: hue-rotate(0deg) invert(0); opacity: 0.3;");
+      //
+      // }
+      // triangleImg.setAttribute("style", "width: 60px; height 60px;");
+      // triangleLabel.setAttribute("style", "float: right; margin-right: 6px; color: " + this.faceFontColor + "; font-size: 18px;");
+      // waveModDiv.setAttribute("style", "float: left; width: 100%; position: relative; top: -70px; padding-left: 5px;");
+      // waveformModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // waveModPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px; position: relative; left: 100px; top: -40px;");
+      // frequencyDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; height: " + (this.verticalHeight * 9/32) + "px;");
+      // frequencyLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + "; position: relative; top: -20px; left: 10px;");
+      // frequencyDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; padding-left: 1vmin; width: auto; position: relative; top: -30px; left: 20px;");
+      // frequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 145px; background: url(" + this.frequencySliderPath  + "); background-size: " + this.frequencySliderSize  + "; outline: none; opacity: 1.0; position: relative; top: 35px; height: 22px; left: 60px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + ";");
+      // switch(this.skinName) {
+      //   case('Oscillator: January A'):
+      //     frequencySlider.className = 'oscillatorVerticalJanuaryASlider';
+      //     detuneSlider.className = 'oscillatorVerticalJanuaryASlider';
+      //     break;
+      //   case('Oscillator: January B'):
+      //     frequencySlider.className = 'oscillatorVerticalJanuaryBSlider';
+      //     detuneSlider.className = 'oscillatorVerticalJanuaryBSlider';
+      //     break;
+      //   case('Oscillator: January C'):
+      //     frequencySlider.className = 'oscillatorVerticalJanuaryCSlider';
+      //     detuneSlider.className = 'oscillatorVerticalJanuaryCSlider';
+      //     break;
+      //   case('Oscillator: February A'):
+      //     frequencySlider.className = 'oscillatorVerticalFebruaryASlider';
+      //     detuneSlider.className = 'oscillatorVerticalFebruaryASlider';
+      //     break;
+      //   case('Oscillator: February B'):
+      //     frequencySlider.className = 'oscillatorVerticalFebruaryBSlider';
+      //     detuneSlider.className = 'oscillatorVerticalFebruaryBSlider';
+      //     break;
+      //   case('Oscillator: February C'):
+      //     frequencySlider.className = 'oscillatorVerticalFebruaryCSlider';
+      //     detuneSlider.className = 'oscillatorVerticalFebruaryCSlider';
+      //     break;
+      //   case('Oscillator: March A'):
+      //     frequencySlider.className = 'oscillatorVerticalMarchASlider';
+      //     detuneSlider.className = 'oscillatorVerticalMarchASlider';
+      //     break;
+      //   case('Oscillator: March B'):
+      //     frequencySlider.className = 'oscillatorVerticalMarchBSlider';
+      //     detuneSlider.className = 'oscillatorVerticalMarchBSlider';
+      //     break;
+      //   case('Oscillator: March C'):
+      //     frequencySlider.className = 'oscillatorVerticalMarchCSlider';
+      //     detuneSlider.className = 'oscillatorVerticalMarchCSlider';
+      //     break;
+      //   case('Oscillator: April A'):
+      //     frequencySlider.className = 'oscillatorVerticalAprilASlider';
+      //     detuneSlider.className = 'oscillatorVerticalAprilASlider';
+      //     break;
+      //   case('Oscillator: April B'):
+      //     frequencySlider.className = 'oscillatorVerticalAprilBSlider';
+      //     detuneSlider.className = 'oscillatorVerticalAprilBSlider';
+      //     break;
+      //   case('Oscillator: April C'):
+      //     frequencySlider.className = 'oscillatorVerticalAprilCSlider';
+      //     detuneSlider.className = 'oscillatorVerticalAprilCSlider';
+      //     break;
+      //   default:
+      //     alert('unsupported skin slider');
+      // }
+      // frequencyModDiv.setAttribute("style", "position: relative; padding-left: 5px; top: -50px;");
+      // frequencyModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // frequencyModPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px; position: relative; top: -60px; left: 30px;");
+      // detuneDiv.setAttribute("style", "float: left; width: " + this.verticalWidth + "px; height: " + (this.verticalHeight * 9/32) + "px;");
+      // detuneLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + "; position: relative; top: -20px; left: 10px;");
+      // detuneDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; padding-left: 1vmin; width: auto; position: relative; top: -30px; left: 20px;");
+      // detuneSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 145px; background: url(" + this.frequencySliderPath  + "); background-size: " + this.frequencySliderSize  + "; outline: none; opacity: 1.0; position: relative; top: 35px; height: 22px; left: 60px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + "; z-index: 6;");
+      // detuneModDiv.setAttribute("style", "position: relative; padding-left: 5px; top: -50px;");
+      // detuneModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // detuneModPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; width: 40px; height: 50px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px; position: relative; top: -10px; left: 30px;");
+      //
+      // outputPort.addEventListener('click', () => {
+      //   alert('Oscillator Output Port -- id: ' + this.id);
+      // });
+      //
+      // waveModPort.addEventListener('click', () => {
+      //   alert('Oscillator Waveform Modulation Port -- id: ' + this.id);
+      // });
+      //
+      // frequencyModPort.addEventListener('click', () => {
+      //   alert('Oscillator Frequency Modulation Port -- id: ' + this.id);
+      // });
+      //
+      // detuneModPort.addEventListener('click', () => {
+      //   alert('Oscillator Detune Modulation Port -- id: ' + this.id);
+      // });
+
+      this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
+      this.manageWaveformSelector(waveFormsObject);
+      // this.userDetuneInput(detuneDisplay, detuneSlider);
 
       return(div);
     }

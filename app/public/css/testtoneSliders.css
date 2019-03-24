@@ -58,6 +58,36 @@
   box-shadow: -1px -1px 1px #00FE7F, -2px -2px 1px #00FE7F, -3px -3px 1px #00FE7F, -4px -4px 1px #00FE7F;
 }
 
+.testtoneJanuaryASliderVertical::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #00FE7F, 2px -2px 1px #00FE7F, 3px -3px 1px #00FE7F, 4px -4px 1px #00FE7F;
+}
+
+.testtoneJanuaryASliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #00FE7F, 2px -2px 1px #00FE7F, 3px -3px 1px #00FE7F, 4px -4px 1px #00FE7F;
+}
+
 .testtoneJanuaryBSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -116,6 +146,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00, -4px -4px 1px #FFFE00;
+}
+
+.testtoneJanuaryBSliderVertical::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+.testtoneJanuaryBSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
 }
 
 .testtoneJanuaryCSlider::-webkit-slider-thumb {
@@ -178,6 +238,36 @@
   box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00, -4px -4px 1px #FFFE00;
 }
 
+.testtoneJanuaryCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: linear-gradient(-135deg, #B8C9D2, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+.testtoneJanuaryCSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
 .testtoneFebruaryASlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -236,6 +326,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #FFFE00, -2px -2px 1px #FFFE00, -3px -3px 1px #FFFE00, -4px -4px 1px #FFFE00;
+}
+
+.testtoneFebruaryASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+    background: linear-gradient(-135deg, #B8C9D2, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
+}
+
+.testtoneFebruaryASliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -webkit-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: -o-linear-gradient(-135deg, #B8C9D2, #73899E);
+  background: linear-gradient(-135deg, #B8C9D2, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #FFFE00, 2px -2px 1px #FFFE00, 3px -3px 1px #FFFE00, 4px -4px 1px #FFFE00;
 }
 
 .testtoneFebruaryBSlider::-webkit-slider-thumb {
@@ -298,6 +418,36 @@
   box-shadow: -1px -1px 1px #b2b2ff, -2px -2px 1px #b2b2ff, -3px -3px 1px #b2b2ff, -4px -4px 1px #b2b2ff;
 }
 
+.testtoneFebruaryBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #1919ff, #73899E);
+    background: -webkit-linear-gradient(-135deg, #1919ff, #73899E);
+    background: -o-linear-gradient(-135deg, #1919ff, #73899E);
+    background: linear-gradient(-135deg, #1919ff, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #b2b2ff, 2px -2px 1px #b2b2ff, 3px -3px 1px #b2b2ff, 4px -4px 1px #b2b2ff;
+}
+
+.testtoneFebruaryBSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #1919ff, #73899E);
+  background: -webkit-linear-gradient(-135deg, #1919ff, #73899E);
+  background: -o-linear-gradient(-135deg, #1919ff, #73899E);
+  background: linear-gradient(-135deg, #1919ff, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #b2b2ff, 2px -2px 1px #b2b2ff, 3px -3px 1px #b2b2ff, 4px -4px 1px #b2b2ff;
+}
+
 .testtoneFebruaryCSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -356,6 +506,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #ADFF2F, -2px -2px 1px #ADFF2F, -3px -3px 1px #ADFF2F, -4px -4px 1px #ADFF2F;
+}
+
+.testtoneFebruaryCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #73899E;
+    background-color: -webkit-linear-gradient(-135deg, #20B2AA, #73899E);
+    background: -webkit-linear-gradient(-135deg, #20B2AA, #73899E);
+    background: -o-linear-gradient(-135deg, #20B2AA, #73899E);
+    background: linear-gradient(-135deg, #20B2AA, #73899E);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ADFF2F, 2px -2px 1px #ADFF2F, 3px -3px 1px #ADFF2F, 4px -4px 1px #ADFF2F;
+}
+
+.testtoneFebruaryCSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #73899E;
+  background-color: -webkit-linear-gradient(-135deg, #20B2AA, #73899E);
+  background: -webkit-linear-gradient(-135deg, #20B2AA, #73899E);
+  background: -o-linear-gradient(-135deg, #20B2AA, #73899E);
+  background: linear-gradient(-135deg, #20B2AA, #73899E);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ADFF2F, 2px -2px 1px #ADFF2F, 3px -3px 1px #ADFF2F, 4px -4px 1px #ADFF2F;
 }
 
 .testtoneMarchASlider::-webkit-slider-thumb {
@@ -418,6 +598,36 @@
   box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
 }
 
+.testtoneMarchASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #7f0000;
+    background-color: -webkit-linear-gradient(-135deg, #ffb2b2, #7f0000);
+    background: -webkit-linear-gradient(-135deg, #ffb2b2, #7f0000);
+    background: -o-linear-gradient(-135deg, #ffb2b2, #7f0000);
+    background: linear-gradient(-135deg, #ffb2b2, #7f0000);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
+.testtoneMarchASliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #7f0000;
+  background-color: -webkit-linear-gradient(-135deg, #ffb2b2, #7f0000);
+  background: -webkit-linear-gradient(-135deg, #ffb2b2, #7f0000);
+  background: -o-linear-gradient(-135deg, #ffb2b2, #7f0000);
+  background: linear-gradient(-135deg, #ffb2b2, #7f0000);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
 .testtoneMarchBSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -476,6 +686,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #ffff4c, -2px -2px 1px #ffff4c, -3px -3px 1px #ffff4c, -4px -4px 1px #ffff4c;
+}
+
+.testtoneMarchBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #7f0000;
+    background-color: -webkit-linear-gradient(-135deg, #e5e500, #7f0000);
+    background: -webkit-linear-gradient(-135deg, #e5e500, #7f0000);
+    background: -o-linear-gradient(-135deg, #e5e500, #7f0000);
+    background: linear-gradient(-135deg, #e5e500, #7f0000);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ffff4c, 2px -2px 1px #ffff4c, 3px -3px 1px #ffff4c, 4px -4px 1px #ffff4c;
+}
+
+.testtoneMarchBSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #7f0000;
+  background-color: -webkit-linear-gradient(-135deg, #e5e500, #7f0000);
+  background: -webkit-linear-gradient(-135deg, #e5e500, #7f0000);
+  background: -o-linear-gradient(-135deg, #e5e500, #7f0000);
+  background: linear-gradient(-135deg, #e5e500, #7f0000);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffff4c, 2px -2px 1px #ffff4c, 3px -3px 1px #ffff4c, 4px -4px 1px #ffff4c;
 }
 
 .testtoneMarchCSlider::-webkit-slider-thumb {
@@ -538,6 +778,36 @@
   box-shadow: -1px -1px 1px #d1f02e, -2px -2px 1px #d1f02e, -3px -3px 1px #d1f02e, -4px -4px 1px #d1f02e;
 }
 
+.testtoneMarchCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #687817;
+    background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
+    background: -webkit-linear-gradient(-135deg, #daf357, #687817);
+    background: -o-linear-gradient(-135deg, #daf357, #687817);
+    background: linear-gradient(-135deg, #daf357, #687817);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+}
+
+.testtoneMarchCSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #687817;
+  background-color: -webkit-linear-gradient(-135deg, #daf357, #687817);
+  background: -webkit-linear-gradient(-135deg, #daf357, #687817);
+  background: -o-linear-gradient(-135deg, #daf357, #687817);
+  background: linear-gradient(-135deg, #daf357, #687817);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #d1f02e, 2px -2px 1px #d1f02e, 3px -3px 1px #d1f02e, 4px -4px 1px #d1f02e;
+}
+
 .testtoneAprilASlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -596,6 +866,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c, -4px -4px 1px #4cff4c;
+}
+
+.testtoneAprilASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #99ff99;
+    background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+    background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+    background: linear-gradient(-135deg, #007f00, #99ff99);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
+}
+
+.testtoneAprilASliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #99ff99;
+  background-color: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -webkit-linear-gradient(-135deg, #007f00, #99ff99);
+  background: -o-linear-gradient(-135deg, #007f00, #99ff99);
+  background: linear-gradient(-135deg, #007f00, #99ff99);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
 .testtoneAprilBSlider::-webkit-slider-thumb {
@@ -658,6 +958,36 @@
   box-shadow: -1px -1px 1px #ff3232, -2px -2px 1px #ff3232, -3px -3px 1px #ff3232, -4px -4px 1px #ff3232;
 }
 
+.testtoneAprilBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #ff7f7f;
+    background-color: -webkit-linear-gradient(-135deg, #7f0000, #ff7f7f);
+    background: -webkit-linear-gradient(-135deg, #7f0000, #ff7f7f);
+    background: -o-linear-gradient(-135deg, #7f0000, #ff7f7f);
+    background: linear-gradient(-135deg, #7f0000, #ff7f7f);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
+.testtoneAprilBSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #ff7f7f;
+  background-color: -webkit-linear-gradient(-135deg, #7f0000, #ff7f7f);
+  background: -webkit-linear-gradient(-135deg, #7f0000, #ff7f7f);
+  background: -o-linear-gradient(-135deg, #7f0000, #ff7f7f);
+  background: linear-gradient(-135deg, #7f0000, #ff7f7f);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ff3232, 2px -2px 1px #ff3232, 3px -3px 1px #ff3232, 4px -4px 1px #ff3232;
+}
+
 .testtoneAprilCSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -716,6 +1046,36 @@
   background-repeat: no-repeat;
   cursor: pointer;
   box-shadow: -1px -1px 1px #ffff19, -2px -2px 1px #ffff19, -3px -3px 1px #ffff19, -4px -4px 1px #ffff19;
+}
+
+.testtoneAprilCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #ffff66;
+    background-color: -webkit-linear-gradient(-135deg, #4c4c00, #ffff66);
+    background: -webkit-linear-gradient(-135deg, #4c4c00, #ffff66);
+    background: -o-linear-gradient(-135deg, #4c4c00, #ffff66);
+    background: linear-gradient(-135deg, #4c4c00, #ffff66);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ffff19, 2px -2px 1px #ffff19, 3px -3px 1px #ffff19, 4px -4px 1px #ffff19;
+}
+
+.testtoneAprilCSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #ffff66;
+  background-color: -webkit-linear-gradient(-135deg, #4c4c00, #ffff66);
+  background: -webkit-linear-gradient(-135deg, #4c4c00, #ffff66);
+  background: -o-linear-gradient(-135deg, #4c4c00, #ffff66);
+  background: linear-gradient(-135deg, #4c4c00, #ffff66);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffff19, 2px -2px 1px #ffff19, 3px -3px 1px #ffff19, 4px -4px 1px #ffff19;
 }
 
 .testToneSwitch {
