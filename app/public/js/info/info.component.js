@@ -73,18 +73,26 @@
         hubUserName.innerHTML = user.name;
       }
 
+      function setCopyrightMessage() {
+        let now = new Date();
+
+        vm.copyrightMessage = '© 2017 - ' + now.getFullYear() + ' HurdAudio';
+      }
+
 
       function onInit() {
         console.log("Info is lit");
+        setCopyrightMessage();
+        currentUserId = $stateParams.id;
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
         // checkValidUser($stateParams.id);
-        document.getElementById("infoOnInfo").setAttribute("style", "visibility: hidden;");
-        currentUserId = $stateParams.id;
+        // document.getElementById("infoOnInfo").setAttribute("style", "visibility: hidden;");
+
         $http.get(`/users/${currentUserId}`)
         .then(userData=>{
           let user = userData.data;
-          initializeSpace(user);
+          // initializeSpace(user);
         });
         // let theBody = document.getElementsByTagName("body")[0];
 

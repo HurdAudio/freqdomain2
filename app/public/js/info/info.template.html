@@ -1,53 +1,61 @@
 <div id="hubDiv">
-  <div id="hubNavbar" class="pure-g">
-    <div class="pure-u-1-4">
+  <div id="infoHubNavbar" class="pure-g">
+    <!-- <div class="pure-u-1-4">
       <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
       <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
-    </div>
-    <h1 class="pure-u-1-4" ng-click="$ctrl.returnToHub()">FreqDomain2</h1>
+    </div> -->
+    <!-- <h1 class="pure-u-1-4" ng-click="$ctrl.returnToHub()">FreqDomain2</h1>  -->
     <div id="navBarButtons" class="pure-u-1-3">
-      <a class="button"><p>Compose</p></a>
+      <!--<a class="button"><p>Compose</p></a>
       <a class="button" ng-click="$ctrl.navMixer()"><p>Mixer</p></a>
       <a class="button" ng-click="$ctrl.navPatchEditor()"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
       <a class="button" id="infoOnInfo"><p>Info</p></a>
-      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a> -->
+      <h1 ng-click="$ctrl.returnToHub()" id="infoHubTitle">FreqDomain2</h1>
 
     </div>
   </div>
   <div id="infoContent">
 
     <div id="whitePaper">
-
-      <h1>FreqDomain2</h1>
       <br>
-      <p>FreqDomain2 is a modular composition and sound design application built with the <a href="#">Web Audio API</a>. Individual components can be chained together to construct sounding objects and realize full compositions. Users are encouraged to sonify, share and collaborate in creating sounds.</p>
+      <p>FreqDomain2 is a modular composition and sound design application built with the <a href="https://www.w3.org/TR/webaudio/" target="_blank">Web Audio API</a>. Individual components can be chained together to construct sounding objects and realize full compositions. Users are encouraged to sonify, share and collaborate in creating sounds.</p>
+      <br><br>
       <h2>Where to start?</h2>
+      <br><br>
       <div class="pure-g">
         <div class="quarters">
-          <a href="#"><h3>Mixer Settings</h3></a>
-          <p>Create a mixer that routes your creation from the <a href="#">input manager</a> to your <a href="#">master volume</a> and ultimately to your speakers and ears.</p>
+          <h5 class="infoNumbers">1<h5>
+            <div class="infoArrows">
+              <h6>⇨</h6>
+            </div>
+          <a class="button" ng-click="$ctrl.navMixer()"><h3>Mixer Settings</h3></a>
+          <p>First: You will need a mixer. You define the path that an audio signal takes on its way to the speakers and ultimately to your years. This can be as simple as routing an output straight to the master volume controller or setting up an effects chain.</p>
         </div>
         <div class="quarters">
-          <a href="#"><h3>Patch Editor</h3></a>
-          <p>Build sounding objects using sonic sources and modulators. Use <a href="#">oscillators</a> to modulate other oscillators, the <a href="#">weather</a> in Madrid to set your dynamic compression ratio, <a href="#">flight times</a> at O'Hare to set your <a href="#">notch filter</a>, set <a href="#">stock market</a> fluctuations to drive your <a href="#">envelope generator</a> or just use <a href="#">census data</a> to control the <a href="#">lowpass filter</a>. FreqDomain2 allows you to mix and match different modules to realize dynamic sonic designs. New modules are being added all the time to expand the creative toolset.</p>
+          <h5 class="infoNumbers">2<h5>
+            <div class="infoArrows">
+              <h6>⇨</h6>
+            </div>
+          <a class="button" ng-click="$ctrl.navPatchEditor()"><h3>Patch Editor</h3></a>
+          <p>Second: Let's build out some patches using sonic sources and modulators to run through your shiny new mixer. FreqDomain2 allows you to mix and match different modules to realize your sonic vision. New modules are being added all the time to expand the creative toolset.</p>
         </div>
         <div class="quarters">
-          <a href="#"><h3>Compose</h3></a>
-          <p>Bring your patches and mixer settings into the <a href="#">composition editor</a> where they can be triggered along a timeline to realize your latest masterpieces.</p>
+          <h5 class="infoNumbers">3<h5>
+            <div class="infoArrows">
+              <h6>⇨</h6>
+            </div>
+          <a class="button"><h3>Compose</h3></a>
+          <p>Third: Now bring your collection of patches over to the composition editor where they can be triggered along a timeline to realize your masterpiece. Apply a wide range of onset, aftertouch and key-off parameters to breathe dynamicism into your sonic realization.</p>
         </div>
         <div class="quarters">
-          <a href="#"><h3>Be Social</h3></a>
-          <p>Share your creation with other users or draw inspiration from others. Or just start a collaborative project with your friends and get your jam on. And be sure to check out the <a href="#">user hub</a> for updates about FreqDomain2 as well as messages from the community.</p>
+          <h5 class="infoNumbers">4<h5>
+          <a class="button"><h3>Be Social</h3></a>
+          <p>Fourth: Don't keep your creations to yourself. Share and collaborate with other FreqDomain2 users in our social marketspace.  Check out and share your mixers, patches and compositions with like-minded composers or just find inspiration for your next work.</p>
         </div>
       </div>
-      <div class="fullWidth">
-        <h2>Freq-uently Asked Questions</h2>
-        <p><a href="#">Can I get your autograph?</a></p>
-        <p><a href="#">Can I buy you a beer?</a></p>
-        <p><a href="#">Can I upsample your mp3s?</a></p>
-        <p><a href="#">When is the FreqDomain2 World Tour?</a></p>
-      </div>
+
       <div class="fullWidth">
         <h2>The Modules</h2>
         <ul class="infoList">
@@ -336,13 +344,17 @@
         </ul>
       </div>
       <div class="fullWidth">
+        <h2>Freq-uently Asked Questions</h2>
+        <p><a href="#">Can I get your autograph?</a></p>
+        <p><a href="#">Can I buy you a beer?</a></p>
+        <p><a href="#">Can I upsample your mp3s?</a></p>
+        <p><a href="#">When is the FreqDomain2 World Tour?</a></p>
+      </div>
+      <div class="fullWidth">
         <h2>About the FreqDomain2 Team</h2>
         <p>FreqDomain2 is lovingly hand-crafted and debugged by <a href="https://github.com/HurdAudio" target="_blank">Devin Hurd</a>. Kindly find him and this <a href="https://github.com/HurdAudio/freqdomain2" target="_blank">repo at GitHub</a>.</p>
+        <p>{{$ctrl.copyrightMessage}}</p>
       </div>
     </div>
   </div>
-
-
-
-
 </div>
