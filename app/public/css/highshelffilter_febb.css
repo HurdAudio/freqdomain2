@@ -1,0 +1,397 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#highshelfFilterDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#highshelfFilterTop {
+  background: url(../img/february/bed-sheet-texture-cozy-1314710560-graffiti-line-grigio-30x60-2.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 76%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#highshelfFilterTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #181800;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #f3f31c, 2px 2px 1px #f3f31c;
+}
+
+#highshelfFilterSignalFlow {
+  background: url(../img/february/bed-sheet-texture-cozy-1314710560-graffiti-line-grigio-30x60-2.jpg);
+  background-size: 2000%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #f3f31c;
+}
+
+#highshelfFilterSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 12vmin;
+  margin-bottom: 0;
+  color: #181800;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c;
+}
+
+#highshelfFilterSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #181800;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 300%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c;
+  cursor: pointer;
+}
+
+#highshelfFilterFace {
+  height: 450px;
+  width: 76%;
+
+  background: url(../img/february/00674201012010348233030.jpg);
+  background-color: #ffffff;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: -57.4vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c;
+}
+
+#frequencyDiv {
+  margin: -2vmin 0 0 3vmin;
+}
+
+
+
+#detuneDiv {
+  margin: -2vmin 0 0 0;
+}
+
+
+
+#gainDiv {
+  margin: -2vmin 0 0 0;
+}
+
+#frequencyLabel {
+  color: #181800;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c;
+}
+
+
+
+#detuneLabel {
+  color: #181800;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c;
+  margin-left: 2vmin;
+}
+
+
+
+#gainLabel {
+  color: #181800;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c;
+  margin-left: 2vmin;
+}
+
+#highshelfFilterFrequencyDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+  padding-left: 1vmin;
+}
+
+
+
+#highshelfFilterDetuneDisplay {
+  margin-left: 2vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+  padding-left: 1vmin;
+}
+
+
+#highshelfFilterGainDisplay {
+  margin-left: 2vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+  padding-left: 1vmin;
+}
+
+#frequency {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 1vmin;
+  box-shadow: 1px -1px 1px #f3f31c, 2px -2px 1px #f3f31c, 3px -3px 1px #f3f31c, 4px -4px 1px #f3f31c;
+}
+
+
+
+#detune {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 1vmin;
+  box-shadow: 1px -1px 1px #f3f31c, 2px -2px 1px #f3f31c, 3px -3px 1px #f3f31c, 4px -4px 1px #f3f31c;
+}
+
+
+
+#gain {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 3vmin;
+  box-shadow: 1px -1px 1px #f3f31c, 2px -2px 1px #f3f31c, 3px -3px 1px #f3f31c, 4px -4px 1px #f3f31c;
+}
+
+#frequency::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -o-linear-gradient(45deg, #484800, #f7f767);
+    background: linear-gradient(45deg, #484800, #f7f767);
+    cursor: pointer;
+}
+
+
+
+#detune::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -o-linear-gradient(45deg, #484800, #f7f767);
+    background: linear-gradient(45deg, #484800, #f7f767);
+    cursor: pointer;
+}
+
+
+
+#gain::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+    background: -o-linear-gradient(45deg, #484800, #f7f767);
+    background: linear-gradient(45deg, #484800, #f7f767);
+    cursor: pointer;
+}
+
+#frequency::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -o-linear-gradient(45deg, #484800, #f7f767);
+  background: linear-gradient(45deg, #484800, #f7f767);
+  cursor: pointer;
+}
+
+
+
+#detune::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -o-linear-gradient(45deg, #484800, #f7f767);
+  background: linear-gradient(45deg, #484800, #f7f767);
+  cursor: pointer;
+}
+
+
+
+#gain::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -o-linear-gradient(45deg, #484800, #f7f767);
+  background: linear-gradient(45deg, #484800, #f7f767);
+  cursor: pointer;
+}
+
+#frequencyModDiv {
+
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 5vmin 5vmin;
+}
+
+
+#detuneModDiv {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 5vmin 5vmin;
+}
+
+
+#gainModDiv {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 3vmin 3vmin;
+}
+
+#frequencyModDiv p {
+  color: #181800;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+
+#detuneModDiv p {
+  color: #181800;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+
+#gainModDiv p {
+  color: #181800;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+#frequencyModSelect {
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+
+
+#detuneModSelect {
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+
+#gainModSelect {
+  background: url(../img/february/pindler-diedre-net-fabric-cream-remodelista.jpg);
+  background-size: 100%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+}
+
+button {
+
+  visibility: hidden;
+  width: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 2vmin;
+  margin-left: 1vmin;
+  box-shadow: -1px -1px 1px #f3f31c, -2px -2px 1px #f3f31c, -3px -3px 1px #f3f31c, -4px -4px 1px #f3f31c;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -webkit-linear-gradient(45deg, #484800, #f7f767);
+  background: -o-linear-gradient(45deg, #484800, #f7f767);
+  background: linear-gradient(45deg, #484800, #f7f767);
+}
