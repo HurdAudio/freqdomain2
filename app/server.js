@@ -45,6 +45,7 @@ const bandpass_filter_skins = require('./routes/bandpass_filter_skins.js');
 const peaking_filters = require('./routes/peaking_filters.js');
 const lowshelf_filter_skins = require('./routes/lowshelf_filter_skins.js');
 const delays = require('./routes/delays.js');
+const input_manager_skins = require('./routes/input_manager_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -90,6 +91,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/peaking_filters', peaking_filters);
  app.use('/lowshelf_filter_skins', lowshelf_filter_skins);
  app.use('/delays', delays);
+ app.use('/input_manager_skins', input_manager_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
