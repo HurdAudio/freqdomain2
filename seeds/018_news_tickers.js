@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Lowpass Filter (module 7). Stage 14 - April B Skin.',
+          headline: 'Currently working on: Random Number Generator (module 6). Stage 15 - April C Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
