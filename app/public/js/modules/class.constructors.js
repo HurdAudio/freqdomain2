@@ -3099,6 +3099,8 @@ var DynamicCompressor = (function(settings, skin) {
   let dynamicCompressorNode = function(settings, skin) {
     this.id = settings.id;
     this.name = settings.name;
+    this.positionX = settings.positionX;
+    this.positionY = settings.positionY;
     this.threshold = settings.threshold;
     this.threshold_modulator = settings.threshold_modulator;
     this.knee = settings.knee;
@@ -3114,9 +3116,425 @@ var DynamicCompressor = (function(settings, skin) {
     this.dynamicCompressor = audioContext.createDynamicsCompressor();
     this.dynamicCompressor.threshold.value = this.threshold;
     this.dynamicCompressor.knee.value = this.knee;
-    // this.dynamicCompressor.ratio.value = this.ratio;
+    this.dynamicCompressor.ratio.value = this.ratio;
     this.dynamicCompressor.attack.value = this.attack;
     this.dynamicCompressor.release.value = this.release;
+
+    this.skinName = skin.name;
+    this.month = skin.month;
+    this.rule = skin.rule;
+    this.facePath = skin.face_path;
+    this.faceSize = skin.face_size;
+    this.faceRepeat = skin.face_repeat;
+    this.faceBoxShadowColor = skin.face_box_shadow_color;
+    this.faceFontColor = skin.face_font_color;
+    this.faceFontShadow = skin.face_font_shadow;
+    this.topPath = skin.top_path;
+    this.topSize = skin.top_size;
+    this.topRepeat = skin.top_repeat;
+    this.topFontColor = skin.top_font_color;
+    this.topFontShadow = skin.top_font_shadow;
+    this.signalPath = skin.signal_path;
+    this.signalSize = skin.signal_size;
+    this.signalRepeat = skin.signal_repeat;
+    this.signalBoxShadowColor = skin.signal_box_shadow_color;
+    this.signalFontColor = skin.signal_font_color;
+    this.signalFontShadow = skin.signal_font_shadow;
+    this.displayPath = skin.display_path;
+    this.outputSize = skin.output_size;
+    this.outputRepeat = skin.output_repeat;
+    this.outputBoxShadowColor = skin.output_box_shadow_color;
+    this.outputFontColor = skin.output_font_color;
+    this.outputFontShadow = skin.output_font_shadow;
+    this.thresholdDisplaySize = skin.threshold_display_size;
+    this.thresholdDisplayRepeat = skin.threshold_display_repeat;
+    this.thresholdDisplayBoxShadowColor = skin.threshold_display_box_shadow_color;
+    this.thresholdDisplayFontColor = skin.threshold_display_font_color;
+    this.thresholdSliderPath = skin.threshold_slider_path;
+    this.thresholdSliderSize = skin.threshold_slider_size;
+    this.thresholdSliderRpeat = skin.threshold_slider_repeat;
+    this.thresholdSliderBoxShadowColor = skin.threshold_slider_box_shadow_color;
+    this.kneeDisplayPath = skin.knee_display_path;
+    this.kneeDisplaySize = skin.knee_display_size;
+    this.kneeRepeat = skin.knee_repeat;
+    this.kneeBoxShadow = skin.knee_box_shadow;
+    this.kneeDisplayFontColor = skin.knee_display_font_color;
+    this.kneeSliderPath = skin.knee_slider_path;
+    this.kneeSliderSize = skin.knee_slider_size;
+    this.kneeSliderRepeat = skin.knee_slider_repeat;
+    this.kneeSliderBoxShadow = skin.knee_slider_box_shadow;
+    this.ratioDisplayPath = skin.ratio_display_path;
+    this.ratioDisplaySize = skin.ratio_display_size;
+    this.ratioDisplayRepeat = skin.ratio_display_repeat;
+    this.ratioDisplayBoxShadowColor = skin.ratio_display_box_shadow_color;
+    this.ratioDisplayFontColor = skin.ratio_display_font_color;
+    this.ratioSliderPath = skin.ratio_slider_path;
+    this.ratioSliderSize = skin.ratio_slider_size;
+    this.ratioSliderRepeat = skin.ratio_slider_repeat;
+    this.ratioSliderBoxShadowColor = skin.ratio_slider_box_shadow_color;
+    this.attackDisplayPath = skin.attack_display_path;
+    this.attackDisplaySize = skin.attack_display_size;
+    this.attackDisplayRepeat = skin.attack_display_repeat;
+    this.attackDisplayBoxShadowColor = skin.attack_display_box_shadow_color;
+    this.attackDisplayFontColor = skin.attack_display_font_color;
+    this.attackSliderPath = skin.attack_slider_path;
+    this.attackSliderSize = skin.attack_slider_size;
+    this.attackSliderRepeat = skin.attack_slider_repeat;
+    this.attackSliderBoxShadowColor = skin.attack_slider_box_shadow_color;
+    this.releaseDisplayPath = skin.release_display_path;
+    this.releaseDisplaySize = skin.release_display_size;
+    this.releaseDisplayRepeat = skin.release_display_repeat;
+    this.releaseDisplayBoxShadowColor = skin.release_display_box_shadow_color;
+    this.releaseDisplayFontColor = skin.release_display_font_color;
+    this.releaseSliderPath = skin.release_slider_path;
+    this.releaseSliderSize = skin.release_slider_size;
+    this.releaseSliderRepeat = skin.release_slider_repeat;
+    this.releaseSliderBoxShadowColor = skin.release_slider_box_shadow_color;
+    this.sliderShaderColor1 = skin.slider_shader_color_1;
+    this.sliderShaderColor2 = skin.slider_shader_color_2;
+
+    this.drageWidth = 790;
+    this.dragHeight = 453;
+    this.horizontalWidth = 900;
+    this.horizontalHeight = 160;
+    this.verticalWidth = 160;
+    this.verticalHeight = 750;
+
+    this.renderDraggable = () => {
+
+      let div = document.createElement('div');
+      // let testtoneTop = document.createElement('div');
+      // div.appendChild(testtoneTop);
+      // let nameTag = document.createElement('h1');
+      // testtoneTop.appendChild(nameTag);
+      // let signalPanel = document.createElement('div');
+      // div.appendChild(signalPanel);
+      // let outputLabel = document.createElement('p');
+      // signalPanel.appendChild(outputLabel);
+      // outputLabel.innerHTML = 'output';
+      // let outputPort = document.createElement('h1');
+      // signalPanel.appendChild(outputPort);
+      // outputPort.innerHTML = '◦';
+      // outputPort.id = 'output ' + this.name + this.id;
+      // let face = document.createElement('div');
+      // div.appendChild(face);
+      // let frequencyPane = document.createElement('div');
+      // face.appendChild(frequencyPane);
+      // let hertzLabel = document.createElement('h3');
+      // frequencyPane.appendChild(hertzLabel);
+      // hertzLabel.innerHTML = 'Hertz:';
+      // let testToneFrequency = document.createElement('input');
+      // frequencyPane.appendChild(testToneFrequency);
+      // testToneFrequency.type = 'number';
+      // testToneFrequency.min = "1.000";
+      // testToneFrequency.max = "11025.000";
+      // testToneFrequency.step = "0.001";
+      // testToneFrequency.value = this.hertz;
+      // let testToneFrequencySlider = document.createElement('input');
+      // frequencyPane.appendChild(testToneFrequencySlider);
+      // testToneFrequencySlider.type = "range";
+      // testToneFrequencySlider.min = "1.000";
+      // testToneFrequencySlider.max = "11025.000";
+      // testToneFrequencySlider.step = "0.001";
+      // testToneFrequencySlider.value = this.hertz;
+      // let waveformSelectDiv = document.createElement('div');
+      // frequencyPane.appendChild(waveformSelectDiv);
+      // let waveformLabel = document.createElement('h3');
+      // waveformSelectDiv.appendChild(waveformLabel);
+      // waveformLabel.innerHTML = 'Waveform:';
+      // let waveFormsContainer = document.createElement('div');
+      // waveformSelectDiv.appendChild(waveFormsContainer);
+      // let sine = document.createElement('div');
+      // waveFormsContainer.appendChild(sine);
+      // let sineLabel = document.createElement('p');
+      // sine.appendChild(sineLabel);
+      // sineLabel.innerHTML = "sine";
+      // let sineImage = document.createElement('img');
+      // sine.appendChild(sineImage);
+      // sineImage.src = "./img/noun_589707_cc.png";
+      // let square = document.createElement('div');
+      // waveFormsContainer.appendChild(square);
+      // let squareLabel = document.createElement('p');
+      // square.appendChild(squareLabel);
+      // squareLabel.innerHTML = "square";
+      // let squareImage = document.createElement('img');
+      // square.appendChild(squareImage);
+      // squareImage.src = "./img/noun_538698_cc.png";
+      // let sawtooth = document.createElement('div');
+      // waveFormsContainer.appendChild(sawtooth);
+      // let sawtoothLabel = document.createElement('p');
+      // sawtooth.appendChild(sawtoothLabel);
+      // sawtoothLabel.innerHTML = "sawtooth";
+      // let sawtoothImage = document.createElement('img');
+      // sawtooth.appendChild(sawtoothImage);
+      // sawtoothImage.src = "./img/noun_538692_cc.png";
+      // let triangle = document.createElement('div');
+      // waveFormsContainer.appendChild(triangle);
+      // let triangleLabel = document.createElement('p');
+      // triangle.appendChild(triangleLabel);
+      // triangleLabel.innerHTML = "triangle";
+      // let triangleImage = document.createElement('img');
+      // triangle.appendChild(triangleImage);
+      // triangleImage.src = "./img/noun_538696_cc.png";
+      // let volumePane = document.createElement('div');
+      // face.appendChild(volumePane);
+      // let volumeLabel = document.createElement('h3');
+      // volumePane.appendChild(volumeLabel);
+      // volumeLabel.innerHTML = 'Volume:';
+      // let testToneVolume = document.createElement('input');
+      // volumePane.appendChild(testToneVolume);
+      // testToneVolume.type = "number";
+      // testToneVolume.min = "0";
+      // testToneVolume.max = "100";
+      // testToneVolume.step = "1";
+      // testToneVolume.value = this.gainValue;
+      // let testToneVolumeSlider = document.createElement('input');
+      // volumePane.appendChild(testToneVolumeSlider);
+      // testToneVolumeSlider.type = "range";
+      // testToneVolumeSlider.min = "0";
+      // testToneVolumeSlider.max = "100";
+      // testToneVolumeSlider.step = "1";
+      // testToneVolumeSlider.value = this.gainValue;
+      // let light = document.createElement('div');
+      // volumePane.appendChild(light);
+      // let switchLabel = document.createElement('label');
+      // volumePane.appendChild(switchLabel);
+      // switchLabel.className = "testToneSwitch";
+      // let testToneOnOff = document.createElement('input');
+      // switchLabel.appendChild(testToneOnOff);
+      // testToneOnOff.type = "checkbox";
+      // testToneOnOff.checked = this.deviceOn;
+      // let sliderSpan = document.createElement('span');
+      // switchLabel.appendChild(sliderSpan);
+      // sliderSpan.className = "testToneSlider";
+
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      // testtoneTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
+      // nameTag.innerHTML = this.name;
+      // nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
+      // signalPanel.setAttribute("style", "background: url(" + this.signalPath + "); background-size: " + this.signalSize + "; border: solid 1px transparent; height: " + this.dragHeight + "px; width: 59px; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 45deg); margin-left: -6px; margin-top: -26px; box-shadow: 0px -1px 1px " + this.signalFontShadow + ";");
+      // outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 1px; margin-top: 228px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      // outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      // face.setAttribute("style", "height: " + this.dragHeight + "px; width: 100%; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: " + this.faceRepeat + "; margin-top: -464px; margin-left: 61px; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ";");
+      // face.className = 'pure-g';
+      // frequencyPane.className = 'pure-u-1-3';
+      // frequencyPane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px;");
+      // hertzLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; padding: 5px 0 3px 15px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      // testToneFrequency.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; position: relative; margin: -40px 0 0 15px;");
+      // testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 190px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
+      // switch(this.skinName) {
+      //   case('Test Tone: January A'):
+      //     testToneFrequencySlider.className = 'testtoneJanuaryASlider';
+      //     testToneVolumeSlider.className = 'testtoneJanuaryASlider';
+      //     break;
+      //   case('Test Tone: January B'):
+      //     testToneFrequencySlider.className = 'testtoneJanuaryBSlider';
+      //     testToneVolumeSlider.className = 'testtoneJanuaryBSlider';
+      //     break;
+      //   case('Test Tone: January C'):
+      //     testToneFrequencySlider.className = 'testtoneJanuaryCSlider';
+      //     testToneVolumeSlider.className = 'testtoneJanuaryCSlider';
+      //     break;
+      //   case('Test Tone: February A'):
+      //     testToneFrequencySlider.className = 'testtoneFebruaryASlider';
+      //     testToneVolumeSlider.className = 'testtoneFebruaryASlider';
+      //     break;
+      //   case('Test Tone: February B'):
+      //     testToneFrequencySlider.className = 'testtoneFebruaryBSlider';
+      //     testToneVolumeSlider.className = 'testtoneFebruaryBSlider';
+      //     break;
+      //   case('Test Tone: February C'):
+      //     testToneFrequencySlider.className = 'testtoneFebruaryCSlider';
+      //     testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
+      //     break;
+      //   case('Test Tone: March A'):
+      //     testToneFrequencySlider.className = 'testtoneMarchASlider';
+      //     testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
+      //     break;
+      //   case('Test Tone: March B'):
+      //     testToneFrequencySlider.className = 'testtoneMarchBSlider';
+      //     testToneVolumeSlider.className = 'testtoneMarchBSlider';
+      //     break;
+      //   case('Test Tone: March C'):
+      //     testToneFrequencySlider.className = 'testtoneMarchCSlider';
+      //     testToneVolumeSlider.className = 'testtoneMarchCSlider';
+      //     break;
+      //   case('Test Tone: April A'):
+      //     testToneFrequencySlider.className = 'testtoneAprilASlider';
+      //     testToneVolumeSlider.className = 'testtoneAprilASlider';
+      //     break;
+      //   case('Test Tone: April B'):
+      //     testToneFrequencySlider.className = 'testtoneAprilBSlider';
+      //     testToneVolumeSlider.className = 'testtoneAprilBSlider';
+      //     break;
+      //   case('Test Tone: April C'):
+      //     testToneFrequencySlider.className = 'testtoneAprilCSlider';
+      //     testToneVolumeSlider.className = 'testtoneAprilCSlider';
+      //     break;
+      //   default:
+      //     console.log('unsupported test tone skin');
+      // }
+      // waveformSelectDiv.setAttribute("style", "position: relative; width: 320px; height: 290px; margin: -130px 0 0 15px;");
+      // waveformLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; margin: -25px 0 3px 0; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      // waveFormsContainer.setAttribute("style", "box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; width: 320px; height: 230px; cursor: pointer;");
+      // if (this.waveform === 'sine') {
+      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
+      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden;");
+      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: visible;");
+      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      // }
+      // if (this.waveform === 'square') {
+      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
+      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
+      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      // }
+      // if (this.waveform === 'sawtooth') {
+      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
+      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
+      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      // }
+      // if (this.waveform === 'triangle') {
+      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: visible;");
+      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
+      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
+      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
+      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
+      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: visible;");
+      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
+      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
+      // }
+      // let waveFormsObject = {
+      //   sine: sine,
+      //   sineLabel: sineLabel,
+      //   sineImage: sineImage,
+      //   square: square,
+      //   squareLabel: squareLabel,
+      //   squareImage: squareImage,
+      //   sawtooth: sawtooth,
+      //   sawtoothLabel: sawtoothLabel,
+      //   sawtoothImage: sawtoothImage,
+      //   triangle: triangle,
+      //   triangleLabel: triangleLabel,
+      //   triangleImage: triangleImage,
+      //   waveFormsContainer: waveFormsContainer
+      // };
+      // volumePane.classname = "pure-u-1-3";
+      // volumePane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px; float: right; position: relative; top: 0; margin-top: -453px;");
+      // volumeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
+      // testToneVolume.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.volumePath + "); background-size: " + this.volumeSize + "; box-shadow: -1px -1px 1px " + this.volumeBoxShadowColor + ", -2px -2px 1px " + this.volumeBoxShadowColor + ", -3px -3px 1px " + this.volumeBoxShadowColor + ", -4px -4px 1px " + this.volumeBoxShadowColor + "; position: relative; margin: 0 0 0 25px;");
+      // testToneVolumeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 20px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
+      // if (this.deviceOn) {
+      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%);");
+      //   light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
+      // } else {
+      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%);");
+      //   light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: hidden;");
+      // }
+      // switchLabel.setAttribute("style", "float: right; margin: 0 50px 0 0;");
+
+      // this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
+      // this.manageWaveformSelector(waveFormsObject);
+      // this.manageVolumeInput(testToneVolume, testToneVolumeSlider, light);
+      // this.onOffFunctionalityDrag(testToneOnOff, light, div);
+
+      // function dragElement(element, obj) {
+      //
+      //   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      //   if (testtoneTop) {
+      //     testtoneTop.onmousedown = dragMouseDown;
+      //   } else {
+      //     element.onmousedown = dragMouseDown;
+      //   }
+      //
+      //   function dragMouseDown(e) {
+      //     e = e || window.event;
+      //     e.preventDefault();
+      //     pos3 = e.clientX;
+      //     pos4 = e.clientY;
+      //     document.onmouseup = closeDragElement;
+      //     document.onmousemove = elementDrag;
+      //   }
+      //
+      //   function elementDrag(e) {
+      //     e = e || window.event;
+      //     e.preventDefault();
+      //     pos1 = pos3 - e.clientX;
+      //     pos2 = pos4 - e.clientY;
+      //     pos3 = e.clientX;
+      //     pos4 = e.clientY;
+      //     // set the element's new position:
+      //     element.style.top = (element.offsetTop - pos2) + "px";
+      //     element.style.left = (element.offsetLeft - pos1) + "px";
+      //     obj.positionX = (element.offsetLeft - pos1);
+      //     obj.positionY = (element.offsetTop - pos2);
+      //   }
+      //
+      //   function closeDragElement() {
+      //     document.onmouseup = null;
+      //     document.onmousemove = null;
+      //     obj.positionX = (element.offsetLeft - pos1);
+      //     obj.positionY = (element.offsetTop - pos2);
+      //   }
+      // }
+
+      // dragElement(div, this);
+
+      // div.addEventListener('mouseover', () => {
+      //   this.mouseOn = true;
+      //   if (this.deviceOn) {
+      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      //   } else {
+      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      //   }
+      //
+      // });
+
+      // div.addEventListener('mouseout', () => {
+      //   this.mouseOn = false;
+      //   if (this.deviceOn) {
+      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      //   } else {
+      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      //   }
+      // });
+
+      // outputPort.addEventListener('click', () => {
+      //   alert(outputPort.id);
+      // });
+
+      return(div);
+    }
+
   }
 
   return(dynamicCompressorNode);
