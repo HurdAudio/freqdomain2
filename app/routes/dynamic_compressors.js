@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     threshold: req.body.threshold,
     threshold_modulator: req.body.threshold_modulator,
     knee: req.body.knee,
@@ -69,6 +71,8 @@ router.patch('/:id', (req, res, next) => {
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     threshold: req.body.threshold,
     threshold_modulator: req.body.threshold_modulator,
     knee: req.body.knee,
@@ -116,6 +120,8 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            positionX: record.positionX,
+            positionY: record.positionY,
             threshold: record.threshold,
             threshold_modulator: record.threshold_modulator,
             knee: record.knee,

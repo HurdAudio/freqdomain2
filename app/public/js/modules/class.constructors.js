@@ -3193,344 +3193,474 @@ var DynamicCompressor = (function(settings, skin) {
     this.sliderShaderColor1 = skin.slider_shader_color_1;
     this.sliderShaderColor2 = skin.slider_shader_color_2;
 
-    this.drageWidth = 790;
+    this.dragWidth = 1090;
     this.dragHeight = 453;
     this.horizontalWidth = 900;
     this.horizontalHeight = 160;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
 
+    // functionality
+
+    this.manageThrehold = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.threshold = display.value;
+        this.dynamicCompressor.threshold.value = (this.threshold);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.threshold = slider.value;
+        this.dynamicCompressor.threshold.value = (this.threshold);
+      });
+    }
+
+    this.manageKnee = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.knee = display.value;
+        this.dynamicCompressor.knee.value = (this.knee);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.knee = slider.value;
+        this.dynamicCompressor.knee.value = (this.knee);
+      });
+    }
+
+    this.manageRatio = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.ratio = display.value;
+        this.dynamicCompressor.ratio.value = (this.ratio);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.ratio = slider.value;
+        this.dynamicCompressor.ratio.value = (this.ratio);
+      });
+    }
+
+    this.manageAttack = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.attack = display.value;
+        this.dynamicCompressor.attack.value = (this.attack);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.attack = slider.value;
+        this.dynamicCompressor.attack.value = (this.attack);
+      });
+    }
+
+    this.manageRelease = (display, slider) => {
+
+      slider.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        display.value = slider.value;
+        this.release = display.value;
+        this.dynamicCompressor.release.value = (this.release);
+      });
+
+      display.addEventListener('change', (e) => {
+        e.stopPropagation();
+        slider.value = display.value;
+        this.release = slider.value;
+        this.dynamicCompressor.release.value = (this.release);
+      });
+    }
+
+    // Rendering Functions
+
     this.renderDraggable = () => {
 
       let div = document.createElement('div');
-      // let testtoneTop = document.createElement('div');
-      // div.appendChild(testtoneTop);
-      // let nameTag = document.createElement('h1');
-      // testtoneTop.appendChild(nameTag);
-      // let signalPanel = document.createElement('div');
-      // div.appendChild(signalPanel);
-      // let outputLabel = document.createElement('p');
-      // signalPanel.appendChild(outputLabel);
-      // outputLabel.innerHTML = 'output';
-      // let outputPort = document.createElement('h1');
-      // signalPanel.appendChild(outputPort);
-      // outputPort.innerHTML = '◦';
-      // outputPort.id = 'output ' + this.name + this.id;
-      // let face = document.createElement('div');
-      // div.appendChild(face);
-      // let frequencyPane = document.createElement('div');
-      // face.appendChild(frequencyPane);
-      // let hertzLabel = document.createElement('h3');
-      // frequencyPane.appendChild(hertzLabel);
-      // hertzLabel.innerHTML = 'Hertz:';
-      // let testToneFrequency = document.createElement('input');
-      // frequencyPane.appendChild(testToneFrequency);
-      // testToneFrequency.type = 'number';
-      // testToneFrequency.min = "1.000";
-      // testToneFrequency.max = "11025.000";
-      // testToneFrequency.step = "0.001";
-      // testToneFrequency.value = this.hertz;
-      // let testToneFrequencySlider = document.createElement('input');
-      // frequencyPane.appendChild(testToneFrequencySlider);
-      // testToneFrequencySlider.type = "range";
-      // testToneFrequencySlider.min = "1.000";
-      // testToneFrequencySlider.max = "11025.000";
-      // testToneFrequencySlider.step = "0.001";
-      // testToneFrequencySlider.value = this.hertz;
-      // let waveformSelectDiv = document.createElement('div');
-      // frequencyPane.appendChild(waveformSelectDiv);
-      // let waveformLabel = document.createElement('h3');
-      // waveformSelectDiv.appendChild(waveformLabel);
-      // waveformLabel.innerHTML = 'Waveform:';
-      // let waveFormsContainer = document.createElement('div');
-      // waveformSelectDiv.appendChild(waveFormsContainer);
-      // let sine = document.createElement('div');
-      // waveFormsContainer.appendChild(sine);
-      // let sineLabel = document.createElement('p');
-      // sine.appendChild(sineLabel);
-      // sineLabel.innerHTML = "sine";
-      // let sineImage = document.createElement('img');
-      // sine.appendChild(sineImage);
-      // sineImage.src = "./img/noun_589707_cc.png";
-      // let square = document.createElement('div');
-      // waveFormsContainer.appendChild(square);
-      // let squareLabel = document.createElement('p');
-      // square.appendChild(squareLabel);
-      // squareLabel.innerHTML = "square";
-      // let squareImage = document.createElement('img');
-      // square.appendChild(squareImage);
-      // squareImage.src = "./img/noun_538698_cc.png";
-      // let sawtooth = document.createElement('div');
-      // waveFormsContainer.appendChild(sawtooth);
-      // let sawtoothLabel = document.createElement('p');
-      // sawtooth.appendChild(sawtoothLabel);
-      // sawtoothLabel.innerHTML = "sawtooth";
-      // let sawtoothImage = document.createElement('img');
-      // sawtooth.appendChild(sawtoothImage);
-      // sawtoothImage.src = "./img/noun_538692_cc.png";
-      // let triangle = document.createElement('div');
-      // waveFormsContainer.appendChild(triangle);
-      // let triangleLabel = document.createElement('p');
-      // triangle.appendChild(triangleLabel);
-      // triangleLabel.innerHTML = "triangle";
-      // let triangleImage = document.createElement('img');
-      // triangle.appendChild(triangleImage);
-      // triangleImage.src = "./img/noun_538696_cc.png";
-      // let volumePane = document.createElement('div');
-      // face.appendChild(volumePane);
-      // let volumeLabel = document.createElement('h3');
-      // volumePane.appendChild(volumeLabel);
-      // volumeLabel.innerHTML = 'Volume:';
-      // let testToneVolume = document.createElement('input');
-      // volumePane.appendChild(testToneVolume);
-      // testToneVolume.type = "number";
-      // testToneVolume.min = "0";
-      // testToneVolume.max = "100";
-      // testToneVolume.step = "1";
-      // testToneVolume.value = this.gainValue;
-      // let testToneVolumeSlider = document.createElement('input');
-      // volumePane.appendChild(testToneVolumeSlider);
-      // testToneVolumeSlider.type = "range";
-      // testToneVolumeSlider.min = "0";
-      // testToneVolumeSlider.max = "100";
-      // testToneVolumeSlider.step = "1";
-      // testToneVolumeSlider.value = this.gainValue;
-      // let light = document.createElement('div');
-      // volumePane.appendChild(light);
-      // let switchLabel = document.createElement('label');
-      // volumePane.appendChild(switchLabel);
-      // switchLabel.className = "testToneSwitch";
-      // let testToneOnOff = document.createElement('input');
-      // switchLabel.appendChild(testToneOnOff);
-      // testToneOnOff.type = "checkbox";
-      // testToneOnOff.checked = this.deviceOn;
-      // let sliderSpan = document.createElement('span');
-      // switchLabel.appendChild(sliderSpan);
-      // sliderSpan.className = "testToneSlider";
+      let dynamicCompressorTop = document.createElement('div');
+      div.appendChild(dynamicCompressorTop);
+      let nameTag = document.createElement('h1');
+      dynamicCompressorTop.appendChild(nameTag);
+      let signalPanel = document.createElement('div');
+      div.appendChild(signalPanel);
+      let inputLabel = document.createElement('p');
+      signalPanel.appendChild(inputLabel);
+      inputLabel.innerHTML = 'in';
+      let inputPort = document.createElement('h1');
+      signalPanel.appendChild(inputPort);
+      inputPort.innerHTML = '◦';
+      inputPort.id = 'input ' + this.name + this.id;
+      let outputLabel = document.createElement('p');
+      signalPanel.appendChild(outputLabel);
+      outputLabel.innerHTML = 'out';
+      let outputPort = document.createElement('h1');
+      signalPanel.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output ' + this.name + this.id;
+      let face = document.createElement('div');
+      div.appendChild(face);
+      let thresholdDiv = document.createElement('div');
+      face.appendChild(thresholdDiv);
+      let thresholdLabel = document.createElement('p');
+      thresholdDiv.appendChild(thresholdLabel);
+      thresholdLabel.innerHTML = 'threshold(dB)';
+      let compressorThresholdDisplay = document.createElement('input');
+      thresholdDiv.appendChild(compressorThresholdDisplay);
+      compressorThresholdDisplay.type = 'number';
+      compressorThresholdDisplay.step = '0.01';
+      compressorThresholdDisplay.min = '-100.00';
+      compressorThresholdDisplay.max = '0.00';
+      compressorThresholdDisplay.value = this.threshold;
+      let thresholdSlider = document.createElement('input');
+      thresholdDiv.appendChild(thresholdSlider);
+      thresholdSlider.type = 'range';
+      thresholdSlider.step = '0.01';
+      thresholdSlider.min = '-100.00';
+      thresholdSlider.max = '0.00';
+      thresholdSlider.value = this.threshold;
+      let thresholdModulatorLabel = document.createElement('p');
+      thresholdDiv.appendChild(thresholdModulatorLabel);
+      thresholdModulatorLabel.innerHTML = 'modulation';
+      let thresholdModulatorInput = document.createElement('h1');
+      thresholdDiv.appendChild(thresholdModulatorInput);
+      thresholdModulatorInput.innerHTML = '◦';
+      thresholdModulatorInput.id = 'threshhold modulator input - ' + this.name + this.id;
+      let kneeDiv = document.createElement('div');
+      face.appendChild(kneeDiv);
+      let kneeLabel = document.createElement('p');
+      kneeDiv.appendChild(kneeLabel);
+      kneeLabel.innerHTML = 'knee(dB)';
+      let compressorKneeDisplay = document.createElement('input');
+      kneeDiv.appendChild(compressorKneeDisplay);
+      compressorKneeDisplay.type = 'number';
+      compressorKneeDisplay.step = '0.01';
+      compressorKneeDisplay.min = '0.00';
+      compressorKneeDisplay.max = '40.00';
+      compressorKneeDisplay.value = this.knee;
+      let kneeSlider = document.createElement('input');
+      kneeDiv.appendChild(kneeSlider);
+      kneeSlider.type = 'range';
+      kneeSlider.step = '0.01';
+      kneeSlider.min = '0.00';
+      kneeSlider.max = '40.00';
+      kneeSlider.value = this.knee;
+      let kneeModulatorLabel = document.createElement('p');
+      kneeDiv.appendChild(kneeModulatorLabel);
+      kneeModulatorLabel.innerHTML = 'modulation';
+      let kneeModulatorInput = document.createElement('h1');
+      kneeDiv.appendChild(kneeModulatorInput);
+      kneeModulatorInput.innerHTML = '◦';
+      kneeModulatorInput.id = 'knee modulator input - ' + this.name + this.id;
+      let ratioDiv = document.createElement('div');
+      face.appendChild(ratioDiv);
+      let ratioLabel = document.createElement('p');
+      ratioDiv.appendChild(ratioLabel);
+      ratioLabel.innerHTML = 'ratio';
+      let compressorRatioDisplay = document.createElement('input');
+      ratioDiv.appendChild(compressorRatioDisplay);
+      compressorRatioDisplay.type = 'number';
+      compressorRatioDisplay.step = '0.01';
+      compressorRatioDisplay.min = '1.00';
+      compressorRatioDisplay.max = '20.00';
+      compressorRatioDisplay.value = this.ratio;
+      let ratioSlider = document.createElement('input');
+      ratioDiv.appendChild(ratioSlider);
+      ratioSlider.type = 'range';
+      ratioSlider.step = '0.01';
+      ratioSlider.min = '1.00';
+      ratioSlider.max = '20.00';
+      ratioSlider.value = this.ratio;
+      let ratioModulatorLabel = document.createElement('p');
+      ratioDiv.appendChild(ratioModulatorLabel);
+      ratioModulatorLabel.innerHTML = 'modulation';
+      let ratioModulatorInput = document.createElement('h1');
+      ratioDiv.appendChild(ratioModulatorInput);
+      ratioModulatorInput.innerHTML = '◦';
+      ratioModulatorInput.id = 'ratio modulator input - ' + this.name + this.id;
+      let attackDiv = document.createElement('div');
+      face.appendChild(attackDiv);
+      let attackLabel = document.createElement('p');
+      attackDiv.appendChild(attackLabel);
+      attackLabel.innerHTML = 'attack(sec)';
+      let compressorAttackDisplay = document.createElement('input');
+      attackDiv.appendChild(compressorAttackDisplay);
+      compressorAttackDisplay.type = 'number';
+      compressorAttackDisplay.step = '0.001';
+      compressorAttackDisplay.min = '0.000';
+      compressorAttackDisplay.max = '1.000';
+      compressorAttackDisplay.value = this.attack;
+      let attackSlider = document.createElement('input');
+      attackDiv.appendChild(attackSlider);
+      attackSlider.type = 'range';
+      attackSlider.step = '0.001';
+      attackSlider.min = '0.000';
+      attackSlider.max = '1.000';
+      attackSlider.value = this.attack;
+      let attackModulatorLabel = document.createElement('p');
+      attackDiv.appendChild(attackModulatorLabel);
+      attackModulatorLabel.innerHTML = 'modulation';
+      let attackModulatorInput = document.createElement('h1');
+      attackDiv.appendChild(attackModulatorInput);
+      attackModulatorInput.innerHTML = '◦';
+      attackModulatorInput.id = 'attack modulator input - ' + this.name + this.id;
+      let releaseDiv = document.createElement('div');
+      face.appendChild(releaseDiv);
+      let releaseLabel = document.createElement('p');
+      releaseDiv.appendChild(releaseLabel);
+      releaseLabel.innerHTML = 'release(sec)';
+      let compressorReleaseDisplay = document.createElement('input');
+      releaseDiv.appendChild(compressorReleaseDisplay);
+      compressorReleaseDisplay.type = 'number';
+      compressorReleaseDisplay.step = '0.001';
+      compressorReleaseDisplay.min = '0.000';
+      compressorReleaseDisplay.max = '1.000';
+      compressorReleaseDisplay.value = this.release;
+      let releaseSlider = document.createElement('input');
+      releaseDiv.appendChild(releaseSlider);
+      releaseSlider.type = 'range';
+      releaseSlider.step = '0.001';
+      releaseSlider.min = '0.000';
+      releaseSlider.max = '1.000';
+      releaseSlider.value = this.release;
+      let releaseModulatorLabel = document.createElement('p');
+      releaseDiv.appendChild(releaseModulatorLabel);
+      releaseModulatorLabel.innerHTML = 'modulation';
+      let releaseModulatorInput = document.createElement('h1');
+      releaseDiv.appendChild(releaseModulatorInput);
+      releaseModulatorInput.innerHTML = '◦';
+      releaseModulatorInput.id = 'release modulator input - ' + this.name + this.id;
 
       div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
-      // testtoneTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
-      // nameTag.innerHTML = this.name;
-      // nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
-      // signalPanel.setAttribute("style", "background: url(" + this.signalPath + "); background-size: " + this.signalSize + "; border: solid 1px transparent; height: " + this.dragHeight + "px; width: 59px; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 45deg); margin-left: -6px; margin-top: -26px; box-shadow: 0px -1px 1px " + this.signalFontShadow + ";");
-      // outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; margin-left: 1px; margin-top: 228px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
-      // outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
-      // face.setAttribute("style", "height: " + this.dragHeight + "px; width: 100%; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: " + this.faceRepeat + "; margin-top: -464px; margin-left: 61px; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ";");
-      // face.className = 'pure-g';
-      // frequencyPane.className = 'pure-u-1-3';
-      // frequencyPane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px;");
-      // hertzLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; padding: 5px 0 3px 15px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // testToneFrequency.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; position: relative; margin: -40px 0 0 15px;");
-      // testToneFrequencySlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 190px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
-      // switch(this.skinName) {
-      //   case('Test Tone: January A'):
-      //     testToneFrequencySlider.className = 'testtoneJanuaryASlider';
-      //     testToneVolumeSlider.className = 'testtoneJanuaryASlider';
-      //     break;
-      //   case('Test Tone: January B'):
-      //     testToneFrequencySlider.className = 'testtoneJanuaryBSlider';
-      //     testToneVolumeSlider.className = 'testtoneJanuaryBSlider';
-      //     break;
-      //   case('Test Tone: January C'):
-      //     testToneFrequencySlider.className = 'testtoneJanuaryCSlider';
-      //     testToneVolumeSlider.className = 'testtoneJanuaryCSlider';
-      //     break;
-      //   case('Test Tone: February A'):
-      //     testToneFrequencySlider.className = 'testtoneFebruaryASlider';
-      //     testToneVolumeSlider.className = 'testtoneFebruaryASlider';
-      //     break;
-      //   case('Test Tone: February B'):
-      //     testToneFrequencySlider.className = 'testtoneFebruaryBSlider';
-      //     testToneVolumeSlider.className = 'testtoneFebruaryBSlider';
-      //     break;
-      //   case('Test Tone: February C'):
-      //     testToneFrequencySlider.className = 'testtoneFebruaryCSlider';
-      //     testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
-      //     break;
-      //   case('Test Tone: March A'):
-      //     testToneFrequencySlider.className = 'testtoneMarchASlider';
-      //     testToneVolumeSlider.className = 'testtoneFebruaryCSlider';
-      //     break;
-      //   case('Test Tone: March B'):
-      //     testToneFrequencySlider.className = 'testtoneMarchBSlider';
-      //     testToneVolumeSlider.className = 'testtoneMarchBSlider';
-      //     break;
-      //   case('Test Tone: March C'):
-      //     testToneFrequencySlider.className = 'testtoneMarchCSlider';
-      //     testToneVolumeSlider.className = 'testtoneMarchCSlider';
-      //     break;
-      //   case('Test Tone: April A'):
-      //     testToneFrequencySlider.className = 'testtoneAprilASlider';
-      //     testToneVolumeSlider.className = 'testtoneAprilASlider';
-      //     break;
-      //   case('Test Tone: April B'):
-      //     testToneFrequencySlider.className = 'testtoneAprilBSlider';
-      //     testToneVolumeSlider.className = 'testtoneAprilBSlider';
-      //     break;
-      //   case('Test Tone: April C'):
-      //     testToneFrequencySlider.className = 'testtoneAprilCSlider';
-      //     testToneVolumeSlider.className = 'testtoneAprilCSlider';
-      //     break;
-      //   default:
-      //     console.log('unsupported test tone skin');
-      // }
-      // waveformSelectDiv.setAttribute("style", "position: relative; width: 320px; height: 290px; margin: -130px 0 0 15px;");
-      // waveformLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; margin: -25px 0 3px 0; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // waveFormsContainer.setAttribute("style", "box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; width: 320px; height: 230px; cursor: pointer;");
-      // if (this.waveform === 'sine') {
-      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
-      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden;");
-      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
-      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
-      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
-      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: visible;");
-      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      // }
-      // if (this.waveform === 'square') {
-      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
-      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: hidden;");
-      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
-      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
-      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
-      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
-      // }
-      // if (this.waveform === 'sawtooth') {
-      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
-      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
-      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
-      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(90deg); backface-visibility: hidden;");
-      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden;");
-      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
-      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
-      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
-      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      // }
-      // if (this.waveform === 'triangle') {
-      //   sine.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: 0; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: hidden; visibility: visible;");
-      //   sineImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   sineLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   square.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -230px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-180deg); backface-visibility: hidden; visibility: hidden;");
-      //   squareImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: hidden;");
-      //   squareLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: hidden;");
-      //   sawtooth.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -460px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(-90deg); backface-visibility: visible;");
-      //   sawtoothImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   sawtoothLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      //   triangle.setAttribute("style", "width: 320px; height: 230px; margin: 0 0 0 0; position: relative; left: 0; top: -690px; background: url(" + this.displayPath + "); background-size: " + this.waveformSelectorDisplaySize + "; overflow-x: hidden; overflow-y: hidden; transform: rotateY(0deg); backface-visibility: visible;");
-      //   triangleImage.setAttribute("style", "width: 70%; float: right; backface-visibility: hidden; visibility: visible;");
-      //   triangleLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 30px; margin: 80px 0 0 5%; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; width: 20%; float: left; backface-visibility: hidden; visibility: visible;");
-      // }
-      // let waveFormsObject = {
-      //   sine: sine,
-      //   sineLabel: sineLabel,
-      //   sineImage: sineImage,
-      //   square: square,
-      //   squareLabel: squareLabel,
-      //   squareImage: squareImage,
-      //   sawtooth: sawtooth,
-      //   sawtoothLabel: sawtoothLabel,
-      //   sawtoothImage: sawtoothImage,
-      //   triangle: triangle,
-      //   triangleLabel: triangleLabel,
-      //   triangleImage: triangleImage,
-      //   waveFormsContainer: waveFormsContainer
-      // };
-      // volumePane.classname = "pure-u-1-3";
-      // volumePane.setAttribute("style", "width: " + (this.dragWidth/2) + "px; height: " + this.dragHeight + "px; float: right; position: relative; top: 0; margin-top: -453px;");
-      // volumeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  ";");
-      // testToneVolume.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 3vmin; margin-top: 0; background: url(" + this.volumePath + "); background-size: " + this.volumeSize + "; box-shadow: -1px -1px 1px " + this.volumeBoxShadowColor + ", -2px -2px 1px " + this.volumeBoxShadowColor + ", -3px -3px 1px " + this.volumeBoxShadowColor + ", -4px -4px 1px " + this.volumeBoxShadowColor + "; position: relative; margin: 0 0 0 25px;");
-      // testToneVolumeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: ratateZ(-90deg); transform: rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 20px; margin-top: 87px; box-shadow: 1px -1px 1px " + this.frequenySliderBoxShadow + ", 2px -2px 1px " + this.frequenySliderBoxShadow + ", 3px -3px 1px " + this.frequenySliderBoxShadow + ", 4px -4px 1px " + this.frequenySliderBoxShadow + "; height: 52px;");
-      // if (this.deviceOn) {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(0deg) contrast(100%);");
-      //   light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: visible;");
-      // } else {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); filter: hue-rotate(180deg) contrast(50%);");
-      //   light.setAttribute("style", "position: relative; border-radius: 100%; width: 120px; height: 120px; border: solid 5px " + this.faceFontColor + "; background-color: " + this.faceBoxShadowColor + "; float: right; margin: -220px 10px 0 0; filter: contrast(" + (this.gainValue) + "%) brightness(" + (this.gainValue) + "%) hue-rotate(" + (100 - this.gainValue) + "deg); visibility: hidden;");
-      // }
-      // switchLabel.setAttribute("style", "float: right; margin: 0 50px 0 0;");
+      dynamicCompressorTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
+      signalPanel.setAttribute("style", "background: url(" + this.signalPath + "); background-size: " + this.signalSize + "; border: solid 1px transparent; height: " + this.dragHeight + "px; width: 59px; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 45deg); margin-left: -6px; margin-top: -26px; box-shadow: 0px -1px 1px " + this.signalFontShadow + ";");
+      inputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 15px; margin-top: 58px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 2px; margin-top: 58px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      face.setAttribute("style", "height: " + this.dragHeight + "px; width: 100%; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: " + this.faceRepeat + "; margin-top: -425px; margin-left: 59px; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ";");
+      thresholdDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px;");
+      thresholdLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      compressorThresholdDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; background: url(" + this.displayPath + "); background-size: " + this.thresholdDisplaySize + "; box-shadow: -1px -1px 1px " + this.thresholdDisplayBoxShadowColor + ", -2px -2px 1px " + this.thresholdDisplayBoxShadowColor + ", -3px -3px 1px " + this.thresholdDisplayBoxShadowColor + ", -4px -4px 1px " + this.thresholdDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      thresholdSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 400px; margin: 140px 25px 0 -10px;");
+      switch(this.skinName) {
+        case('Dynamic Compressor: January A'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryA';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryA';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryA';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryA';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryA';
+          break;
+        case('Dynamic Compressor: January B'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryB';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryB';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryB';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryB';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryB';
+          break;
+        case('Dynamic Compressor: January C'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryC';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryC';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryC';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryC';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryC';
+          break;
+        case('Dynamic Compressor: February A'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryA';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryA';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryA';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryA';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryA';
+          break;
+        case('Dynamic Compressor: February B'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryB';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryB';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryB';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryB';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryB';
+          break;
+        case('Dynamic Compressor: February C'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryC';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryC';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryC';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryC';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryC';
+          break;
+        case('Dynamic Compressor: March A'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchA';
+          kneeSlider.className = 'dynamicCompressorSliderMarchA';
+          ratioSlider.className = 'dynamicCompressorSliderMarchA';
+          attackSlider.className = 'dynamicCompressorSliderMarchA';
+          releaseSlider.className = 'dynamicCompressorSliderMarchA';
+          break;
+        case('Dynamic Compressor: March B'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchB';
+          kneeSlider.className = 'dynamicCompressorSliderMarchB';
+          ratioSlider.className = 'dynamicCompressorSliderMarchB';
+          attackSlider.className = 'dynamicCompressorSliderMarchB';
+          releaseSlider.className = 'dynamicCompressorSliderMarchB';
+          break;
+        case('Dynamic Compressor: March C'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchC';
+          kneeSlider.className = 'dynamicCompressorSliderMarchC';
+          ratioSlider.className = 'dynamicCompressorSliderMarchC';
+          attackSlider.className = 'dynamicCompressorSliderMarchC';
+          releaseSlider.className = 'dynamicCompressorSliderMarchC';
+          break;
+        case('Dynamic Compressor: April A'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilA';
+          kneeSlider.className = 'dynamicCompressorSliderAprilA';
+          ratioSlider.className = 'dynamicCompressorSliderAprilA';
+          attackSlider.className = 'dynamicCompressorSliderAprilA';
+          releaseSlider.className = 'dynamicCompressorSliderAprilA';
+          break;
+        case('Dynamic Compressor: April B'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilB';
+          kneeSlider.className = 'dynamicCompressorSliderAprilB';
+          ratioSlider.className = 'dynamicCompressorSliderAprilB';
+          attackSlider.className = 'dynamicCompressorSliderAprilB';
+          releaseSlider.className = 'dynamicCompressorSliderAprilB';
+          break;
+        case('Dynamic Compressor: April C'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilC';
+          kneeSlider.className = 'dynamicCompressorSliderAprilC';
+          ratioSlider.className = 'dynamicCompressorSliderAprilC';
+          attackSlider.className = 'dynamicCompressorSliderAprilC';
+          releaseSlider.className = 'dynamicCompressorSliderAprilC';
+          break;
+        default:
+          console.log('unsupported dynamic compressor skin');
+      }
+      thresholdModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      thresholdModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin: 10px 0 0 55px; width: 50px; height: 65px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
+      kneeDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px;");
+      kneeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      compressorKneeDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; background: url(" + this.kneeDisplayPath + "); background-size: " + this.kneeDisplaySize + "; box-shadow: -1px -1px 1px " + this.kneeDisplayBoxShadowColor + ", -2px -2px 1px " + this.kneeDisplayBoxShadowColor + ", -3px -3px 1px " + this.kneeDisplayBoxShadowColor + ", -4px -4px 1px " + this.kneeDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      kneeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.kneeSliderPath + "); background-size: " + this.kneeSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.kneeSliderBoxShadowColor + ", 2px -2px 1px " + this.kneeSliderBoxShadowColor + ", 3px -3px 1px " + this.kneeSliderBoxShadowColor + ", 4px -4px 1px " + this.kneeSliderBoxShadowColor + "; height: 32px; width: 400px; margin: 140px 25px 0 -10px;");
+      kneeModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      kneeModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin: 10px 0 0 55px; width: 50px; height: 65px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
+      ratioDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px;");
+      ratioLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      compressorRatioDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; background: url(" + this.ratioDisplayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      ratioSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.ratioSliderPath + "); background-size: " + this.ratioSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.ratioSliderBoxShadowColor + ", 2px -2px 1px " + this.ratioSliderBoxShadowColor + ", 3px -3px 1px " + this.ratioSliderBoxShadowColor + ", 4px -4px 1px " + this.ratioSliderBoxShadowColor + "; height: 32px; width: 400px; margin: 140px 25px 0 -10px;");
+      ratioModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      ratioModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin: 10px 0 0 55px; width: 50px; height: 65px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
+      attackDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px;");
+      attackLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      compressorAttackDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; background: url(" + this.attackDisplayPath + "); background-size: " + this.attackDisplaySize + "; box-shadow: -1px -1px 1px " + this.attackDisplayBoxShadowColor + ", -2px -2px 1px " + this.attackDisplayBoxShadowColor + ", -3px -3px 1px " + this.attackDisplayBoxShadowColor + ", -4px -4px 1px " + this.attackDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      attackSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.attackSliderPath + "); background-size: " + this.attackSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.attackSliderBoxShadowColor + ", 2px -2px 1px " + this.attackSliderBoxShadowColor + ", 3px -3px 1px " + this.attackSliderBoxShadowColor + ", 4px -4px 1px " + this.attackSliderBoxShadowColor + "; height: 32px; width: 400px; margin: 140px 25px 0 -10px;");
+      attackModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      attackModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin: 10px 0 0 55px; width: 50px; height: 65px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
+      releaseDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px;");
+      releaseLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      compressorReleaseDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; background: url(" + this.releaseDisplayPath + "); background-size: " + this.releaseDisplaySize + "; box-shadow: -1px -1px 1px " + this.releaseDisplayBoxShadowColor + ", -2px -2px 1px " + this.releaseDisplayBoxShadowColor + ", -3px -3px 1px " + this.releaseDisplayBoxShadowColor + ", -4px -4px 1px " + this.releaseDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      releaseSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.releaseSliderPath + "); background-size: " + this.releaseSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.releaseSliderBoxShadowColor + ", 2px -2px 1px " + this.releaseSliderBoxShadowColor + ", 3px -3px 1px " + this.releaseSliderBoxShadowColor + ", 4px -4px 1px " + this.releaseSliderBoxShadowColor + "; height: 32px; width: 400px; margin: 140px 25px 0 -10px;");
+      releaseModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 24px; margin: 5px 0 3px 25px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      releaseModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin: 10px 0 0 55px; width: 50px; height: 65px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 15px;");
 
-      // this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
-      // this.manageWaveformSelector(waveFormsObject);
-      // this.manageVolumeInput(testToneVolume, testToneVolumeSlider, light);
-      // this.onOffFunctionalityDrag(testToneOnOff, light, div);
+      this.manageThrehold(compressorThresholdDisplay, thresholdSlider);
 
-      // function dragElement(element, obj) {
-      //
-      //   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-      //   if (testtoneTop) {
-      //     testtoneTop.onmousedown = dragMouseDown;
-      //   } else {
-      //     element.onmousedown = dragMouseDown;
-      //   }
-      //
-      //   function dragMouseDown(e) {
-      //     e = e || window.event;
-      //     e.preventDefault();
-      //     pos3 = e.clientX;
-      //     pos4 = e.clientY;
-      //     document.onmouseup = closeDragElement;
-      //     document.onmousemove = elementDrag;
-      //   }
-      //
-      //   function elementDrag(e) {
-      //     e = e || window.event;
-      //     e.preventDefault();
-      //     pos1 = pos3 - e.clientX;
-      //     pos2 = pos4 - e.clientY;
-      //     pos3 = e.clientX;
-      //     pos4 = e.clientY;
-      //     // set the element's new position:
-      //     element.style.top = (element.offsetTop - pos2) + "px";
-      //     element.style.left = (element.offsetLeft - pos1) + "px";
-      //     obj.positionX = (element.offsetLeft - pos1);
-      //     obj.positionY = (element.offsetTop - pos2);
-      //   }
-      //
-      //   function closeDragElement() {
-      //     document.onmouseup = null;
-      //     document.onmousemove = null;
-      //     obj.positionX = (element.offsetLeft - pos1);
-      //     obj.positionY = (element.offsetTop - pos2);
-      //   }
-      // }
+      this.manageKnee(compressorKneeDisplay, kneeSlider);
 
-      // dragElement(div, this);
+      this.manageRatio(compressorRatioDisplay, ratioSlider);
 
-      // div.addEventListener('mouseover', () => {
-      //   this.mouseOn = true;
-      //   if (this.deviceOn) {
-      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      //   } else {
-      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      //   }
-      //
-      // });
+      this.manageAttack(compressorAttackDisplay, attackSlider);
 
-      // div.addEventListener('mouseout', () => {
-      //   this.mouseOn = false;
-      //   if (this.deviceOn) {
-      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      //   } else {
-      //     div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      //   }
-      // });
+      this.manageRelease(compressorReleaseDisplay, releaseSlider);
 
-      // outputPort.addEventListener('click', () => {
-      //   alert(outputPort.id);
-      // });
+      function dragElement(element, obj) {
+
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (dynamicCompressorTop) {
+          dynamicCompressorTop.onmousedown = dragMouseDown;
+        } else {
+          element.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          element.style.top = (element.offsetTop - pos2) + "px";
+          element.style.left = (element.offsetLeft - pos1) + "px";
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+
+        function closeDragElement() {
+          document.onmouseup = null;
+          document.onmousemove = null;
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+      }
+
+      dragElement(div, this);
+
+      div.addEventListener('mouseover', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      });
+
+      div.addEventListener('mouseout', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+      });
+
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
+
+      inputPort.addEventListener('click', () => {
+        alert(inputPort.id);
+      });
+
+      thresholdModulatorInput.addEventListener('click', () => {
+        alert(thresholdModulatorInput.id);
+      });
+
+      kneeModulatorInput.addEventListener('click', () => {
+        alert(kneeModulatorInput.id);
+      });
+
+      ratioModulatorInput.addEventListener('click', () => {
+        alert(ratioModulatorInput.id);
+      });
+
+      attackModulatorInput.addEventListener('click', () => {
+        alert(attackModulatorInput.id);
+      });
+
+      releaseModulatorInput.addEventListener('click', () => {
+        alert(releaseModulatorInput.id);
+      })
 
       return(div);
     }

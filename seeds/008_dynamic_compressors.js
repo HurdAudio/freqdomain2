@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           name: 'dynamic compressor',
-          positionX: 700,
+          positionX: 400,
           positionY: 200,
           threshold: -24.00,
           threshold_modulator: null,

@@ -69,6 +69,10 @@
             moduleSelectPath = 'test_tones';
             skinSelectorPath = 'test_tone_skins';
             break;
+          case('DynamicCompressor'):
+            moduleSelectPath = 'dynamic_compressors';
+            skinSelectorPath = 'dynamic_compressor_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -174,6 +178,14 @@
                 }
               }
             }
+            if (moduleSelector.value === 'DynamicCompressor') {
+              let dynamicCompressor = new DynamicCompressor(settings, skin);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = dynamicCompressor.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -199,6 +211,9 @@
             break;
           case('TestTone'):
             skinsTable = 'test_tone_skins';
+            break;
+          case('DynamicCompressor'):
+            skinsTable = 'dynamic_compressor_skins';
             break;
           default:
             console.log('unsupported module');
