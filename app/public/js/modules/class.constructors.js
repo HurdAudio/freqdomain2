@@ -3089,6 +3089,7 @@ var TestToneModule = (function(settings, skin) {
       return(div);
     }
 
+
   }
 
   return(testToneNode);
@@ -3196,7 +3197,7 @@ var DynamicCompressor = (function(settings, skin) {
     this.dragWidth = 1090;
     this.dragHeight = 453;
     this.horizontalWidth = 900;
-    this.horizontalHeight = 160;
+    this.horizontalHeight = 320;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
 
@@ -3661,6 +3662,326 @@ var DynamicCompressor = (function(settings, skin) {
       releaseModulatorInput.addEventListener('click', () => {
         alert(releaseModulatorInput.id);
       })
+
+      return(div);
+    }
+
+    this.renderRackHorizontal = (x, y) => {
+
+      let div = document.createElement('div');
+      let nameAndOutputDiv = document.createElement('div');
+      div.appendChild(nameAndOutputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndOutputDiv.appendChild(nameTag);
+      let inputLabel = document.createElement('p');
+      nameAndOutputDiv.appendChild(inputLabel);
+      inputLabel.innerHTML = 'input';
+      let inputPort = document.createElement('h1');
+      nameAndOutputDiv.appendChild(inputPort);
+      inputPort.innerHTML = '◦';
+      inputPort.id = 'input ' +    this.name + this.id;
+      let outputLabel = document.createElement('p');
+      nameAndOutputDiv.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      let outputPort = document.createElement('h1');
+      nameAndOutputDiv.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output ' + this.name + this.id;
+      let thresholdDiv = document.createElement('div');
+      div.appendChild(thresholdDiv);
+      let thresholdLabel = document.createElement('p');
+      thresholdDiv.appendChild(thresholdLabel);
+      thresholdLabel.innerHTML = 'threshold(dB)';
+      let thresholdDisplay = document.createElement('input');
+      thresholdDiv.appendChild(thresholdDisplay);
+      thresholdDisplay.type = 'number';
+      thresholdDisplay.step = '0.01';
+      thresholdDisplay.min = '-100.00';
+      thresholdDisplay.max = '0.00';
+      thresholdDisplay.value = this.threshold;
+      let thresholdSlider = document.createElement('input');
+      thresholdDiv.appendChild(thresholdSlider);
+      thresholdSlider.type = 'range';
+      thresholdSlider.step = '0.01';
+      thresholdSlider.min = '-100.00';
+      thresholdSlider.max = '0.00';
+      thresholdSlider.value = this.threshold;
+      let thresholdModulatorLabel = document.createElement('p');
+      thresholdDiv.appendChild(thresholdModulatorLabel);
+      thresholdModulatorLabel.innerHTML = 'modulation';
+      let thresholdModulatorInput = document.createElement('h1');
+      thresholdDiv.appendChild(thresholdModulatorInput);
+      thresholdModulatorInput.innerHTML = '◦';
+      thresholdModulatorInput.id = 'threshhold modulator input - ' + this.name + this.id;
+      let kneeDiv = document.createElement('div');
+      div.appendChild(kneeDiv);
+      let kneeLabel = document.createElement('p');
+      kneeDiv.appendChild(kneeLabel);
+      kneeLabel.innerHTML = 'knee(dB)';
+      let kneeDisplay = document.createElement('input');
+      kneeDiv.appendChild(kneeDisplay);
+      kneeDisplay.type = 'number';
+      kneeDisplay.step = '0.01';
+      kneeDisplay.max = '40.00';
+      kneeDisplay.min = '0.00';
+      kneeDisplay.value = this.knee;
+      let kneeSlider = document.createElement('input');
+      kneeDiv.appendChild(kneeSlider);
+      kneeSlider.type = 'range';
+      kneeSlider.step = '0.01';
+      kneeSlider.max = '40.00';
+      kneeSlider.min = '0.00';
+      kneeSlider.value = this.knee;
+      let kneeModulatorLabel = document.createElement('p');
+      kneeDiv.appendChild(kneeModulatorLabel);
+      kneeModulatorLabel.innerHTML = 'modulation';
+      let kneeModulatorInput = document.createElement('h1');
+      kneeDiv.appendChild(kneeModulatorInput);
+      kneeModulatorInput.innerHTML = '◦';
+      kneeModulatorInput.id = 'knee modulator input - ' + this.name + this.id;
+      let ratioDiv = document.createElement('div');
+      div.appendChild(ratioDiv);
+      let ratioLabel = document.createElement('p');
+      ratioDiv.appendChild(ratioLabel);
+      ratioLabel.innerHTML = 'ratio';
+      let ratioDisplay = document.createElement('input');
+      ratioDiv.appendChild(ratioDisplay);
+      ratioDisplay.type = 'number';
+      ratioDisplay.step = '0.01';
+      ratioDisplay.max = '20.00';
+      ratioDisplay.min = '1.00';
+      ratioDisplay.value = this.ratio;
+      let ratioSlider = document.createElement('input');
+      ratioDiv.appendChild(ratioSlider);
+      ratioSlider.type = 'range';
+      ratioSlider.step = '0.01';
+      ratioSlider.max = '20.00';
+      ratioSlider.min = '1.00';
+      ratioSlider.value = this.ratio;
+      let ratioModulatorLabel = document.createElement('p');
+      ratioDiv.appendChild(ratioModulatorLabel);
+      ratioModulatorLabel.innerHTML = 'modulation';
+      let ratioModulatorInput = document.createElement('h1');
+      ratioDiv.appendChild(ratioModulatorInput);
+      ratioModulatorInput.innerHTML = '◦';
+      ratioModulatorInput.id = 'ratio modulator input - ' + this.name + this.id;
+      let attackDiv = document.createElement('div');
+      div.appendChild(attackDiv);
+      let attackLabel = document.createElement('p');
+      attackDiv.appendChild(attackLabel);
+      attackLabel.innerHTML = 'attack(sec)';
+      let attackDisplay = document.createElement('input');
+      attackDiv.appendChild(attackDisplay);
+      attackDisplay.type = 'number';
+      attackDisplay.step = '0.001';
+      attackDisplay.max = '1.000';
+      attackDisplay.min = '0.000';
+      attackDisplay.value = this.attack;
+      let attackSlider = document.createElement('input');
+      attackDiv.appendChild(attackSlider);
+      attackSlider.type = 'range';
+      attackSlider.step = '0.001';
+      attackSlider.max = '1.000';
+      attackSlider.min = '0.000';
+      attackSlider.value = this.attack;
+      let attackModulatorLabel = document.createElement('p');
+      attackDiv.appendChild(attackModulatorLabel);
+      attackModulatorLabel.innerHTML = 'modulation';
+      let attackModulatorInput = document.createElement('h1');
+      attackDiv.appendChild(attackModulatorInput);
+      attackModulatorInput.innerHTML = '◦';
+      attackModulatorInput.id = 'attack modulator input - ' + this.name + this.id;
+      let releaseDiv = document.createElement('div');
+      div.appendChild(releaseDiv);
+      let releaseLabel = document.createElement('p');
+      releaseDiv.appendChild(releaseLabel);
+      releaseLabel.innerHTML = 'release(sec)';
+      let releaseDisplay = document.createElement('input');
+      releaseDiv.appendChild(releaseDisplay);
+      releaseDisplay.type = 'number';
+      releaseDisplay.step = '0.001';
+      releaseDisplay.max = '1.000';
+      releaseDisplay.min = '0.000';
+      releaseDisplay.value = this.release;
+      let releaseSlider = document.createElement('input');
+      releaseDiv.appendChild(releaseSlider);
+      releaseSlider.type = 'range';
+      releaseSlider.step = '0.001';
+      releaseSlider.max = '1.000';
+      releaseSlider.min = '0.000';
+      releaseSlider.value = this.release;
+      let releaseModulatorLabel = document.createElement('p');
+      releaseDiv.appendChild(releaseModulatorLabel);
+      releaseModulatorLabel.innerHTML = 'modulation';
+      let releaseModulatorInput = document.createElement('h1');
+      releaseDiv.appendChild(releaseModulatorInput);
+      releaseModulatorInput.innerHTML = '◦';
+      releaseModulatorInput.id = 'release modulator input - ' + this.name + this.id;
+
+      div.setAttribute("style", "width: " + this.horizontalWidth + "px; height: " + this.horizontalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + ";");
+      nameAndOutputDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 5px; margin-top: 0; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadow + ", -2px -2px 1px " + this.topFontShadow + ";");
+      inputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 40px; margin-top: 1px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 50px; margin-top: -15px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 40px; margin-top: 1px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadow + ", -2px -2px 1px " + this.signalFontShadow + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 50px; margin-top: -15px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      thresholdDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      thresholdLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      thresholdDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.thresholdDisplaySize + "; box-shadow: -1px -1px 1px " + this.thresholdDisplayBoxShadowColor + ", -2px -2px 1px " + this.thresholdDisplayBoxShadowColor + ", -3px -3px 1px " + this.thresholdDisplayBoxShadowColor + ", -4px -4px 1px " + this.thresholdDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      thresholdSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      switch(this.skinName) {
+        case('Dynamic Compressor: January A'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryA';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryA';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryA';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryA';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryA';
+          break;
+        case('Dynamic Compressor: January B'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryB';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryB';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryB';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryB';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryB';
+          break;
+        case('Dynamic Compressor: January C'):
+          thresholdSlider.className = 'dynamicCompressorSliderJanuaryC';
+          kneeSlider.className = 'dynamicCompressorSliderJanuaryC';
+          ratioSlider.className = 'dynamicCompressorSliderJanuaryC';
+          attackSlider.className = 'dynamicCompressorSliderJanuaryC';
+          releaseSlider.className = 'dynamicCompressorSliderJanuaryC';
+          break;
+        case('Dynamic Compressor: February A'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryA';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryA';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryA';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryA';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryA';
+          break;
+        case('Dynamic Compressor: February B'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryB';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryB';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryB';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryB';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryB';
+          break;
+        case('Dynamic Compressor: February C'):
+          thresholdSlider.className = 'dynamicCompressorSliderFebruaryC';
+          kneeSlider.className = 'dynamicCompressorSliderFebruaryC';
+          ratioSlider.className = 'dynamicCompressorSliderFebruaryC';
+          attackSlider.className = 'dynamicCompressorSliderFebruaryC';
+          releaseSlider.className = 'dynamicCompressorSliderFebruaryC';
+          break;
+        case('Dynamic Compressor: March A'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchA';
+          kneeSlider.className = 'dynamicCompressorSliderMarchA';
+          ratioSlider.className = 'dynamicCompressorSliderMarchA';
+          attackSlider.className = 'dynamicCompressorSliderMarchA';
+          releaseSlider.className = 'dynamicCompressorSliderMarchA';
+          break;
+        case('Dynamic Compressor: March B'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchB';
+          kneeSlider.className = 'dynamicCompressorSliderMarchB';
+          ratioSlider.className = 'dynamicCompressorSliderMarchB';
+          attackSlider.className = 'dynamicCompressorSliderMarchB';
+          releaseSlider.className = 'dynamicCompressorSliderMarchB';
+          break;
+        case('Dynamic Compressor: March C'):
+          thresholdSlider.className = 'dynamicCompressorSliderMarchC';
+          kneeSlider.className = 'dynamicCompressorSliderMarchC';
+          ratioSlider.className = 'dynamicCompressorSliderMarchC';
+          attackSlider.className = 'dynamicCompressorSliderMarchC';
+          releaseSlider.className = 'dynamicCompressorSliderMarchC';
+          break;
+        case('Dynamic Compressor: April A'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilA';
+          kneeSlider.className = 'dynamicCompressorSliderAprilA';
+          ratioSlider.className = 'dynamicCompressorSliderAprilA';
+          attackSlider.className = 'dynamicCompressorSliderAprilA';
+          releaseSlider.className = 'dynamicCompressorSliderAprilA';
+          break;
+        case('Dynamic Compressor: April B'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilB';
+          kneeSlider.className = 'dynamicCompressorSliderAprilB';
+          ratioSlider.className = 'dynamicCompressorSliderAprilB';
+          attackSlider.className = 'dynamicCompressorSliderAprilB';
+          releaseSlider.className = 'dynamicCompressorSliderAprilB';
+          break;
+        case('Dynamic Compressor: April C'):
+          thresholdSlider.className = 'dynamicCompressorSliderAprilC';
+          kneeSlider.className = 'dynamicCompressorSliderAprilC';
+          ratioSlider.className = 'dynamicCompressorSliderAprilC';
+          attackSlider.className = 'dynamicCompressorSliderAprilC';
+          releaseSlider.className = 'dynamicCompressorSliderAprilC';
+          break;
+        default:
+          console.log('unsupported dynamic compressor skin');
+      }
+      thresholdModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      thresholdModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      kneeDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      kneeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      kneeDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      kneeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      kneeModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      kneeModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      ratioDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      ratioLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      ratioDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      ratioSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      ratioModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      ratioModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      attackDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      attackLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      attackDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      attackSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      attackModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      attackModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      releaseDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      releaseLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      releaseDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      releaseSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      releaseModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      releaseModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+
+      this.manageThrehold(thresholdDisplay, thresholdSlider);
+
+      this.manageKnee(kneeDisplay, kneeSlider);
+
+      this.manageRatio(ratioDisplay, ratioSlider);
+
+      this.manageAttack(attackDisplay, attackSlider);
+
+      this.manageRelease(releaseDisplay, releaseSlider);
+
+      thresholdModulatorInput.addEventListener('click', () => {
+        alert(thresholdModulatorInput.id);
+      });
+
+      kneeModulatorInput.addEventListener('click', () => {
+        alert(kneeModulatorInput.id);
+      });
+
+      ratioModulatorInput.addEventListener('click', () => {
+        alert(ratioModulatorInput.id);
+      });
+
+      attackModulatorInput.addEventListener('click', () => {
+        alert(attackModulatorInput.id);
+      });
+
+      releaseModulatorInput.addEventListener('click', () => {
+        alert(releaseModulatorInput.id);
+      });
+
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
+
+      inputPort.addEventListener('click', () => {
+        alert(inputPort.id);
+      });
 
       return(div);
     }
