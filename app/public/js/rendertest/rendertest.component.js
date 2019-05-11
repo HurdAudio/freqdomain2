@@ -194,6 +194,17 @@
                   renderTestingSpace.appendChild(masterDiv);
                 }
               }
+              if (renderSizeSelector.value === 'rackVertical') {
+                verticalRackPositionX -= 162;
+                if (verticalRackPositionX > 324) {
+                  masterDiv = dynamicCompressor.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                } else {
+                  verticalRackPositionX += 162;
+                }
+              }
             }
           });
         });

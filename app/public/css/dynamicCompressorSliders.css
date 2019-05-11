@@ -24,6 +24,32 @@
   box-shadow: 1px -1px 1px #8c92ac, 2px -2px 1px #8c92ac, 3px -3px 1px #8c92ac, 4px -4px 1px #8c92ac;
 }
 
+.dynamicCompressorVerticalSliderJanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #FFf000, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: linear-gradient(45deg, #fff000, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #8c92ac, -2px -2px 1px #8c92ac, -3px -3px 1px #8c92ac, -4px -4px 1px #8c92ac;
+}
+
+.dynamicCompressorVerticalSliderJanuaryA::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FFf000, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: linear-gradient(45deg, #fff000, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #8c92ac, -2px -2px 1px #8c92ac, -3px -3px 1px #8c92ac, -4px -4px 1px #8c92ac;
+}
+
 .dynamicCompressorSliderJanuaryB::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -48,6 +74,32 @@
   background: linear-gradient(45deg, #fff000, #C0C0C0);
   cursor: pointer;
   box-shadow: 1px -1px 1px #191900, 2px -2px 1px #191900, 3px -3px 1px #191900, 4px -4px 1px #191900;
+}
+
+.dynamicCompressorVerticalSliderJanuaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #FFf000, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: linear-gradient(45deg, #fff000, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #191900, -2px -2px 1px #191900, -3px -3px 1px #191900, -4px -4px 1px #191900;
+}
+
+.dynamicCompressorVerticalSliderJanuaryB::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FFf000, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: linear-gradient(45deg, #fff000, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #191900, -2px -2px 1px #191900, -3px -3px 1px #191900, -4px -4px 1px #191900;
 }
 
 .dynamicCompressorSliderJanuaryC::-webkit-slider-thumb {
@@ -76,6 +128,32 @@
   box-shadow: 1px -1px 1px #8B0000, 2px -2px 1px #8B0000, 3px -3px 1px #8B0000, 4px -4px 1px #8B0000;
 }
 
+.dynamicCompressorVerticalSliderJanuaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #FF4500, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #FF4500, #C0C0C0);
+    background: -o-linear-gradient(45deg, #FF4500, #C0C0C0);
+    background: linear-gradient(45deg, #FF4500, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #8B0000, -2px -2px 1px #8B0000, -3px -3px 1px #8B0000, -4px -4px 1px #8B0000;
+}
+
+.dynamicCompressorVerticalSliderJanuaryC::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #FF4500, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #FF4500, #C0C0C0);
+  background: -o-linear-gradient(45deg, #FF4500, #C0C0C0);
+  background: linear-gradient(45deg, #FF4500, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #8B0000, -2px -2px 1px #8B0000, -3px -3px 1px #8B0000, -4px -4px 1px #8B0000;
+}
+
 .dynamicCompressorSliderFebruaryA::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -100,6 +178,32 @@
   background: linear-gradient(45deg, #666600, #C0C0C0);
   cursor: pointer;
   box-shadow: 1px -1px 1px #ffff32, 2px -2px 1px #ffff32, 3px -3px 1px #ffff32, 4px -4px 1px #ffff32;
+}
+
+.dynamicCompressorVerticalSliderFebruaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #666600, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #666600, #C0C0C0);
+    background: -o-linear-gradient(45deg, #666600, #C0C0C0);
+    background: linear-gradient(45deg, #666600, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
+}
+
+.dynamicCompressorVerticalSliderFebruaryA::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #666600, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #666600, #C0C0C0);
+  background: -o-linear-gradient(45deg, #666600, #C0C0C0);
+  background: linear-gradient(45deg, #666600, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff32, -2px -2px 1px #ffff32, -3px -3px 1px #ffff32, -4px -4px 1px #ffff32;
 }
 
 .dynamicCompressorSliderFebruaryB::-webkit-slider-thumb {
@@ -128,6 +232,32 @@
   box-shadow: 1px -1px 1px #0000b2, 2px -2px 1px #0000b2, 3px -3px 1px #0000b2, 4px -4px 1px #0000b2;
 }
 
+.dynamicCompressorVerticalSliderFebruaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #3232ff, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #3232ff, #C0C0C0);
+    background: -o-linear-gradient(45deg, #3232ff, #C0C0C0);
+    background: linear-gradient(45deg, #3232ff, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #0000b2, -2px -2px 1px #0000b2, -3px -3px 1px #0000b2, -4px -4px 1px #0000b2;
+}
+
+.dynamicCompressorVerticalSliderFebruaryB::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #3232ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #3232ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #3232ff, #C0C0C0);
+  background: linear-gradient(45deg, #3232ff, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #0000b2, -2px -2px 1px #0000b2, -3px -3px 1px #0000b2, -4px -4px 1px #0000b2;
+}
+
 .dynamicCompressorSliderFebruaryC::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -152,6 +282,32 @@
   background: linear-gradient(45deg, #190000, #C0C0C0);
   cursor: pointer;
   box-shadow: 1px -1px 1px #e50000, 2px -2px 1px #e50000, 3px -3px 1px #e50000, 4px -4px 1px #e50000;
+}
+
+.dynamicCompressorVerticalSliderFebruaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #190000, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #190000, #C0C0C0);
+    background: -o-linear-gradient(45deg, #190000, #C0C0C0);
+    background: linear-gradient(45deg, #190000, #C0C0C0);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #e50000, -2px -2px 1px #e50000, -3px -3px 1px #e50000, -4px -4px 1px #e50000;
+}
+
+.dynamicCompressorVerticalSliderFebruaryC::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #190000, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #190000, #C0C0C0);
+  background: -o-linear-gradient(45deg, #190000, #C0C0C0);
+  background: linear-gradient(45deg, #190000, #C0C0C0);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #e50000, -2px -2px 1px #e50000, -3px -3px 1px #e50000, -4px -4px 1px #e50000;
 }
 
 .dynamicCompressorSliderMarchA::-webkit-slider-thumb {
@@ -180,6 +336,32 @@
   box-shadow: 1px -1px 1px #7fff7f, 2px -2px 1px #7fff7f, 3px -3px 1px #7fff7f, 4px -4px 1px #7fff7f;
 }
 
+.dynamicCompressorVerticalSliderMarchA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #004c00, #b2ffb2);
+    background: -webkit-linear-gradient(45deg, #004c00, #b2ffb2);
+    background: -o-linear-gradient(45deg, #004c00, #b2ffb2);
+    background: linear-gradient(45deg, #004c00, #b2ffb2);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+}
+
+.dynamicCompressorVerticalSliderMarchA::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #004c00, #b2ffb2);
+  background: -webkit-linear-gradient(45deg, #004c00, #b2ffb2);
+  background: -o-linear-gradient(45deg, #004c00, #b2ffb2);
+  background: linear-gradient(45deg, #004c00, #b2ffb2);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #7fff7f, -2px -2px 1px #7fff7f, -3px -3px 1px #7fff7f, -4px -4px 1px #7fff7f;
+}
+
 .dynamicCompressorSliderMarchB::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -204,6 +386,32 @@
   background: linear-gradient(45deg, #ad3232, #f4e5e5);
   cursor: pointer;
   box-shadow: 1px -1px 1px #a31919, 2px -2px 1px #a31919, 3px -3px 1px #a31919, 4px -4px 1px #a31919;
+}
+
+.dynamicCompressorVerticalSliderMarchB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #ad3232, #f4e5e5);
+    background: -webkit-linear-gradient(45deg, #ad3232, #f4e5e5);
+    background: -o-linear-gradient(45deg, #ad3232, #f4e5e5);
+    background: linear-gradient(45deg, #ad3232, #f4e5e5);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #a31919, -2px -2px 1px #a31919, -3px -3px 1px #a31919, -4px -4px 1px #a31919;
+}
+
+.dynamicCompressorVerticalSliderMarchB::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ad3232, #f4e5e5);
+  background: -webkit-linear-gradient(45deg, #ad3232, #f4e5e5);
+  background: -o-linear-gradient(45deg, #ad3232, #f4e5e5);
+  background: linear-gradient(45deg, #ad3232, #f4e5e5);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #a31919, -2px -2px 1px #a31919, -3px -3px 1px #a31919, -4px -4px 1px #a31919;
 }
 
 .dynamicCompressorSliderMarchC::-webkit-slider-thumb {
@@ -231,6 +439,31 @@
   cursor: pointer;box-shadow: 1px -1px 1px #a5a5ff, 2px -2px 1px #a5a5ff, 3px -3px 1px #a5a5ff, 4px -4px 1px #a5a5ff;
 }
 
+.dynamicCompressorVerticalSliderMarchC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #26267f, #ededff);
+    background: -webkit-linear-gradient(45deg, #26267f, #ededff);
+    background: -o-linear-gradient(45deg, #26267f, #ededff);
+    background: linear-gradient(45deg, #26267f, #ededff);
+    cursor: pointer;box-shadow: -1px -1px 1px #a5a5ff, -2px -2px 1px #a5a5ff, -3px -3px 1px #a5a5ff, -4px -4px 1px #a5a5ff;
+}
+
+.dynamicCompressorVerticalSliderMarchC::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #26267f, #ededff);
+  background: -webkit-linear-gradient(45deg, #26267f, #ededff);
+  background: -o-linear-gradient(45deg, #26267f, #ededff);
+  background: linear-gradient(45deg, #26267f, #ededff);
+  cursor: pointer;
+  cursor: pointer;box-shadow: -1px -1px 1px #a5a5ff, -2px -2px 1px #a5a5ff, -3px -3px 1px #a5a5ff, -4px -4px 1px #a5a5ff;
+}
+
 .dynamicCompressorSliderAprilA::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -253,7 +486,34 @@
   background: -webkit-linear-gradient(45deg, #4c4c00, #ffff99);
   background: -o-linear-gradient(45deg, #4c4c00, #ffff99);
   background: linear-gradient(45deg, #4c4c00, #ffff99);
-  cursor: pointer;box-shadow: 1px -1px 1px #ffff66, 2px -2px 1px #ffff66, 3px -3px 1px #ffff66, 4px -4px 1px #ffff66;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffff66, 2px -2px 1px #ffff66, 3px -3px 1px #ffff66, 4px -4px 1px #ffff66;
+}
+
+.dynamicCompressorVerticalSliderAprilA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #4c4c00, #ffff99);
+    background: -webkit-linear-gradient(45deg, #4c4c00, #ffff99);
+    background: -o-linear-gradient(45deg, #4c4c00, #ffff99);
+    background: linear-gradient(45deg, #4c4c00, #ffff99);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #ffff66, -2px -2px 1px #ffff66, -3px -3px 1px #ffff66, -4px -4px 1px #ffff66;
+}
+
+.dynamicCompressorVerticalSliderAprilA::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #4c4c00, #ffff99);
+  background: -webkit-linear-gradient(45deg, #4c4c00, #ffff99);
+  background: -o-linear-gradient(45deg, #4c4c00, #ffff99);
+  background: linear-gradient(45deg, #4c4c00, #ffff99);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffff66, -2px -2px 1px #ffff66, -3px -3px 1px #ffff66, -4px -4px 1px #ffff66;
 }
 
 .dynamicCompressorSliderAprilB::-webkit-slider-thumb {
@@ -282,6 +542,32 @@
   box-shadow: 1px -1px 1px #4cff4c, 2px -2px 1px #4cff4c, 3px -3px 1px #4cff4c, 4px -4px 1px #4cff4c;
 }
 
+.dynamicCompressorVerticalSliderAprilB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+    background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+    background: -o-linear-gradient(45deg, #006600, #ccffcc);
+    background: linear-gradient(45deg, #006600, #ccffcc);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c, -4px -4px 1px #4cff4c;
+}
+
+.dynamicCompressorVerticalSliderAprilB::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #4cff4c, -2px -2px 1px #4cff4c, -3px -3px 1px #4cff4c, -4px -4px 1px #4cff4c;
+}
+
 .dynamicCompressorSliderAprilC::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -306,4 +592,30 @@
   background: linear-gradient(45deg, #483511, #fcefd7);
   cursor: pointer;
   box-shadow: 1px -1px 1px #f3b84d, 2px -2px 1px #f3b84d, 3px -3px 1px #f3b84d, 4px -4px 1px #f3b84d;
+}
+
+.dynamicCompressorVerticalSliderAprilC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 36px;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #483511, #fcefd7);
+    background: -webkit-linear-gradient(45deg, #483511, #fcefd7);
+    background: -o-linear-gradient(45deg, #483511, #fcefd7);
+    background: linear-gradient(45deg, #483511, #fcefd7);
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #f3b84d, -2px -2px 1px #f3b84d, -3px -3px 1px #f3b84d, -4px -4px 1px #f3b84d;
+}
+
+.dynamicCompressorVerticalSliderAprilC::-moz-range-thumb {
+  width: 18px;
+  height: 36px;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #483511, #fcefd7);
+  background: -webkit-linear-gradient(45deg, #483511, #fcefd7);
+  background: -o-linear-gradient(45deg, #483511, #fcefd7);
+  background: linear-gradient(45deg, #483511, #fcefd7);
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #f3b84d, -2px -2px 1px #f3b84d, -3px -3px 1px #f3b84d, -4px -4px 1px #f3b84d;
 }
