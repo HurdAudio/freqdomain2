@@ -69,6 +69,10 @@
             moduleSelectPath = 'test_tones';
             skinSelectorPath = 'test_tone_skins';
             break;
+          case('DynamicCompressor'):
+            moduleSelectPath = 'dynamic_compressors';
+            skinSelectorPath = 'dynamic_compressor_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -174,6 +178,34 @@
                 }
               }
             }
+            if (moduleSelector.value === 'DynamicCompressor') {
+              let dynamicCompressor = new DynamicCompressor(settings, skin);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = dynamicCompressor.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 162) {
+                  rackPositionY -= 162;
+                  masterDiv =  dynamicCompressor.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
+              if (renderSizeSelector.value === 'rackVertical') {
+                verticalRackPositionX -= 162;
+                if (verticalRackPositionX > 324) {
+                  masterDiv = dynamicCompressor.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                } else {
+                  verticalRackPositionX += 162;
+                }
+              }
+            }
           });
         });
       }
@@ -199,6 +231,9 @@
             break;
           case('TestTone'):
             skinsTable = 'test_tone_skins';
+            break;
+          case('DynamicCompressor'):
+            skinsTable = 'dynamic_compressor_skins';
             break;
           default:
             console.log('unsupported module');

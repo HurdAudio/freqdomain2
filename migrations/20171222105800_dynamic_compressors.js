@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments().primary();
     table.integer('user_id').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
     table.string('name').notNullable().defaultTo('dynamic compressor');
+    table.integer('positionX').notNullable().defaultTo(400);
+    table.integer('positionY').notNullable().defaultTo(500);
     table.float('threshold').notNullable().defaultTo(-24.00);
     table.json('threshold_modulator').defaultTo(null);
     table.float('knee').notNullable().defaultTo(30.00);
