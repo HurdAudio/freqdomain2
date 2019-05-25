@@ -8,6 +8,24 @@
   overflow: scroll;
 }
 
+#renderSvg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 128;
+  pointer-events: none;
+}
+
+input {
+  z-index: 127;
+}
+
+/* #renderSvg path {
+  z-index: 100;
+} */
+
 #renderTestingSpace h1 {
   font-family: 'Righteous', cursive;
   font-size: 48px;
@@ -24,6 +42,7 @@
   font-family: 'Righteous', cursive;
   font-size: 24px;
   color: #ED4E0E;
+  z-index: 120;
 }
 
 #renderButton {
@@ -41,6 +60,7 @@
   cursor: pointer;
   border: 5px solid #ED4E0E;
   background: #4372E1;
+  z-index: 7;
 }
 
 #renderButton p:active {
@@ -67,6 +87,7 @@
   cursor: pointer;
   border: 5px solid #ED4E0E;
   background: #4372E1;
+  z-index: 7;
 }
 
 #clearButton p:active {

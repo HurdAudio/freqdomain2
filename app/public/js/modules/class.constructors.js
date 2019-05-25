@@ -1,9 +1,113 @@
 'use strict';
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-var MasterVolume = (function(settings, skin) {
+var activePatching = false;
+var connect = { input: null, output: null };
+var lines = [];
+var cursorX = 0;
+var cursorY = 0;
+var activeLine = null;
+var connectorOffset = 10;
 
-  let master = function (settings, skin) {
+document.onmousemove = trackCursorLocation;
+
+function trackCursorLocation(event) {
+  let rect;
+
+  event = event || window.event;
+
+  cursorX = event.screenX;
+  cursorY = (event.screenY - 120);
+  console.log(cursorX);
+
+  if (activePatching) {
+    console.log(cursorX);
+    console.log(connect);
+    if (connect.input !== null) {
+      rect = connect.input.element.getBoundingClientRect();
+      activeLine.setAttribute("d", 'M ' + Math.floor(rect.left + (rect.width/2) - connectorOffset) + ' ' + Math.floor(rect.top + (rect.height/2) - connectorOffset) + ' L ' + cursorX +    ' ' + cursorY + ' A');
+      // activeLine.setAttribute("z-index", 120);
+      // activeLine.setAttribute("y2", cursorY);
+    } else {
+      rect = connect.output.element.getBoundingClientRect();
+      activeLine.setAttribute("d", 'M ' + cursorX + ' ' + cursorY + ' L ' + Math.floor(rect.left + (rect.width/2) - connectorOffset) + ' ' + Math.floor(rect.top + (rect.height/2) - connectorOffset) + ' A');
+      // activeLine.setAttribute("y1", cursorY);
+    }
+  }
+}
+
+function monitorConnector() {
+  setTimeout(() => {
+    if (activePatching) {
+      if ((connect.input === null) || (connect.output === null)) {
+        activeLine.parentNode.removeChild(activeLine);
+        activePatching = false;
+        document.onclick = null;
+      }
+    } else {
+
+    }
+  }, 100);
+}
+
+function initializeVisualConnector(throughput, element, device) {
+  let renderTestingSpace = document.getElementById('renderTestingSpace');
+  let svg = document.getElementById('renderSvg');
+  let line = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  let d_string = '';
+  let rect = element.getBoundingClientRect();
+  renderTestingSpace.appendChild(svg);
+  svg.appendChild(line);
+  activeLine = line;
+
+  if (connect.input !== null) {
+    d_string = 'M ' + Math.floor(rect.left + (rect.width/2)) + ' ' + Math.floor(rect.top + (rect.height/2)) + ' L ' + cursorX + ' ' + cursorY;
+  } else {
+    d_string = 'M ' + cursorX + ' ' + cursorY + ' L ' + Math.floor(rect.left + (rect.width/2)) + ' ' + Math.floor(rect.top + (rect.height/2));
+  }
+  line.setAttribute("stroke", device.faceBoxShadowColor);
+  line.setAttribute("stroke-width", "10");
+  line.setAttribute("stroke-linecap", "round");
+  line.setAttribute("opacity", "0.9");
+  line.setAttribute("width", "100%");
+  line.setAttribute("height", "100%");
+  line.setAttribute("z-index", "128");
+  line.setAttribute("d", d_string);
+  setTimeout(() => {
+    document.onclick = monitorConnector;
+  }, 100);
+
+}
+
+function clickThroughput(throughput, element, device) {
+
+  if (activePatching) {
+    // TODO patch connectors
+  } else {
+    activePatching = true;
+    if (throughput.through === 'input') {
+      connect.input = {
+        throughput: throughput,
+        element: element,
+        device: device
+      };
+      connect.output = null;
+    } else {
+      connect.output = {
+        throughput: throughput,
+        element: element,
+        device: device
+      };
+      connect.input = null;
+    }
+    initializeVisualConnector(throughput, element, device);
+
+  }
+
+}
+
+var MasterVolume = (function(settings, skin, audioContext) {
+
+  let master = function (settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -302,7 +406,7 @@ var MasterVolume = (function(settings, skin) {
       muteNote.innerHTML = 'mute';
 
 
-      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); z-index: -1;");
       masterGainTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 50px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
       nameTag.innerHTML = this.name;
       nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; margin-left: 1em; margin-top: 1em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
@@ -350,11 +454,12 @@ var MasterVolume = (function(settings, skin) {
           element.style.left = (element.offsetLeft - pos1) + "px";
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
+          trackCursorLocation();
         }
 
         function closeDragElement() {
           document.onmouseup = null;
-          document.onmousemove = null;
+          document.onmousemove = trackCursorLocation;
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
         }
@@ -363,7 +468,7 @@ var MasterVolume = (function(settings, skin) {
       dragElement(div, this);
 
       div.addEventListener('mouseover', () => {
-        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
       });
 
       div.addEventListener('mouseout', () => {
@@ -371,7 +476,8 @@ var MasterVolume = (function(settings, skin) {
       });
 
       inputPort.addEventListener('click', () => {
-        alert('Master Volume Input Port -- id: ' + this.id);
+        inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; z-index: -3;");
+        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
       });
 
       return(div);
@@ -551,9 +657,9 @@ var MasterVolume = (function(settings, skin) {
 
 })();
 
-var GainModule = (function(settings, skin) {
+var GainModule = (function(settings, skin, audioContext) {
 
-  let gainNode = function(settings, skin) {
+  let gainNode = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -953,9 +1059,9 @@ var GainModule = (function(settings, skin) {
   return(gainNode);
 })();
 
-var OscillatorModule = (function(settings, skin) {
+var OscillatorModule = (function(settings, skin, audioContext) {
 
-  let oscillatorNode = function(settings, skin) {
+  let oscillatorNode = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.waveform = settings.waveform;
@@ -1943,9 +2049,9 @@ var OscillatorModule = (function(settings, skin) {
   return(oscillatorNode);
 })();
 
-var TestToneModule = (function(settings, skin) {
+var TestToneModule = (function(settings, skin, audioContext) {
 
-  let testToneNode = function(settings, skin) {
+  let testToneNode = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -3095,9 +3201,9 @@ var TestToneModule = (function(settings, skin) {
   return(testToneNode);
 })();
 
-var DynamicCompressor = (function(settings, skin) {
+var DynamicCompressor = (function(settings, skin, audioContext) {
 
-  let dynamicCompressorNode = function(settings, skin) {
+  let dynamicCompressorNode = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -4316,9 +4422,9 @@ var DynamicCompressor = (function(settings, skin) {
   return(dynamicCompressorNode);
 })();
 
-var RandomNumberGenerator = (function(settings, skin) {
+var RandomNumberGenerator = (function(settings, skin, audioContext) {
 
-  let randomNumberGenerator = function(settings, skin) {
+  let randomNumberGenerator = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.interval = settings.interval;
@@ -4337,9 +4443,9 @@ var RandomNumberGenerator = (function(settings, skin) {
   return(randomNumberGenerator);
 })();
 
-var LowpassFilter = (function(settings, skin) {
+var LowpassFilter = (function(settings, skin, audioContext) {
 
-  let lowpassFilter = function(settings, skin) {
+  let lowpassFilter = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.frequency = settings.frequency;
@@ -4361,9 +4467,9 @@ var LowpassFilter = (function(settings, skin) {
 
 })();
 
-var HighpassFilter = (function(settings, skin) {
+var HighpassFilter = (function(settings, skin, audioContext) {
 
-  let highpassFilter = function(settings, skin) {
+  let highpassFilter = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.frequency = settings.frequency;
@@ -4384,9 +4490,9 @@ var HighpassFilter = (function(settings, skin) {
   return(highpassFilter);
 })();
 
-var EnvelopeGenerator = (function(settings, skin) {
+var EnvelopeGenerator = (function(settings, skin, audioContext) {
 
-  let envelopeGenerator = function(settings, skin) {
+  let envelopeGenerator = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
     this.attack_start = settings.attack_start;
