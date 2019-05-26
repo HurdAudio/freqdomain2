@@ -36,6 +36,8 @@
       vm.navMixer = navMixer;
       vm.navPatchEditor = navPatchEditor;
 
+      var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
       function navPatchEditor() {
         $state.go('patcheditor', {id: currentUserId});
       }
