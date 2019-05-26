@@ -22,10 +22,10 @@
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-      // function signalTestAdvanceToNext() {
-      //   let newId = parseInt($stateParams.id) + 1;
-      //   $state.go('signaltestsuite', {id: newId});
-      // }
+      function signalTestAdvanceToNext() {
+        let newId = parseInt($stateParams.id) + 1;
+        $state.go('signaltestsuite', {id: newId});
+      }
 
       function masterVolumeTest1() {
         let signalTestingSuite = document.getElementById('signalTestingSuite');

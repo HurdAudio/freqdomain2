@@ -565,7 +565,7 @@ exports.seed = function(knex, Promise) {
           face_font_color: '#000000',
           face_font_shadow: '#66d4ff',
           top_path: '../img/may/david-tonelson-54599-unsplash.jpg',
-          top_size: '80%',
+          top_size: '100%',
           top_repeat: 'no-repeat',
           top_font_color: '#000000',
           top_font_shadow: '#66d4ff',
