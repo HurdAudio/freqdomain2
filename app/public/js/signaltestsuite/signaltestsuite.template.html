@@ -1,0 +1,21 @@
+<div id="signalTestingSuite">
+  <svg id="renderSvg"></svg>
+  <h1 id="signalTestingTitle">Signal Testing</h1>
+  <p id="signalTestLabel"></p>
+  <p id="signalTestSublabel">$ctrl.testStarted</p>
+  <p id="signalTestingInstructions"></p>
+
+
+  <a class="button" id="startSignalTest" ng-click="$ctrl.startSignalTest()" ng-if="!$ctrl.testStarted"><p>start</p></a>
+
+  <div id="passFailDiv" ng-if="$ctrl.testStarted">
+
+    <a class="button" id="signalTestPass"><p>pass</p></a>
+    <a class="button" id="signalTestFail"><p>fail</p></a>
+
+    <h1 id="successFail"></h1>
+
+  </div>
+  <br><br><br>
+  <a class="button" id="signalTestNext" ng-click="$ctrl.signalTestAdvanceToNext()"><p>next</p></a>
+</div>

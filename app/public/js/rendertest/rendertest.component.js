@@ -12,9 +12,9 @@
   var defaultRackPositionY = 0;
   var dafaultVerticalRackPositionX = 0;
   var defaultVerticalRackPositionY = 0;
-  var audioContext;
+  // var audioContext;
   var contextEnabled = false;
-  var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
 
   angular.module('app')
     .component('rendertest', {
@@ -30,6 +30,8 @@
       vm.$onInit = onInit;
       vm.renderNow = renderNow;
       vm.clearNow = clearNow;
+
+      var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
       function clearNow() {
         let divHandle;

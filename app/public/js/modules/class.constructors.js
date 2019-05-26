@@ -17,7 +17,7 @@ function trackCursorLocation(event) {
 
   cursorX = event.screenX;
   cursorY = (event.screenY - 120);
-  console.log(cursorX);
+  // console.log(cursorX);
 
   if (activePatching) {
     console.log(cursorX);
@@ -55,7 +55,7 @@ function initializeVisualConnector(throughput, element, device) {
   let line = document.createElementNS("http://www.w3.org/2000/svg", "path");
   let d_string = '';
   let rect = element.getBoundingClientRect();
-  renderTestingSpace.appendChild(svg);
+  // renderTestingSpace.appendChild(svg);
   svg.appendChild(line);
   activeLine = line;
 
@@ -406,7 +406,7 @@ var MasterVolume = (function(settings, skin, audioContext) {
       muteNote.innerHTML = 'mute';
 
 
-      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); z-index: -1;");
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5); z-index: 6;");
       masterGainTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 50px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
       nameTag.innerHTML = this.name;
       nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; margin-left: 1em; margin-top: 1em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
@@ -476,7 +476,6 @@ var MasterVolume = (function(settings, skin, audioContext) {
       });
 
       inputPort.addEventListener('click', () => {
-        inputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.inputSize + "; text-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.inputBoxShadowColor + ", -2px -2px 1px " + this.inputBoxShadowColor + "; cursor: pointer; z-index: -3;");
         clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
       });
 
@@ -562,7 +561,7 @@ var MasterVolume = (function(settings, skin, audioContext) {
       this.userMuteRack(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
 
       inputPort.addEventListener('click', () => {
-        alert('Master Volume Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
       });
 
       return(div);
@@ -643,7 +642,7 @@ var MasterVolume = (function(settings, skin, audioContext) {
       this.userMuteRackVertical(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
 
       inputPort.addEventListener('click', () => {
-        alert('Master Volume Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
       });
 
       return(div);

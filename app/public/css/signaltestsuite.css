@@ -1,0 +1,143 @@
+#signalTestingSuite {
+  height: 1000px;
+  width: 100%;
+  background: #000000;
+  z-index: 5;
+  opacity: 1;
+  padding: 6vmin;
+  overflow: scroll;
+}
+
+
+}
+
+#renderSvg {
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 128;
+pointer-events: none;
+}
+
+#signalTestingSuite h1 {
+font-family: 'Righteous', cursive;
+font-size: 48px;
+color: #ED4E0E;
+}
+
+#signalTestingSuite p {
+font-family: 'Righteous', cursive;
+font-size: 24px;
+color: #ED4E0E;
+}
+
+#startSignalTest {
+float: left;
+margin-left: 3vmin;
+margin-top: 4vmin;
+margin-right: 3vmin;
+margin-bottom: 4vmin;
+padding-bottom: 4vmin;
+padding-left: 4vmin;
+padding-right: 4vmin;
+height: 5vmin;
+filter: hue-rotate(0deg);
+transition: filter 1000ms linear;
+cursor: pointer;
+border: 5px solid #ED4E0E;
+background: #4372E1;
+z-index: 7;
+}
+
+#startSignalTest p:active {
+text-shadow: -1px -1px 1px #201702;
+}
+
+#startSignalTest p:hover {
+filter: hue-rotate(180deg);
+transition: filter 1000ms linear;
+}
+
+#signalTestPass {
+float: left;
+margin-left: 3vmin;
+margin-top: 4vmin;
+margin-right: 3vmin;
+margin-bottom: 4vmin;
+padding-bottom: 4vmin;
+padding-left: 4vmin;
+padding-right: 4vmin;
+height: 5vmin;
+filter: hue-rotate(0deg);
+transition: filter 1000ms linear;
+cursor: pointer;
+border: 5px solid #ED4E0E;
+background: #4372E1;
+z-index: 7;
+}
+
+#signalTestPass p:active {
+text-shadow: -1px -1px 1px #201702;
+}
+
+#signalTestPass p:hover {
+filter: hue-rotate(180deg);
+transition: filter 1000ms linear;
+}
+
+#signalTestFail {
+float: left;
+margin-left: 3vmin;
+margin-top: 4vmin;
+margin-right: 3vmin;
+margin-bottom: 4vmin;
+padding-bottom: 4vmin;
+padding-left: 4vmin;
+padding-right: 4vmin;
+height: 5vmin;
+filter: hue-rotate(0deg);
+transition: filter 1000ms linear;
+cursor: pointer;
+border: 5px solid #ED4E0E;
+background: #4372E1;
+z-index: 7;
+}
+
+#signalTestFail p:active {
+text-shadow: -1px -1px 1px #201702;
+}
+
+#signalTestFail p:hover {
+filter: hue-rotate(180deg);
+transition: filter 1000ms linear;
+}
+
+#signalTestNext {
+display: none;
+float: left;
+margin-left: 3vmin;
+margin-top: 4vmin;
+margin-right: 3vmin;
+margin-bottom: 4vmin;
+padding-bottom: 4vmin;
+padding-left: 4vmin;
+padding-right: 4vmin;
+height: 5vmin;
+filter: hue-rotate(0deg);
+transition: filter 1000ms linear;
+cursor: pointer;
+border: 5px solid #ED4E0E;
+background: #4372E1;
+z-index: 7;
+}
+
+#signalTestNext p:active {
+text-shadow: -1px -1px 1px #201702;
+}
+
+#signalTestNext p:hover {
+filter: hue-rotate(180deg);
+transition: filter 1000ms linear;
+}
