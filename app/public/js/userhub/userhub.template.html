@@ -1,18 +1,76 @@
 <div id="hubDiv">
   <div id="hubNavbar" class="pure-g">
     <div class="pure-u-1-4">
-      <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
       <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
     </div>
-    <h1 class="pure-u-1-3">FreqDomain2</h1>
+    <!-- <h1 class="pure-u-1-3">FreqDomain2</h1> -->
     <div id="navBarButtons" class="pure-u-1-3">
-      <a class="button"><p>Compose</p></a>
+      <!-- <a class="button"><p>Compose</p></a>
       <a class="button" ng-click="$ctrl.navMixer()"><p>Mixer</p></a>
       <a class="button" ng-click="$ctrl.navPatchEditor()"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
       <a class="button" ng-click="$ctrl.loadInfo()"><p>Info</p></a>
-      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a> -->
+      <div id="mixerSetting">
 
+        <a href="" ng-click="$ctrl.editMixer()" class="button" id="mixerLabelButton"><p>Mix:</p></a><br>
+        <select id="mixerSelection">
+
+          <option ng-repeat="mix in $ctrl.mixerPatches" value="{{mix.value}}"><p>{{mix.text}}</p></option>
+
+
+        </select>
+      </div>
+      <div id="patchSetting">
+
+        <a href="" ng-click="$ctrl.editPatch()" class="button" id="patchLabelButton"><p>Patch:</p></a><br>
+
+        <select id="patchSelection" ng-if="$ctrl.mixerSelected">
+
+          <option ng-repeat="patch in $ctrl.patchBank" value="{{patch.value}}"><p>{{patch.text}}</p></option>
+        </select>
+        <p class="noActiveMixerMessage" ng-if="!$ctrl.mixerSelected">no mixer loaded</p>
+
+      </div>
+
+    </div>
+    <div id="composeSetting">
+
+      <a href="" ng-click="$ctrl.editCompose()" class="button" id="composeLabelButton"><p>Compose:</p></a><br>
+
+      <select id="composeSelection" ng-if="$ctrl.mixerSelected">
+
+        <option ng-repeat="composition in $ctrl.compositions" value="{{composition.value}}"><p>{{composition.text}}</p></option>
+      </select>
+      <p class="noActiveMixerMessage" ng-if="!$ctrl.mixerSelected">no mixer loaded</p>
+
+    </div>
+
+    <div id="socialSetting">
+
+      <a href="" ng-click="$ctrl.editSocial()" class="button" id="socialLabelButton"><p>Social:</p></a><br>
+
+      <select id="socialSelection">
+
+        <option value="none" select><p></p></option>
+        <option value="messages"><p>messages</p></option>
+        <option value="share"><p>share centre</p></option>
+        <option value="public"><p>public square</p></option>
+        <option value="admins"><p>contact admins</p></option>
+      </select>
+    </div>
+
+    <div id="accountSetting">
+
+      <a href="" ng-click="$ctrl.editAccount()" class="button" id="accountLabelButton"><p>Account:</p></a><br>
+
+      <select id="accountSelection">
+
+        <option value="none"><p></p></option>
+        <option value="logout"><p>log out</p></option>
+        <option value="profile"><p>your profile</p></option>
+        <option value="about"><p>info</p></option>
+      </select>
     </div>
   </div>
 

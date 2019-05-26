@@ -35,6 +35,89 @@
       vm.collapseReadMessageAction = collapseReadMessageAction;
       vm.navMixer = navMixer;
       vm.navPatchEditor = navPatchEditor;
+      vm.mixerPatches = [
+        {
+          value: 'none',
+          text: 'please select a mixer'
+        },
+        {
+          value: 1,
+          text: 'simple mixer'
+        },
+        {
+          value: 2,
+          text: 'vocal mixer'
+        },
+        {
+          value: 3,
+          text: 'commercial compression'
+        },
+        {
+          value: 4,
+          text: 'sfx'
+        },
+        {
+          value: 'createNew',
+          text: 'add new mixer'
+        }
+      ];
+      vm.patchBank = [
+        {
+          value: 'none',
+          text: 'no patch selected'
+        },
+        {
+          value: 1,
+          text: 'e. piano'
+        },
+        {
+          value: 2,
+          text: 'string pad'
+        },
+        {
+          value: 3,
+          text: 'percussive log'
+        },
+        {
+          value: 4,
+          text: 'snap bass'
+        },
+        {
+          value: 5,
+          text: 'gamelan'
+        },
+        {
+          value: 'new',
+          text: 'new patch'
+        }
+      ];
+      vm.compositions = [
+        {
+          value: 'none',
+          text: 'none selected'
+        },
+        {
+          value: 1,
+          text: 'Radon Theme'
+        },
+        {
+          value: 2,
+          text: 'Drone IX'
+        },
+        {
+          value: 3,
+          text: 'Salt Tea'
+        },
+        {
+          value: 4,
+          text: 'Experimental'
+        },
+        {
+          value: 'new',
+          text: 'new composition'
+        }
+      ];
+      vm.mixerSelected = false;
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -45,6 +128,14 @@
       function navMixer() {
         $state.go('mixer', {id: currentUserId});
       }
+
+      // function mixerSelected() {
+      //   if (document.getElementById('mixerSelection').value === 'none') {
+      //     return(false);
+      //   } else {
+      //     return(true);
+      //   }
+      // }
 
       function collapseReadMessageAction(msgId) {
         let collapsedReadMessage = document.getElementById('collapsedReadMessage' + msgId);
@@ -116,11 +207,7 @@
       }
 
       function initializeSpace(user) {
-        let hubUserImg = document.getElementById('hubUserImg');
-        let hubUserName = document.getElementById('hubUserName');
-
-        hubUserImg.src = user.user_avatar_url;
-        hubUserName.innerHTML = user.name;
+        // TODO stuff
       }
 
       function checkValidUser(userId) {
@@ -174,6 +261,7 @@
           }
           console.log('user is legit');
           initializeSpace(user);
+          document.getElementById('mixerSelection').value = 'none';
         });
 
       }
@@ -484,6 +572,18 @@
             hubUpdatesSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
           }, 2000);
         }, 3000);
+
+        document.getElementById('mixerSelection').addEventListener('change', () => {
+          if (document.getElementById('mixerSelection').value === 'none') {
+            vm.mixerSelected = false;
+            document.getElementById('patchSetting').setAttribute("style", "opacity: 0.2;");
+            document.getElementById('composeSetting').setAttribute("style", "opacity: 0.2;");
+          } else {
+            vm.mixerSelected = true;
+            document.getElementById('patchSetting').setAttribute("style", "opacity: 1;");
+            document.getElementById('composeSetting').setAttribute("style", "opacity: 1;");
+          }
+        });
 
         // $http.get('/flights_from_tiles/3/3')
         // .then(data=>{
