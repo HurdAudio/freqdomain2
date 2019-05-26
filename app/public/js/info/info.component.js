@@ -21,6 +21,13 @@
       vm.returnToHub = returnToHub;
       vm.navMixer = navMixer;
       vm.navPatchEditor = navPatchEditor;
+      vm.renderModule = renderModule;
+
+      var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      var contextStarted = false;
+      var rendered = {
+        master_volume: false
+      };
 
       function navPatchEditor() {
         $state.go('patcheditor', {id: currentUserId});
@@ -41,6 +48,51 @@
 
       function returnToHub() {
         $state.go('userhub', {id: currentUserId});
+      }
+
+      function renderModule(moduleType, moduleDiv) {
+
+        if (!contextStarted) {
+          audioContext.resume().then(() => {
+            console.log('Playback resumed successfully');
+            contextStarted = true;
+          });
+        }
+        let now = new Date();
+        let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
+        let div = document.getElementById(moduleDiv);
+        let rect = div.getBoundingClientRect();
+        console.log(rect);
+        switch(moduleType) {
+          case('master_volume'):
+            if (!rendered.master_volume) {
+              rendered.master_volume = true;
+              $http.get('/master_volumes/1')
+              .then(settingsData => {
+                let settings = settingsData.data;
+                settings.positionX = (rect.left + ((rect.width/2) + 20));
+                settings.positionY = (rect.top - (13 * (rect.height/14)));
+                $http.get('/master_volume_skins')
+                .then(allMasterVolumeSkinsData => {
+                  let allMasterVolumeSkins = allMasterVolumeSkinsData.data;
+                  let skinArray = allMasterVolumeSkins.filter(entry => {
+                    return((entry.month === months[now.getMonth()]) && (entry.rule.dates.indexOf(now.getDate()) !== -1));
+                  });
+                  if (skinArray.length === 0) {
+                    skinArray.push(allMasterVolumeSkins[Math.floor(Math.random() * allMasterVolumeSkins.length)]);
+                  }
+
+                  let masterVolume = new MasterVolume(settings, skinArray[0], audioContext);
+                  let masterVolumeDiv = masterVolume.renderDraggable();
+                  div.appendChild(masterVolumeDiv);
+                  // masterVolumeDiv.setAttribute("style", "position: relative;");
+                });
+              });
+            }
+            break;
+          default:
+            alert('unsupported module');
+        }
       }
 
 

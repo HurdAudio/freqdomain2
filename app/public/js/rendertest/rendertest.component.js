@@ -12,6 +12,9 @@
   var defaultRackPositionY = 0;
   var dafaultVerticalRackPositionX = 0;
   var defaultVerticalRackPositionY = 0;
+  // var audioContext;
+  var contextEnabled = false;
+
 
   angular.module('app')
     .component('rendertest', {
@@ -28,8 +31,12 @@
       vm.renderNow = renderNow;
       vm.clearNow = clearNow;
 
+      var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
       function clearNow() {
         let divHandle;
+        let renderSvg = document.getElementById('renderSvg');
+        activePatching = false;
 
         if (modDiv.length > 0) {
           while (modDiv[0]) {
@@ -41,10 +48,25 @@
           rackPositionY = defaultRackPositionY;
           verticalRackPositionX = dafaultVerticalRackPositionX;
           verticalRackPositionY = defaultVerticalRackPositionY;
+          while(renderSvg.firstChild) {
+            renderSvg.removeChild(renderSvg.firstChild);
+          }
         }
       }
 
       function renderNow() {
+
+        if (!contextEnabled) {
+          audioContext.resume().then(() => {
+            console.log('Playback resumed successfully');
+            contextEnabled = true;
+            renderNow();
+          });
+          return;
+        } else {
+          console.log(audioContext);
+        }
+
         let renderTestingSpace = document.getElementById('renderTestingSpace');
         let moduleSelector = document.getElementById('moduleSelector');
         let moduleSelectPath = '';
@@ -83,7 +105,7 @@
           .then(skinData => {
             let skin = skinData.data;
             if (moduleSelector.value === 'MasterVolume') {
-              let masterVolume = new MasterVolume(settings, skin);
+              let masterVolume = new MasterVolume(settings, skin, audioContext);
               if (renderSizeSelector.value === 'draggable') {
                 masterDiv = masterVolume.renderDraggable();
                 modDiv.push(masterDiv);
@@ -107,7 +129,7 @@
               }
             }
             if (moduleSelector.value === 'GainModule') {
-              let gain = new GainModule(settings, skin);
+              let gain = new GainModule(settings, skin, audioContext);
               if (renderSizeSelector.value === 'draggable') {
                 masterDiv = gain.renderDraggable();
                 modDiv.push(masterDiv);
@@ -131,7 +153,7 @@
               }
             }
             if (moduleSelector.value === 'Oscillator') {
-              let oscillator = new OscillatorModule(settings, skin);
+              let oscillator = new OscillatorModule(settings, skin, audioContext);
               if (renderSizeSelector.value === 'draggable') {
                 masterDiv = oscillator.renderDraggable();
                 modDiv.push(masterDiv);
@@ -155,7 +177,7 @@
               }
             }
             if (moduleSelector.value === 'TestTone') {
-              let testTone = new TestToneModule(settings, skin);
+              let testTone = new TestToneModule(settings, skin, audioContext);
               if (renderSizeSelector.value === 'draggable') {
                 masterDiv = testTone.renderDraggable();
                 modDiv.push(masterDiv);
@@ -179,7 +201,7 @@
               }
             }
             if (moduleSelector.value === 'DynamicCompressor') {
-              let dynamicCompressor = new DynamicCompressor(settings, skin);
+              let dynamicCompressor = new DynamicCompressor(settings, skin, audioContext);
               if (renderSizeSelector.value === 'draggable') {
                 masterDiv = dynamicCompressor.renderDraggable();
                 modDiv.push(masterDiv);
@@ -255,8 +277,11 @@
 
       function onInit() {
         console.log("RenderTest is lit");
+
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
+        let renderTestingSpace = document.getElementById('renderTestingSpace');
+        renderTestingSpace.setAttribute("style", "position: absolute; top: 0; left: 0; width: " + window.screen.width + "px; height: " + window.screen.height + "px; overflow: hidden; display: block;");
         initializeDropdowns();
         totalWidth = screen.width;
         totalHeight = screen.height;

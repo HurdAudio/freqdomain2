@@ -81,6 +81,12 @@
         url: '/patcheditor/:id',
         parent: 'app',
         component: 'patcheditor'
+      })
+      .state({
+        name: 'signaltestsuite',
+        url: '/signaltestsuite/:id',
+        parend: 'app',
+        component: 'signaltestsuite'
       });
       // .state({
       //   name: 'weekview',
