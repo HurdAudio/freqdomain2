@@ -1,29 +1,123 @@
 <div id="hubDiv">
   <div id="hubNavbar" class="pure-g">
     <div class="pure-u-1-4">
-      <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
       <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
     </div>
-    <h1 class="pure-u-1-3">FreqDomain2</h1>
+    <!-- <h1 class="pure-u-1-3">FreqDomain2</h1> -->
     <div id="navBarButtons" class="pure-u-1-3">
-      <a class="button"><p>Compose</p></a>
+      <!-- <a class="button"><p>Compose</p></a>
       <a class="button" ng-click="$ctrl.navMixer()"><p>Mixer</p></a>
       <a class="button" ng-click="$ctrl.navPatchEditor()"><p>Patch Editor</p></a>
       <a class="button"><p>Social</p></a>
       <a class="button" ng-click="$ctrl.loadInfo()"><p>Info</p></a>
-      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
+      <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a> -->
+      <div id="mixerSetting">
 
+        <a href="" ng-click="$ctrl.editMixer()" class="button" id="mixerLabelButton"><p>Mix:</p></a><br>
+        <select id="mixerSelection">
+
+          <option ng-repeat="mix in $ctrl.mixerPatches" value="{{mix.value}}"><p>{{mix.text}}</p></option>
+
+
+        </select>
+      </div>
+      <div id="patchSetting">
+
+        <a href="" ng-click="$ctrl.editPatch()" class="button" id="patchLabelButton"><p>Patch:</p></a><br>
+
+        <select id="patchSelection" ng-if="$ctrl.mixerSelected">
+
+          <option ng-repeat="patch in $ctrl.patchBank" value="{{patch.value}}"><p>{{patch.text}}</p></option>
+        </select>
+        <p class="noActiveMixerMessage" ng-if="!$ctrl.mixerSelected">no mixer loaded</p>
+
+      </div>
+
+    </div>
+    <div id="composeSetting">
+
+      <a href="" ng-click="$ctrl.editCompose()" class="button" id="composeLabelButton"><p>Compose:</p></a><br>
+
+      <select id="composeSelection" ng-if="$ctrl.mixerSelected">
+
+        <option ng-repeat="composition in $ctrl.compositions" value="{{composition.value}}"><p>{{composition.text}}</p></option>
+      </select>
+      <p class="noActiveMixerMessage" ng-if="!$ctrl.mixerSelected">no mixer loaded</p>
+
+    </div>
+
+    <div id="socialSetting">
+
+      <a href="" ng-click="$ctrl.editSocial()" class="button" id="socialLabelButton"><p>Social:</p></a><br>
+
+      <select id="socialSelection">
+
+        <option value="none" select><p></p></option>
+        <option value="messages"><p>messages</p></option>
+        <option value="share"><p>share centre</p></option>
+        <option value="public"><p>public square</p></option>
+        <option value="admins"><p>contact admins</p></option>
+      </select>
+    </div>
+
+    <div id="accountSetting">
+
+      <a href="" ng-click="$ctrl.editAccount()" class="button" id="accountLabelButton"><p>Account:</p></a><br>
+
+      <select id="accountSelection">
+
+        <option value="none"><p></p></option>
+        <option value="logout"><p>log out</p></option>
+        <option value="profile"><p>your profile</p></option>
+        <option value="about"><p>info</p></option>
+      </select>
     </div>
   </div>
 
   <div id="freqDomain2Hubspot">
-    <div id="newsTicker">
+    <div id="headlines">
+
+      <p id="headlinesGoHere">Headlines Go Here</p>
+    </div>
+    <a id="viewHideProgressListButton" href="" class="button" ng-click="$ctrl.viewHideProgress()"><p id="viewHideProgressListLabel">view list</p></a>
+    <div id="progressList" ng-if="$ctrl.displayList">
+
+      <p>Development List:</p>
+      <br>
+
+      <ul>
+        <li><p>Module 21 - Convolution Module: Stage 1 - INITIALIZATION.</p></li>
+        <li><p>Module 20 - Allpass Filter: Stage 1 - Initial design in January A Skin. Next: Stage 2 - January B Skin.</p></li>
+        <li><p>Module 19 - Notch Filter: Stage 2 - January B Skin. Next: Stage 3 - January C Skin.</p></li>
+        <li><p>Module 18 - Financial Module: Stage 3 - January C Skin. Next: Stage 4 - January Consequence - Table creation with migration, seeds and routes.</p></li>
+        <li><p>Module 17 - Delay Module: Stage 4 - January Consequence - Table creation with migration, seeds and routes. Next: Stage 5 - February A Skin.</p></li>
+        <li><p>Module 16 - Peaking Filter: Stage 5 - February A Skin. Next: Stage 6 - February B Skin.</p></li>
+        <li><p>Module 15 - Highshelf Filter: Stage 6 - February B Skin. Next: Stage 7 - February C Skin.</p></li>
+        <li><p>Module 14 - Airlines Module: Stage 7 - February C Skin. Next: Stage 8 - February Consequency - Skins Table. Add January and February Skins.</p></li>
+        <li><p>Module 13 - Input Manager: Stage 8 - February Consequence - Skins Table. Add January and February Skins. Next: Stage 9 - March A Skin.</p></li>
+        <li><p>Module 12 - Low Shelf Filter: Stage 9 - March A Skin. Next: Stage 10 - March B Skin.</p></li>
+        <li><p>Module 11 - Band Pass Filter: Stage 10 - March B Skin. Next: Stage 11 - March C Skin.</p></li>
+        <li><p>Module 10 - Weather Module: Stage 11 - March C Skin. Next: Stage 12 - March Consequence - March Skins added to skins table. Class constructor.</p></li>
+        <li><p>Module 9 - Envelope Generator: Stage 12 - March Consequence - March Skins added to skins table. Class Constructor. Next: Stage 13 - April A Skin.</p></li>
+        <li><p>Module 8 - Highpass Filter: Stage 13 - April A Skin. Next: Stage 14 - April B Skin.</p></li>
+        <li><p>Module 7 - Lowpass Filter: Stage 14 - April B Skin. Stage 15 - April C Skin.</p></li>
+        <li><p>Module 6 - Random Number Generator: Stage 15 - April C Skin. Next: stage 16 - April Consequence - Apfil Skins added/Full Rendering Support.</p></li>
+        <li><p>Module 5 - Dynamic Compressor: Stage 16 - April Consequence - April Skins added/Full Rendering Support. Next: Stage 17 - May A Skin.</p></li>
+        <li><p>Module 4 - Test Tone: Stage 17 - May A Skin. Next: Stage 18 - May B Skin.</p></li>
+        <li><p>Module 3 - Oscillator: Stage 18 - May B Skin. Next: Stage 19 - May C Skin.</p></li>
+        <li><p>Module 2 - Gain: Stage 19 - May C Skin. Next: Stage 20 - May Consequence - May skins added. Signal testing.</p></li>
+        <li><p>Module 1 - Master Volume: Stage 20 - May Consequence - May skins added. Signal testing. Next: Stage 21 - June A Skin.</p></li>
+        <li><p>Module 0 - Front End: Stage 21 - Front end work. Next: Stage 22 - Front end work.</p></li>
+        <li><p>Module 22 - Attenuation Module: Stage 1 - INITIALIZATION.</p></li>
+      </ul>
+    </div>
+    <!-- <div id="newsTicker">
       <h3 id="newsLabel">News:</h3>
       <p id="headlineNews"></p>
       <a href="https://newsapi.org" target="_blank" id="poweredbynewsapi"><h5>Powered by News API</h5></a>
-    </div>
+    </div> -->
 
-    <div class="pure-g">
+    <!-- <div class="pure-g">
       <div id="hubMessages" class="pure-u-1-3">
         <br><h3>Messages:</h3>
         <div id="hubMessageSpace">
@@ -142,7 +236,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 

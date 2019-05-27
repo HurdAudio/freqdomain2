@@ -35,6 +35,102 @@
       vm.collapseReadMessageAction = collapseReadMessageAction;
       vm.navMixer = navMixer;
       vm.navPatchEditor = navPatchEditor;
+      vm.mixerPatches = [
+        {
+          value: 'none',
+          text: 'please select a mixer'
+        },
+        {
+          value: 1,
+          text: 'simple mixer'
+        },
+        {
+          value: 2,
+          text: 'vocal mixer'
+        },
+        {
+          value: 3,
+          text: 'commercial compression'
+        },
+        {
+          value: 4,
+          text: 'sfx'
+        },
+        {
+          value: 'createNew',
+          text: 'add new mixer'
+        }
+      ];
+      vm.patchBank = [
+        {
+          value: 'none',
+          text: 'no patch selected'
+        },
+        {
+          value: 1,
+          text: 'e. piano'
+        },
+        {
+          value: 2,
+          text: 'string pad'
+        },
+        {
+          value: 3,
+          text: 'percussive log'
+        },
+        {
+          value: 4,
+          text: 'snap bass'
+        },
+        {
+          value: 5,
+          text: 'gamelan'
+        },
+        {
+          value: 'new',
+          text: 'new patch'
+        }
+      ];
+      vm.compositions = [
+        {
+          value: 'none',
+          text: 'none selected'
+        },
+        {
+          value: 1,
+          text: 'Radon Theme'
+        },
+        {
+          value: 2,
+          text: 'Drone IX'
+        },
+        {
+          value: 3,
+          text: 'Salt Tea'
+        },
+        {
+          value: 4,
+          text: 'Experimental'
+        },
+        {
+          value: 'new',
+          text: 'new composition'
+        }
+      ];
+      vm.mixerSelected = false;
+      vm.displayList = false;
+      vm.viewHideProgress = viewHideProgress;
+
+      function viewHideProgress() {
+        let viewHideProgressListLabel = document.getElementById('viewHideProgressListLabel');
+
+        vm.displayList = !vm.displayList;
+        if (vm.displayList) {
+          viewHideProgressListLabel.innerHTML = 'hide list';
+        } else {
+          viewHideProgressListLabel.innerHTML = 'view list'
+        }
+      }
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -45,6 +141,14 @@
       function navMixer() {
         $state.go('mixer', {id: currentUserId});
       }
+
+      // function mixerSelected() {
+      //   if (document.getElementById('mixerSelection').value === 'none') {
+      //     return(false);
+      //   } else {
+      //     return(true);
+      //   }
+      // }
 
       function collapseReadMessageAction(msgId) {
         let collapsedReadMessage = document.getElementById('collapsedReadMessage' + msgId);
@@ -116,11 +220,7 @@
       }
 
       function initializeSpace(user) {
-        let hubUserImg = document.getElementById('hubUserImg');
-        let hubUserName = document.getElementById('hubUserName');
-
-        hubUserImg.src = user.user_avatar_url;
-        hubUserName.innerHTML = user.name;
+        // TODO stuff
       }
 
       function checkValidUser(userId) {
@@ -174,40 +274,52 @@
           }
           console.log('user is legit');
           initializeSpace(user);
+          document.getElementById('mixerSelection').value = 'none';
         });
 
       }
 
-      function dynamicNewsTicker(element, news, width) {
+      function dynamicNewsTicker(headlinesGoHere, masterNewsArray) {
         let delay = 300;
-        if (news.length < 1) {
+        let shutterDelay = 550;
+        let pause = 8000 + shutterDelay;
+        let headline = '';
+        if (masterNewsArray.length < 1) {
           runNewsTicker();
           return;
         }
-        let display = '';
-        if (news.length < width) {
-          display = news;
-        } else {
-          display = news.slice(0, width);
+        // let display = '';
+        // if (news.length < width) {
+        //   display = news;
+        // } else {
+        //   display = news.slice(0, width);
+        // }
+
+        headline = masterNewsArray[0].source.name + ': ' + masterNewsArray[0].title;
+        if (masterNewsArray[0].description !== null) {
+          headline += ' - ' + masterNewsArray[0].description;
         }
-        let nextNews = news.slice(1);
-        element.innerHTML = display;
+        headlinesGoHere.innerHTML = headline;
+        let nextNews = masterNewsArray.slice(1);
         // if (display[0] === ' ') {
         //   delay = delay * 2;
         // }
-        setTimeout(()=>{
-          dynamicNewsTicker(element, nextNews, width);
-        }, delay);
-
+        headlinesGoHere.setAttribute("style", "transform: rotateX(0deg); transition: transform " + shutterDelay + "ms linear;");
+        setTimeout(() => {
+          headlinesGoHere.setAttribute("style", "transform: rotateX(90deg); transition: transform " + shutterDelay + "ms linear;");
+          setTimeout(() => {
+            dynamicNewsTicker(headlinesGoHere, nextNews);
+          }, (pause/2));
+        }, pause);
       }
 
       function runNewsTicker() {
-        let headlineNews = document.getElementById('headlineNews');
-        let newsString = '';
-        let characterWidth = 70;
-        for (let sp = 0; sp < characterWidth; sp++) {
-          newsString+= ' ';
-        }
+        let headlinesGoHere = document.getElementById('headlinesGoHere');
+        // let newsString = '';
+        // let characterWidth = 70;
+        // for (let sp = 0; sp < characterWidth; sp++) {
+        //   newsString+= ' ';
+        // }
 
         $http.get('/news_tickers')
         .then(freqdomain2NewsData=>{
@@ -215,25 +327,34 @@
           let freqNews = freqdomain2News.filter(line=>{
             return(!line.expired);
           });
+          if (freqNews.length > 0) {
+            for (let i = 0; i < freqNews.length; i++) {
+              freqNews[i].source = {
+                name: 'FreqDomain2 News'
+              };
+              freqNews[i].title = freqNews[i].headline;
+              freqNews[i].description = null;
+            }
+          }
           $http.get('/reuters_headlines/us')
           .then(reutersHeadlinesData=>{
             let reutersHeadlines = reutersHeadlinesData.data;
-            if (freqNews.length > 0) {
-              for (let i = 0; i < freqNews.length; i++) {
-                newsString += 'FreqDomain2 News: ' + freqNews[i].headline + '                                                  ';
-              }
-            }
-            if (reutersHeadlines.articles.length > 0) {
-              for (let j = 0; j < reutersHeadlines.articles.length; j++) {
-                newsString += reutersHeadlines.articles[j].source.name + ': ' + reutersHeadlines.articles[j].title;
-                if (reutersHeadlines.articles[j].description !== null) {
-                  newsString += ' - ' + reutersHeadlines.articles[j].description;
-                }
-                newsString += '                                                  ';
-              }
-            }
+            let masterNewsArray = freqNews.concat(reutersHeadlines.articles);
+            // if (freqNews.length > 0) {
+            //   for (let i = 0; i < freqNews.length; i++) {
+            //     // newsString += 'FreqDomain2 News: ' + freqNews[i].headline;
+            //   }
+            // }
+            // if (reutersHeadlines.articles.length > 0) {
+            //   for (let j = 0; j < reutersHeadlines.articles.length; j++) {
+            //     // newsString += reutersHeadlines.articles[j].source.name + ': ' + reutersHeadlines.articles[j].title;
+            //     if (reutersHeadlines.articles[j].description !== null) {
+            //       // newsString += ' - ' + reutersHeadlines.articles[j].description;
+            //     }
+            //   }
+            // }
             // console.log(newsString);
-            dynamicNewsTicker(headlineNews, newsString, characterWidth);
+            dynamicNewsTicker(headlinesGoHere, masterNewsArray);
           });
         });
 
@@ -472,18 +593,36 @@
         // console.log(masterVolume);
         checkValidUser($stateParams.id);
         let theBody = document.getElementsByTagName("body")[0];
-        let hubMessageSpace = document.getElementById('hubMessageSpace');
-        let hubUpdatesSpace = document.getElementById('hubUpdatesSpace');
+        // let hubMessageSpace = document.getElementById('hubMessageSpace');
+        // let hubUpdatesSpace = document.getElementById('hubUpdatesSpace');
 
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 5s linear;");
         runNewsTicker();
-        retrieveMessages();
-        setTimeout(()=>{
-          hubMessageSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
-          setTimeout(()=>{
-            hubUpdatesSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
-          }, 2000);
-        }, 3000);
+        // retrieveMessages();
+        // setTimeout(()=>{
+        //   hubMessageSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
+        //   setTimeout(()=>{
+        //     hubUpdatesSpace.setAttribute("style", "opacity: 0.9; filter: hue-rotate(0deg); transition: all 3s linear;");
+        //   }, 2000);
+        // }, 3000);
+
+        document.getElementById('mixerSelection').addEventListener('change', () => {
+          if (document.getElementById('mixerSelection').value === 'none') {
+            vm.mixerSelected = false;
+            document.getElementById('patchSetting').setAttribute("style", "opacity: 0.2;");
+            document.getElementById('composeSetting').setAttribute("style", "opacity: 0.2;");
+          } else {
+            vm.mixerSelected = true;
+            document.getElementById('patchSetting').setAttribute("style", "opacity: 1;");
+            document.getElementById('composeSetting').setAttribute("style", "opacity: 1;");
+          }
+        });
+
+        document.getElementById('accountSelection').addEventListener('change', () => {
+          if (document.getElementById('accountSelection').value === 'about') {
+            loadInfo();
+          }
+        });
 
         // $http.get('/flights_from_tiles/3/3')
         // .then(data=>{
