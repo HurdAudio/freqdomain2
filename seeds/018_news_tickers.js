@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Front End (module 0). Stage 21 - Front end work.',
+          headline: 'Currently working on: Convolution Module (module 21). Stage 1 - INITIALIZATION. January A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
