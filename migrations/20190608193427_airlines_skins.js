@@ -1,0 +1,54 @@
+'use strict';
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable('airlines_skins', function(table) {
+    table.increments().primary();
+    table.string('name').notNullable().defaultTo('JanuaryA');
+    table.string('month').notNullable().defaultTo('january');
+    table.json('rule').defaultTo(null);
+    table.string('face_path').notNullable().defaultTo('');
+    table.string('face_size').notNullable().defaultTo('100%');
+    table.string('face_repeat').notNullable().defaultTo('no-repeat');
+    table.string('face_box_shadow_color').notNullable().defaultTo('');
+    table.string('face_font_color').notNullable().defaultTo('#000000');
+    table.string('face_font_shadow_color').notNullable().defaultTo('');
+    table.string('top_path').notNullable().defaultTo('');
+    table.string('top_size').notNullable().defaultTo('100%');
+    table.string('top_repeat').notNullable().defaultTo('no-repeat');
+    table.string('top_font_color').notNullable().defaultTo('#000000');
+    table.string('top_font_shadow_color').notNullable().defaultTo('');
+    table.string('signal_path').notNullable().defaultTo('');
+    table.string('signal_size').notNullable().defaultTo('100%');
+    table.string('signal_repeat').notNullable().defaultTo('no-repeat');
+    table.string('signal_box_shadow_color').notNullable().defaultTo('');
+    table.string('signal_font_color').notNullable().defaultTo('#000000');
+    table.string('signal_font_shadow_color').notNullable().defaultTo('');
+    table.string('display_path').notNullable().defaultTo('');
+    table.string('output_size').notNullable().defaultTo('100%');
+    table.string('output_repeat').notNullable().defaultTo('no-repeat');
+    table.string('output_box_shadow_color').notNullable().defaultTo('');
+    table.string('output_font_color').notNullable().defaultTo('#000000');
+    table.string('output_font_shadow_color').notNullable().defaultTo('');
+    table.string('flight_table_list_display').notNullable().defaultTo('');
+    table.string('flight_table_list_size').notNullable().defaultTo('');
+    table.string('flight_table_list_repeat').notNullable().defaultTo('no-repeat');
+    table.string('airline_callsign_display').notNullable().defaultTo('');
+    table.string('airline_callsign_size').notNullable().defaultTo('');
+    table.string('airline_callsign_repeat').notNullable().defaultTo('no-repeat');
+    table.string('departure_city_data_display').notNullable().defaultTo('');
+    table.string('departure_city_data_size').notNullable().defaultTo('');
+    table.string('departure_city_data_repeat').notNullable().defaultTo('no-repeat');
+    table.string('arrival_city_data_display').notNullable().defaultTo('');
+    table.string('arrival_city_data_size').notNullable().defaultTo('');
+    table.string('arrival_city_data_repeat').notNullable().defaultTo('no-repeat');
+    table.string('current_location_display').notNullable().defaultTo('');
+    table.string('current_location_size').notNullable().defaultTo('');
+    table.string('current_location_repeat').notNullable().defaultTo('no-repeat');
+    table.string('slider_shader_color_1').notNullable().defaultTo('');
+    table.string('slider_shader_color_2').notNullable().defaultTo('');
+    table.timestamps(true, true);
+  });
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable('airlines_skins');
+};
