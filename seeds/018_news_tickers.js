@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Airlines Module (module 14). Stage 8 - February Consequence - Skins Table with migration/seeds/routes. January and February Skins added.',
+          headline: 'Currently working on: Input Manager (module 13). Stage 9 - March A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
