@@ -4408,11 +4408,6 @@ var DynamicCompressor = (function(settings, skin, audioContext) {
         alert(releaseModulatorInput.id);
       });
 
-      // this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
-      // this.manageWaveformSelector(waveFormsObject);
-      // this.manageVolumeInput(testToneVolume, testToneVolumeSlider, light);
-      // this.onOffFunctionalityVertical(testToneOnOff, light, div, x, y);
-
       return(div);
     }
 
@@ -4437,6 +4432,91 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
     this.convex = settings.convex;
     this.slope = settings.slope;
     this.output = settings.output;
+
+    this.skinId = skin.id;
+    this.skinName = skin.name;
+    this.skinMonth = skin.month;
+    this.skinRule = skin.rule;
+    this.facePath = skin.face_path;
+    this.faceSize = skin.face_size;
+    this.faceRepeat = skin.face_repeat;
+    this.faceBoxShadowColor = skin.face_box_shadow_color;
+    this.faceFontColor = skin.face_font_font_color;
+    this.faceFontShadowColor = skin.face_font_shadow_color;
+    this.topPath = skin.top_path;
+    this.topSize = skin.top_size;
+    this.topRepeat = skin.top_repeat;
+    this.topFontColor = skin.top_font_color;
+    this.topFontShadowColor = skin.top_font_shadow_color;
+    this.signalPath = skin.signal_path;
+    this.signalSize = skin.signal_size;
+    this.signalRepeat = skin.signal_repeat;
+    this.signalBoxShadowColor = skin.signal_box_shadow_color;
+    this.signalFontColor = skin.signal_font_color;
+    this.signalFontShadowColor = skin.signal_font_shadow_color;
+    this.displayPath = skin.display_path;
+    this.outputSize = skin.output_size;
+    this.outputRepeat = skin.output_repeat;
+    this.outputBoxShadowColor = skin.output_box_shadow_color;
+    this.outputFontColor = skin.output_font_color;
+    this.outputFontShadowColor = skin.output_font_shadow_color;
+    this.outputDisplaySize = skin.output_display_size;
+    this.outputDisplayRepeat = skin.output_display_repeat;
+    this.outputDisplayBoxShadowColor = skin.output_display_box_shadow_color;
+    this.outputDisplayFontColor = skin.output_display_font_color;
+    this.minimumDisplayPath = skin.minimum_display_path;
+    this.minimumDisplaySize = skin.minimum_display_size;
+    this.minimumDisplayRepeat = skin.minimum_display_repeat;
+    this.minimumDisplayBoxShadowColor = skin.minimum_display_box_shadow_color;
+    this.minimumSliderPath = skin.minimum_slider_path;
+    this.minimumSliderSize = skin.minimum_slider_size;
+    this.minimumSliderRepeat = skin.minimum_slider_repeat;
+    this.minimumSliderBoxShadowColor = skin.minimum_slider_box_shadow_color;
+    this.minimumModulatorPath = skin.minimum_modulator_path;
+    this.minimumModulatorSize = skin.minimum_modulator_size;
+    this.minimumModulatorRepeat = skin.minimum_modulator_repeat;
+    this.minimumModulatorBoxShadowColor = skin.minimum_modulator_box_shadow_color;
+    this.maximumDisplayPath = skin.maximum_display_path;
+    this.maximumDisplaySize = skin.maximum_display_size;
+    this.maximumDisplayRepeat = skin.maximum_display_repeat;
+    this.maximumDisplayBoxShadowColor = skin.maximum_display_box_shadow_color;
+    this.maximumSliderPath = skin.maximum_slider_path;
+    this.maximumSliderSize = skin.maximum_slider_size;
+    this.maximumSliderRepeat = skin.maximum_slider_repeat;
+    this.maximumSliderBoxShadowColor = skin.maximum_slider_box_shadow_color;
+    this.maximumModulatorPath = skin.maximum_modulator_path;
+    this.maximumModulatorSize = skin.maximum_modulator_size;
+    this.maximumModulatorRepeat = skin.maximum_modulator_repeat;
+    this.maximumModulatorBoxShadowColor = skin.maximum_modulator_box_shadow_color;
+    this.intervalDisplayPath = skin.interval_display_path;
+    this.intervalDisplaySize = skin.interval_display_size;
+    this.intervalDisplayRepeat = skin.interval_display_repeat;
+    this.intervalDisplayBoxShadowColor = skin.interval_display_box_shadow_color;
+    this.intervalSliderPath = skin.interval_slider_path;
+    this.intervalSliderSize = skin.interval_slider_size;
+    this.intervalSliderRepeat = skin.interval_slider_repeat;
+    this.intervalSliderBoxShadowColor = skin.interval_slider_box_shadow_color;
+    this.intervalSliderPath = skin.interval_modulator_path;
+    this.intervalModulatorSize = skin.interval_modulator_size;
+    this.intervalModulatorRepeat = skin.interval_modulator_repeat;
+    this.intervalModulatorBoxShadowColor = skin.interval_modulator_box_shadow_color;
+    this.slopeDisplayPath = skin.slope_display_path;
+    this.slopeDisplaySize = skin.slope_display_size;
+    this.slopeDisplayRepeat = skin.slope_display_repeat;
+    this.slopeDisplayBoxShadowColor = skin.slope_display_box_shadow_color;
+    this.sliderShaderColor1 = skin.slider_shader_color_1;
+    this.sliderShaderColor2 = skin.slider_shader_color_2;
+
+    this.dragWidth = 1090;
+    this.dragHeight = 453;
+    this.horizontalWidth = 900;
+    this.horizontalHeight = 320;
+    this.verticalWidth = 320;
+    this.verticalHeight = 750;
+
+    // functionality
+
+    // Rendering Functions
   }
 
   return(randomNumberGenerator);
