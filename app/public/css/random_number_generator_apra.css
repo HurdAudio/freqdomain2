@@ -602,7 +602,7 @@ input:checked + .slider:before {
 #slopeAmount {
   font-family: 'Righteous', cursive;
   font-size: 36px;
-  background: url(../img/april/.jpg);
+  background: url(../img/april/chuttersnap-419186-unsplash.jpg);
   background-size: 300%;
   background-color: #BFBFBF;
   box-shadow: -1px -1px 1px #ff4646, -2px -2px 1px #ff4646, -3px -3px 1px #ff4646, -4px -4px 1px #ff4646;
