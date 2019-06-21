@@ -95,6 +95,10 @@
             moduleSelectPath = 'dynamic_compressors';
             skinSelectorPath = 'dynamic_compressor_skins';
             break;
+          case('RandomNumberGenerator'):
+            moduleSelectPath = 'random_number_generators';
+            skinSelectorPath = 'random_number_generator_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -228,6 +232,14 @@
                 }
               }
             }
+            if (moduleSelector.value === 'RandomNumberGenerator') {
+              let randomNumberGenerator = new RandomNumberGenerator(settings, skin, audioContext);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = randomNumberGenerator.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -257,12 +269,18 @@
           case('DynamicCompressor'):
             skinsTable = 'dynamic_compressor_skins';
             break;
+          case('RandomNumberGenerator'):
+            skinsTable = 'random_number_generator_skins';
+            break;
           default:
             console.log('unsupported module');
         }
         $http.get(`/${skinsTable}`)
         .then(skinsListData => {
           let skinsList = skinsListData.data;
+          skinsList = skinsList.sort((a, b) => {
+            return(parseInt(a.id) - parseInt(b.id));
+          });
           for (let i = 0; i < skinsList.length; i++) {
             optionSelector = document.createElement('option');
             skinSelector.appendChild(optionSelector);

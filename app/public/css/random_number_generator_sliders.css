@@ -1,0 +1,359 @@
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #A9A9A9;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #228B22;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #808000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #808000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.randomNumberGeneratorJanuaryASlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -o-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: linear-gradient(-135deg, #7FFF00, #ffffff);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryASlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  background-color: #eeeeee;
+  border: solid 2px black;
+  background-color: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryBSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -o-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: linear-gradient(-135deg, #7FFF00, #ffffff);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryBSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryCSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffff4c, #000000);
+    background: -webkit-linear-gradient(-135deg, #ffff4c, #000000);
+    background: -o-linear-gradient(-135deg, #ffff4c, #000000);
+    background: linear-gradient(-135deg, #ffff4c, #000000);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryCSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryASlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #00004c, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #00004c, #ffffff);
+    background: -o-linear-gradient(-135deg, #00004c, #ffffff);
+    background: linear-gradient(-135deg, #00004c, #ffffff);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryASlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: linear-gradient(-135deg, #00004c, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryBSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: -o-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: linear-gradient(-135deg, #FF7F50, #ffffff);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryBSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryCSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #000033, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #000033, #ffffff);
+    background: -o-linear-gradient(-135deg, #000033, #ffffff);
+    background: linear-gradient(-135deg, #000033, #ffffff);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryCSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: linear-gradient(-135deg, #000033, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorMarchASlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: -webkit-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: -o-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: linear-gradient(-135deg, #ffff00, #b2b200);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorMarchASlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: linear-gradient(-135deg, #ffff00, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorMarchBSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: -webkit-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: -o-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorMarchBSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorMarchCSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: -webkit-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: -o-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: linear-gradient(-135deg, #cccc00, #ffff4c);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorMarchCSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: linear-gradient(-135deg, #cccc00, #C0C0C0);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorAprilASlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: -webkit-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: -o-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: linear-gradient(-135deg, #7f1919, #ffff4c);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorAprilASlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: -o-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: linear-gradient(-135deg, #7f1919, #ff8484);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorAprilBSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: -webkit-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: -o-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: linear-gradient(-135deg, #2e2e0b, #f0f075);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorAprilBSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: -o-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: linear-gradient(-135deg, #2e2e0b, #ff8484);
+  cursor: pointer;
+}
+
+.randomNumberGeneratorAprilCSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 54px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: -webkit-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: -o-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: linear-gradient(-135deg, #61481a, #fae1b3);
+    cursor: pointer;
+}
+
+.randomNumberGeneratorAprilCSlider::-moz-range-thumb {
+  width: 30px;
+  height: 54px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #61481a, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #61481a, #ff8484);
+  background: -o-linear-gradient(-135deg, #61481a, #ff8484);
+  background: linear-gradient(-135deg, #61481a, #ff8484);
+  cursor: pointer;
+}

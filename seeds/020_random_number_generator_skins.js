@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
           top_repeat: 'no-repeat',
           top_font_color: '#2F4F4F',
           top_font_shadow_color: '#999900',
-          signal_path: '../img/january/F100009064.jpg',
+          signal_path: '../img/january/depositphotos_12319340-stock-photo-ice-texture.jpg',
           signal_size: '600%',
           signal_repeat: 'no-repeat',
           signal_box_shadow_color: '#999900',

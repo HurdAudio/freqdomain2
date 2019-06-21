@@ -4421,6 +4421,8 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
   let randomNumberGenerator = function(settings, skin, audioContext) {
     this.id = settings.id;
     this.name = settings.name;
+    this.positionX = settings.positionX;
+    this.positionY = settings.positionY;
     this.interval = settings.interval;
     this.interval_modulator = settings.interval_modulator;
     this.maximum = settings.maximum;
@@ -4441,7 +4443,7 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
     this.faceSize = skin.face_size;
     this.faceRepeat = skin.face_repeat;
     this.faceBoxShadowColor = skin.face_box_shadow_color;
-    this.faceFontColor = skin.face_font_font_color;
+    this.faceFontColor = skin.face_font_color;
     this.faceFontShadowColor = skin.face_font_shadow_color;
     this.topPath = skin.top_path;
     this.topSize = skin.top_size;
@@ -4516,7 +4518,543 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
 
     // functionality
 
+    this.manageStepContinuousSwitch = (stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv) => {
+      stepContinuousLabel.addEventListener('click', () => {
+        if (stepOrContinuous.checked) {
+          this.continuous = true;
+          stepLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          continuousLabel.setAttribute("style", "float: left; margin: 16px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: visible;");
+          if (this.exponential) {
+            exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+          } else {
+            exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+          }
+        } else {
+          this.continuous = false;
+          stepLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          continuousLabel.setAttribute("style", "float: left; margin: 16px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: hidden;");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
+    this.manageLinearExponentialSwitch = (linearExponentialLabel, linearLabel, exponentialLabel, linearOrExponential, exponentialCurveHanlderDiv) => {
+      linearExponentialLabel.addEventListener('click', () => {
+        if (linearOrExponential.checked) {
+          this.exponential = true;
+          linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          exponentialLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+        } else {
+          this.exponential = false;
+          linearLabel.setAttribute("style", "float: left; margin: 22px 2px 0 26px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          exponentialLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
+    this.manageConcaveConvexSwitch = (concaveConvexLabel, concaveLabel, convexLabel, concaveOrConvex) => {
+      concaveConvexLabel.addEventListener('click', () => {
+        if (concaveOrConvex.checked) {
+          this.convex = true;
+          concaveLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          convexLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        } else {
+          this.convex = false;
+          concaveLabel.setAttribute("style", "float: left; margin: 22px 2px 0 26px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          convexLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        }
+      });
+    }
+
+    this.manageDecreaseSlope = (decreaseSlope, slopeAmount) => {
+      decreaseSlope.addEventListener('click', () => {
+        if (this.slope !== 1) {
+          --this.slope;
+          slopeAmount.value = this.slope;
+        }
+      });
+    }
+
+    this.manageIncreaseSlope = (increaseSlope, slopeAmount) => {
+      increaseSlope.addEventListener('click', () => {
+        if (this.slope !== 1024) {
+          ++this.slope;
+          slopeAmount.value = this.slope;
+        }
+      });
+    }
+
+    this.manageSlopeInput = (slopeAmount) => {
+      slopeAmount.addEventListener('change', () => {
+        this.slope = slopeAmount.value;
+      });
+    }
+
+    this.manageMinimumAmount = (minimumDisplay, minimumSlider) => {
+
+      minimumDisplay.addEventListener('change', () => {
+        this.minimum = minimumDisplay.value;
+        minimumSlider.value = this.minimum;
+      });
+
+      minimumSlider.addEventListener('mousemove', () => {
+        this.minimum = minimumSlider.value;
+        minimumDisplay.value = this.minimum;
+      });
+    }
+
+    this.manageMaximumAmount = (maximumDisplay, maximumSlider) => {
+
+      maximumDisplay.addEventListener('change', () => {
+        this.maximum = maximumDisplay.value;
+        maximumSlider.value = this.maximum;
+      });
+
+      maximumSlider.addEventListener('mousemove', () => {
+        this.maximum = maximumSlider.value;
+        maximumDisplay.value = this.maximum;
+      });
+    }
+
+    this.manageIntervalAmount = (intervalDisplay, intervalSlider) => {
+
+      intervalDisplay.addEventListener('change', () => {
+        this.interval = intervalDisplay.value;
+        intervalSlider.value = this.interval;
+      });
+
+      intervalSlider.addEventListener('mousemove', () => {
+        this.interval = intervalSlider.value;
+        intervalDisplay.value = this.interval;
+      });
+    }
+
     // Rendering Functions
+
+    this.renderDraggable = () => {
+
+      let div = document.createElement('div');
+      let randomNumberGeneratorTop = document.createElement('div');
+      div.appendChild(randomNumberGeneratorTop);
+      let nameTag = document.createElement('h1');
+      randomNumberGeneratorTop.appendChild(nameTag);
+      let signalPanel = document.createElement('div');
+      div.appendChild(signalPanel);
+      let outputLabel = document.createElement('p');
+      signalPanel.appendChild(outputLabel);
+      outputLabel.innerHTML = 'out';
+      let outputPort = document.createElement('h1');
+      signalPanel.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output ' + this.name + this.id;
+      let face = document.createElement('div');
+      div.appendChild(face);
+      let outputDiv = document.createElement('div');
+      face.appendChild(outputDiv);
+      let outputDisplayLabel = document.createElement('p');
+      outputDiv.appendChild(outputDisplayLabel);
+      outputDisplayLabel.innerHTML = 'output value';
+      let outputDisplay = document.createElement('div');
+      outputDiv.appendChild(outputDisplay);
+      let stepOrContinuousDiv = document.createElement('div');
+      outputDiv.appendChild(stepOrContinuousDiv);
+      let stepLabel = document.createElement('p');
+      stepOrContinuousDiv.appendChild(stepLabel);
+      stepLabel.innerHTML = 'step';
+      let stepContinuousLabel = document.createElement('label');
+      stepOrContinuousDiv.appendChild(stepContinuousLabel);
+      let stepOrContinuous = document.createElement('input');
+      stepContinuousLabel.appendChild(stepOrContinuous);
+      stepOrContinuous.type = 'checkbox';
+      stepOrContinuous.checked = this.continuous;
+      let continuousRoundSlider = document.createElement('span');
+      stepContinuousLabel.appendChild(continuousRoundSlider);
+      continuousRoundSlider.className = 'slider round';
+      let continuousLabel = document.createElement('p');
+      stepOrContinuousDiv.appendChild(continuousLabel);
+      continuousLabel.innerHTML = 'continuous';
+      let continuousHandlerDiv = document.createElement('div');
+      outputDiv.appendChild(continuousHandlerDiv);
+      let linearOrExponentialDiv = document.createElement('div');
+      continuousHandlerDiv.appendChild(linearOrExponentialDiv);
+      let linearLabel = document.createElement('p');
+      linearOrExponentialDiv.appendChild(linearLabel);
+      linearLabel.innerHTML = 'linear';
+      let linearExponentialLabel = document.createElement('label');
+      linearOrExponentialDiv.appendChild(linearExponentialLabel);
+      let linearOrExponential = document.createElement('input');
+      linearExponentialLabel.appendChild(linearOrExponential);
+      linearOrExponential.type = 'checkbox';
+      linearOrExponential.checked = this.exponential;
+      let exponentialRoundSlider = document.createElement('span');
+      linearExponentialLabel.appendChild(exponentialRoundSlider);
+      exponentialRoundSlider.className = 'slider round';
+      let exponentialLabel = document.createElement('p');
+      linearOrExponentialDiv.appendChild(exponentialLabel);
+      exponentialLabel.innerHTML = 'exponential';
+      let exponentialCurveHanlderDiv = document.createElement('div');
+      continuousHandlerDiv.appendChild(exponentialCurveHanlderDiv);
+      let concaveOrConvexDiv = document.createElement('div');
+      exponentialCurveHanlderDiv.appendChild(concaveOrConvexDiv);
+      let concaveLabel = document.createElement('p');
+      concaveOrConvexDiv.appendChild(concaveLabel);
+      concaveLabel.innerHTML = 'concave';
+      let concaveConvexLabel = document.createElement('label');
+      concaveOrConvexDiv.appendChild(concaveConvexLabel);
+      let concaveOrConvex = document.createElement('input');
+      concaveConvexLabel.appendChild(concaveOrConvex);
+      concaveOrConvex.type = 'checkbox';
+      concaveOrConvex.checked = this.convex;
+      let concaveSwitch = document.createElement('span');
+      concaveConvexLabel.appendChild(concaveSwitch);
+      concaveSwitch.className = "slider round";
+      let convexLabel = document.createElement('p');
+      concaveOrConvexDiv.appendChild(convexLabel);
+      convexLabel.innerHTML = 'convex';
+      let slopeDiv = document.createElement('div');
+      exponentialCurveHanlderDiv.appendChild(slopeDiv);
+      let slopeLabel = document.createElement('p');
+      slopeDiv.appendChild(slopeLabel);
+      slopeLabel.innerHTML = 'slope:';
+      let decreaseSlope = document.createElement('button');
+      slopeDiv.appendChild(decreaseSlope);
+      decreaseSlope.innerHTML = '-';
+      let slopeAmount = document.createElement('input');
+      slopeDiv.appendChild(slopeAmount);
+      slopeAmount.type = 'number';
+      slopeAmount.min = '1';
+      slopeAmount.max = '1024';
+      slopeAmount.value = this.slope;
+      let increaseSlope = document.createElement('button');
+      slopeDiv.appendChild(increaseSlope);
+      increaseSlope.innerHTML = '+';
+      let minimumDiv = document.createElement('div');
+      face.appendChild(minimumDiv);
+      let minimumLabel = document.createElement('p');
+      minimumDiv.appendChild(minimumLabel);
+      minimumLabel.innerHTML = 'minimum';
+      let minimumDisplay = document.createElement('input');
+      minimumDiv.appendChild(minimumDisplay);
+      minimumDisplay.type = 'number';
+      minimumDisplay.step = '0.001';
+      minimumDisplay.min = '-1024.000';
+      minimumDisplay.max = '1024.000';
+      minimumDisplay.value = this.minimum;
+      let minimumSlider = document.createElement('input');
+      minimumDiv.appendChild(minimumSlider);
+      minimumSlider.type = 'range';
+      minimumSlider.min = '-1024.000';
+      minimumSlider.max = '1024.000';
+      minimumSlider.step = '0.001';
+      minimumSlider.value = this.minimum;
+      let minimumModLabel = document.createElement('p');
+      minimumDiv.appendChild(minimumModLabel);
+      minimumModLabel.innerHTML = 'modulation:';
+      let minimumModInput = document.createElement('h1');
+      minimumDiv.appendChild(minimumModInput);
+      minimumModInput.innerHTML = '◦';
+      minimumModInput.id = 'minimum modulation input: ' + this.name + this.id;
+      let maximumDiv = document.createElement('div');
+      face.appendChild(maximumDiv);
+      let maximumLabel = document.createElement('p');
+      maximumDiv.appendChild(maximumLabel);
+      maximumLabel.innerHTML = 'maximum';
+      let maximumDisplay = document.createElement('input');
+      maximumDiv.appendChild(maximumDisplay);
+      maximumDisplay.type = 'number';
+      maximumDisplay.step = '0.001';
+      maximumDisplay.min = '-1024.000';
+      maximumDisplay.max = '1024.000';
+      maximumDisplay.value = this.maximum;
+      let maximumSlider = document.createElement('input');
+      maximumDiv.appendChild(maximumSlider);
+      maximumSlider.type = 'range';
+      maximumSlider.step = '0.001';
+      maximumSlider.min = '-1024.000';
+      maximumSlider.max = '1024.000';
+      maximumSlider.value = this.maximum;
+      let maximumModLabel = document.createElement('p');
+      maximumDiv.appendChild(maximumModLabel);
+      maximumModLabel.innerHTML = 'modulation:';
+      let maximumModInput = document.createElement('h1');
+      maximumDiv.appendChild(maximumModInput);
+      maximumModInput.innerHTML = '◦';
+      maximumModInput.id = 'maximum modulation input: ' + this.name + this.id;
+      let intervalDiv = document.createElement('div');
+      face.appendChild(intervalDiv);
+      let intervalLabel = document.createElement('p');
+      intervalDiv.appendChild(intervalLabel);
+      intervalLabel.innerHTML = 'interval(ms)';
+      let intervalDisplay = document.createElement('input');
+      intervalDiv.appendChild(intervalDisplay);
+      intervalDisplay.type = 'number';
+      intervalDisplay.step = '1';
+      intervalDisplay.min = '0';
+      intervalDisplay.max = '60000';
+      intervalDisplay.value = this.interval;
+      let intervalSlider = document.createElement('input');
+      intervalDiv.appendChild(intervalSlider);
+      intervalSlider.type = 'range';
+      intervalSlider.step = '1';
+      intervalSlider.min = '0';
+      intervalSlider.max = '60000';
+      intervalSlider.value = this.interval;
+      let intervalModLabel = document.createElement('p');
+      intervalDiv.appendChild(intervalModLabel);
+      intervalModLabel.innerHTML = 'modulation:';
+      let intervalModInput = document.createElement('h1');
+      intervalDiv.appendChild(intervalModInput);
+      intervalModInput.innerHTML = '◦';
+      intervalModInput.id = 'interval modulation input: ' + this.name + this.id;
+
+
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      randomNumberGeneratorTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadowColor + ", 2px 2px 1px " + this.topFontShadowColor + ";");
+      signalPanel.setAttribute("style", "background: url(" + this.signalPath + "); background-size: " + this.signalSize + "; border: solid 1px transparent; height: " + this.dragHeight + "px; width: 59px; webkit-transform: skew(0deg, 45deg); transform: skew(0deg, 45deg); margin-left: -6px; margin-top: -26px; box-shadow: 0px -1px 1px " + this.signalFontShadowColor + ";");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 2px; margin-top: 188px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadowColor + ", -2px -2px 1px " + this.signalFontShadowColor + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 7px; margin-top: 15px; width: 70%; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      face.setAttribute("style", "height: " + this.dragHeight + "px; width: 100%; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: " + this.faceRepeat + "; margin-top: -425px; margin-left: 59px; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ";");
+      outputDiv.setAttribute("style", "float: left; width: " + ((this.dragWidth/5) * 2) + "px; height: " + this.dragHeight + "px; background: transparent;");
+      outputDisplayLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 36px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      outputDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 72px; background: url(" + this.displayPath + "); background-size: " + this.outputDisplaySize + "; box-shadow: -1px -1px 1px" + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; height: 96px; width: 90%; margin: 6px 5px 2px 15px;");
+      stepOrContinuousDiv.setAttribute("style", "margin: 2px 0 2px 4px;");
+      if (this.continuous) {
+        stepLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        continuousLabel.setAttribute("style", "float: left; margin: 16px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: visible;");
+      } else {
+        stepLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        continuousLabel.setAttribute("style", "float: left; margin: 16px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: hidden;");
+      }
+      stepContinuousLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; margin: 21px 20px 4px 20px;");
+      stepOrContinuous.setAttribute("style", "display: none;");
+      if (this.exponential) {
+        linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        exponentialLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+      } else {
+        linearLabel.setAttribute("style", "float: left; margin: 22px 2px 0 26px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        exponentialLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+      }
+      linearExponentialLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; margin: 21px 20px 4px 20px; z-index: 6;");
+      linearOrExponential.setAttribute("style", "display: none;");
+      concaveOrConvexDiv.setAttribute("style", "margin: 2px 0 2px 4px;");
+      if (this.convex) {
+        concaveLabel.setAttribute("style", "float: left; margin: 16px 2px 0 32px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        convexLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+      } else {
+        concaveLabel.setAttribute("style", "float: left; margin: 22px 2px 0 26px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        convexLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+      }
+      concaveConvexLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; margin: 26px 20px 4px 10px; z-index; 6;");
+      concaveOrConvex.setAttribute("style", "display: none;");
+      slopeDiv.setAttribute("style", "margin: 2px 0 2px 4px;");
+      slopeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 36px; color: #2F4F4F; text-shadow: -1px -1px 1px #999900, -2px -2px 1px #999900; opacity: 1.0; left: -230px; top: 30px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+      decreaseSlope.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; cursor: pointer; margin 0 1px; border: solid 1px " + this.faceFontShadowColor + "; border-radius: 10%; padding: 1vmin; background-color: #eeeeee; background-color: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -o-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; color: " + this.faceFontColor + "; width: 50px; position: relative; transform: translateX(125px) translateY(-150px);");
+      slopeAmount.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; background: url(" + this.slopeDisplayPath + "); background-size: " + this.slopeDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + ", -4px -4px 1px " + this.faceFontShadowColor + "; height: 70px; position: relative; transform: translateX(140px) translateY(-145px);");
+      increaseSlope.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; cursor: pointer; margin 0 1px; border: solid 1px " + this.faceFontShadowColor + "; border-radius: 10%; padding: 1vmin; background-color: #eeeeee; background-color: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -o-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; color: " + this.faceFontColor + "; width: 50px; position: relative; transform: translateX(135px) translateY(-150px);");
+      minimumDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px; background: transparent;");
+      minimumLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 36px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      minimumDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 36px; background: url(" + this.minimumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      minimumSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-150px) translateY(24px); width: 325px; height: 36px; background: url(" + this.minimumSliderPath + "); background-size: " + this.minimumSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.minimumSliderBoxShadowColor + ", 2px -2px 1px " + this.minimumSliderBoxShadowColor + ", 3px -3px 1px " + this.minimumSliderBoxShadowColor + ", 4px -4px 1px " + this.minimumSliderBoxShadowColor + ";");
+      switch(this.skinName) {
+        case('Random Number Generator: January A'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryASlider';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryASlider';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryASlider';
+          break;
+        case('Random Number Generator: January B'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryBSlider';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryBSlider';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryBSlider';
+          break;
+        case('Random Number Generator: January C'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryCSlider';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryCSlider';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryCSlider';
+          break;
+        case('Random Number Generator: February A'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryASlider';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryASlider';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryASlider';
+          break;
+        case('Random Number Generator: February B'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryBSlider';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryBSlider';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryBSlider';
+          break;
+        case('Random Number Generator: February C'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryCSlider';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryCSlider';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryCSlider';
+          break;
+        case('Random Number Generator: March A'):
+          minimumSlider.className = 'randomNumberGeneratorMarchASlider';
+          maximumSlider.className = 'randomNumberGeneratorMarchASlider';
+          intervalSlider.className = 'randomNumberGeneratorMarchASlider';
+          break;
+        case('Random Number Generator: March B'):
+          minimumSlider.className = 'randomNumberGeneratorMarchBSlider';
+          maximumSlider.className = 'randomNumberGeneratorMarchBSlider';
+          intervalSlider.className = 'randomNumberGeneratorMarchBSlider';
+          break;
+        case('Random Number Generator: March C'):
+          minimumSlider.className = 'randomNumberGeneratorMarchCSlider';
+          maximumSlider.className = 'randomNumberGeneratorMarchCSlider';
+          intervalSlider.className = 'randomNumberGeneratorMarchCSlider';
+          break;
+        case('Random Number Generator: April A'):
+          minimumSlider.className = 'randomNumberGeneratorAprilASlider';
+          maximumSlider.className = 'randomNumberGeneratorAprilASlider';
+          intervalSlider.className = 'randomNumberGeneratorAprilASlider';
+          break;
+        case('Random Number Generator: April B'):
+          minimumSlider.className = 'randomNumberGeneratorAprilBSlider';
+          maximumSlider.className = 'randomNumberGeneratorAprilBSlider';
+          intervalSlider.className = 'randomNumberGeneratorAprilBSlider';
+          break;
+        case('Random Number Generator: April C'):
+          minimumSlider.className = 'randomNumberGeneratorAprilCSlider';
+          maximumSlider.className = 'randomNumberGeneratorAprilCSlider';
+          intervalSlider.className = 'randomNumberGeneratorAprilCSlider';
+          break;
+        default:
+          console.log('unsupported random number generator skin');
+      }
+      minimumModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(15px) translateY(120px);");
+      minimumModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 2px 9px; transform: translateX(50px) translateY(100px);");
+      maximumDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px; background: transparent;");
+      maximumLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 36px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      maximumDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 36px; background: url(" + this.maximumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      maximumSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-150px) translateY(24px); width: 325px; height: 36px; background: url(" + this.maximumSliderPath + "); background-size: " + this.maximumSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.maximumSliderBoxShadowColor + ", 2px -2px 1px " + this.maximumSliderBoxShadowColor + ", 3px -3px 1px " + this.maximumSliderBoxShadowColor + ", 4px -4px 1px " + this.maximumSliderBoxShadowColor + ";");
+      maximumModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(15px) translateY(120px);");
+      maximumModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 2px 9px; transform: translateX(50px) translateY(100px);");
+      intervalDiv.setAttribute("style", "float: left; width: " + (this.dragWidth/5) + "px; height: " + this.dragHeight + "px; background: transparent;");
+      intervalLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 36px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      intervalDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 36px; background: url(" + this.maximumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      intervalSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-150px) translateY(24px); width: 325px; height: 36px; background: url(" + this.intervalDisplayPath + "); background-size: " + this.intervalSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.intervalSliderBoxShadowColor + ", 2px -2px 1px " + this.intervalSliderBoxShadowColor + ", 3px -3px 1px " + this.intervalSliderBoxShadowColor + ", 4px -4px 1px " + this.intervalSliderBoxShadowColor + ";");
+      intervalModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(15px) translateY(120px);");
+      intervalModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 2px 9px; transform: translateX(50px) translateY(100px);");
+
+
+      this.manageStepContinuousSwitch(stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv);
+
+      this.manageLinearExponentialSwitch(linearExponentialLabel, linearLabel, exponentialLabel, linearOrExponential, exponentialCurveHanlderDiv);
+
+      this.manageConcaveConvexSwitch(concaveConvexLabel, concaveLabel, convexLabel, concaveOrConvex);
+
+      this.manageDecreaseSlope(decreaseSlope, slopeAmount);
+
+      this.manageIncreaseSlope(increaseSlope, slopeAmount);
+
+      this.manageSlopeInput(slopeAmount);
+
+      this.manageMinimumAmount(minimumDisplay, minimumSlider);
+
+      this.manageMaximumAmount(maximumDisplay, maximumSlider);
+
+      this.manageIntervalAmount(intervalDisplay, intervalSlider);
+
+      function dragElement(element, obj) {
+
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (randomNumberGeneratorTop) {
+          randomNumberGeneratorTop.onmousedown = dragMouseDown;
+        } else {
+          element.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          element.style.top = (element.offsetTop - pos2) + "px";
+          element.style.left = (element.offsetLeft - pos1) + "px";
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+
+        function closeDragElement() {
+          document.onmouseup = null;
+          document.onmousemove = null;
+          obj.positionX = (element.offsetLeft - pos1);
+          obj.positionY = (element.offsetTop - pos2);
+        }
+      }
+
+      dragElement(div, this);
+      //
+      // div.addEventListener('mouseover', () => {
+      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      // });
+      //
+      // div.addEventListener('mouseout', () => {
+      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+      // });
+
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
+
+      minimumModInput.addEventListener('click', () => {
+        alert(minimumModInput.id);
+      });
+
+      maximumModInput.addEventListener('click', () => {
+        alert(maximumModInput.id);
+      });
+
+      intervalModInput.addEventListener('click', () => {
+        alert(intervalModInput.id);
+      });
+
+      // inputPort.addEventListener('click', () => {
+      //   alert(inputPort.id);
+      // });
+      //
+      // thresholdModulatorInput.addEventListener('click', () => {
+      //   alert(thresholdModulatorInput.id);
+      // });
+      //
+      // kneeModulatorInput.addEventListener('click', () => {
+      //   alert(kneeModulatorInput.id);
+      // });
+      //
+      // ratioModulatorInput.addEventListener('click', () => {
+      //   alert(ratioModulatorInput.id);
+      // });
+      //
+      // attackModulatorInput.addEventListener('click', () => {
+      //   alert(attackModulatorInput.id);
+      // });
+      //
+      // releaseModulatorInput.addEventListener('click', () => {
+      //   alert(releaseModulatorInput.id);
+      // })
+
+      return(div);
+    }
   }
 
   return(randomNumberGenerator);
