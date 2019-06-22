@@ -242,6 +242,15 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 162) {
+                  rackPositionY -= 162;
+                  masterDiv = randomNumberGenerator.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
               vm.eventsArray.push({
                 on: randomNumberGenerator.eventOn,
                 off: randomNumberGenerator.eventOff

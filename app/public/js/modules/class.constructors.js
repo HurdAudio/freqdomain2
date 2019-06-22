@@ -4521,6 +4521,28 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
 
     // functionality
 
+    this.manageStepContinuousSwitchHorizontal = (stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv) => {
+      stepContinuousLabel.addEventListener('click', () => {
+        if (stepOrContinuous.checked) {
+          this.continuous = true;
+          stepLabel.setAttribute("style", "float: left; margin: 32px 2px 0 16px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          continuousLabel.setAttribute("style", "float: left; margin: 32px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: visible;");
+          if (this.exponential) {
+            exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+          } else {
+            exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+          }
+        } else {
+          this.continuous = false;
+          stepLabel.setAttribute("style", "float: left; margin: 32px 2px 0 16px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+          continuousLabel.setAttribute("style", "float: left; margin: 32px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+          continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: hidden;");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
     this.manageStepContinuousSwitch = (stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv) => {
       stepContinuousLabel.addEventListener('click', () => {
         if (stepOrContinuous.checked) {
@@ -4543,6 +4565,22 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
       });
     }
 
+    this.manageLinearExponentialSwitchHorizontal = (linearExponentialLabel, linearLabel, exponentialLabel, linearOrExponential, exponentialCurveHanlderDiv) => {
+      linearExponentialLabel.addEventListener('click', () => {
+        if (linearOrExponential.checked) {
+          this.exponential = true;
+          linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-140px);");
+          exponentialLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(160px) translateY(-40px);");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+        } else {
+          this.exponential = false;
+          linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-140px);");
+          exponentialLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(160px) translateY(-40px);");
+          exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
     this.manageLinearExponentialSwitch = (linearExponentialLabel, linearLabel, exponentialLabel, linearOrExponential, exponentialCurveHanlderDiv) => {
       linearExponentialLabel.addEventListener('click', () => {
         if (linearOrExponential.checked) {
@@ -4555,6 +4593,20 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
           linearLabel.setAttribute("style", "float: left; margin: 22px 2px 0 26px; font-family: 'Righteous', cursive; font-size: 36px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
           exponentialLabel.setAttribute("style", "float: left; margin: 18px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 36px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
           exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+        }
+      });
+    }
+
+    this.manageConcaveConvexSwitchHorizontal = (concaveConvexLabel, concaveLabel, convexLabel, concaveOrConvex) => {
+      concaveConvexLabel.addEventListener('click', () => {
+        if (concaveOrConvex.checked) {
+          this.convex = true;
+          concaveLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-78px) translateY(-3px);");
+          convexLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-56px) translateY(-3px)");
+        } else {
+          this.convex = false;
+          concaveLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-78px) translateY(-3px);");
+          convexLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-56px) translateY(-3px);");
         }
       });
     }
@@ -5280,9 +5332,588 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
         alert(intervalModInput.id);
       });
 
-      // inputPort.addEventListener('click', () => {
-      //   alert(inputPort.id);
-      // });
+      return(div);
+    }
+
+    this.renderRackHorizontal = (x, y) => {
+      let div = document.createElement('div');
+      let nameAndOutputDiv = document.createElement('div');
+      div.appendChild(nameAndOutputDiv);
+      let nameTag = document.createElement('h1');
+      nameAndOutputDiv.appendChild(nameTag);
+      let outputLabel = document.createElement('p');
+      nameAndOutputDiv.appendChild(outputLabel);
+      outputLabel.innerHTML = 'output';
+      let outputPort = document.createElement('h1');
+      nameAndOutputDiv.appendChild(outputPort);
+      outputPort.innerHTML = '◦';
+      outputPort.id = 'output ' + this.name + this.id;
+      let outputDiv = document.createElement('div');
+      div.appendChild(outputDiv);
+      let outputDisplayLabel = document.createElement('p');
+      outputDiv.appendChild(outputDisplayLabel);
+      outputDisplayLabel.innerHTML = 'output value';
+      let outputDisplay = document.createElement('div');
+      outputDiv.appendChild(outputDisplay);
+      this.displayValue = outputDisplay;
+      let stepOrContinuousDiv = document.createElement('div');
+      outputDiv.appendChild(stepOrContinuousDiv);
+      let stepLabel = document.createElement('p');
+      stepOrContinuousDiv.appendChild(stepLabel);
+      stepLabel.innerHTML = 'step';
+      let stepContinuousLabel = document.createElement('label');
+      stepOrContinuousDiv.appendChild(stepContinuousLabel);
+      let stepOrContinuous = document.createElement('input');
+      stepContinuousLabel.appendChild(stepOrContinuous);
+      stepOrContinuous.type = 'checkbox';
+      stepOrContinuous.checked = this.continuous;
+      let continuousRoundSlider = document.createElement('span');
+      stepContinuousLabel.appendChild(continuousRoundSlider);
+      continuousRoundSlider.className = 'slider round';
+      let continuousLabel = document.createElement('p');
+      stepOrContinuousDiv.appendChild(continuousLabel);
+      continuousLabel.innerHTML = 'continuous';
+      let continuousHandlerDiv = document.createElement('div');
+      outputDiv.appendChild(continuousHandlerDiv);
+      let linearOrExponentialDiv = document.createElement('div');
+      continuousHandlerDiv.appendChild(linearOrExponentialDiv);
+      let linearLabel = document.createElement('p');
+      linearOrExponentialDiv.appendChild(linearLabel);
+      linearLabel.innerHTML = 'linear';
+      let linearExponentialLabel = document.createElement('label');
+      linearOrExponentialDiv.appendChild(linearExponentialLabel);
+      let linearOrExponential = document.createElement('input');
+      linearExponentialLabel.appendChild(linearOrExponential);
+      linearOrExponential.type = 'checkbox';
+      linearOrExponential.checked = this.exponential;
+      let exponentialRoundSlider = document.createElement('span');
+      linearExponentialLabel.appendChild(exponentialRoundSlider);
+      exponentialRoundSlider.className = 'slider round';
+      let exponentialLabel = document.createElement('p');
+      linearOrExponentialDiv.appendChild(exponentialLabel);
+      exponentialLabel.innerHTML = 'exponential';
+      let exponentialCurveHanlderDiv = document.createElement('div');
+      continuousHandlerDiv.appendChild(exponentialCurveHanlderDiv);
+      let concaveOrConvexDiv = document.createElement('div');
+      exponentialCurveHanlderDiv.appendChild(concaveOrConvexDiv);
+      let concaveLabel = document.createElement('p');
+      concaveOrConvexDiv.appendChild(concaveLabel);
+      concaveLabel.innerHTML = 'concave';
+      let concaveConvexLabel = document.createElement('label');
+      concaveOrConvexDiv.appendChild(concaveConvexLabel);
+      let concaveOrConvex = document.createElement('input');
+      concaveConvexLabel.appendChild(concaveOrConvex);
+      concaveOrConvex.type = 'checkbox';
+      concaveOrConvex.checked = this.convex;
+      let concaveSwitch = document.createElement('span');
+      concaveConvexLabel.appendChild(concaveSwitch);
+      concaveSwitch.className = "slider round";
+      let convexLabel = document.createElement('p');
+      concaveOrConvexDiv.appendChild(convexLabel);
+      convexLabel.innerHTML = 'convex';
+      let slopeDiv = document.createElement('div');
+      exponentialCurveHanlderDiv.appendChild(slopeDiv);
+      let slopeLabel = document.createElement('p');
+      slopeDiv.appendChild(slopeLabel);
+      slopeLabel.innerHTML = 'slope:';
+      let decreaseSlope = document.createElement('button');
+      slopeDiv.appendChild(decreaseSlope);
+      decreaseSlope.innerHTML = '-';
+      let slopeAmount = document.createElement('input');
+      slopeDiv.appendChild(slopeAmount);
+      slopeAmount.type = 'number';
+      slopeAmount.min = '1';
+      slopeAmount.max = '1024';
+      slopeAmount.value = this.slope;
+      let increaseSlope = document.createElement('button');
+      slopeDiv.appendChild(increaseSlope);
+      increaseSlope.innerHTML = '+';
+      let minimumDiv = document.createElement('div');
+      div.appendChild(minimumDiv);
+      let minimumLabel = document.createElement('p');
+      minimumDiv.appendChild(minimumLabel);
+      minimumLabel.innerHTML = 'minimum';
+      let minimumDisplay = document.createElement('input');
+      minimumDiv.appendChild(minimumDisplay);
+      minimumDisplay.type = 'number';
+      minimumDisplay.step = '0.001';
+      minimumDisplay.min = '-1024.000';
+      minimumDisplay.max = '1024.000';
+      minimumDisplay.value = this.minimum;
+      let minimumSlider = document.createElement('input');
+      minimumDiv.appendChild(minimumSlider);
+      minimumSlider.type = 'range';
+      minimumSlider.min = '-1024.000';
+      minimumSlider.max = '1024.000';
+      minimumSlider.step = '0.001';
+      minimumSlider.value = this.minimum;
+      let minimumModLabel = document.createElement('p');
+      minimumDiv.appendChild(minimumModLabel);
+      minimumModLabel.innerHTML = 'modulation:';
+      let minimumModInput = document.createElement('h1');
+      minimumDiv.appendChild(minimumModInput);
+      minimumModInput.innerHTML = '◦';
+      minimumModInput.id = 'minimum modulation input: ' + this.name + this.id;
+      let maximumDiv = document.createElement('div');
+      div.appendChild(maximumDiv);
+      let maximumLabel = document.createElement('p');
+      maximumDiv.appendChild(maximumLabel);
+      maximumLabel.innerHTML = 'maximum';
+      let maximumDisplay = document.createElement('input');
+      maximumDiv.appendChild(maximumDisplay);
+      maximumDisplay.type = 'number';
+      maximumDisplay.step = '0.001';
+      maximumDisplay.min = '-1024.000';
+      maximumDisplay.max = '1024.000';
+      maximumDisplay.value = this.maximum;
+      let maximumSlider = document.createElement('input');
+      maximumDiv.appendChild(maximumSlider);
+      maximumSlider.type = 'range';
+      maximumSlider.step = '0.001';
+      maximumSlider.min = '-1024.000';
+      maximumSlider.max = '1024.000';
+      maximumSlider.value = this.maximum;
+      let maximumModLabel = document.createElement('p');
+      maximumDiv.appendChild(maximumModLabel);
+      maximumModLabel.innerHTML = 'modulation:';
+      let maximumModInput = document.createElement('h1');
+      maximumDiv.appendChild(maximumModInput);
+      maximumModInput.innerHTML = '◦';
+      maximumModInput.id = 'maximum modulation input: ' + this.name + this.id;
+      let intervalDiv = document.createElement('div');
+      div.appendChild(intervalDiv);
+      let intervalLabel = document.createElement('p');
+      intervalDiv.appendChild(intervalLabel);
+      intervalLabel.innerHTML = 'interval(ms)';
+      let intervalDisplay = document.createElement('input');
+      intervalDiv.appendChild(intervalDisplay);
+      intervalDisplay.type = 'number';
+      intervalDisplay.step = '1';
+      intervalDisplay.min = '0';
+      intervalDisplay.max = '60000';
+      intervalDisplay.value = this.interval;
+      let intervalSlider = document.createElement('input');
+      intervalDiv.appendChild(intervalSlider);
+      intervalSlider.type = 'range';
+      intervalSlider.step = '1';
+      intervalSlider.min = '0';
+      intervalSlider.max = '60000';
+      intervalSlider.value = this.interval;
+      let intervalModLabel = document.createElement('p');
+      intervalDiv.appendChild(intervalModLabel);
+      intervalModLabel.innerHTML = 'modulation:';
+      let intervalModInput = document.createElement('h1');
+      intervalDiv.appendChild(intervalModInput);
+      intervalModInput.innerHTML = '◦';
+      intervalModInput.id = 'interval modulation input: ' + this.name + this.id;
+
+      // let thresholdDiv = document.createElement('div');
+      // div.appendChild(thresholdDiv);
+      // let thresholdLabel = document.createElement('p');
+      // thresholdDiv.appendChild(thresholdLabel);
+      // thresholdLabel.innerHTML = 'threshold(dB)';
+      // let thresholdDisplay = document.createElement('input');
+      // thresholdDiv.appendChild(thresholdDisplay);
+      // thresholdDisplay.type = 'number';
+      // thresholdDisplay.step = '0.01';
+      // thresholdDisplay.min = '-100.00';
+      // thresholdDisplay.max = '0.00';
+      // thresholdDisplay.value = this.threshold;
+      // let thresholdSlider = document.createElement('input');
+      // thresholdDiv.appendChild(thresholdSlider);
+      // thresholdSlider.type = 'range';
+      // thresholdSlider.step = '0.01';
+      // thresholdSlider.min = '-100.00';
+      // thresholdSlider.max = '0.00';
+      // thresholdSlider.value = this.threshold;
+      // let thresholdModulatorLabel = document.createElement('p');
+      // thresholdDiv.appendChild(thresholdModulatorLabel);
+      // thresholdModulatorLabel.innerHTML = 'modulation';
+      // let thresholdModulatorInput = document.createElement('h1');
+      // thresholdDiv.appendChild(thresholdModulatorInput);
+      // thresholdModulatorInput.innerHTML = '◦';
+      // thresholdModulatorInput.id = 'threshhold modulator input - ' + this.name + this.id;
+      // let kneeDiv = document.createElement('div');
+      // div.appendChild(kneeDiv);
+      // let kneeLabel = document.createElement('p');
+      // kneeDiv.appendChild(kneeLabel);
+      // kneeLabel.innerHTML = 'knee(dB)';
+      // let kneeDisplay = document.createElement('input');
+      // kneeDiv.appendChild(kneeDisplay);
+      // kneeDisplay.type = 'number';
+      // kneeDisplay.step = '0.01';
+      // kneeDisplay.max = '40.00';
+      // kneeDisplay.min = '0.00';
+      // kneeDisplay.value = this.knee;
+      // let kneeSlider = document.createElement('input');
+      // kneeDiv.appendChild(kneeSlider);
+      // kneeSlider.type = 'range';
+      // kneeSlider.step = '0.01';
+      // kneeSlider.max = '40.00';
+      // kneeSlider.min = '0.00';
+      // kneeSlider.value = this.knee;
+      // let kneeModulatorLabel = document.createElement('p');
+      // kneeDiv.appendChild(kneeModulatorLabel);
+      // kneeModulatorLabel.innerHTML = 'modulation';
+      // let kneeModulatorInput = document.createElement('h1');
+      // kneeDiv.appendChild(kneeModulatorInput);
+      // kneeModulatorInput.innerHTML = '◦';
+      // kneeModulatorInput.id = 'knee modulator input - ' + this.name + this.id;
+      // let ratioDiv = document.createElement('div');
+      // div.appendChild(ratioDiv);
+      // let ratioLabel = document.createElement('p');
+      // ratioDiv.appendChild(ratioLabel);
+      // ratioLabel.innerHTML = 'ratio';
+      // let ratioDisplay = document.createElement('input');
+      // ratioDiv.appendChild(ratioDisplay);
+      // ratioDisplay.type = 'number';
+      // ratioDisplay.step = '0.01';
+      // ratioDisplay.max = '20.00';
+      // ratioDisplay.min = '1.00';
+      // ratioDisplay.value = this.ratio;
+      // let ratioSlider = document.createElement('input');
+      // ratioDiv.appendChild(ratioSlider);
+      // ratioSlider.type = 'range';
+      // ratioSlider.step = '0.01';
+      // ratioSlider.max = '20.00';
+      // ratioSlider.min = '1.00';
+      // ratioSlider.value = this.ratio;
+      // let ratioModulatorLabel = document.createElement('p');
+      // ratioDiv.appendChild(ratioModulatorLabel);
+      // ratioModulatorLabel.innerHTML = 'modulation';
+      // let ratioModulatorInput = document.createElement('h1');
+      // ratioDiv.appendChild(ratioModulatorInput);
+      // ratioModulatorInput.innerHTML = '◦';
+      // ratioModulatorInput.id = 'ratio modulator input - ' + this.name + this.id;
+      // let attackDiv = document.createElement('div');
+      // div.appendChild(attackDiv);
+      // let attackLabel = document.createElement('p');
+      // attackDiv.appendChild(attackLabel);
+      // attackLabel.innerHTML = 'attack(sec)';
+      // let attackDisplay = document.createElement('input');
+      // attackDiv.appendChild(attackDisplay);
+      // attackDisplay.type = 'number';
+      // attackDisplay.step = '0.001';
+      // attackDisplay.max = '1.000';
+      // attackDisplay.min = '0.000';
+      // attackDisplay.value = this.attack;
+      // let attackSlider = document.createElement('input');
+      // attackDiv.appendChild(attackSlider);
+      // attackSlider.type = 'range';
+      // attackSlider.step = '0.001';
+      // attackSlider.max = '1.000';
+      // attackSlider.min = '0.000';
+      // attackSlider.value = this.attack;
+      // let attackModulatorLabel = document.createElement('p');
+      // attackDiv.appendChild(attackModulatorLabel);
+      // attackModulatorLabel.innerHTML = 'modulation';
+      // let attackModulatorInput = document.createElement('h1');
+      // attackDiv.appendChild(attackModulatorInput);
+      // attackModulatorInput.innerHTML = '◦';
+      // attackModulatorInput.id = 'attack modulator input - ' + this.name + this.id;
+      // let releaseDiv = document.createElement('div');
+      // div.appendChild(releaseDiv);
+      // let releaseLabel = document.createElement('p');
+      // releaseDiv.appendChild(releaseLabel);
+      // releaseLabel.innerHTML = 'release(sec)';
+      // let releaseDisplay = document.createElement('input');
+      // releaseDiv.appendChild(releaseDisplay);
+      // releaseDisplay.type = 'number';
+      // releaseDisplay.step = '0.001';
+      // releaseDisplay.max = '1.000';
+      // releaseDisplay.min = '0.000';
+      // releaseDisplay.value = this.release;
+      // let releaseSlider = document.createElement('input');
+      // releaseDiv.appendChild(releaseSlider);
+      // releaseSlider.type = 'range';
+      // releaseSlider.step = '0.001';
+      // releaseSlider.max = '1.000';
+      // releaseSlider.min = '0.000';
+      // releaseSlider.value = this.release;
+      // let releaseModulatorLabel = document.createElement('p');
+      // releaseDiv.appendChild(releaseModulatorLabel);
+      // releaseModulatorLabel.innerHTML = 'modulation';
+      // let releaseModulatorInput = document.createElement('h1');
+      // releaseDiv.appendChild(releaseModulatorInput);
+      // releaseModulatorInput.innerHTML = '◦';
+      // releaseModulatorInput.id = 'release modulator input - ' + this.name + this.id;
+      //
+      div.setAttribute("style", "width: " + this.horizontalWidth + "px; height: " + this.horizontalHeight + "px; background: #ffffff; position: absolute; left: " + x + "px; top: " + y + "px; background: url(" + this.facePath + "); background-size: " + this.faceSize + "; background-repeat: repeat; box-shadow: 1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + ";");
+      nameAndOutputDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; background-repeat: repeat; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      nameTag.innerHTML = this.name;
+      nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 5px; margin-top: 0; color: " + this.topFontColor + "; font-weight: 600; text-shadow: -1px -1px 1px " + this.topFontShadowColor + ", -2px -2px 1px " + this.topFontShadowColor + ";");
+      outputLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 40px; margin-top: 85px; color: " + this.signalFontColor + "; text-shadow: -1px -1px 1px " + this.signalFontShadowColor + ", -2px -2px 1px " + this.signalFontShadowColor + ";");
+      outputPort.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; margin-left: 50px; margin-top: -15px; width: 40px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 10px;");
+      outputDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/3) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px; background: transparent; z-index: 96;");
+      outputDisplayLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 30px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      outputDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 60px; background: url(" + this.displayPath + "); background-size: " + this.outputDisplaySize + "; box-shadow: -1px -1px 1px" + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; height: 96px; width: 90%; margin: 6px 5px 2px 15px;");
+      stepOrContinuousDiv.setAttribute("style", "margin: -16px 0 2px 8px;");
+      if (this.continuous) {
+        stepLabel.setAttribute("style", "float: left; margin: 32px 2px 0 16px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        continuousLabel.setAttribute("style", "float: left; margin: 32px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: visible;");
+      } else {
+        stepLabel.setAttribute("style", "float: left; margin: 32px 2px 0 16px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0;");
+        continuousLabel.setAttribute("style", "float: left; margin: 32px 32px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3;");
+        continuousHandlerDiv.setAttribute("style", "margin: 2px 0 2px 4px; visibility: hidden;");
+      }
+      stepContinuousLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; margin: 21px 20px 4px 20px;");
+      stepOrContinuous.setAttribute("style", "display: none;");
+      if (this.exponential) {
+        linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-140px);");
+        exponentialLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(160px) translateY(-40px);");
+        exponentialCurveHanlderDiv.setAttribute("style", "visibility: visible;");
+      } else {
+        linearLabel.setAttribute("style", "float: left; margin: 16px 2px 0 2px; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-140px);");
+        exponentialLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(160px) translateY(-40px);");
+        exponentialCurveHanlderDiv.setAttribute("style", "visibility: hidden;");
+      }
+      linearExponentialLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; transform: translateX(-130px) translateY(6px);");
+      linearOrExponential.setAttribute("style", "display: none;");
+      concaveOrConvexDiv.setAttribute("style", "margin: 2px 0 2px 4px;");
+      if (this.convex) {
+        concaveLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-78px) translateY(-3px);");
+        convexLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-56px) translateY(-3px)");
+      } else {
+        concaveLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-78px) translateY(-3px);");
+        convexLabel.setAttribute("style", "float: left; font-family: 'Righteous', cursive; font-size: 18px; color: transparent; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 0.3; transform: translateX(-56px) translateY(-3px);");
+      }
+      concaveConvexLabel.setAttribute("style", "position: relative; float: left; display: inline-block; width: 60px; height: 34px; z-index: 6; transform: translateX(-70px) translateY(6px);");
+      concaveOrConvex.setAttribute("style", "display: none;");
+      slopeDiv.setAttribute("style", "margin: 2px 0 2px 4px;");
+      slopeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; color: #2F4F4F; text-shadow: -1px -1px 1px #999900, -2px -2px 1px #999900; opacity: 1.0; left: -230px; top: 30px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; opacity: 1.0; transform: translateX(-34px) translateY(30px); z-index: 1; pointer-events: none;");
+      decreaseSlope.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; cursor: pointer; border: solid 1px " + this.faceFontShadowColor + "; border-radius: 10%; padding: 1vmin; background-color: #eeeeee; background-color: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -o-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; color: " + this.faceFontColor + "; height: 40px; width: 40px; position: relative; transform: translateX(125px) translateY(-150px); transform: translateX(55px) translateY(-105px);");
+      slopeAmount.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 18px; background: url(" + this.slopeDisplayPath + "); background-size: " + this.slopeDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + ", -4px -4px 1px " + this.faceFontShadowColor + "; height: 35px; position: relative; transform: translateX(65px) translateY(-110px); padding: 0 0 0 5px;");
+      increaseSlope.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; cursor: pointer; border: solid 1px " + this.faceFontShadowColor + "; border-radius: 10%; padding: 1vmin; background-color: #eeeeee; background-color: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -webkit-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: -o-linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); background: linear-gradient(45deg, " + this.sliderShaderColor1 + ", " + this.sliderShaderColor2 + "); box-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + "; color: " + this.faceFontColor + "; height: 40px; width: 40px; position: relative; transform: translateX(125px) translateY(-150px); transform: translateX(55px) translateY(-105px);");
+      minimumDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px; background: transparent;");
+      minimumLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      minimumDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.minimumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      minimumSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-105px) translateY(25px); width: 210px; height: 20px; background: url(" + this.minimumSliderPath + "); background-size: " + this.minimumSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.minimumSliderBoxShadowColor + ", 2px -2px 1px " + this.minimumSliderBoxShadowColor + ", 3px -3px 1px " + this.minimumSliderBoxShadowColor + ", 4px -4px 1px " + this.minimumSliderBoxShadowColor + ";");
+      switch(this.skinName) {
+        case('Random Number Generator: January A'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          break;
+        case('Random Number Generator: January B'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryASliderHorizontal';
+          break;
+        case('Random Number Generator: January C'):
+          minimumSlider.className = 'randomNumberGeneratorJanuaryCSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorJanuaryCSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorJanuaryCSliderHorizontal';
+          break;
+        case('Random Number Generator: February A'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryASliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryASliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryASliderHorizontal';
+          break;
+        case('Random Number Generator: February B'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryBSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryBSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryBSliderHorizontal';
+          break;
+        case('Random Number Generator: February C'):
+          minimumSlider.className = 'randomNumberGeneratorFebruaryCSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorFebruaryCSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorFebruaryCSliderHorizontal';
+          break;
+        case('Random Number Generator: March A'):
+          minimumSlider.className = 'randomNumberGeneratorMarchASliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorMarchASliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorMarchASliderHorizontal';
+          break;
+        case('Random Number Generator: March B'):
+          minimumSlider.className = 'randomNumberGeneratorMarchBSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorMarchBSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorMarchBSliderHorizontal';
+          break;
+        case('Random Number Generator: March C'):
+          minimumSlider.className = 'randomNumberGeneratorMarchCSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorMarchCSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorMarchCSliderHorizontal';
+          break;
+        case('Random Number Generator: April A'):
+          minimumSlider.className = 'randomNumberGeneratorAprilASliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorAprilASliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorAprilASliderHorizontal';
+          break;
+        case('Random Number Generator: April B'):
+          minimumSlider.className = 'randomNumberGeneratorAprilBSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorAprilBSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorAprilBSliderHorizontal';
+          break;
+        case('Random Number Generator: April C'):
+          minimumSlider.className = 'randomNumberGeneratorAprilCSliderHorizontal';
+          maximumSlider.className = 'randomNumberGeneratorAprilCSliderHorizontal';
+          intervalSlider.className = 'randomNumberGeneratorAprilCSliderHorizontal';
+          break;
+        default:
+          console.log('unsupported random number generator skin');
+      }
+      minimumModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 18px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(5px) translateY(75px);");
+      minimumModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 0 9px; transform: translateX(30px) translateY(50px);");
+      maximumDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px; background: transparent;");
+      maximumLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      maximumDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.minimumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      maximumSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-105px) translateY(25px); width: 210px; height: 20px; background: url(" + this.minimumSliderPath + "); background-size: " + this.minimumSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.minimumSliderBoxShadowColor + ", 2px -2px 1px " + this.minimumSliderBoxShadowColor + ", 3px -3px 1px " + this.minimumSliderBoxShadowColor + ", 4px -4px 1px " + this.minimumSliderBoxShadowColor + ";");
+      maximumModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 18px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(5px) translateY(75px);");
+      maximumModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 0 9px; transform: translateX(30px) translateY(50px);");
+      intervalDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px; background: transparent;");
+      intervalLabel.setAttribute("style", "color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 24px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; margin: 2px 0 2px 10px;");
+      intervalDisplay.setAttribute("style", "position: relative; margin: 8px; font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.minimumDisplayPath + "); background-size: " + this.minimumDisplaySize + "; background-color: #BFBFBF; box-shadow: -1px -1px 1px " + this.faceBoxShadowColor + ", -2px -2px 1px " + this.faceBoxShadowColor + ", -3px -3px 1px " + this.faceBoxShadowColor + ", -4px -4px 1px " + this.faceBoxShadowColor + "; padding-left: 1vmin; width: 85%;");
+      intervalSlider.setAttribute("style", "position: relative; -webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg) translateX(-105px) translateY(25px); width: 210px; height: 20px; background: url(" + this.minimumSliderPath + "); background-size: " + this.minimumSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.minimumSliderBoxShadowColor + ", 2px -2px 1px " + this.minimumSliderBoxShadowColor + ", 3px -3px 1px " + this.minimumSliderBoxShadowColor + ", 4px -4px 1px " + this.minimumSliderBoxShadowColor + ";");
+      intervalModLabel.setAttribute("style", "position: relative; color: " + this.faceFontColor + "; font-family: 'Righteous', cursive; font-size: 18px; text-shadow: -1px -1px 1px " + this.faceFontShadowColor + ", -2px -2px 1px " + this.faceFontShadowColor + ", -3px -3px 1px " + this.faceFontShadowColor + "; transform: translateX(5px) translateY(75px);");
+      intervalModInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 48px; width: 35px; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding: 0 9px; transform: translateX(30px) translateY(50px);");
+
+      // thresholdDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      // thresholdLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // thresholdDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.thresholdDisplaySize + "; box-shadow: -1px -1px 1px " + this.thresholdDisplayBoxShadowColor + ", -2px -2px 1px " + this.thresholdDisplayBoxShadowColor + ", -3px -3px 1px " + this.thresholdDisplayBoxShadowColor + ", -4px -4px 1px " + this.thresholdDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      // thresholdSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      // switch(this.skinName) {
+      //   case('Dynamic Compressor: January A'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderJanuaryA';
+      //     kneeSlider.className = 'dynamicCompressorSliderJanuaryA';
+      //     ratioSlider.className = 'dynamicCompressorSliderJanuaryA';
+      //     attackSlider.className = 'dynamicCompressorSliderJanuaryA';
+      //     releaseSlider.className = 'dynamicCompressorSliderJanuaryA';
+      //     break;
+      //   case('Dynamic Compressor: January B'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderJanuaryB';
+      //     kneeSlider.className = 'dynamicCompressorSliderJanuaryB';
+      //     ratioSlider.className = 'dynamicCompressorSliderJanuaryB';
+      //     attackSlider.className = 'dynamicCompressorSliderJanuaryB';
+      //     releaseSlider.className = 'dynamicCompressorSliderJanuaryB';
+      //     break;
+      //   case('Dynamic Compressor: January C'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderJanuaryC';
+      //     kneeSlider.className = 'dynamicCompressorSliderJanuaryC';
+      //     ratioSlider.className = 'dynamicCompressorSliderJanuaryC';
+      //     attackSlider.className = 'dynamicCompressorSliderJanuaryC';
+      //     releaseSlider.className = 'dynamicCompressorSliderJanuaryC';
+      //     break;
+      //   case('Dynamic Compressor: February A'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderFebruaryA';
+      //     kneeSlider.className = 'dynamicCompressorSliderFebruaryA';
+      //     ratioSlider.className = 'dynamicCompressorSliderFebruaryA';
+      //     attackSlider.className = 'dynamicCompressorSliderFebruaryA';
+      //     releaseSlider.className = 'dynamicCompressorSliderFebruaryA';
+      //     break;
+      //   case('Dynamic Compressor: February B'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderFebruaryB';
+      //     kneeSlider.className = 'dynamicCompressorSliderFebruaryB';
+      //     ratioSlider.className = 'dynamicCompressorSliderFebruaryB';
+      //     attackSlider.className = 'dynamicCompressorSliderFebruaryB';
+      //     releaseSlider.className = 'dynamicCompressorSliderFebruaryB';
+      //     break;
+      //   case('Dynamic Compressor: February C'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderFebruaryC';
+      //     kneeSlider.className = 'dynamicCompressorSliderFebruaryC';
+      //     ratioSlider.className = 'dynamicCompressorSliderFebruaryC';
+      //     attackSlider.className = 'dynamicCompressorSliderFebruaryC';
+      //     releaseSlider.className = 'dynamicCompressorSliderFebruaryC';
+      //     break;
+      //   case('Dynamic Compressor: March A'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderMarchA';
+      //     kneeSlider.className = 'dynamicCompressorSliderMarchA';
+      //     ratioSlider.className = 'dynamicCompressorSliderMarchA';
+      //     attackSlider.className = 'dynamicCompressorSliderMarchA';
+      //     releaseSlider.className = 'dynamicCompressorSliderMarchA';
+      //     break;
+      //   case('Dynamic Compressor: March B'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderMarchB';
+      //     kneeSlider.className = 'dynamicCompressorSliderMarchB';
+      //     ratioSlider.className = 'dynamicCompressorSliderMarchB';
+      //     attackSlider.className = 'dynamicCompressorSliderMarchB';
+      //     releaseSlider.className = 'dynamicCompressorSliderMarchB';
+      //     break;
+      //   case('Dynamic Compressor: March C'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderMarchC';
+      //     kneeSlider.className = 'dynamicCompressorSliderMarchC';
+      //     ratioSlider.className = 'dynamicCompressorSliderMarchC';
+      //     attackSlider.className = 'dynamicCompressorSliderMarchC';
+      //     releaseSlider.className = 'dynamicCompressorSliderMarchC';
+      //     break;
+      //   case('Dynamic Compressor: April A'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderAprilA';
+      //     kneeSlider.className = 'dynamicCompressorSliderAprilA';
+      //     ratioSlider.className = 'dynamicCompressorSliderAprilA';
+      //     attackSlider.className = 'dynamicCompressorSliderAprilA';
+      //     releaseSlider.className = 'dynamicCompressorSliderAprilA';
+      //     break;
+      //   case('Dynamic Compressor: April B'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderAprilB';
+      //     kneeSlider.className = 'dynamicCompressorSliderAprilB';
+      //     ratioSlider.className = 'dynamicCompressorSliderAprilB';
+      //     attackSlider.className = 'dynamicCompressorSliderAprilB';
+      //     releaseSlider.className = 'dynamicCompressorSliderAprilB';
+      //     break;
+      //   case('Dynamic Compressor: April C'):
+      //     thresholdSlider.className = 'dynamicCompressorSliderAprilC';
+      //     kneeSlider.className = 'dynamicCompressorSliderAprilC';
+      //     ratioSlider.className = 'dynamicCompressorSliderAprilC';
+      //     attackSlider.className = 'dynamicCompressorSliderAprilC';
+      //     releaseSlider.className = 'dynamicCompressorSliderAprilC';
+      //     break;
+      //   default:
+      //     console.log('unsupported dynamic compressor skin');
+      // }
+      // thresholdModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // thresholdModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      // kneeDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      // kneeLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // kneeDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      // kneeSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      // kneeModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // kneeModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      // ratioDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      // ratioLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // ratioDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      // ratioSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      // ratioModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // ratioModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      // attackDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      // attackLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // attackDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      // attackSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      // attackModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // attackModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+      // releaseDiv.setAttribute("style", "float: left; width: " + (this.horizontalWidth/6) + "px; margin: 0; padding-top: 5px; height: " + (this.horizontalHeight - 5) + "px;");
+      // releaseLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 5px 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // releaseDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; background: url(" + this.displayPath + "); background-size: " + this.ratioDisplaySize + "; box-shadow: -1px -1px 1px " + this.ratioDisplayBoxShadowColor + ", -2px -2px 1px " + this.ratioDisplayBoxShadowColor + ", -3px -3px 1px " + this.ratioDisplayBoxShadowColor + ", -4px -4px 1px " + this.ratioDisplayBoxShadowColor + "; position: relative; margin: 5px 0 0 10px;");
+      // releaseSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg); transform: rotateZ(-90deg); background: url(" + this.thresholdSliderPath + "); background-size: " + this.thresholdSliderSize + "; outline: none; opacity: 1.0; box-shadow: 1px -1px 1px " + this.thresholdSliderBoxShadowColor + ", 2px -2px 1px " + this.thresholdSliderBoxShadowColor + ", 3px -3px 1px " + this.thresholdSliderBoxShadowColor + ", 4px -4px 1px " + this.thresholdSliderBoxShadowColor + "; height: 32px; width: 220px; margin: 105px 0 0 10px;");
+      // releaseModulatorLabel.setAttribute("style", "position: relative; font-family: 'Righteous', cursive; font-size: 18px; margin: 0 0 3px 5px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ";");
+      // releaseModulatorInput.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 42px; margin: 5px 0 0 30px; width: 35px; height: 45px; color: " + this.signalFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; padding-left: 5px;");
+
+      this.manageStepContinuousSwitchHorizontal(stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv);
+
+      this.manageLinearExponentialSwitchHorizontal(linearExponentialLabel, linearLabel, exponentialLabel, linearOrExponential, exponentialCurveHanlderDiv);
+
+      this.manageConcaveConvexSwitchHorizontal(concaveConvexLabel, concaveLabel, convexLabel, concaveOrConvex);
+
+      this.manageDecreaseSlope(decreaseSlope, slopeAmount);
+
+      this.manageIncreaseSlope(increaseSlope, slopeAmount);
+
+      this.manageSlopeInput(slopeAmount);
+
+      this.manageMinimumAmount(minimumDisplay, minimumSlider);
+
+      this.manageMaximumAmount(maximumDisplay, maximumSlider);
+
+      this.manageIntervalAmount(intervalDisplay, intervalSlider);
+      //
+      // this.manageThrehold(thresholdDisplay, thresholdSlider);
+      //
+      // this.manageKnee(kneeDisplay, kneeSlider);
+      //
+      // this.manageRatio(ratioDisplay, ratioSlider);
+      //
+      // this.manageAttack(attackDisplay, attackSlider);
+      //
+      // this.manageRelease(releaseDisplay, releaseSlider);
       //
       // thresholdModulatorInput.addEventListener('click', () => {
       //   alert(thresholdModulatorInput.id);
@@ -5302,7 +5933,23 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
       //
       // releaseModulatorInput.addEventListener('click', () => {
       //   alert(releaseModulatorInput.id);
-      // })
+      // });
+      //
+      outputPort.addEventListener('click', () => {
+        alert(outputPort.id);
+      });
+
+      minimumModInput.addEventListener('click', () => {
+        alert(minimumModInput.id);
+      });
+
+      maximumModInput.addEventListener('click', () => {
+        alert(maximumModInput.id);
+      });
+
+      intervalModInput.addEventListener('click', () => {
+        alert(intervalModInput.id);
+      });
 
       return(div);
     }
