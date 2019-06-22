@@ -30,6 +30,8 @@
       vm.$onInit = onInit;
       vm.renderNow = renderNow;
       vm.clearNow = clearNow;
+      vm.keyOn = false;
+      vm.eventsArray = [];
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -51,6 +53,7 @@
           while(renderSvg.firstChild) {
             renderSvg.removeChild(renderSvg.firstChild);
           }
+          vm.eventsArray = [];
         }
       }
 
@@ -239,6 +242,10 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
+              vm.eventsArray.push({
+                on: randomNumberGenerator.eventOn,
+                off: randomNumberGenerator.eventOff
+              });
             }
           });
         });
@@ -291,6 +298,32 @@
         });
       }
 
+      function monitorKeyStatus() {
+        document.body.addEventListener('keyup', (e) => {
+          if (e.keyCode === 32) {
+            if (vm.keyOn) {
+              vm.keyOn = false;
+              document.getElementById('keyOffStatus').setAttribute("style", "display: initial;");
+              document.getElementById('keyOnStatus').setAttribute("style", "display: none;");
+              if (vm.eventsArray.length > 0) {
+                for (let i = 0; i < vm.eventsArray.length; i++) {
+                  vm.eventsArray[i].off();
+                }
+              }
+            } else {
+              vm.keyOn = true;
+              document.getElementById('keyOffStatus').setAttribute("style", "display: none;");
+              document.getElementById('keyOnStatus').setAttribute("style", "display: initial;");
+              if (vm.eventsArray.length > 0) {
+                for (let j = 0; j < vm.eventsArray.length; j++) {
+                  vm.eventsArray[j].on();
+                }
+              }
+            }
+          }
+        });
+      }
+
 
 
       function onInit() {
@@ -313,6 +346,8 @@
         defaultRackPositionY = rackPositionY;
         dafaultVerticalRackPositionX = verticalRackPositionX;
         defaultVerticalRackPositionY = verticalRackPositionY;
+
+        monitorKeyStatus();
 
         document.getElementById('moduleSelector').addEventListener('change', () => {
           initializeDropdowns();

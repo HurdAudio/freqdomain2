@@ -98,3 +98,26 @@ input {
   filter: hue-rotate(180deg);
   transition: filter 1000ms linear;
 }
+
+#keyOffStatus {
+  display: initial;
+}
+
+#keyOffStatus p {
+  margin: 0 20px;
+  color: #ED4E0E;
+  opacity: 0.7;
+}
+
+#keyOnStatus {
+  display: none;
+}
+#keyOnStatus p {
+  margin: 0 20px;
+  filter: hue-rotate(180deg);
+  opacity: 1;
+}
+
+#spacebarIndicator {
+  margin: 0 120px 0 0;
+}

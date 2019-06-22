@@ -4516,6 +4516,9 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
     this.verticalWidth = 320;
     this.verticalHeight = 750;
 
+    this.inMotion = false;
+    this.displayValue = null;
+
     // functionality
 
     this.manageStepContinuousSwitch = (stepContinuousLabel, stepLabel, continuousLabel, stepOrContinuous, continuousHandlerDiv, exponentialCurveHanlderDiv) => {
@@ -4633,6 +4636,253 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
       });
     }
 
+    // Random Number Generation
+
+    this.eventOn = () => {
+      this.inMotion = true;
+
+      function generateValue(min, max) {
+        let span = (max - min);
+        let randy = ((Math.random() * span) + min).toFixed(3);
+
+        return(randy);
+      }
+
+      function stepRandomsOverInterval(obj) {
+        obj.displayValue.innerHTML = generateValue(parseFloat(obj.minimum), parseFloat(obj.maximum));
+        setTimeout(() => {
+          if(obj.inMotion) {
+            stepRandomsOverInterval(obj);
+          }
+        }, parseInt(obj.interval));
+      }
+
+      function stepSize(start, end, duration) {
+        let step = 0;
+        let span = (parseFloat(end) - parseFloat(start));
+        step = span/(parseInt(duration));
+
+        return(step);
+      }
+
+      function linearStreamBetweenTwoValues(obj, start, end, duration, step) {
+        console.log(step);
+        let value = parseFloat(start);
+        if (duration === 0) {
+          value = parseFloat(end);
+          obj.displayValue.innerHTML = value.toFixed(3);
+          if (obj.inMotion) {
+            linearRandomOverInterval(obj, end);
+          }
+        } else {
+          obj.displayValue.innerHTML = value.toFixed(3);
+          setTimeout(() => {
+            if (obj.inMotion) {
+              linearStreamBetweenTwoValues(obj, (parseFloat(start) + parseFloat(step)), end, (parseInt(duration) - 1), step);
+            }
+          }, 1);
+        }
+      }
+
+      function linearRandomOverInterval(obj, start) {
+        let startPoint = start;
+        let endPoint = generateValue(parseFloat(obj.minimum), parseInt(obj.maximum));
+        if (startPoint === null) {
+          startPoint = generateValue(parseFloat(obj.minimum), parseInt(obj.maximum));
+        }
+        if (obj.inMotion) {
+          console.log(stepSize(startPoint, endPoint, parseInt(obj.interval)));
+          linearStreamBetweenTwoValues(obj, startPoint, endPoint, parseInt(obj.interval), stepSize(startPoint, endPoint, parseInt(obj.interval)));
+        }
+      }
+
+      function calculateConvexSlopeArray(obj, start, end) {
+        const startPoint = parseFloat(start);
+        const endPoint = parseFloat(end);
+        let subStart = startPoint;
+        let duration = parseInt(obj.interval);
+        let arr = [];
+        let slope = parseInt(obj.slope);
+        if (slope > duration) {
+          while(slope > duration) {
+            slope = Math.floor(slope/2);
+          }
+        }
+        const slopeStep = Math.floor(duration/slope);
+        let span = (endPoint - startPoint);
+        let subEnd = (span/2) + startPoint;
+
+        for (let i = 0; i < slope; i++) {
+          if (i === 0) {
+            arr[i] = {
+              start: startPoint,
+              end: subEnd,
+              stepSize: stepSize(startPoint, subEnd, slopeStep),
+              duration: slopeStep
+            };
+            span = (endPoint - subEnd);
+            subStart = subEnd;
+            subEnd = (span/2) + subStart;
+          } else if (i === (slope - 1)) {
+            arr[i] = {
+              start: subStart,
+              end: endPoint,
+              stepSize: stepSize(subStart, endPoint, slopeStep),
+              duration: slopeStep
+            };
+          } else {
+            arr[i] = {
+              start: subStart,
+              end: subEnd,
+              stepSize: stepSize(subStart, subEnd, slopeStep),
+              duration: slopeStep
+            };
+            span = (endPoint - subEnd);
+            subStart = subEnd;
+            subEnd = (span/2) + subStart;
+          }
+        }
+
+        return(arr);
+      }
+
+      function calculateConcaveSlopeArray(obj, start, end) {
+        const startPoint = parseFloat(start);
+        const endPoint= parseFloat(end);
+        let subEnd = endPoint;
+        let duration = parseInt(obj.interval);
+        let arr = [];
+        let slope = parseInt(obj.slope);
+        if (slope > duration) {
+          while(slope > duration) {
+            slope = Math.floor(slope/2);
+          }
+        }
+        const slopeStep = Math.floor(duration/slope);
+        let span = (endPoint - startPoint);
+        let subStart = (span/2) + startPoint;
+
+        for (let i = (slope - 1); i > -1; i--) {
+          if (i === (slope - 1)) {
+            arr[i] = {
+              start: subStart,
+              end: subEnd,
+              stepSize: stepSize(subStart, subEnd, slopeStep),
+              duration: slopeStep
+            };
+            span = (subStart - startPoint);
+            subEnd = subStart;
+            subStart = (span/2) + startPoint;
+          } else if (i === 0) {
+            arr[i] = {
+              start: startPoint,
+              end: subEnd,
+              stepSize: stepSize(startPoint, subEnd, slopeStep),
+              duration: slopeStep
+            };
+          } else {
+            arr[i] = {
+              start: subStart,
+              end: subEnd,
+              stepSize: stepSize(subStart, subEnd, slopeStep),
+              duration: slopeStep
+            };
+            span = (subStart - startPoint);
+            subEnd = subStart;
+            subStart = (span/2) + startPoint;
+          }
+        }
+
+        console.log(arr);
+
+        return(arr);
+      }
+
+      function cycleExponentialSet(obj, arr, type, start) {
+        if (arr.length === 0) {
+          obj.displayValue.innerHTML = parseFloat(start).toFixed(3);
+          if (obj.inMotion) {
+            if (type === 'concave') {
+              exponentialConcaveOverInterval(obj, start);
+            } else {
+              exponentialConvexOverInterval(obj, start);
+            }
+          }
+          return;
+        }
+        if (arr[0].duration === 0) {
+          obj.displayValue.innerHTML = arr[0].end.toFixed(3);
+          cycleExponentialSet(obj, arr.slice(1), type, start);
+        } else {
+          obj.displayValue.innerHTML = parseFloat(start).toFixed(3);
+          arr[0].start += arr[0].stepSize;
+          --arr[0].duration;
+          setTimeout(() => {
+            if (obj.inMotion) {
+              cycleExponentialSet(obj, arr, type, arr[0].start);
+            }
+          }, 1);
+        }
+      }
+
+      function exponentialConvexOverInterval(obj, start) {
+        let startPoint = start;
+        let endPoint = generateValue(parseFloat(obj.minimum), parseFloat(obj.maximum));
+        if (start === null) {
+          startPoint = generateValue(parseFloat(obj.minimum), parseFloat(obj.maximum));
+        }
+        let convexSlope = calculateConvexSlopeArray(obj, startPoint, endPoint);
+        cycleExponentialSet(obj, convexSlope, 'convex', startPoint);
+      }
+
+
+      function exponentialConcaveOverInterval(obj, start) {
+        let startPoint = start;
+        let endPoint = generateValue(parseFloat(obj.minimum), parseFloat(obj.maximum));
+        if (start === null) {
+          startPoint = generateValue(parseFloat(obj.minimum), parseFloat(obj.maximum));
+        }
+        let concaveSlope = calculateConcaveSlopeArray(obj, startPoint, endPoint);
+        cycleExponentialSet(obj, concaveSlope, 'concave', startPoint);
+      }
+
+      if (this.continuous) {
+        if (this.exponential) {
+          if (this.convex) {
+            if (parseInt(this.interval) === 0) {
+              this.displayValue.innerHTML = generateValue(parseFloat(this.minimum), parseFloat(this.maximum));
+            } else {
+              exponentialConvexOverInterval(this, null);
+            }
+          } else {
+            if (parseInt(this.interval) === 0) {
+              this.displayValue.innerHTML = generateValue(parseFloat(this.minimum), parseFloat(this.maximum));
+            } else {
+              exponentialConcaveOverInterval(this, null);
+            }
+          }
+        } else {
+          if (parseInt(this.interval) === 0) {
+            this.displayValue.innerHTML = generateValue(parseFloat(this.minimum), parseFloat(this.maximum));
+          } else {
+            linearRandomOverInterval(this, null);
+          }
+        }
+
+      } else {
+        if (parseInt(this.interval) === 0) {
+          this.displayValue.innerHTML = generateValue(parseFloat(this.minimum), parseFloat(this.maximum));
+        } else {
+          stepRandomsOverInterval(this);
+        }
+      }
+    }
+
+    this.eventOff = () => {
+      this.inMotion = false;
+      this.displayValue.innerHTML = '';
+    }
+
     // Rendering Functions
 
     this.renderDraggable = () => {
@@ -4660,6 +4910,7 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
       outputDisplayLabel.innerHTML = 'output value';
       let outputDisplay = document.createElement('div');
       outputDiv.appendChild(outputDisplay);
+      this.displayValue = outputDisplay;
       let stepOrContinuousDiv = document.createElement('div');
       outputDiv.appendChild(stepOrContinuousDiv);
       let stepLabel = document.createElement('p');
@@ -5004,14 +5255,14 @@ var RandomNumberGenerator = (function(settings, skin, audioContext) {
       }
 
       dragElement(div, this);
-      //
-      // div.addEventListener('mouseover', () => {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
-      // });
-      //
-      // div.addEventListener('mouseout', () => {
-      //   div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
-      // });
+
+      div.addEventListener('mouseover', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+      });
+
+      div.addEventListener('mouseout', () => {
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+      });
 
       outputPort.addEventListener('click', () => {
         alert(outputPort.id);
