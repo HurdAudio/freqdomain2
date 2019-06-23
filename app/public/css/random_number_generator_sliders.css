@@ -72,6 +72,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorJanuaryASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -o-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: linear-gradient(-135deg, #7FFF00, #ffffff);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorJanuaryASliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  background-color: #eeeeee;
+  border: solid 2px black;
+  background-color: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorJanuaryASliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -124,6 +152,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #7FFF00, #C0C0C0);
   background: linear-gradient(-135deg, #7FFF00, #C0C0C0);
   cursor: pointer;
+}
+
+.randomNumberGeneratorJanuaryBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: -o-linear-gradient(-135deg, #7FFF00, #ffffff);
+    background: linear-gradient(-135deg, #7FFF00, #ffffff);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorJanuaryBSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  background: linear-gradient(-135deg, #7FFF00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorJanuaryBSliderHorizontal::-webkit-slider-thumb {
@@ -180,6 +236,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorJanuaryCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffff4c, #000000);
+    background: -webkit-linear-gradient(-135deg, #ffff4c, #000000);
+    background: -o-linear-gradient(-135deg, #ffff4c, #000000);
+    background: linear-gradient(-135deg, #ffff4c, #000000);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorJanuaryCSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  background: linear-gradient(-135deg, #ffff4c, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorJanuaryCSliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -232,6 +316,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #00004c, #C0C0C0);
   background: linear-gradient(-135deg, #00004c, #C0C0C0);
   cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #00004c, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #00004c, #ffffff);
+    background: -o-linear-gradient(-135deg, #00004c, #ffffff);
+    background: linear-gradient(-135deg, #00004c, #ffffff);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorFebruaryASliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #00004c, #C0C0C0);
+  background: linear-gradient(-135deg, #00004c, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorFebruaryASliderHorizontal::-webkit-slider-thumb {
@@ -288,6 +400,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorFebruaryBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: -o-linear-gradient(-135deg, #FF7F50, #ffffff);
+    background: linear-gradient(-135deg, #FF7F50, #ffffff);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorFebruaryBSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  background: linear-gradient(-135deg, #FF7F50, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorFebruaryBSliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -340,6 +480,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #000033, #C0C0C0);
   background: linear-gradient(-135deg, #000033, #C0C0C0);
   cursor: pointer;
+}
+
+.randomNumberGeneratorFebruaryCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #000033, #ffffff);
+    background: -webkit-linear-gradient(-135deg, #000033, #ffffff);
+    background: -o-linear-gradient(-135deg, #000033, #ffffff);
+    background: linear-gradient(-135deg, #000033, #ffffff);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorFebruaryCSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #000033, #C0C0C0);
+  background: linear-gradient(-135deg, #000033, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorFebruaryCSliderHorizontal::-webkit-slider-thumb {
@@ -396,6 +564,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorMarchASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: -webkit-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: -o-linear-gradient(-135deg, #ffff00, #b2b200);
+    background: linear-gradient(-135deg, #ffff00, #b2b200);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorMarchASliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffff00, #C0C0C0);
+  background: linear-gradient(-135deg, #ffff00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorMarchASliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -448,6 +644,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
   background: linear-gradient(-135deg, #ffd1d1, #C0C0C0);
   cursor: pointer;
+}
+
+.randomNumberGeneratorMarchBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: -webkit-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: -o-linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    background: linear-gradient(-135deg, #ffd1d1, #7f0c0c);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorMarchBSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  background: linear-gradient(-135deg, #ffd1d1, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorMarchBSliderHorizontal::-webkit-slider-thumb {
@@ -504,6 +728,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorMarchCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: -webkit-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: -o-linear-gradient(-135deg, #cccc00, #ffff4c);
+    background: linear-gradient(-135deg, #cccc00, #ffff4c);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorMarchCSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: -webkit-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: -o-linear-gradient(-135deg, #cccc00, #C0C0C0);
+  background: linear-gradient(-135deg, #cccc00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorMarchCSliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -556,6 +808,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #7f1919, #ff8484);
   background: linear-gradient(-135deg, #7f1919, #ff8484);
   cursor: pointer;
+}
+
+.randomNumberGeneratorAprilASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: -webkit-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: -o-linear-gradient(-135deg, #7f1919, #ffff4c);
+    background: linear-gradient(-135deg, #7f1919, #ffff4c);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorAprilASliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: -o-linear-gradient(-135deg, #7f1919, #ff8484);
+  background: linear-gradient(-135deg, #7f1919, #ff8484);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorAprilASliderHorizontal::-webkit-slider-thumb {
@@ -612,6 +892,34 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.randomNumberGeneratorAprilBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: -webkit-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: -o-linear-gradient(-135deg, #2e2e0b, #f0f075);
+    background: linear-gradient(-135deg, #2e2e0b, #f0f075);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorAprilBSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: -o-linear-gradient(-135deg, #2e2e0b, #ff8484);
+  background: linear-gradient(-135deg, #2e2e0b, #ff8484);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .randomNumberGeneratorAprilBSliderHorizontal::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -664,6 +972,34 @@ input:checked + .slider:before {
   background: -o-linear-gradient(-135deg, #61481a, #ff8484);
   background: linear-gradient(-135deg, #61481a, #ff8484);
   cursor: pointer;
+}
+
+.randomNumberGeneratorAprilCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: -webkit-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: -o-linear-gradient(-135deg, #61481a, #fae1b3);
+    background: linear-gradient(-135deg, #61481a, #fae1b3);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.randomNumberGeneratorAprilCSliderVertical::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(-135deg, #61481a, #ff8484);
+  background: -webkit-linear-gradient(-135deg, #61481a, #ff8484);
+  background: -o-linear-gradient(-135deg, #61481a, #ff8484);
+  background: linear-gradient(-135deg, #61481a, #ff8484);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .randomNumberGeneratorAprilCSliderHorizontal::-webkit-slider-thumb {
