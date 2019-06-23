@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     interval: req.body.interval,
     interval_modulator: req.body.interval_modulator,
     maximum: req.body.maximum,
@@ -68,6 +70,8 @@ router.patch('/:id', (req, res, next) => {
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     interval: req.body.interval,
     interval_modulator: req.body.interval_modulator,
     maximum: req.body.maximum,
@@ -114,6 +118,8 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            positionX: record.positionX,
+            positionY: record.positionY,
             interval: record.interval,
             interval_modulator: record.interval_modulator,
             maximum: record.maximum,

@@ -30,6 +30,8 @@
       vm.$onInit = onInit;
       vm.renderNow = renderNow;
       vm.clearNow = clearNow;
+      vm.keyOn = false;
+      vm.eventsArray = [];
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -51,6 +53,7 @@
           while(renderSvg.firstChild) {
             renderSvg.removeChild(renderSvg.firstChild);
           }
+          vm.eventsArray = [];
         }
       }
 
@@ -94,6 +97,10 @@
           case('DynamicCompressor'):
             moduleSelectPath = 'dynamic_compressors';
             skinSelectorPath = 'dynamic_compressor_skins';
+            break;
+          case('RandomNumberGenerator'):
+            moduleSelectPath = 'random_number_generators';
+            skinSelectorPath = 'random_number_generator_skins';
             break;
           default:
             console.log('unsupported module');
@@ -228,6 +235,38 @@
                 }
               }
             }
+            if (moduleSelector.value === 'RandomNumberGenerator') {
+              let randomNumberGenerator = new RandomNumberGenerator(settings, skin, audioContext);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = randomNumberGenerator.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 162) {
+                  rackPositionY -= 162;
+                  masterDiv = randomNumberGenerator.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
+              if (renderSizeSelector.value === 'rackVertical') {
+                verticalRackPositionX -= 162;
+                if (verticalRackPositionX > 324) {
+                  masterDiv = randomNumberGenerator.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                } else {
+                  verticalRackPositionX += 162;
+                }
+              }
+              vm.eventsArray.push({
+                on: randomNumberGenerator.eventOn,
+                off: randomNumberGenerator.eventOff
+              });
+            }
           });
         });
       }
@@ -257,12 +296,18 @@
           case('DynamicCompressor'):
             skinsTable = 'dynamic_compressor_skins';
             break;
+          case('RandomNumberGenerator'):
+            skinsTable = 'random_number_generator_skins';
+            break;
           default:
             console.log('unsupported module');
         }
         $http.get(`/${skinsTable}`)
         .then(skinsListData => {
           let skinsList = skinsListData.data;
+          skinsList = skinsList.sort((a, b) => {
+            return(parseInt(a.id) - parseInt(b.id));
+          });
           for (let i = 0; i < skinsList.length; i++) {
             optionSelector = document.createElement('option');
             skinSelector.appendChild(optionSelector);
@@ -270,6 +315,32 @@
             optionSelector.innerHTML = skinsList[i].name;
           }
           skinSelector.value = skinsList[0].id;
+        });
+      }
+
+      function monitorKeyStatus() {
+        document.body.addEventListener('keyup', (e) => {
+          if (e.keyCode === 32) {
+            if (vm.keyOn) {
+              vm.keyOn = false;
+              document.getElementById('keyOffStatus').setAttribute("style", "display: initial;");
+              document.getElementById('keyOnStatus').setAttribute("style", "display: none;");
+              if (vm.eventsArray.length > 0) {
+                for (let i = 0; i < vm.eventsArray.length; i++) {
+                  vm.eventsArray[i].off();
+                }
+              }
+            } else {
+              vm.keyOn = true;
+              document.getElementById('keyOffStatus').setAttribute("style", "display: none;");
+              document.getElementById('keyOnStatus').setAttribute("style", "display: initial;");
+              if (vm.eventsArray.length > 0) {
+                for (let j = 0; j < vm.eventsArray.length; j++) {
+                  vm.eventsArray[j].on();
+                }
+              }
+            }
+          }
         });
       }
 
@@ -295,6 +366,8 @@
         defaultRackPositionY = rackPositionY;
         dafaultVerticalRackPositionX = verticalRackPositionX;
         defaultVerticalRackPositionY = verticalRackPositionY;
+
+        monitorKeyStatus();
 
         document.getElementById('moduleSelector').addEventListener('change', () => {
           initializeDropdowns();

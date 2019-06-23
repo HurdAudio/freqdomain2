@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments().primary();
     table.integer('user_id').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
     table.string('name').notNullable().defaultTo('random number generator');
+    table.integer('positionX').notNullable().defaultTo(400);
+    table.integer('positionY').notNullable().defaultTo(500);
     table.integer('interval').notNullable().defaultTo(1);
     table.json('interval_modulator').defaultTo(null);
     table.float('maximum', 4, 3).notNullable().defaultTo(0.000);
