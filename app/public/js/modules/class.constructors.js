@@ -77,6 +77,43 @@ function initializeVisualConnector(throughput, element, device) {
 
 }
 
+function disconnectPatchConnection(device, connector, deviceType) {
+  switch(deviceType) {
+    case('master_volumes'):
+      switch(device.input.module) {
+        case('gains'):
+          // disconnect gain output from master volume input
+
+          // remove visual connection
+          for (let i = 0; i < patchCables.length; i++) {
+            if ((patchCables[i].input.module === 'master_volumes') && (patchCables[i].input.id === device.id)) {
+              patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+              patchCables.splice(i, 1);
+            }
+          }
+
+          // disconnect
+          device.input.connection.gain.disconnect(device.masterGain);
+
+          // update Objects
+          device.input.connection.output = null;
+          device.input = null;
+
+          break;
+        default:
+          console.log('upsupported device');
+          alert('unsupported device');
+      }
+      break;
+    case('gains'):
+      break;
+    default:
+      console.log('unsupported device type');
+      alert('Unsupported Device Type');
+  }
+
+}
+
 function clickThroughput(throughput, element, device) {
   let inputRect;
   let outputRect;
@@ -104,13 +141,15 @@ function clickThroughput(throughput, element, device) {
                 module: 'gains',
                 name: connect.output.device.name,
                 id: connect.output.device.id,
-                type: 'signal'
+                type: 'signal',
+                connection: connect.output.device
               };
               connect.output.device.output = {
                 module: 'master_volumes',
                 name: device.name,
                 id: device.id,
-                type: 'signal'
+                type: 'signal',
+                connection: device
               };
 
               // make connections
@@ -160,13 +199,15 @@ function clickThroughput(throughput, element, device) {
                   module: 'gains',
                   name: connect.output.device.name,
                   id: connect.output.device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: connect.output.device
                 };
                 connect.output.device.output = {
                   module: 'gains',
                   name: device.name,
                   id: device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: device
                 };
 
                 // make connections
@@ -207,13 +248,15 @@ function clickThroughput(throughput, element, device) {
                   module: 'gains',
                   name: connect.output.device.name,
                   id: connect.output.device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: connect.output.device
                 };
                 connect.output.device.output = {
                   module: 'gains',
                   name: device.name,
                   id: device.id,
-                  type: 'modulation'
+                  type: 'modulation',
+                  connection: device
                 };
 
                 // make connections
@@ -278,13 +321,15 @@ function clickThroughput(throughput, element, device) {
                 module: 'gains',
                 name: device.name,
                 id: device.id,
-                type: 'signal'
+                type: 'signal',
+                connection: device
               };
               device.output = {
                 module: 'master_volumes',
                 name: connect.input.device.name,
                 id: connect.input.device.id,
-                type: 'signal'
+                type: 'signal',
+                connection: connect.input.device
               };
 
               // make connections
@@ -295,7 +340,7 @@ function clickThroughput(throughput, element, device) {
               outputRect = element.getBoundingClientRect();
               activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
 
-              //TODO maintain visual placement
+              // maintain visual placement
               patchCables.push({
                 line: activeLine,
                 input: {
@@ -327,13 +372,15 @@ function clickThroughput(throughput, element, device) {
                   module: 'gains',
                   name: device.name,
                   id: device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: device
                 };
                 device.output = {
                   module: 'gains',
                   name: connect.input.device.name,
                   id: connect.input.device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: connect.input.device
                 };
 
                 // make connections
@@ -374,13 +421,15 @@ function clickThroughput(throughput, element, device) {
                   module: 'gains',
                   name: device.name,
                   id: device.id,
-                  type: 'signal'
+                  type: 'signal',
+                  connection: device
                 };
                 device.output = {
                   module: 'gains',
                   name: connect.input.device.name,
                   id: connect.input.device.id,
-                  type: 'modulation'
+                  type: 'modulation',
+                  connection: connect.input.device
                 };
 
                 // make connections
@@ -410,7 +459,7 @@ function clickThroughput(throughput, element, device) {
                 activePatching = false;
                 connect.input = null;
                 activeLine = null;
-                
+
               }
               break;
             default:
@@ -839,7 +888,12 @@ var MasterVolume = (function(settings, skin, audioContext) {
       });
 
       inputPort.addEventListener('click', () => {
-        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'master_volumes');
+        }
+
       });
 
       return(div);
@@ -924,7 +978,11 @@ var MasterVolume = (function(settings, skin, audioContext) {
       this.userMuteRack(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
 
       inputPort.addEventListener('click', () => {
-        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'master_volumes');
+        }
       });
 
       return(div);
@@ -1005,7 +1063,11 @@ var MasterVolume = (function(settings, skin, audioContext) {
       this.userMuteRackVertical(masterMute, displaySpan, masterGainDisplay, speakerIcon, nameAndInputDiv);
 
       inputPort.addEventListener('click', () => {
-        clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'master_volume' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'master_volumes');
+        }
       });
 
       return(div);
