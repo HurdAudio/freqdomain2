@@ -108,6 +108,7 @@
         $http.get(`/${moduleSelectPath}/1`)
         .then(moduleData => {
           let settings = moduleData.data;
+          settings.id = Math.floor(Math.random() * 1000000) + 1;
           $http.get(`/${skinSelectorPath}/${skinSelector.value}`)
           .then(skinData => {
             let skin = skinData.data;

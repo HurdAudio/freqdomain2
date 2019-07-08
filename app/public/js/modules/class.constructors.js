@@ -7,6 +7,7 @@ var cursorX = 0;
 var cursorY = 0;
 var activeLine = null;
 var connectorOffset = 10;
+var patchCables = [];
 
 document.onmousemove = trackCursorLocation;
 
@@ -24,7 +25,7 @@ function trackCursorLocation(event) {
     console.log(connect);
     if (connect.input !== null) {
       rect = connect.input.element.getBoundingClientRect();
-      activeLine.setAttribute("d", 'M ' + Math.floor(rect.left + (rect.width/2) - connectorOffset) + ' ' + Math.floor(rect.top + (rect.height/2) - connectorOffset) + ' L ' + cursorX +    ' ' + cursorY + ' A');
+      activeLine.setAttribute("d", 'M ' + Math.floor(rect.left + (rect.width/2) - connectorOffset) + ' ' + Math.floor(rect.top + (rect.height/2) - connectorOffset) + ' L ' + cursorX + ' ' + cursorY + ' A');
       // activeLine.setAttribute("z-index", 120);
       // activeLine.setAttribute("y2", cursorY);
     } else {
@@ -43,8 +44,6 @@ function monitorConnector() {
         activePatching = false;
         document.onclick = null;
       }
-    } else {
-
     }
   }, 100);
 }
@@ -79,9 +78,351 @@ function initializeVisualConnector(throughput, element, device) {
 }
 
 function clickThroughput(throughput, element, device) {
+  let inputRect;
+  let outputRect;
 
   if (activePatching) {
-    // TODO patch connectors
+    if (throughput.through === 'input') {
+      if ((connect.input !== null) || (connect.output === null)) {
+        return;
+      }
+      if (throughput.through.device === connect.output.throughput.device) {
+        if (device.id === connect.output.device.id) {
+          return;
+        }
+      }
+      switch(throughput.device) {
+        case('master_volume'):
+          switch(connect.output.throughput.device) {
+            case('gain'):
+              // connect master volume input to gain output
+              // device = master volume input
+              // connect.output.device = gain output
+
+              // Update objects
+              device.input = {
+                module: 'gains',
+                name: connect.output.device.name,
+                id: connect.output.device.id,
+                type: 'signal'
+              };
+              connect.output.device.output = {
+                module: 'master_volumes',
+                name: device.name,
+                id: device.id,
+                type: 'signal'
+              };
+
+              // make connections
+              connect.output.device.gain.connect(device.masterGain);
+
+              // connect visual
+              inputRect = element.getBoundingClientRect();
+              outputRect = connect.output.element.getBoundingClientRect();
+              activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+              // maintain visual placement
+              patchCables.push({
+                line: activeLine,
+                input: {
+                  module: 'master_volumes',
+                  name: device.name,
+                  id: device.id,
+                  element: element
+                },
+                output: {
+                  module: 'gains',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  element: connect.output.element
+                }
+              });
+              activePatching = false;
+              connect.output = null;
+              activeLine = null;
+
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device: \n master_volume input to ??');
+          }
+          break;
+        case('gain'):
+          switch(connect.output.throughput.device) {
+            case('gain'):
+              if (throughput.type === 'signal') {
+                // connect gain output to gain input
+                // device = gain input
+                // connect.output.device = gain output
+
+                // Update objects
+                device.input = {
+                  module: 'gains',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal'
+                };
+                connect.output.device.output = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'signal'
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.gain);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'gains',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+
+              } else {
+                // connect gain output to gain modulation input
+                // device = gain modulation input
+                // connect.output.device = gain output
+
+                // Update objects
+                device.gainModulator = {
+                  module: 'gains',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal'
+                };
+                connect.output.device.output = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'modulation'
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.gain.gain);
+                console.log(connect.output.device);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'gains',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+
+              }
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device: \n gain input to ??');
+          }
+          break;
+        default:
+          console.log('unsupported device');
+          alert('unsupported device');
+      }
+    } else {
+      if ((connect.output !== null) || (connect.input === null)) {
+        return;
+      }
+      if (throughput.through.device === connect.input.throughput.device) {
+        if (device.id === connect.input.device.id) {
+          return;
+        }
+      }
+      switch(throughput.device) {
+        case('gain'):
+          switch(connect.input.throughput.device) {
+            case('master_volume'):
+              // connect gain output to master volume input
+              // connect.input.device = master volume input
+              // device = gain output
+
+              // Update objects
+              connect.input.device.input = {
+                module: 'gains',
+                name: device.name,
+                id: device.id,
+                type: 'signal'
+              };
+              device.output = {
+                module: 'master_volumes',
+                name: connect.input.device.name,
+                id: connect.input.device.id,
+                type: 'signal'
+              };
+
+              // make connections
+              device.gain.connect(connect.input.device.masterGain);
+
+              // connect visual
+              inputRect = connect.input.element.getBoundingClientRect();
+              outputRect = element.getBoundingClientRect();
+              activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+              //TODO maintain visual placement
+              patchCables.push({
+                line: activeLine,
+                input: {
+                  module: 'master_volumes',
+                  name: connect.input.device.name,
+                  id: connect.input.device.id,
+                  element: connect.input.element
+                },
+                output: {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  element: element
+                }
+              });
+              activePatching = false;
+              connect.input = null;
+              activeLine = null;
+
+              break;
+            case('gain'):
+              if (connect.input.throughput.type === 'signal') {
+                // connect gain input to gain output
+                // connect.input.device = gain input
+                // device = gain output
+
+                // Update objects
+                connect.input.device.input = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'signal'
+                };
+                device.output = {
+                  module: 'gains',
+                  name: connect.input.device.name,
+                  id: connect.input.device.id,
+                  type: 'signal'
+                };
+
+                // make connections
+                device.gain.connect(connect.input.device.gain);
+
+                // connect visual
+                inputRect = connect.input.element.getBoundingClientRect();
+                outputRect = element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: connect.input.device.name,
+                    id: connect.input.device.id,
+                    element: connect.input.element
+                  },
+                  output: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  }
+                });
+                activePatching = false;
+                connect.input = null;
+                activeLine = null;
+
+              } else {
+                // connect gain modulation input to gain output
+                // connect.input.device = gain modulation input
+                // device = gain output
+
+                // Update objects
+                connect.input.device.gainModulator = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'signal'
+                };
+                device.output = {
+                  module: 'gains',
+                  name: connect.input.device.name,
+                  id: connect.input.device.id,
+                  type: 'modulation'
+                };
+
+                // make connections
+                device.gain.connect(connect.input.device.gain.gain);
+
+                // connect visual
+                inputRect = connect.input.element.getBoundingClientRect();
+                outputRect = element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: connect.input.device.name,
+                    id: connect.input.device.id,
+                    element: connect.input.element
+                  },
+                  output: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  }
+                });
+                activePatching = false;
+                connect.input = null;
+                activeLine = null;
+                
+              }
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device: \n ?? to gain output');
+          }
+          break;
+        default:
+          console.log('unsupported device');
+          alert('unsupported device');
+      }
+    }
   } else {
     activePatching = true;
     if (throughput.through === 'input') {
@@ -103,6 +444,19 @@ function clickThroughput(throughput, element, device) {
 
   }
 
+}
+
+function updateConnectors(device) {
+  let inputRect;
+  let outputRect;
+
+  for (let i = 0; i < patchCables.length; i++) {
+    if (((device.name === patchCables[i].input.name) && (device.id === patchCables[i].input.id)) || ((device.name === patchCables[i].output.name) && (device.id === patchCables[i].output.id))) {
+      inputRect = patchCables[i].input.element.getBoundingClientRect();
+      outputRect = patchCables[i].output.element.getBoundingClientRect();
+      patchCables[i].line.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+    }
+  }
 }
 
 var MasterVolume = (function(settings, skin, audioContext) {
@@ -455,6 +809,7 @@ var MasterVolume = (function(settings, skin, audioContext) {
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
           trackCursorLocation();
+          updateConnectors(obj);
         }
 
         function closeDragElement() {
@@ -469,10 +824,18 @@ var MasterVolume = (function(settings, skin, audioContext) {
 
       div.addEventListener('mouseover', () => {
         div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+        updateConnectors(this);
+        setTimeout(() => {
+          updateConnectors(this);
+        }, 100);
       });
 
       div.addEventListener('mouseout', () => {
         div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+        updateConnectors(this);
+        setTimeout(() => {
+          updateConnectors(this);
+        }, 100);
       });
 
       inputPort.addEventListener('click', () => {
@@ -841,11 +1204,13 @@ var GainModule = (function(settings, skin, audioContext) {
           element.style.left = (element.offsetLeft - pos1) + "px";
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
+          trackCursorLocation();
+          updateConnectors(obj);
         }
 
         function closeDragElement() {
           document.onmouseup = null;
-          document.onmousemove = null;
+          document.onmousemove = trackCursorLocation;
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
         }
@@ -855,22 +1220,33 @@ var GainModule = (function(settings, skin, audioContext) {
 
       div.addEventListener('mouseover', () => {
         div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        updateConnectors(this);
+        setTimeout(() => {
+          updateConnectors(this);
+        }, 100);
       });
 
       div.addEventListener('mouseout', () => {
         div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+        updateConnectors(this);
+        setTimeout(() => {
+          updateConnectors(this);
+        }, 100);
       });
 
       inputPort.addEventListener('click', () => {
-        alert('Gain Input Port -- id: ' + this.id);
+        // alert('Gain Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
       });
 
       outputPort.addEventListener('click', () => {
-        alert('Gain Output Port -- id: ' + this.id);
+        // alert('Gain Output Port -- id: ' + this.id);
+        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
       });
 
       modulationInputPort.addEventListener('click', () => {
-        alert('Gain Modulation Input --- id: ' + this.id);
+        // alert('Gain Modulation Input --- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
       });
 
       return(div);
@@ -953,15 +1329,18 @@ var GainModule = (function(settings, skin, audioContext) {
       this.userVolumeInput(gainDisplay, amountRange);
 
       inputPort.addEventListener('click', () => {
-        alert('Gain Input Port -- id: ' + this.id);
+        // alert('Gain Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
       });
 
       outputPort.addEventListener('click', () => {
-        alert('Gain Output Port -- id: ' + this.id);
+        // alert('Gain Output Port -- id: ' + this.id);
+        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
       });
 
       modulationInputPort.addEventListener('click', () => {
-        alert('Gain Modulation Input Port -- id: ' + this.id);
+        // alert('Gain Modulation Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
       });
 
       return(div);
@@ -1039,15 +1418,18 @@ var GainModule = (function(settings, skin, audioContext) {
       this.userVolumeInput(gainDisplay, amountRange);
 
       inputPort.addEventListener('click', () => {
-        alert('Gain Input Port -- id: ' + this.id);
+        // alert('Gain Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
       });
 
       outputPort.addEventListener('click', () => {
-        alert('Gain Output Port -- id: ' + this.id);
+        // alert('Gain Output Port -- id: ' + this.id);
+        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
       });
 
       modulationInputPort.addEventListener('click', () => {
-        alert('Gain Modulation Input Port -- id: ' + this.id);
+        // alert('Gain Modulation Input Port -- id: ' + this.id);
+        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
       });
 
       return(div);
