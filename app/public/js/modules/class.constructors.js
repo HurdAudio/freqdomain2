@@ -106,6 +106,121 @@ function disconnectPatchConnection(device, connector, deviceType) {
       }
       break;
     case('gains'):
+      switch(connector) {
+        case('input'):
+          switch(device.input.module) {
+            case('gains'):
+              // disconnect gain input from gain input
+              // remove visual connection
+              for (let i = 0; i < patchCables.length; i++) {
+                if ((patchCables[i].input.module === 'gains') && (patchCables[i].input.id === device.id)) {
+                  patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+                  patchCables.splice(i, 1);
+                }
+              }
+
+              // disconnect
+              device.input.connection.gain.disconnect(device.gain);
+
+              // update Objects
+              device.input.connection.output = null;
+              device.input = null;
+
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device');
+          }
+          break;
+        case('gainModulator'):
+          switch(device.gainModulator.module) {
+            case('gains'):
+              // disconnect gain modulator input from gain output
+              // remove visual connection
+              for (let i = 0; i < patchCables.length; i++) {
+                if ((patchCables[i].input.module === 'gains') && (patchCables[i].input.id === device.id)) {
+                  patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+                  patchCables.splice(i, 1);
+                }
+              }
+              // disconnect
+              device.gainModulator.connection.gain.disconnect(device.gain.gain);
+
+              // update Objects
+              device.gainModulator.connection.output = null;
+              device.gainModulator = null;
+
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device');
+          }
+          break;
+        case('output'):
+          switch(device.output.module) {
+            case('master_volumes'):
+              // disconnect master volume input from gain output
+              // remove visual connection
+              for (let i = 0; i < patchCables.length; i++) {
+                if ((patchCables[i].output.module === 'gains') && (patchCables[i].output.id === device.id)) {
+                  patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+                  patchCables.splice(i, 1);
+                }
+              }
+              // disconnect
+              device.gain.disconnect(device.output.connection.masterGain);
+
+              // update Objects
+              device.output.connection.input = null;
+              device.output = null;
+
+              break;
+            case('gains'):
+              if (device.output.type === 'signal') {
+                // disconnect gain input from gain output
+                // remove visual connection
+                for (let i = 0; i < patchCables.length; i++) {
+                  if ((patchCables[i].output.module === 'gains') && (patchCables[i].output.id === device.id)) {
+                    patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+                    patchCables.splice(i, 1);
+                  }
+                }
+
+                // disconnect
+                device.gain.disconnect(device.output.connection.gain);
+
+                // update Objects
+                device.output.connection.input = null;
+                device.output = null;
+
+              } else {
+                // disconnect gain modulation input from gain output
+                // remove visual connection
+                for (let i = 0; i < patchCables.length; i++) {
+                  if ((patchCables[i].output.module === 'gains') && (patchCables[i].output.id === device.id)) {
+                    patchCables[i].line.parentNode.removeChild(patchCables[i].line);
+                    patchCables.splice(i, 1);
+                  }
+                }
+
+                // disconnect
+                device.gain.disconnect(device.output.connection.gain.gain);
+
+                // update Objects
+                device.output.connection.gainModulator = null;
+                device.output = null;
+
+              }
+              break;
+            default:
+              console.log('unsupported device');
+              alert('unsupported device');
+          }
+          break;
+        default:
+          console.log('bad connector');
+          alert('bad connector');
+      }
       break;
     default:
       console.log('unsupported device type');
@@ -1297,18 +1412,31 @@ var GainModule = (function(settings, skin, audioContext) {
       });
 
       inputPort.addEventListener('click', () => {
-        // alert('Gain Input Port -- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'gains');
+        }
       });
 
       outputPort.addEventListener('click', () => {
         // alert('Gain Output Port -- id: ' + this.id);
-        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        if (this.output == null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'gains');
+        }
+
       });
 
       modulationInputPort.addEventListener('click', () => {
         // alert('Gain Modulation Input --- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        if (this.gainModulator === null) {
+          clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'gainModulator', 'gains');
+        }
+
       });
 
       return(div);
@@ -1391,18 +1519,27 @@ var GainModule = (function(settings, skin, audioContext) {
       this.userVolumeInput(gainDisplay, amountRange);
 
       inputPort.addEventListener('click', () => {
-        // alert('Gain Input Port -- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'gains');
+        }
       });
 
       outputPort.addEventListener('click', () => {
-        // alert('Gain Output Port -- id: ' + this.id);
-        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        if (this.output == null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'gains');
+        }
       });
 
       modulationInputPort.addEventListener('click', () => {
-        // alert('Gain Modulation Input Port -- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        if (this.gainModulator === null) {
+          clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'gainModulator', 'gains');
+        }
       });
 
       return(div);
@@ -1480,18 +1617,27 @@ var GainModule = (function(settings, skin, audioContext) {
       this.userVolumeInput(gainDisplay, amountRange);
 
       inputPort.addEventListener('click', () => {
-        // alert('Gain Input Port -- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        if (this.input === null) {
+          clickThroughput({ through: 'input', type: 'signal', device: 'gain' }, inputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'input', 'gains');
+        }
       });
 
       outputPort.addEventListener('click', () => {
-        // alert('Gain Output Port -- id: ' + this.id);
-        clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        if (this.output == null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'gain' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'gains');
+        }
       });
 
       modulationInputPort.addEventListener('click', () => {
-        // alert('Gain Modulation Input Port -- id: ' + this.id);
-        clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        if (this.gainModulator === null) {
+          clickThroughput({ through: 'input', type: 'modulation', device: 'gain' }, modulationInputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'gainModulator', 'gains');
+        }
       });
 
       return(div);
