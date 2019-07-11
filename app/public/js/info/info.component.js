@@ -26,6 +26,7 @@
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
       var contextStarted = false;
       var rendered = {
+        gain: false,
         master_volume: false
       };
 
@@ -85,6 +86,32 @@
                   let masterVolume = new MasterVolume(settings, skinArray[0], audioContext);
                   let masterVolumeDiv = masterVolume.renderDraggable();
                   div.appendChild(masterVolumeDiv);
+                  // masterVolumeDiv.setAttribute("style", "position: relative;");
+                });
+              });
+            }
+            break;
+          case('gain'):
+            if (!rendered.gain) {
+              rendered.gain = true;
+              $http.get('/gains/1')
+              .then(settingsData => {
+                let settings = settingsData.data;
+                settings.positionX = (rect.left + ((rect.width/2) + 20));
+                settings.positionY = (rect.top - (13 * (rect.height/12)));
+                $http.get('/gain_skins')
+                .then(allGainSkinsData => {
+                  let allGainSkins = allGainSkinsData.data;
+                  let skinArray = allGainSkins.filter(entry => {
+                    return((entry.month === months[now.getMonth()]) && (entry.rule.dates.indexOf(now.getDate()) !== -1));
+                  });
+                  if (skinArray.length === 0) {
+                    skinArray.push(allGainSkins[Math.floor(Math.random() * allGainSkins.length)]);
+                  }
+
+                  let gain = new GainModule(settings, skinArray[0], audioContext);
+                  let gainDiv = gain.renderDraggable();
+                  div.appendChild(gainDiv);
                   // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
