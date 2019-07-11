@@ -8,6 +8,9 @@
   overflow: scroll;
 }
 
+#signalTestingInstructions {
+  max-width: 480px;
+}
 
 }
 
