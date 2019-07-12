@@ -163,12 +163,13 @@ ul {
   top: 0;
   width: 100%;
   height: 60px;
-  background: #4372E1;
-  background-color: -webkit-linear-gradient(-45deg, #4372E1, #624906);
-  background: -webkit-linear-gradient(-45deg, #4372E1, #624906);
-  background: -o-linear-gradient(-45deg, #4372E1, #624906);
-  background: linear-gradient(-45deg, #4372E1, #624906);
-  border-bottom: solid 4px #7D2301;
+  background: #dbdbbc;
+  background-color: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -o-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: linear-gradient(-45deg, #dbdbbc, #003f8f);
+  border-bottom: solid 4px #2a3748;
+  /* border-bottom: solid 4px #7D2301; */
   margin: 0;
 }
 
@@ -189,10 +190,10 @@ ul {
 #infoHubNavbar h2 {
   float: left;
   margin: 8vmin 0 0 -1vmin;
-  font-family: 'Righteous', cursive;
+  font-family: 'Sawarabi Mincho', sans-serif;
   font-size: 24px;
-  color: #ED4E0E;
-  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+  color: #e0dedf;
+  text-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
   cursor: pointer;
   filter: hue-rotate(0deg);
   transition: filter 1000ms linear;
@@ -208,15 +209,12 @@ ul {
 }
 
 #infoHubNavbar h1 {
-  /* float: left; */
-  position: absolute;
-  top: -32px;
-  left: -32px;
-  font-family: 'Righteous', cursive;
-  font-size: 48px;
-  color: #ED4E0E;
-  /* margin: 0 0 3vmin -1.5vmin; */
-  text-shadow: -1px -1px 1px #201702, -2px -2px 1px #201702, -3px -3px 1px #201702, -4px -4px 1px #201702, -5px -5px 1px #201702;
+  float: left;
+  margin: 1vmin 0 0 -1vmin;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 36px;
+  color: #e0dedf;
+  text-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
   cursor: pointer;
   filter: hue-rotate(0deg);
   transition: filter 1000ms linear;

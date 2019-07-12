@@ -120,6 +120,11 @@
       vm.mixerSelected = false;
       vm.displayList = false;
       vm.viewHideProgress = viewHideProgress;
+      vm.editMixer = editMixer;
+
+      function editMixer() {
+        $state.go('mixer', {id: currentUserId});
+      }
 
       function viewHideProgress() {
         let viewHideProgressListLabel = document.getElementById('viewHideProgressListLabel');

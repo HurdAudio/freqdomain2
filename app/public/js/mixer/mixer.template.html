@@ -1,6 +1,7 @@
 <div id="hubDiv">
-  <div id="hubNavbar" class="pure-g">
-    <div class="pure-u-1-4">
+  <svg id="renderSvg"></svg>
+  <div id="mixerNavbar">
+    <!-- <div class="pure-u-1-4">
       <img id="hubUserImg" src="../img/evil-2162179_1280.png" ng-click="$ctrl.userProfileEditor()">
       <h2 id="hubUserName" ng-click="$ctrl.userProfileEditor()"></h2>
     </div>
@@ -13,28 +14,47 @@
       <a class="button" ng-click="$ctrl.loadInfo()"><p>Info</p></a>
       <a class="button" ng-click="$ctrl.userLogout()"><p>Sign Out</p></a>
 
+    </div> -->
+
+    <div id="barMixerDiv">
+
+      <!-- <div id="mixerSidebar" class="pure-u-1-6 mixerSideOffScreen">
+
+        <div id="mixerSidebarTitle">
+
+          <h2>Signal Paths</h2>
+        </div>
+        <div id="userMixPathList">
+
+          <main ng-repeat="path in $ctrl.userMixerPaths | orderBy : $ctrl.sortBy">
+            <div class="{{path.selected}}" ng-click="$ctrl.selectMixPath(path.patch)">
+
+              <p>{{path.patch}} : {{path.name}}</p>
+            </div>
+
+          </main>
+        </div>
+      </div> -->
+
+      <div id="mixerPatchSetting">
+
+        <a href="" ng-click="$ctrl.loadMixer()" class="button"><p id="mixerLoadButton">Load</p></a>
+        <a href="" ng-click="$ctrl.saveMixer()" class="button"><p id="mixerSaveButton">Save</p></a><br>
+        <select id="mixerEditorSelection">
+
+          <option ng-repeat="path in $ctrl.userMixerPaths" value="{{path.patch}}"><p>{{path.name}}</p></option>
+
+
+        </select>
+      </div>
+
+      <div>
+
+        <h1 ng-click="$ctrl.returnToHub()" id="mixerReturnToHubTitle">FreqDomain2</h1>
+      </div>
     </div>
   </div>
-  <div id="masterMixerDiv" class="pure-g">
 
-    <div id="mixerSidebar" class="pure-u-1-6 mixerSideOffScreen">
-
-      <div id="mixerSidebarTitle">
-
-        <h2>Signal Paths</h2>
-      </div>
-      <div id="userMixPathList">
-
-        <main ng-repeat="path in $ctrl.userMixerPaths | orderBy : $ctrl.sortBy">
-          <div class="{{path.selected}}" ng-click="$ctrl.selectMixPath(path.patch)">
-
-            <p>{{path.patch}} : {{path.name}}</p>
-          </div>
-
-        </main>
-      </div>
-    </div>
-  </div>
   <div id="signalPathEditorSpace" class="signalPathEditorFull">
 
   </div>
