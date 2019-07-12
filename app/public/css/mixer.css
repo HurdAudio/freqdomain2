@@ -96,15 +96,13 @@
 #signalPathEditorSpace {
   opacity: 0.9;
   position: inherit;
-  margin-left: 3%;
-  margin-top: 2px;
-  margin-right: 5px;
   display: block;
-  height: 1200px;
+  height: 6700px;
   border: 1px solid white;
   /* border-bottom: solid 4px #00FF66; */
   background: #282828;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .mixerSideOffScreen {
@@ -119,4 +117,142 @@
   left: 0%;
   z-index: 77;
   transition: left 0.5s linear;
+}
+
+#mixerPatchSetting {
+  width: 20%;
+}
+
+#mixerLoadButton {
+  position: relative;
+  margin: 1px 15px 3px 35px;
+  text-decoration: none;
+}
+
+#mixerSaveButton {
+  position: relative;
+  margin: 1px 15px 3px 15px;
+  text-decoration: none;
+}
+
+#mixerPatchSetting a {
+  text-decoration: none;
+}
+
+#mixerNavbar {
+  width: 100%;
+  height: 90px;
+  background: #dbdbbc;
+  background-color: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -o-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: linear-gradient(-45deg, #dbdbbc, #003f8f);
+  border-bottom: solid 4px #2a3748;
+}
+
+#mixerNavbar h2 {
+  float: left;
+  margin: 8vmin 0 0 -1vmin;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 24px;
+  color: #e0dedf;
+  text-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
+  cursor: pointer;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerNavbar h2:active {
+  text-shadow: -1px -1px 1px #809fc7;
+}
+
+#mixerNavbar h2:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerNavbar h1 {
+  float: left;
+  margin: 1vmin 0 0 14vmin;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 36px;
+  color: #e0dedf;
+  text-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
+  cursor: pointer;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerNavbar h1:active {
+  text-shadow: -1px -1px 1px #201702;
+}
+
+#mixerNavbar h1:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerNavbar p {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #e0dedf;
+  text-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
+
+}
+
+#mixerNavbar a {
+  float: left;
+  margin-left: 0.5vmin;
+  margin-top: -0;
+  padding-bottom: 0;
+  height: 2vmin;
+  filter: hue-rotate(0deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerNavbar a p:active {
+  text-shadow: -1px -1px 1px #809fc7;
+}
+
+#mixerNavbar a p:hover {
+  filter: hue-rotate(180deg);
+  transition: filter 1000ms linear;
+}
+
+#mixerEditorSelection {
+  margin: 30px 0 1px 10px;
+
+  float: left;
+  display: block;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 18px;
+  background-color: #dbdbbc;
+  color: #010101;
+  filter: brightness(90%);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 3px 1px 3px 9px;
+  border-radius: 0;
+  border: solid 1px transparent;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #809fc7, -2px -2px 1px #809fc7, -3px -3px 1px #809fc7;
+  width: 92%;
+}
+
+
+#mixerEditorSelection:focus {
+filter: brightness(110%) hue-rotate(45deg);
+}
+
+#mixerEditorSelection:hover {
+border-color: #e0dedf;
+}
+
+#mixerEditorSelection option {
+font-family: 'Sawarabi Mincho', sans-serif;
+font-size: 18px;
+font-weight: bold;
 }

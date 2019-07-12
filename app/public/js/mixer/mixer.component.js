@@ -34,27 +34,27 @@
       vm.userMixerPaths = [
         {
           patch: 1,
-          name: "Default",
+          name: "↓ Default",
           selected: "mixPathSelected"
         },
         {
           patch: 2,
-          name: "Hard Limiter",
+          name: "↓ Hard Limiter",
           selected: "mixPathNotSelected"
         },
         {
           patch: 3,
-          name: "Soft Limiter",
+          name: "↓ Soft Limiter",
           selected: "mixPathNotSelected"
         },
         {
           patch: 4,
-          name: "Vocal Mixer",
+          name: "↓ Vocal Mixer",
           selected: "mixPathNotSelected"
         },
         {
           patch: 5,
-          name: "Instrumental",
+          name: "↓ Instrumental",
           selected: "mixPathNotSelected"
         },
         {
@@ -66,6 +66,8 @@
       vm.selectMixPath = selectMixPath;
       vm.loadInfo = loadInfo;
       vm.navPatchEditor = navPatchEditor;
+
+      var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
       function navPatchEditor() {
         $state.go('patcheditor', {id: currentUserId});
@@ -126,22 +128,26 @@
       }
 
 
-      function initializeSpace(user) {
+      function initializeSpace() {
         let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
-        let hubUserImg = document.getElementById('hubUserImg');
-        let hubUserName = document.getElementById('hubUserName');
-
-        hubUserImg.src = user.user_avatar_url;
-        hubUserName.innerHTML = user.name;
+        let months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
+        let now = new Date();
 
         $http.get('/master_volumes/1')
         .then(settingsData => {
           let settings = settingsData.data;
-          $http.get('/master_volume_skins/1')
-          .then(skinData => {
-            let skin = skinData.data;
-            let masterVolume = new MasterVolume(settings, skin);
-            let masterDiv = masterVolume.renderDraggable(0, 0);
+          $http.get('/master_volume_skins')
+          .then(skinsData => {
+            let skins = skinsData.data;
+            let skinArr = skins.filter(entry => {
+              return((entry.month === months[now.getMonth()]) && (entry.rule.dates.indexOf(now.getDate()) !== -1));
+            });
+            console.log(skinArr);
+            if (skinArr.length < 1) {
+              skinArr.push(skins[Math.floor(Math.random() * (skins.length))]);
+            }
+            let masterVolume = new MasterVolume(settings, skinArr[0], audioContext);
+            let masterDiv = masterVolume.renderDraggable();
             signalPathEditorSpace.appendChild(masterDiv);
           });
         })
@@ -203,27 +209,28 @@
       }
 
       function handleSidebar() {
-        let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
-        let mixerSidebar = document.getElementById('mixerSidebar');
-
-        signalPathEditorSpace.addEventListener('mouseout', () => {
-          mixerSidebar.className = "pure-u-1-6 mixerSideOnScreen";
-        });
-
-        signalPathEditorSpace.addEventListener('mouseover', () => {
-          mixerSidebar.className = "pure-u-1-6 mixerSideOffScreen";
-        });
+        // let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
+        // let mixerSidebar = document.getElementById('mixerSidebar');
+        //
+        // signalPathEditorSpace.addEventListener('mouseout', () => {
+        //   mixerSidebar.className = "pure-u-1-6 mixerSideOnScreen";
+        // });
+        //
+        // signalPathEditorSpace.addEventListener('mouseover', () => {
+        //   mixerSidebar.className = "pure-u-1-6 mixerSideOffScreen";
+        // });
       }
 
 
       function onInit() {
         console.log("Mixer is lit");
-        checkValidUser($stateParams.id);
+        // checkValidUser($stateParams.id);
         let theBody = document.getElementsByTagName("body")[0];
         theBody.setAttribute("style", "opacity: 1; filter: hue-rotate(0deg); transition: filter 1s linear;");
-        document.getElementById("mixerOnMixer").setAttribute("style", "visibility: hidden;");
+        // document.getElementById("mixerOnMixer").setAttribute("style", "visibility: hidden;");
         currentUserId = $stateParams.id;
-        handleSidebar();
+        // handleSidebar();
+        initializeSpace();
 
         // let theBody = document.getElementsByTagName("body")[0];
 

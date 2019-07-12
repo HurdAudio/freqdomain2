@@ -382,10 +382,11 @@
 
 #socialSetting {
   position: relative;
-  float: left;
-  width: 17%;
+  float: right;
+  width: 15%;
   margin: -2vmin 1vmin 1vmin 3vmin;
   padding: -1vmin 1vmin 1vmin 30%;
+
 }
 
 #socialSetting p {
@@ -395,8 +396,8 @@
 
 #accountSetting {
   position: relative;
-  float: left;
-  width: 17%;
+  float: right;
+  width: 15%;
   margin: -2vmin 1vmin 1vmin 3vmin;
   padding: -1vmin 1vmin 1vmin 30%;
 }
@@ -655,4 +656,21 @@
 #viewHideProgressListLabel {
   color: transparent !important;
   margin: 0 0 -3vmin 5vmin;
+}
+
+#accountNavigation {
+  background: #dbdbbc;
+  background-color: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -webkit-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: -o-linear-gradient(-45deg, #dbdbbc, #003f8f);
+  background: linear-gradient(-45deg, #dbdbbc, #003f8f);
+}
+
+#hubNaveSeparator {
+  color: #809fc7;
+  font-family: 'Raleway', sans-serif;
+  font-size: 48px;
+  margin: 0 0 -5px -150px;
+  /* transform: translateX(-50px) translateY(-5px); */
+  z-index: -6;
 }
