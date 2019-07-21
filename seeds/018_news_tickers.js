@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Notch Filter (module 19). Stage 4 - January Consequence - data table with migratin, seeds, and routes.',
+          headline: 'Currently working on: Financial Module (module 18). Stage 5 - February A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
