@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('peaking_filters')
+  knex('notch_filters')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('peaking_filters')
+  knex('notch_filters')
     .select()
     .where('id', req.params.id)
     .first()
@@ -37,7 +37,7 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  knex('peaking_filters')
+  knex('notch_filters')
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
@@ -47,8 +47,6 @@ router.post('/', (req, res, next) => {
     detune_modulator: req.body.detune_modulator,
     q: req.body.q,
     q_modulator: req.body.q_modulator,
-    gain: req.body.gain,
-    gain_modulator: req.body.gain_modulator,
     input: req.body.input,
     output: req.body.output
   }, '*')
@@ -62,7 +60,7 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('peaking_filters')
+  knex('notch_filters')
   .where('id', req.params.id)
   .update({
     user_id: req.body.user_id,
@@ -73,8 +71,6 @@ router.patch('/:id', (req, res, next) => {
     detune_modulator: req.body.detune_modulator,
     q: req.body.q,
     q_modulator: req.body.q_modulator,
-    gain: req.body.gain,
-    gain_modulator: req.body.gain_modulator,
     input: req.body.input,
     output: req.body.output
   }, '*')
@@ -89,7 +85,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('peaking_filters')
+      knex('notch_filters')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -100,7 +96,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('peaking_filters')
+          return knex('notch_filters')
             .del()
             .where('id', req.params.id);
         })
@@ -118,8 +114,6 @@ router.delete('/:id', (req, res, next) => {
             detune_modulator: record.detune_modulator,
             q: record.q,
             q_modulator: record.q_modulator,
-            gain: record.gain,
-            gain_modulator: record.gain_modulator,
             input: record.input,
             output: record.output,
             created_at: record.created_at,
