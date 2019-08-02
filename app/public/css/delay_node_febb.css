@@ -1,0 +1,204 @@
+body {
+  background-color: #000000;
+}
+
+#delayDiv {
+  position: fixed;
+  bottom: -34.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 450px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#delayTop {
+  background: url(../img/february/lee.jofa.jumper.in.toast.textiles.textiles.fabrics.texture.cotton.cotton.blend.synthetic.1496954115.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 550px;
+  color: #092c15;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#delayTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #092c15;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #31df69, 2px 2px 1px #31df69;
+}
+
+#delaySignalFlow {
+  background: url(../img/february/lee.jofa.jumper.in.toast.textiles.textiles.fabrics.texture.cotton.cotton.blend.synthetic.1496954115.jpg);
+  background-size: 1100%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 350px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #31df69;
+}
+
+#delaySignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 4vmin;
+  margin-bottom: 0;
+  color: #092c15;
+  text-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69;
+}
+
+#delaySignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #092c15;
+  background: url(../img/february/woven-2607340_960_720.jpg);
+  background-size: 400%;
+  /*background: #13592a;
+  background-color: -webkit-linear-gradient(135deg, #13592a, #83eba5);
+  background: -o-linear-gradient(135deg, #13592a, #83eba5);
+  background: -moz-linear-gradient(135deg, #13592a, #83eba5);
+  background: linear-gradient(135deg, #13592a, #83eba5);*/
+  text-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69;
+  box-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69;
+  cursor: pointer;
+}
+
+#delayFace {
+  height: 350px;
+  width: 550px;
+  background: #13592a;
+  background-color: -webkit-linear-gradient(135deg, #13592a, #83eba5);
+  background: -o-linear-gradient(135deg, #13592a, #83eba5);
+  background: -moz-linear-gradient(135deg, #13592a, #83eba5);
+  background: linear-gradient(135deg, #13592a, #83eba5);
+  background: url(../img/february/fabric-texture-1-1.jpg);
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  margin-top: -44.7vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69, -3px -3px 1px #31df69;
+}
+
+#delayFace img {
+  width: 70%;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+
+
+
+#delayFace p {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin-bottom: 0;
+  color: #092c15;
+  text-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69;
+}
+
+#displayLabel {
+  margin: 3vmin 0 0 3vmin;
+}
+
+#delayDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 96px;
+  margin-left: 2vmin;
+  margin-top: 3vmin;
+  background: url(../img/february/woven-2607340_960_720.jpg);
+  background-size: 110%;
+  box-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69, -3px -3px 1px #7DF9FF, -4px -4px 1px #31df69;
+  padding-left: 5vmin;
+  color: #092c15;
+}
+
+#displayAmount {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 62%;
+  background: url(../img/february/woven-2607340_960_720.jpg);
+  background-size: 120%;
+  outline: none;
+  opacity: 1.0;
+
+  margin-left: 40vmin;
+  margin-top: -3.5vmin;
+  box-shadow: 1px -1px 1px #31df69, 2px -2px 1px #31df69, 3px -3px 1px #31df69, 4px -4px 1px #31df69;
+}
+
+#displayAmount::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 52px;
+    height: 49px;
+    background: url(../img/noun_338545_cc.png);
+    background-color: #83eba5;
+    background-color: -webkit-linear-gradient(-135deg, #13592a, #83eba5);
+    background: -webkit-linear-gradient(-135deg, #13592a, #83eba5);
+    background: -o-linear-gradient(-135deg, #13592a, #83eba5);
+    background: linear-gradient(-135deg, #13592a, #83eba5);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #31df69, 2px -2px 1px #31df69, 3px -3px 1px #31df69, 4px -4px 1px #31df69;
+}
+
+#delayModulator {
+  color: #092c15;
+  margin-left: 3vmin;
+  margin-top: -8vmin;
+  padding: 2vmin;
+}
+
+#delayModulatorSelect {
+  width: 74%;
+  font-family: 'Righteous', cursive;
+  background: url(../img/february/woven-2607340_960_720.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: 36px;
+  margin-top: 1vmin;
+  box-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69, -3px -3px 1px #7DF9FF, -4px -4px 1px #31df69;
+}
+
+#delayModulateEdit {
+  visibility: hidden;
+  width: 50%;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  background: transparent;
+  margin-top: 3vmin;
+  margin-left: 5vmin;
+  color: #092c15;
+  box-shadow: -1px -1px 1px #31df69, -2px -2px 1px #31df69, -3px -3px 1px #7DF9FF, -4px -4px 1px #31df69;
+}
+
+#delayModulateEdit {
+  background-color: #83eba5;
+  background-color: -webkit-linear-gradient(-135deg, #13592a, #83eba5);
+  background: -webkit-linear-gradient(-135deg, #13592a, #83eba5);
+  background: -o-linear-gradient(-135deg, #13592a, #83eba5);
+  background: linear-gradient(-135deg, #13592a, #83eba5);
+}
