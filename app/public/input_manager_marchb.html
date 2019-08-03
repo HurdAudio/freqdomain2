@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+    <!-- <link rel="icon" href="./img/clock-145560_640.png" type="image/gif" sizes="16x16"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/input_manager_marchb.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./input_manager_marchb.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="inputManagerDiv">
+      <div id="inputManagerTop">
+        <h1>Input Manager</h1>
+
+
+
+
+
+
+      </div>
+      <div id="inputManagerSignalFlow">
+        <div id="gainInput">
+          <p>in</p>
+          <h2>◦</h2>
+        </div>
+        <div id="gainOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+
+      </div>
+
+
+      <div id="inputManagerFace" class="pure-g">
+        <div id="strips">
+          <div class="channelStrip pure-u-1-1" id="channel1">
+
+            <h2 class="channelLabel">Input 1</h2>
+            <input type="text" class="channelUserLabel" placeholder="Input 1">
+            <div class="gainStrip">
+              <form>
+                <a><input class="gainStripDisplay" id="gainStripDisplay1" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value"></a>
+
+                <input name="amountRange" type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" class="gainStripSlider" id="gainStripSlider1">
+
+              </form>
+              <button class="soloButton" id="soloButton1"><img src="./img/4944946_636469510790511958.jpg"><p>solo</p></button>
+              <button class="channelStripMute" id="muteStrip1"><img src="./img/january/loudspeaker-155807_1280.png">
+              <p>mute</p></button>
+
+
+            </div>
+            <div class="panStrip">
+              <h4 class="leftPanStrip" id="leftPanStrip1">L</h4>
+              <h4 class="rightPanStrip" id="rightPanStrip1">R</h4>
+              <input name="panRange" type="range" min="-100" max="100" value="0" stepvalue="1" id="panStripSlider1" class="panStripSlider">
+
+            </div>
+          </div>
+        </div>
+        <div id="addChannelDiv">
+
+          <button id="channelStripAdder">add new</button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
