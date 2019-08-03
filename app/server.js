@@ -49,6 +49,7 @@ const input_manager_skins = require('./routes/input_manager_skins.js');
 const financial_modules = require('./routes/financial_modules.js');
 const airlines_skins = require('./routes/airlines_skins.js');
 const notch_filters = require('./routes/notch_filters.js');
+const highshelf_filter_skins = require('./routes/highshelf_filter_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -98,6 +99,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/financial_modules', financial_modules);
  app.use('/airlines_skins', airlines_skins);
  app.use('/notch_filters', notch_filters);
+ app.use('/highshelf_filter_skins', highshelf_filter_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
