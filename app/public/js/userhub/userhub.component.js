@@ -787,27 +787,21 @@
         //   updated_at: new Date('2017-07-20T13:44:00.000Z')
         // }, {});
 
-        let weatherModule = new WeatherModule({
+        let bandpassFilter = new BandpassFilter({
           id: 1,
           user_id: 1,
-          name: 'weather module',
-          zip_code_toggle: true,
-          zip_digit_1: 6,
-          zip_digit_1_modulator: null,
-          zip_digit_2: 0,
-          zip_digit_2_modulator: null,
-          zip_digit_3: 6,
-          zip_digit_3_modulator: null,
-          zip_digit_4: 4,
-          zip_digit_4_modulator: null,
-          zip_digit_5: 7,
-          zip_digit_5_modulator: null,
-          country: '',
-          city: '',
-          output: null
-        }, {}, null);
+          name: 'bandpass filter',
+          frequency: 200.0,
+          frequency_modulator: null,
+          detune: 0,
+          detune_modulator: null,
+          q: 0,
+          q_modulator: null,
+          input: null,
+          output: 4
+        }, {}, audioContext);
 
-        console.log(weatherModule);
+        console.log(bandpassFilter);
 
 
 
