@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Band Pass Filter (module 11). Stage 12 - March Consequence - March Skins added - class constructor created.',
+          headline: 'Currently working on: Weather Module (module 10). Stage 13 - April A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')
