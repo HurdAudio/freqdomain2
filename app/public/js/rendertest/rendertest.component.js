@@ -102,6 +102,10 @@
             moduleSelectPath = 'random_number_generators';
             skinSelectorPath = 'random_number_generator_skins';
             break;
+          case('LowpassFilter'):
+            moduleSelectPath = 'low_pass_filters';
+            skinSelectorPath = 'lowpass_filter_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -268,6 +272,14 @@
                 off: randomNumberGenerator.eventOff
               });
             }
+            if (moduleSelector.value === 'LowpassFilter') {
+              let lowpassFilter = new LowpassFilter(settings, skin, audioContext);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = lowpassFilter.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -299,6 +311,9 @@
             break;
           case('RandomNumberGenerator'):
             skinsTable = 'random_number_generator_skins';
+            break;
+          case('LowpassFilter'):
+            skinsTable = 'lowpass_filter_skins';
             break;
           default:
             console.log('unsupported module');
