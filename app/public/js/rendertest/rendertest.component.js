@@ -279,6 +279,15 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                if (rackPositionY > 162) {
+                  // rackPositionY -= 162;
+                  masterDiv = lowpassFilter.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
             }
           });
         });
