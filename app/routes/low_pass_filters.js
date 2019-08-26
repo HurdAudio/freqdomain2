@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
   .insert({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     frequency: req.body.frequency,
     frequency_modulator: req.body.frequency_modulator,
     detune: req.body.detune,
@@ -65,6 +67,8 @@ router.patch('/:id', (req, res, next) => {
   .update({
     user_id: req.body.user_id,
     name: req.body.name,
+    positionX: req.body.positionX,
+    positionY: req.body.positionY,
     frequency: req.body.frequency,
     frequency_modulator: req.body.frequency_modulator,
     detune: req.body.detune,
@@ -108,6 +112,8 @@ router.delete('/:id', (req, res, next) => {
             id: holder,
             user_id: record.user_id,
             name: record.name,
+            positionX: record.positionX,
+            positionY: record.positionY,
             frequency: record.frequency,
             frequency_modulator: record.frequency_modulator,
             detune: record.detune,

@@ -1,0 +1,1050 @@
+.lowpassFilterSliderJanuaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffffff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: linear-gradient(45deg, #00ff00, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderJanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 55px;
+    border: solid 2px #ffffff;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+    background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+    background: linear-gradient(45deg, #00ff00, #C0C0C0);
+    cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderJanuaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: linear-gradient(45deg, #00ff00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderJanuaryA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: linear-gradient(45deg, #00ff00, #C0C0C0);
+  cursor: pointer;
+  transform: translateX(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: linear-gradient(45deg, #00ff00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: -o-linear-gradient(45deg, #00ff00, #C0C0C0);
+  background: linear-gradient(45deg, #00ff00, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderJanuaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderJanuaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderJanuaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+.lowpassFilterHorizontalSliderJanuaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #FFFF66;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  background: linear-gradient(45deg, #2F4F4F, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderJanuaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderJanuaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderJanuaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderJanuaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderVerticalJanuaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #e5e5ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: -o-linear-gradient(45deg, #8000ff, #C0C0C0);
+  background: linear-gradient(45deg, #8000ff, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderFebruaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderFebruaryA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderFebruaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderFebruaryA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #7CFC00;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: -o-linear-gradient(45deg, #2E8B57, #C0C0C0);
+  background: linear-gradient(45deg, #2E8B57, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderFebruaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderFebruaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderFebruaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderFebruaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffffcc;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: -o-linear-gradient(45deg, #b2b200, #C0C0C0);
+  background: linear-gradient(45deg, #b2b200, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderFebruaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderFebruaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderFebruaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderFebruaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderFebruaryC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #3232ff;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -webkit-linear-gradient(45deg, #000066, #b2b2ff);
+  background: -o-linear-gradient(45deg, #000066, #b2b2ff);
+  background: linear-gradient(45deg, #000066, #b2b2ff);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderMarchA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderMarchA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderMarchA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderMarchA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffff6f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -webkit-linear-gradient(45deg, #b2b223, #ffff98);
+  background: -o-linear-gradient(45deg, #b2b223, #ffff98);
+  background: linear-gradient(45deg, #b2b223, #ffff98);
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderMarchB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderMarchB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderMarchB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderMarchB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ffb62f;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -webkit-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: -o-linear-gradient(45deg, #ffae19, #ffe6ba);
+  background: linear-gradient(45deg, #ffae19, #ffe6ba);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderMarchC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderMarchC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderMarchC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderMarchC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderMarchC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #32ff32;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -webkit-linear-gradient(45deg, #006600, #ccffcc);
+  background: -o-linear-gradient(45deg, #006600, #ccffcc);
+  background: linear-gradient(45deg, #006600, #ccffcc);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderAprilA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderAprilA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderAprilA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderAprilA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilA {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilA::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #ef4545;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -webkit-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: -o-linear-gradient(45deg, #8d0d0d, #f37373);
+  background: linear-gradient(45deg, #8d0d0d, #f37373);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderAprilB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderAprilB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderAprilB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderAprilB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilB {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilB::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #f5f54b;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -webkit-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: -o-linear-gradient(45deg, #7a7a1c, #f7f773);
+  background: linear-gradient(45deg, #7a7a1c, #f7f773);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterSliderAprilC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+}
+
+.lowpassFilterSliderAprilC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 55px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+}
+
+.lowpassFilterHorizontalSliderAprilC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterHorizontalSliderAprilC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilC {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.lowpassFilterVerticalSliderAprilC::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 35px;
+  border: solid 2px #fd3a3a;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -webkit-linear-gradient(45deg, #972222, #fd8888);
+  background: -o-linear-gradient(45deg, #972222, #fd8888);
+  background: linear-gradient(45deg, #972222, #fd8888);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
