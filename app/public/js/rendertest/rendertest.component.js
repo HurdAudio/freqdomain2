@@ -288,6 +288,14 @@
                   renderTestingSpace.appendChild(masterDiv);
                 }
               }
+              if (renderSizeSelector.value === 'rackVertical') {
+                if (verticalRackPositionX > 324) {
+                  masterDiv = lowpassFilter.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
             }
           });
         });
