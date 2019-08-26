@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+    <!-- <link rel="icon" href="./img/clock-145560_640.png" type="image/gif" sizes="16x16"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/dynamic_compressor_mayb.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./dynamic_compressor_mayb.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="dynamicCompressorDiv">
+      <div id="dynamicCompressorTop">
+
+        <h1>Dynamic Compressor</h1>
+      </div>
+      <div id="dynamicCompressorSignalFlow">
+
+        <div id="dynamicCompressorInput">
+          <p>in</p>
+          <h2>◦</h2>
+        </div>
+        <div id="dynamicCompressorOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="dynamicCompressorFace" class="pure-g">
+        <div id="thresholdDiv" class="pure-u-1-6">
+          <form>
+            <p id="thresholdLabel">threshold(dB)</p>
+            <a><input id="compressorThresholdDisplay" class="volumeRead" type="number" step="0.01" name="amountInput" min="-100.00" max="0.00" value="-24.00" oninput="this.form.amountRange.value=this.value"></a>
+            <input name="amountRange" type="range" min="-100.00" max="0.00" value="-24" step="0.01" oninput="this.form.amountInput.value=this.value" id="threshold">
+
+          </form>
+          <div id="thresholdModDiv">
+            <p>modulator:</p>
+            <select id="thresholdModSelect">
+
+              <option value="none">none</option>
+              <option value="envelope1">envelope1</option>
+              <option value="envelope2">envelope2</option>
+              <option value="envelope3">envelope3</option>
+              <option value="envelope4">envelope4</option>
+              <option value="frequency1">frequency1</option>
+              <option value="frequency2">frequency2</option>
+              <option value="frequency3">frequency3</option>
+            </select><br>
+            <button id="thresholdModulateEdit">edit</button>
+          </div>
+        </div>
+        <div id="kneeDiv" class="pure-u-1-6">
+          <form>
+            <p id="kneeLabel">knee(dB)</p>
+            <a><input id="compressorKneeDisplay" class="volumeRead" type="number" step="0.01" name="amountInput" min="0.00" max="40.00" value="30.00" oninput="this.form.amountRange.value=this.value"></a>
+            <input name="amountRange" type="range" min="0.00" max="40.00" value="30.00" step="0.01" oninput="this.form.amountInput.value=this.value" id="knee">
+
+          </form>
+          <div id="kneeModDiv">
+            <p>modulator:</p>
+            <select id="kneeModSelect">
+
+              <option value="none">none</option>
+              <option value="envelope1">envelope1</option>
+              <option value="envelope2">envelope2</option>
+              <option value="envelope3">envelope3</option>
+              <option value="envelope4">envelope4</option>
+              <option value="frequency1">frequency1</option>
+              <option value="frequency2">frequency2</option>
+              <option value="frequency3">frequency3</option>
+            </select><br>
+            <button id="kneeModulateEdit">edit</button>
+          </div>
+        </div>
+        <div id="ratioDiv" class="pure-u-1-6">
+          <form>
+            <p id="ratioLabel">ratio</p>
+            <a><input id="compressorRatioDisplay" class="volumeRead" type="number" step="0.01" name="amountInput" min="1.00" max="20.00" value="12.00" oninput="this.form.amountRange.value=this.value"></a>
+            <input name="amountRange" type="range" min="1.00" max="20.00" value="12.00" step="0.01" oninput="this.form.amountInput.value=this.value" id="ratio">
+
+          </form>
+          <div id="ratioModDiv">
+            <p>modulator:</p>
+            <select id="ratioModSelect">
+
+              <option value="none">none</option>
+              <option value="envelope1">envelope1</option>
+              <option value="envelope2">envelope2</option>
+              <option value="envelope3">envelope3</option>
+              <option value="envelope4">envelope4</option>
+              <option value="frequency1">frequency1</option>
+              <option value="frequency2">frequency2</option>
+              <option value="frequency3">frequency3</option>
+            </select><br>
+            <button id="ratioModulateEdit">edit</button>
+          </div>
+        </div>
+        <div id="attackDiv" class="pure-u-1-6">
+          <form>
+            <p id="attackLabel">attack(sec)</p>
+            <a><input id="compressorAttackDisplay" class="volumeRead" type="number" step="0.001" name="amountInput" min="0.000" max="1.000" value="0.003" oninput="this.form.amountRange.value=this.value"></a>
+            <input name="amountRange" type="range" min="0.000" max="1.000" value="0.003" step="0.001" oninput="this.form.amountInput.value=this.value" id="attack">
+
+          </form>
+          <div id="attackModDiv">
+            <p>modulator:</p>
+            <select id="attackModSelect">
+
+              <option value="none">none</option>
+              <option value="envelope1">envelope1</option>
+              <option value="envelope2">envelope2</option>
+              <option value="envelope3">envelope3</option>
+              <option value="envelope4">envelope4</option>
+              <option value="frequency1">frequency1</option>
+              <option value="frequency2">frequency2</option>
+              <option value="frequency3">frequency3</option>
+            </select><br>
+            <button id="attackModulateEdit">edit</button>
+          </div>
+        </div>
+        <div id="releaseDiv" class="pure-u-1-6">
+          <form>
+            <p id="releaseLabel">release(sec)</p>
+            <a><input id="compressorReleaseDisplay" class="volumeRead" type="number" step="0.001" name="amountInput" min="0.000" max="1.000" value="0.250" oninput="this.form.amountRange.value=this.value"></a>
+            <input name="amountRange" type="range" min="0.000" max="1.000" value="0.250" step="0.001" oninput="this.form.amountInput.value=this.value" id="release">
+
+          </form>
+          <div id="releaseModDiv">
+            <p>modulator:</p>
+            <select id="releaseModSelect">
+
+              <option value="none">none</option>
+              <option value="envelope1">envelope1</option>
+              <option value="envelope2">envelope2</option>
+              <option value="envelope3">envelope3</option>
+              <option value="envelope4">envelope4</option>
+              <option value="frequency1">frequency1</option>
+              <option value="frequency2">frequency2</option>
+              <option value="frequency3">frequency3</option>
+            </select><br>
+            <button id="releaseModulateEdit">edit</button>
+          </div>
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
