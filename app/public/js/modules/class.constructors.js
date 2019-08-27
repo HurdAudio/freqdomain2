@@ -2032,6 +2032,18 @@ var OscillatorModule = (function(settings, skin, audioContext) {
           hertzSlider.className = 'oscillatorAprilCSlider';
           detuneSlider.className = 'oscillatorDetuneAprilCSlider';
           break;
+        case('Oscillator: May A'):
+          hertzSlider.className = 'oscillatorMayASlider';
+          detuneSlider.className = 'oscillatorDetuneMayASlider';
+          break;
+        case('Oscillator: May B'):
+          hertzSlider.className = 'oscillatorMayBSlider';
+          detuneSlider.className = 'oscillatorDetuneMayBSlider';
+          break;
+        case('Oscillator: May C'):
+          hertzSlider.className = 'oscillatorMayCSlider';
+          detuneSlider.className = 'oscillatorDetuneMayCSlider';
+          break;
         default:
           alert('unsupported skin slider');
       }
@@ -2337,6 +2349,18 @@ var OscillatorModule = (function(settings, skin, audioContext) {
           frequencySlider.className = 'oscillatorHorizontalAprilCSlider';
           detuneSlider.className = 'oscillatorHorizontalAprilCSlider';
           break;
+        case('Oscillator: May A'):
+          frequencySlider.className = 'oscillatorHorizontalMayASlider';
+          detuneSlider.className = 'oscillatorHorizontalMayASlider';
+          break;
+        case('Oscillator: May B'):
+          frequencySlider.className = 'oscillatorHorizontalMayBSlider';
+          detuneSlider.className = 'oscillatorHorizontalMayBSlider';
+          break;
+        case('Oscillator: May C'):
+          frequencySlider.className = 'oscillatorHorizontalMayCSlider';
+          detuneSlider.className = 'oscillatorHorizontalMayCSlider';
+          break;
         default:
           alert('unsupported skin slider');
       }
@@ -2596,6 +2620,18 @@ var OscillatorModule = (function(settings, skin, audioContext) {
         case('Oscillator: April C'):
           frequencySlider.className = 'oscillatorVerticalAprilCSlider';
           detuneSlider.className = 'oscillatorVerticalAprilCSlider';
+          break;
+        case('Oscillator: May A'):
+          frequencySlider.className = 'oscillatorVerticalMayASlider';
+          detuneSlider.className = 'oscillatorVerticalMayASlider';
+          break;
+        case('Oscillator: May B'):
+          frequencySlider.className = 'oscillatorVerticalMayBSlider';
+          detuneSlider.className = 'oscillatorVerticalMayBSlider';
+          break;
+        case('Oscillator: May C'):
+          frequencySlider.className = 'oscillatorVerticalMayCSlider';
+          detuneSlider.className = 'oscillatorVerticalMayCSlider';
           break;
         default:
           alert('unsupported skin slider');
