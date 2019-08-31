@@ -28,6 +28,158 @@
         $state.go('signaltestsuite', {id: newId});
       }
 
+      function oscillatorTest1() {
+        let signalTestingSuite = document.getElementById('signalTestingSuite');
+        let signalTestLabel = document.getElementById('signalTestLabel');
+        let signalTestSublabel = document.getElementById('signalTestSublabel');
+        let signalTestingInstructions = document.getElementById('signalTestingInstructions');
+        let testingArray = [ 'Oscillator output -> Master Volume input', 'Disconnect Oscillator from Master Volume', 'Frequency Slider', 'Frequency Input', 'Detune Slider', 'Detune Input', 'Waveform Selectors', 'Oscillator output -> Gain input, Gain output -> Master Volume Input', 'AM/FM Modulation' ];
+        let testingIndex = 0;
+        let testingInstructions = [ 'Connect oscillator output to master volume input. Oscillator should be audible.', 'Disconnect oscillator from master volume. The visual connection should no longer be visible and the audio signal should stop.', 'Reconnect oscillator to master volume. Test the frequency slider element. Frequency should change with slider input.', 'Enter frequency values directly into the number input field. Frequency playback should reflect new input values.', 'Test detune slider. Detune should alter frequency within a range of -100/100 cents.', 'Enter detune values directly into number input field. Playback should reflect new values.', 'Change the waveform by selecting from the waveform buttons. Playback should reflect this change.', 'Now alter module connections so that the oscillator output passes through a gain module before reaching the master volume. Signal should be audible.', 'Connect the second oscillator to the second gain module. Connect output of second gain to the modulation input of the first gain module. Signal modulation should be audible.' ];
+        let testingErrors = [ 'FAIL: Oscillator to Master Volume connection error.', 'FAIL: Oscillator disconnection error.', 'FAIL: frequency slider error.', 'FAIL: frequency input field error.', 'FAIL: detune slider error.', 'FAIL: detune input field error.', 'FAIL: waveform selector error.', 'FAIL: oscillator/gain connection error.', 'FAIL: signal modulation error.' ];
+        let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
+        let now = new Date();
+        $http.get('/oscillators/1')
+        .then(oscData => {
+          let osc = oscData.data;
+          osc.id = 501;
+          osc.positionX = 600;
+          osc.positionY = -100;
+          $http.get('/oscillator_skins')
+          .then(allOscillatorSkinsData => {
+            let allOscillatorSkins = allOscillatorSkinsData.data;
+            let oscillatorSkinArray = allOscillatorSkins.filter(skin => {
+              return((skin.month === months[now.getMonth()]) && (skin.rule.dates.indexOf(now.getDate()) !== -1));
+            });
+            if (oscillatorSkinArray.length === 0) {
+              oscillatorSkinArray.push(allOscillatorSkins[Math.floor(Math.random() * (allOscillatorSkins.length))]);
+            }
+            let oscillator1 = new OscillatorModule(osc, oscillatorSkinArray[0], audioContext);
+            let oscillator1Div = oscillator1.renderDraggable();
+            signalTestingSuite.appendChild(oscillator1Div);
+
+            $http.get('/oscillators/1')
+            .then(osc2Data => {
+              let osc2 = osc2Data.data;
+              osc2.id = 555;
+              osc2.positionX = 300;
+              osc2.positionY = 200;
+              let oscillator2 = new OscillatorModule(osc2, oscillatorSkinArray[0], audioContext);
+              let oscillator2Div = oscillator2.renderDraggable();
+              signalTestingSuite.appendChild(oscillator2Div);
+
+              $http.get('/gains/1')
+              .then(gainData => {
+                let gain = gainData.data;
+                gain.id = 620;
+                gain.positionX = 1100;
+                gain.positionY = 100;
+                $http.get('/gain_skins')
+                .then(allGainSkinsData => {
+                  let allGainSkins = allGainSkinsData.data;
+                  let gainSkinArray = allGainSkins.filter(skin => {
+                    return((skin.month === months[now.getMonth()]) && (skin.rule.dates.indexOf(now.getDate()) !== -1));
+                  });
+                  if (gainSkinArray.length === 0) {
+                    gainSkinArray.push(allGainSkins[Math.floor(Math.random() * (allGainSkins.length))]);
+                  }
+                  let gainModule = new GainModule(gain, gainSkinArray[0], audioContext);
+                  let gainDiv = gainModule.renderDraggable();
+                  signalTestingSuite.appendChild(gainDiv);
+
+                  $http.get('/gains/1')
+                  .then(gain2Data => {
+                    let gain2 = gain2Data.data;
+                    gain2.id = 4;
+                    gain2.positionX = 700;
+                    gain2.positionY = 400;
+                    let gain2Module = new GainModule(gain2, gainSkinArray[0], audioContext);
+                    let gain2Div = gain2Module.renderDraggable();
+                    signalTestingSuite.appendChild(gain2Div);
+
+                    $http.get('/master_volumes/1')
+                    .then(masterVolData => {
+                      let masterVol = masterVolData.data;
+                      $http.get('/master_volume_skins')
+                      .then(allMasterVolumeSkinsData => {
+                        let allMasterVolumeSkins = allMasterVolumeSkinsData.data;
+                        let masterVolumeSkinArray = allMasterVolumeSkins.filter(skin => {
+                          return((skin.month === months[now.getMonth()]) && (skin.rule.dates.indexOf(now.getDate()) !== -1));
+                        });
+                        if (masterVolumeSkinArray.length === 0) {
+                          masterVolumeSkinArray.push(allMasterVolumeSkins[Math.floor(Math.random() * (allMasterVolumeSkins.length))]);
+                        }
+                        let masterVolume = new MasterVolume(masterVol, masterVolumeSkinArray[0], audioContext);
+                        let masterVolumeDiv = masterVolume.renderDraggable();
+                        signalTestingSuite.appendChild(masterVolumeDiv);
+
+                        signalTestLabel.innerHTML = 'Oscillator Test:';
+                        signalTestSublabel.innerHTML = (testingIndex + 1) + ' of ' + (testingArray.length) + ' - ' + testingArray[testingIndex];
+                        signalTestingInstructions.innerHTML = testingInstructions[testingIndex];
+                        let signalTestFail = document.getElementById('signalTestFail');
+                        let signalTestPass = document.getElementById('signalTestPass');
+
+                        signalTestFail.addEventListener('click', () => {
+                          signalTestingInstructions.innerHTML = testingErrors[testingIndex];
+                          document.getElementById('successFail').innerHTML = 'FAIL';
+                          document.getElementById('successFail').setAttribute("style", "color: red;");
+                          signalTestFail.setAttribute("style", "display: none;");
+                          signalTestPass.setAttribute("style", "display: none;");
+                        });
+
+                        signalTestPass.addEventListener('click', () => {
+                          ++testingIndex;
+                          if (testingIndex < testingArray.length) {
+                            signalTestSublabel.innerHTML = (testingIndex + 1) + ' of ' + (testingArray.length) + ' - ' + testingArray[testingIndex];
+                            signalTestingInstructions.innerHTML = testingInstructions[testingIndex];
+                          } else {
+                            signalTestFail.setAttribute("style", "display: none;");
+                            signalTestPass.setAttribute("style", "display: none;");
+                            document.getElementById('successFail').innerHTML = 'SUCCESS';
+                            document.getElementById('successFail').setAttribute("style", "color: green;");
+                            signalTestLabel.innerHTML = 'Oscillator Test: PASSED';
+                            signalTestLabel.setAttribute("style", "color: green;");
+                            signalTestSublabel.innerHTML = (testingArray.length) + ' of ' + (testingArray.length) + ' tests passed.';
+                            signalTestSublabel.setAttribute("style", "color: green;");
+                            signalTestingInstructions.innerHTML = 'Oscillator passes signal testing.';
+                            signalTestingInstructions.setAttribute("style", "color: green;");
+                            document.getElementById('signalTestingTitle').setAttribute("style", "color: green;");
+                            document.getElementById('signalTestNext').setAttribute("style", "display: initial;");
+
+                            if (masterVolume.input !== null) {
+                              disconnectPatchConnection(masterVolume, 'input', 'master_volumes');
+                            }
+                            if (oscillator1.output !== null) {
+                              disconnectPatchConnection(oscillator1, 'output', 'oscillators');
+                            }
+                            if (oscillator2.output !== null) {
+                              disconnectPatchConnection(oscillator2, 'output', 'oscillators');
+                            }
+                            if (gain1.output !== null) {
+                              disconnectPatchConnection(gain1, 'output', 'gains');
+                            }
+                            if (gain2.output !== null) {
+                              disconnectPatchConnection(gain2, 'output', 'gains');
+                            }
+                            if (gain1.input !== null) {
+                              disconnectPatchConnection(gain1, 'input', 'gains');
+                            }
+                            if (gain2.input !== null) {
+                              disconnectPatchConnection(gain2, 'input', 'gains');
+                            }
+                            audioContext = null;
+                          }
+                        });
+                      });
+                    });
+                  });
+                });
+              })
+            });
+          });
+        });
+      }
+
       function gainTest1() {
         let signalTestingSuite = document.getElementById('signalTestingSuite');
         let signalTestLabel = document.getElementById('signalTestLabel');
@@ -245,6 +397,10 @@
             // Gain
             gainTest1();
             break;
+          case(3):
+            // OscillatorModule
+            oscillatorTest1();
+            break;
           default:
             alert('unsupported module type');
         }
@@ -276,6 +432,18 @@
 
       }
 
+      function oscillatorTest(moduleVal) {
+        console.log('oscillator');
+        let signalTestingSuite = document.getElementById('signalTestingSuite');
+        let signalTestLabel = document.getElementById('signalTestLabel');
+        let signalTestSublabel = document.getElementById('signalTestSublabel');
+        let signalTestingInstructions = document.getElementById('signalTestingInstructions');
+
+        signalTestLabel.innerHTML = 'Oscillator Test';
+        signalTestSublabel.innerHTML = '';
+        signalTestingInstructions.innerHTML = 'Click \'start\' to begin';
+      }
+
 
       function onInit() {
         console.log("Signal Testing Suite is lit");
@@ -287,6 +455,9 @@
             break;
           case('2'):
             gainTest(2);
+            break;
+          case('3'):
+            oscillatorTest(3);
             break;
           default:
             alert('unsupported signal test');
