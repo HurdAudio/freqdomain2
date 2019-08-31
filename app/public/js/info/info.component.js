@@ -27,7 +27,8 @@
       var contextStarted = false;
       var rendered = {
         gain: false,
-        master_volume: false
+        master_volume: false,
+        oscillator: false
       };
 
       function navPatchEditor() {
@@ -63,6 +64,7 @@
         let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
         let div = document.getElementById(moduleDiv);
         let rect = div.getBoundingClientRect();
+        let hubDiv = document.getElementById('hubDiv');
         console.log(rect);
         switch(moduleType) {
           case('master_volume'):
@@ -85,7 +87,7 @@
 
                   let masterVolume = new MasterVolume(settings, skinArray[0], audioContext);
                   let masterVolumeDiv = masterVolume.renderDraggable();
-                  div.appendChild(masterVolumeDiv);
+                  hubDiv.appendChild(masterVolumeDiv);
                   // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
@@ -98,7 +100,7 @@
               .then(settingsData => {
                 let settings = settingsData.data;
                 settings.positionX = (rect.left + ((rect.width/2) + 20));
-                settings.positionY = (rect.top - (13 * (rect.height/12)));
+                settings.positionY = (rect.top - (6 * (rect.height/12)));
                 $http.get('/gain_skins')
                 .then(allGainSkinsData => {
                   let allGainSkins = allGainSkinsData.data;
@@ -111,8 +113,34 @@
 
                   let gain = new GainModule(settings, skinArray[0], audioContext);
                   let gainDiv = gain.renderDraggable();
-                  div.appendChild(gainDiv);
+                  hubDiv.appendChild(gainDiv);
                   // masterVolumeDiv.setAttribute("style", "position: relative;");
+                });
+              });
+            }
+            break;
+          case('oscillator'):
+            if (!rendered.oscillator) {
+              rendered.oscillator = true;
+              $http.get('/oscillators/1')
+              .then(settingsData => {
+                let settings = settingsData.data;
+                settings.positionX = (rect.left + (rect.width/2));
+                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                $http.get('/oscillator_skins')
+                .then(allOscillatorSkinsData => {
+                  let allOscillatorSkins = allOscillatorSkinsData.data;
+                  let skinArray = allOscillatorSkins.filter(entry => {
+                    return((entry.month === months[now.getMonth()]) && (entry.rule.dates.indexOf(now.getDate()) !== -1));
+                  });
+                  if (skinArray.length === 0) {
+                    skinArray.push(allOscillatorSkins[Math.floor(Math.random() * allOscillatorSkins.length)]);
+                  }
+
+                  let oscillator = new OscillatorModule(settings, skinArray[0], audioContext);
+                  let oscillatorDiv = oscillator.renderDraggable();
+                  hubDiv.appendChild(oscillatorDiv);
+                  oscillatorDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }
