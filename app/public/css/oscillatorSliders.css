@@ -1437,3 +1437,369 @@
   cursor: pointer;
   box-shadow: 1px -1px 1px #ffff32, 2px -2px 1px #ffff32, 3px -3px 1px #ffff32, 4px -4px 1px #ffff32;
 }
+
+.oscillatorMayASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 49px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #1647f6, 2px -2px 1px #1647f6, 3px -3px 1px #1647f6, 4px -4px 1px #1647f6;
+}
+
+.oscillatorMayASlider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 52px;
+  height: 49px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #1647f6, 2px -2px 1px #1647f6, 3px -3px 1px #1647f6, 4px -4px 1px #1647f6;
+}
+
+.oscillatorDetuneMayASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 32px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #1647f6, -2px -2px 1px #1647f6, -3px -3px 1px #1647f6, -4px -4px 1px #1647f6;
+}
+
+.oscillatorDetuneMayASlider::-moz-range-thumb {
+  width: 24px;
+  height: 32px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #1647f6, -2px -2px 1px #1647f6, -3px -3px 1px #1647f6, -4px -4px 1px #1647f6;
+}
+
+.oscillatorHorizontalMayASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #1647f6, -2px -2px 1px #1647f6, -3px -3px 1px #1647f6, -4px -4px 1px #1647f6;
+}
+
+.oscillatorHorizontalMayASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #1647f6, -2px -2px 1px #1647f6, -3px -3px 1px #1647f6, -4px -4px 1px #1647f6;
+}
+
+.oscillatorVerticalMayASlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #1647f6, 2px -2px 1px #1647f6, 3px -3px 1px #1647f6, 4px -4px 1px #1647f6;
+}
+
+.oscillatorVerticalMayASlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #b9c7fc;
+  background-color: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -webkit-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: -o-linear-gradient(-135deg, #081c62, #b9c7fc);
+  background: linear-gradient(-135deg, #081c62, #b9c7fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #1647f6, 2px -2px 1px #1647f6, 3px -3px 1px #1647f6, 4px -4px 1px #1647f6;
+}
+
+.oscillatorMayBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 49px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffdab9, 2px -2px 1px #ffdab9, 3px -3px 1px #ffdab9, 4px -4px 1px #ffdab9;
+}
+
+.oscillatorMayBSlider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 52px;
+  height: 49px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffdab9, 2px -2px 1px #ffdab9, 3px -3px 1px #ffdab9, 4px -4px 1px #ffdab9;
+}
+
+.oscillatorDetuneMayBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 32px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffdab9, -2px -2px 1px #ffdab9, -3px -3px 1px #ffdab9, -4px -4px 1px #ffdab9;
+}
+
+.oscillatorDetuneMayBSlider::-moz-range-thumb {
+  width: 24px;
+  height: 32px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffdab9, -2px -2px 1px #ffdab9, -3px -3px 1px #ffdab9, -4px -4px 1px #ffdab9;
+}
+
+.oscillatorHorizontalMayBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffdab9, -2px -2px 1px #ffdab9, -3px -3px 1px #ffdab9, -4px -4px 1px #ffdab9;
+}
+
+.oscillatorHorizontalMayBSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ffdab9, -2px -2px 1px #ffdab9, -3px -3px 1px #ffdab9, -4px -4px 1px #ffdab9;
+}
+
+.oscillatorVerticalMayBSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffdab9, 2px -2px 1px #ffdab9, 3px -3px 1px #ffdab9, 4px -4px 1px #ffdab9;
+}
+
+.oscillatorVerticalMayBSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #ffe1c7;
+  background-color: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -webkit-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: -o-linear-gradient(-135deg, #332b25, #ffe1c7);
+  background: linear-gradient(-135deg, #332b25, #ffe1c7);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ffdab9, 2px -2px 1px #ffdab9, 3px -3px 1px #ffdab9, 4px -4px 1px #ffdab9;
+}
+
+.oscillatorMayCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 49px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fbea43, 2px -2px 1px #fbea43, 3px -3px 1px #fbea43, 4px -4px 1px #fbea43;
+}
+
+.oscillatorMayCSlider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 52px;
+  height: 49px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fbea43, 2px -2px 1px #fbea43, 3px -3px 1px #fbea43, 4px -4px 1px #fbea43;
+}
+
+.oscillatorDetuneMayCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 32px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #fbea43, -2px -2px 1px #fbea43, -3px -3px 1px #fbea43, -4px -4px 1px #fbea43;
+}
+
+.oscillatorDetuneMayCSlider::-moz-range-thumb {
+  width: 24px;
+  height: 32px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #fbea43, -2px -2px 1px #fbea43, -3px -3px 1px #fbea43, -4px -4px 1px #fbea43;
+}
+
+.oscillatorHorizontalMayCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #fbea43, -2px -2px 1px #fbea43, -3px -3px 1px #fbea43, -4px -4px 1px #fbea43;
+}
+
+.oscillatorHorizontalMayCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #fbea43, -2px -2px 1px #fbea43, -3px -3px 1px #fbea43, -4px -4px 1px #fbea43;
+}
+
+.oscillatorVerticalMayCSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 22px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fbea43, 2px -2px 1px #fbea43, 3px -3px 1px #fbea43, 4px -4px 1px #fbea43;
+}
+
+.oscillatorVerticalMayCSlider::-moz-range-thumb {
+  width: 12px;
+  height: 22px;
+  background-color: #fdf397;
+  background-color: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -webkit-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: -o-linear-gradient(-135deg, #fbe82f, #fdf397);
+  background: linear-gradient(-135deg, #fbe82f, #fdf397);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fbea43, 2px -2px 1px #fbea43, 3px -3px 1px #fbea43, 4px -4px 1px #fbea43;
+}
