@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+    <!-- <link rel="icon" href="./img/clock-145560_640.png" type="image/gif" sizes="16x16"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous"> -->
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/gain_module_juna.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./gain_module_juna.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="gainDiv">
+      <div id="gainTop">
+
+        <h1>Gain</h1>
+      </div>
+      <div id="gainsignalFlow">
+        <div id="gainInput">
+          <p>in</p>
+          <h2>◦</h2>
+        </div>
+        <div id="gainOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="gainFace">
+
+        <form>
+          <a><input id="gainDisplay" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value"><span id="displaySpan"></span></a>
+
+          <input name="amountRange" type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" id="gainVolume">
+
+        </form>
+        <div id="gainModulator">
+          <p>Modulation Input:</p>
+          <select id="gainModulatorSelect">
+            <option value="none">none</option>
+            <option value="envelope1">envelope1</option>
+            <option value="envelope2">envelope2</option>
+            <option value="envelope3">envelope3</option>
+            <option value="envelope4">envelope4</option>
+            <option value="frequency1">frequency1</option>
+            <option value="frequency2">frequency2</option>
+            <option value="frequency3">frequency3</option>
+          </select>
+          <br>
+          <button id="gainModulateEdit">edit</button>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
