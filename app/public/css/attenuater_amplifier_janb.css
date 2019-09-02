@@ -1,0 +1,463 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#attenuaterAmplifierDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#attenuaterAmplifierTop {
+  background: url(../img/january/aaron-burden-sIdhoUtMhlo-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 76%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#attenuaterAmplifierTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #151808;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #d9f256, 2px 2px 1px #d9f256;
+}
+
+#attenuaterAmplifierSignalFlow {
+  background: url(../img/january/aaron-burden-sIdhoUtMhlo-unsplash.jpg);
+  background-size: 1300%;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #d9f256;
+}
+
+#attenuaterAmplifierSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 12vmin;
+  margin-bottom: 0;
+  color: #151808;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+}
+
+#attenuaterAmplifierSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #151808;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 600%;
+  /*background: #224CBC;
+  background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);
+  background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  cursor: pointer;
+}
+
+#attenuaterAmplifierFace {
+  height: 450px;
+  width: 76%;
+  /*background: #ffffff;*/
+  /*background-color: -webkit-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -o-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: -moz-linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  /*background: linear-gradient(135deg, #224CBC, #6FAAF0);*/
+  background: url(../img/january/aaron-burden-AOBOsBnfKBU-unsplash.jpg);
+  background-color: #ffffff;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: -57.4vmin;
+  margin-left: 7.3vmin;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256;
+}
+
+#attenuaterAmplifierInputOutputDisplayDiv {
+  height: 100%;
+  width: 20%;
+}
+
+#inputDisplayLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 10px 10px 10px 10px;
+}
+
+#inputDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: -25px;
+  margin-left: 5%;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 48px;
+  width: 85%;
+}
+
+#minimumInputDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  /* margin-top: -25px; */
+  /* margin-left: 5%; */
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 30px;
+  width: 85%;
+}
+
+#maximumInputDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  /* margin-top: -25px; */
+  /* margin-left: 5%; */
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 30px;
+  width: 85%;
+}
+
+#outputDisplayLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 25% 10px 10px 10px;
+}
+
+#outputDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: -25px;
+  margin-left: 5%;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 48px;
+  width: 85%;
+}
+
+#minimumOutputValueInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  margin-left: 4%;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 48px;
+  width: 75%;
+}
+
+#minimumOutputValueRange {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg) translateX(-170px) translateY(55px);
+  width: 340px;
+  height: 18px;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 200%;
+  outline: none;
+  opacity: 1.0;
+  box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+}
+
+#minimumOutputValueRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 30px;
+    box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -o-linear-gradient(45deg, #566022, #e8f799);
+    background: linear-gradient(45deg, #566022, #e8f799);
+    cursor: pointer;
+}
+
+#minimumOutputValueRange::-moz-range-thumb {
+  width: 15px;
+  height: 30px;
+  box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -o-linear-gradient(45deg, #566022, #e8f799);
+  background: linear-gradient(45deg, #566022, #e8f799);
+  cursor: pointer;
+}
+
+#maximumOutputValueInput {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-top: 5px;
+  margin-left: 4%;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 48px;
+  width: 75%;
+}
+
+#multiplierValueInput {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-top: 5px;
+  margin-left: 80px;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+  padding-left: 1vmin;
+  height: 52px;
+  width: 55%;
+}
+
+#maximumOutputValueRange {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg) translateX(-170px) translateY(55px);
+  width: 340px;
+  height: 18px;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 200%;
+  outline: none;
+  opacity: 1.0;
+  box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+}
+
+#multiplierValueRange {
+  -webkit-appearance: none;
+  appearance: none;
+  transform: translateX(30px) translateY(60px);
+  width: 600px;
+  height: 18px;
+  background: url(../img/january/mavourneen-strozewski-Jc6M0RbrGVA-unsplash.jpg);
+  background-size: 200%;
+  outline: none;
+  opacity: 1.0;
+  box-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256, -3px -3px 1px #d9f256, -4px -4px 1px #d9f256;
+}
+
+#maximumOutputValueRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 30px;
+    box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -o-linear-gradient(45deg, #566022, #e8f799);
+    background: linear-gradient(45deg, #566022, #e8f799);
+    cursor: pointer;
+}
+
+#multiplierValueRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 30px;
+    box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+    background: -o-linear-gradient(45deg, #566022, #e8f799);
+    background: linear-gradient(45deg, #566022, #e8f799);
+    cursor: pointer;
+}
+
+#maximumOutputValueRange::-moz-range-thumb {
+  width: 15px;
+  height: 30px;
+  box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -o-linear-gradient(45deg, #566022, #e8f799);
+  background: linear-gradient(45deg, #566022, #e8f799);
+  cursor: pointer;
+}
+
+#multiplierValueRange::-moz-range-thumb {
+  width: 15px;
+  height: 30px;
+  box-shadow: 1px -1px 1px #d9f256, 2px -2px 1px #d9f256, 3px -3px 1px #d9f256, 4px -4px 1px #d9f256;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -webkit-linear-gradient(45deg, #566022, #e8f799);
+  background: -o-linear-gradient(45deg, #566022, #e8f799);
+  background: linear-gradient(45deg, #566022, #e8f799);
+  cursor: pointer;
+}
+
+#rangeSettingLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 36px;
+  margin: 25% 10px 10px 20%;
+}
+
+#multiplierSettingsLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 36px;
+  margin: 30% 10px 10px 5%;
+}
+
+#minimumOutputLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 1% 5px;
+}
+
+#maximumOutputLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 1% 5px;
+}
+
+#minimumInputValueLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 60px 5px 1% 5px;
+}
+
+#maximumInputValueLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 24px;
+  margin: 100px 5px 1% 5px;
+}
+
+#multiplierValueLabel {
+  color: #151808;
+  font-family: 'Righteous', cursive;
+  text-shadow: -1px -1px 1px #d9f256, -2px -2px 1px #d9f256;
+  font-size: 36px;
+  margin: 100px 5px 1% 50px;
+}
+
+#minimumOutputDiv {
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+
+#maximumOutputDiv {
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+
+#currentInputMinMaxDiv {
+  float: left;
+  width: 20%;
+  height: 100%;
+}
+
+.settingOn {
+  filter: brightness(150%);
+  opacity: 1;
+  transition: all 0.5s linear;
+}
+
+.settingOff {
+  filter: brightness(5%);
+  opacity: 0.3;
+  transition: all 0.5s linear;
+}
+
+#settingsKnob {
+  background: #eeeeee;
+  border-radius: 100%;
+  color: #151808;
+  cursor: pointer;
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin: -25% 35%;
+  padding: 0 10px;
+
+}
+
+
+.settingsToRange {
+  transform: rotateZ(0deg);
+  transition: all 0.5s linear;
+}
+
+.settingsToMultiplier {
+  transform: rotateZ(180deg);
+  transition: all 0.5s linear;
+}
+
+#rangeFace {
+  display: initial;
+  float: right;
+  height: 100%;
+  transform: translateY(-450px);
+  width: 80%;
+}
+
+#multiplierFace {
+  display: none;
+  float: right;
+  height: 100%;
+  transform: translateY(-450px);
+  width: 80%;
+}
