@@ -29,38 +29,31 @@
       vm.returnToHub = returnToHub;
       vm.userLogout = userLogout;
       vm.userProfileEditor = userProfileEditor;
-      vm.returnToHub = returnToHub;
       vm.navMixer = navMixer;
       vm.userPatches = [
         {
           patch: 1,
           name: "Default",
-          selected: "patchSelected"
         },
         {
           patch: 2,
           name: "Sine Tones",
-          selected: "patchNotSelected"
         },
         {
           patch: 3,
           name: "Square Wave Experiment",
-          selected: "patchNotSelected"
         },
         {
           patch: 4,
           name: "Low Pass Drone",
-          selected: "patchNotSelected"
         },
         {
           patch: 5,
           name: "Evolution",
-          selected: "patchNotSelected"
         },
         {
           patch: null,
           name: "+ Add New",
-          selected: "patchNotSelected"
         }
       ];
       vm.selectPatch = selectPatch;
@@ -93,12 +86,6 @@
       function userProfileEditor() {
         $state.go('userprofile', {id: currentUserId});
       }
-
-
-      function returnToHub() {
-        $state.go('userhub', {id: currentUserId});
-      }
-
 
       function userLogout() {
         $http.get(`/users/${currentUserId}`)

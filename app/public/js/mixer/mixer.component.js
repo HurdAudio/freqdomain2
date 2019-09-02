@@ -34,27 +34,27 @@
       vm.userMixerPaths = [
         {
           patch: 1,
-          name: "↓ Default",
+          name: "Default",
           selected: "mixPathSelected"
         },
         {
           patch: 2,
-          name: "↓ Hard Limiter",
+          name: "Hard Limiter",
           selected: "mixPathNotSelected"
         },
         {
           patch: 3,
-          name: "↓ Soft Limiter",
+          name: "Soft Limiter",
           selected: "mixPathNotSelected"
         },
         {
           patch: 4,
-          name: "↓ Vocal Mixer",
+          name: "Vocal Mixer",
           selected: "mixPathNotSelected"
         },
         {
           patch: 5,
-          name: "↓ Instrumental",
+          name: "Instrumental",
           selected: "mixPathNotSelected"
         },
         {
@@ -66,6 +66,33 @@
       vm.selectMixPath = selectMixPath;
       vm.loadInfo = loadInfo;
       vm.navPatchEditor = navPatchEditor;
+      vm.mixInfos = mixInfos;
+      vm.mixInfoVisible = false;
+      vm.mixInfoOn = mixInfoOn;
+      vm.mixInfoOff = mixInfoOff;
+
+      function mixInfoOff() {
+        let whatIsMixer = document.getElementById('whatIsMixer');
+        vm.mixInfoVisible = false;
+        whatIsMixer.setAttribute("style", "opacity: 0; z-index: -5;");
+      }
+
+      function mixInfoOn() {
+        let whatIsMixer = document.getElementById('whatIsMixer');
+        vm.mixInfoVisible = true;
+        whatIsMixer.setAttribute("style", "opacity: 1; z-index: 5;");
+      }
+
+      function mixInfos() {
+        let whatIsMixer = document.getElementById('whatIsMixer');
+        if (vm.mixInfoVisible) {
+          vm.mixInfoVisible = false;
+          whatIsMixer.setAttribute("style", "opacity: 0; z-index: -5;");
+        } else {
+          vm.mixInfoVisible = true;
+            whatIsMixer.setAttribute("style", "opacity: 1; z-index: 5;");
+        }
+      }
 
       var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -132,6 +159,7 @@
         let signalPathEditorSpace = document.getElementById('signalPathEditorSpace');
         let months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
         let now = new Date();
+        let hubDiv = document.getElementById('hubDiv');
 
         $http.get('/master_volumes/1')
         .then(settingsData => {
@@ -148,7 +176,7 @@
             }
             let masterVolume = new MasterVolume(settings, skinArr[0], audioContext);
             let masterDiv = masterVolume.renderDraggable();
-            signalPathEditorSpace.appendChild(masterDiv);
+            hubDiv.appendChild(masterDiv);
           });
         })
       }

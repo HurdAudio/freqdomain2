@@ -121,6 +121,11 @@
       vm.displayList = false;
       vm.viewHideProgress = viewHideProgress;
       vm.editMixer = editMixer;
+      vm.editPatch = editPatch;
+
+      function editPatch() {
+        $state.go('patcheditor', { id: currentUserId });
+      }
 
       function editMixer() {
         $state.go('mixer', {id: currentUserId});
@@ -290,15 +295,11 @@
         let pause = 8000 + shutterDelay;
         let headline = '';
         if (masterNewsArray.length < 1) {
-          runNewsTicker();
+          setTimeout(() => {
+            runNewsTicker();
+          }, pause);
           return;
         }
-        // let display = '';
-        // if (news.length < width) {
-        //   display = news;
-        // } else {
-        //   display = news.slice(0, width);
-        // }
 
         headline = masterNewsArray[0].source.name + ': ' + masterNewsArray[0].title;
         if (masterNewsArray[0].description !== null) {
@@ -306,9 +307,6 @@
         }
         headlinesGoHere.innerHTML = headline;
         let nextNews = masterNewsArray.slice(1);
-        // if (display[0] === ' ') {
-        //   delay = delay * 2;
-        // }
         headlinesGoHere.setAttribute("style", "transform: rotateX(0deg); transition: transform " + shutterDelay + "ms linear;");
         setTimeout(() => {
           headlinesGoHere.setAttribute("style", "transform: rotateX(90deg); transition: transform " + shutterDelay + "ms linear;");
@@ -320,11 +318,6 @@
 
       function runNewsTicker() {
         let headlinesGoHere = document.getElementById('headlinesGoHere');
-        // let newsString = '';
-        // let characterWidth = 70;
-        // for (let sp = 0; sp < characterWidth; sp++) {
-        //   newsString+= ' ';
-        // }
 
         $http.get('/news_tickers')
         .then(freqdomain2NewsData=>{
@@ -345,20 +338,6 @@
           .then(reutersHeadlinesData=>{
             let reutersHeadlines = reutersHeadlinesData.data;
             let masterNewsArray = freqNews.concat(reutersHeadlines.articles);
-            // if (freqNews.length > 0) {
-            //   for (let i = 0; i < freqNews.length; i++) {
-            //     // newsString += 'FreqDomain2 News: ' + freqNews[i].headline;
-            //   }
-            // }
-            // if (reutersHeadlines.articles.length > 0) {
-            //   for (let j = 0; j < reutersHeadlines.articles.length; j++) {
-            //     // newsString += reutersHeadlines.articles[j].source.name + ': ' + reutersHeadlines.articles[j].title;
-            //     if (reutersHeadlines.articles[j].description !== null) {
-            //       // newsString += ' - ' + reutersHeadlines.articles[j].description;
-            //     }
-            //   }
-            // }
-            // console.log(newsString);
             dynamicNewsTicker(headlinesGoHere, masterNewsArray);
           });
         });
@@ -611,7 +590,7 @@
         //   }, 2000);
         // }, 3000);
 
-        document.getElementById('mixerSelection').addEventListener('change', () => {
+        document.getElementById('mixerSelection').addEventListener('mouseover', () => {
           if (document.getElementById('mixerSelection').value === 'none') {
             vm.mixerSelected = false;
             document.getElementById('patchSetting').setAttribute("style", "opacity: 0.2;");

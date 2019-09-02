@@ -36,7 +36,13 @@
         </div>
       </div> -->
 
+      <div id="mixerPageLabel">
+
+        <h1 ng-mouseover="$ctrl.mixInfoOn();" ng-mouseout="$ctrl.mixInfoOff()">Mixer Editor:</h1>
+      </div>
+
       <div id="mixerPatchSetting">
+
 
         <a href="" ng-click="$ctrl.loadMixer()" class="button"><p id="mixerLoadButton">Load</p></a>
         <a href="" ng-click="$ctrl.saveMixer()" class="button"><p id="mixerSaveButton">Save</p></a><br>
@@ -48,6 +54,7 @@
         </select>
       </div>
 
+
       <div>
 
         <h1 ng-click="$ctrl.returnToHub()" id="mixerReturnToHubTitle">FreqDomain2</h1>
@@ -55,12 +62,18 @@
     </div>
   </div>
 
-  <div id="signalPathEditorSpace" class="signalPathEditorFull">
+  <!-- <div id="signalPathEditorSpace" class="signalPathEditorFull">
 
-  </div>
-
-
-
+    <p id="mixerPlaceholder">.</p>
+  </div> -->
 
 
+
+
+
+</div>
+<div id="whatIsMixer">
+
+  <p>What is this?</p>
+  <p>The mixer handles signal management from the input manager to the master volume. </p>
 </div>
