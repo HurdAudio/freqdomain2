@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+
+    <title> FreqDomain 2.0 </title>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Righteous|Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alike+Angular|Asul|Concert+One|Eczar|Fruktur|Kavoon|Neuton|Space+Mono|Tillana|Work+Sans" rel="stylesheet"> -->
+
+
+
+    <link rel="stylesheet" type="text/css" href="./css/convolution_janc.css">
+
+
+
+    <!--Pure responsive breakpoints -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+
+    <script src="./convolution_janc.js" defer></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div id="convolutionDiv">
+      <div id="convolutionTop">
+
+        <h1>Convolution</h1>
+      </div>
+      <div id="convolutionSignalFlow">
+
+        <div id="convolutionInput">
+          <p>in</p>
+          <h2>◦</h2>
+        </div>
+        <div id="convolutionOutput">
+          <p>out</p>
+          <h2>◦</h2>
+        </div>
+      </div>
+
+
+      <div id="convolutionFace">
+        <div id="impulseDiv">
+          <p id="impulseLabel">impulse file: (none)</p>
+          <select id="impulseSelector">
+
+            <option value="none" selected></option>
+            <option value="1">cathedral-1</option>
+            <option value="2">cathedral-2</option>
+            <option value="3">cistern</option>
+            <option value="4">concert hall</option>
+            <option value="5">metallic chamber</option>
+            <option value="6">sewer</option>
+            <option value="7">subway tunnel</option>
+          </select><br><br>
+          <div id="convolutionButtonsDiv">
+
+            <button id="impulseLoadButton">load</button>
+            <button id="addImpulseButton">add</button>
+          </div>
+        </div>
+
+        <div id="normalizeDiv">
+          <p id="normalizeLabel">normalize:</p>
+          <div id="normalizationSwitchDiv">
+
+            <p id="normalizeOffLabel">off</p>
+            <label>
+
+              <input type="checkbox" id="normalizeSwitch">
+              <span class="slider round"></span>
+            </label>
+            <p id="normalizeOnLabel">on</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
