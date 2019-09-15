@@ -51,6 +51,7 @@ const airlines_skins = require('./routes/airlines_skins.js');
 const notch_filters = require('./routes/notch_filters.js');
 const highshelf_filter_skins = require('./routes/highshelf_filter_skins.js');
 const allpass_filters = require('./routes/allpass_filters.js');
+const peaking_filter_skins = require('./routes/peaking_filter_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -102,6 +103,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/notch_filters', notch_filters);
  app.use('/highshelf_filter_skins', highshelf_filter_skins);
  app.use('/allpass_filters', allpass_filters);
+ app.use('/peaking_filter_skins', peaking_filter_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
