@@ -766,21 +766,35 @@
         //   updated_at: new Date('2017-07-20T13:44:00.000Z')
         // }, {});
 
-        let bandpassFilter = new BandpassFilter({
-          id: 1,
-          user_id: 1,
-          name: 'bandpass filter',
-          frequency: 200.0,
-          frequency_modulator: null,
-          detune: 0,
-          detune_modulator: null,
-          q: 0,
-          q_modulator: null,
-          input: null,
-          output: 4
+        // let bandpassFilter = new BandpassFilter({
+        //   id: 1,
+        //   user_id: 1,
+        //   name: 'bandpass filter',
+        //   frequency: 200.0,
+        //   frequency_modulator: null,
+        //   detune: 0,
+        //   detune_modulator: null,
+        //   q: 0,
+        //   q_modulator: null,
+        //   input: null,
+        //   output: 4
+        // }, {}, audioContext);
+
+        let lowshelfFilter = new LowshelfFilter({
+            id: 1,
+            user_id: 1,
+            name: 'lowshelf filter',
+            frequency: 110.000,
+            frequency_modulator: null,
+            detune: 0.00,
+            detune_modulator: null,
+            gain: 0.0,
+            gain_modulator: null,
+            input: null,
+            output: null
         }, {}, audioContext);
 
-        console.log(bandpassFilter);
+        console.log(lowshelfFilter);
 
 
 
