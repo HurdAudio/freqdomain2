@@ -106,6 +106,10 @@
             moduleSelectPath = 'low_pass_filters';
             skinSelectorPath = 'lowpass_filter_skins';
             break;
+          case('HighpassFilter'):
+            moduleSelectPath = 'high_pass_filters';
+            skinSelectorPath = 'highpass_filter_skins';
+            break;
           default:
             console.log('unsupported module');
         }
@@ -297,6 +301,14 @@
                 }
               }
             }
+            if (moduleSelector.value === 'HighpassFilter') {
+              let highpassFilter = new HighpassFilter(settings, skin, audioContext);
+              if (renderSizeSelector.value === 'draggable') {
+                masterDiv = highpassFilter.renderDraggable();
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
+            }
           });
         });
       }
@@ -331,6 +343,9 @@
             break;
           case('LowpassFilter'):
             skinsTable = 'lowpass_filter_skins';
+            break;
+          case('HighpassFilter'):
+            skinsTable = 'highpass_filter_skins';
             break;
           default:
             console.log('unsupported module');
