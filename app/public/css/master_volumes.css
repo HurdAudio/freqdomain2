@@ -6,9 +6,9 @@
   width: 310px;
   outline: none;
   opacity: 1.0;
-
-  margin-left: 180px;
-  margin-top: 6px;
+  position: relative;
+  top: 80px;
+  right: -140px;
 }
 
 .volumeSlider::-webkit-slider-thumb {
