@@ -308,6 +308,12 @@
                 modDiv.push(masterDiv);
                 renderTestingSpace.appendChild(masterDiv);
               }
+              if (renderSizeSelector.value === 'rackHorizontal') {
+                masterDiv = highpassFilter.renderRackHorizontal(rackPositionX, rackPositionY);
+                rackPositionY -= 162;
+                modDiv.push(masterDiv);
+                renderTestingSpace.appendChild(masterDiv);
+              }
             }
           });
         });
