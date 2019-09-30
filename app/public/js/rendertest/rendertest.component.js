@@ -309,10 +309,20 @@
                 renderTestingSpace.appendChild(masterDiv);
               }
               if (renderSizeSelector.value === 'rackHorizontal') {
-                masterDiv = highpassFilter.renderRackHorizontal(rackPositionX, rackPositionY);
-                rackPositionY -= 162;
-                modDiv.push(masterDiv);
-                renderTestingSpace.appendChild(masterDiv);
+                if (rackPositionY > 162) {
+                  masterDiv = highpassFilter.renderRackHorizontal(rackPositionX, rackPositionY);
+                  rackPositionY -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
+              }
+              if (renderSizeSelector.value === 'rackVertical') {
+                if (verticalRackPositionX > 324) {
+                  masterDiv = highpassFilter.renderRackVertical(verticalRackPositionX, verticalRackPositionY);
+                  verticalRackPositionX -= 162;
+                  modDiv.push(masterDiv);
+                  renderTestingSpace.appendChild(masterDiv);
+                }
               }
             }
           });

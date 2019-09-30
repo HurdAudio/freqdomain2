@@ -52,6 +52,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterSliderVerticalJanuaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+    background: linear-gradient(45deg, #fff000, #C0C0C0);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterSliderVerticalJanuaryA::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: -o-linear-gradient(45deg, #fff000, #C0C0C0);
+  background: linear-gradient(45deg, #fff000, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderJanuaryB::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -106,6 +134,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterSliderVerticalJanuaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+    background: -o-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+    background: linear-gradient(45deg, #ff4c4c, #C0C0C0);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterSliderVerticalJanuaryB::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+  background: -o-linear-gradient(45deg, #ff4c4c, #C0C0C0);
+  background: linear-gradient(45deg, #ff4c4c, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderJanuaryC::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -149,6 +205,34 @@
 .highpassFilterHorizontalSliderJanuaryC::-moz-range-thumb {
   width: 16px;
   height: 38px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+  background: -o-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+  background: linear-gradient(45deg, #ffe5e5, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.highpassFilterSliderVerticalJanuaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+    background: -o-linear-gradient(45deg, #ffe5e5, #C0C0C0);
+    background: linear-gradient(45deg, #ffe5e5, #C0C0C0);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterSliderVerticalJanuaryC::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
   border: solid 2px black;
   background-color: #eeeeee;
   background-color: -webkit-linear-gradient(45deg, #ffe5e5, #C0C0C0);
@@ -213,6 +297,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterVerticalSliderFebruaryA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #009900, #C0C0C0);
+    background: -webkit-linear-gradient(45deg, #009900, #C0C0C0);
+    background: -o-linear-gradient(45deg, #009900, #C0C0C0);
+    background: linear-gradient(45deg, #009900, #C0C0C0);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderFebruaryA::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #009900, #C0C0C0);
+  background: -webkit-linear-gradient(45deg, #009900, #C0C0C0);
+  background: -o-linear-gradient(45deg, #009900, #C0C0C0);
+  background: linear-gradient(45deg, #009900, #C0C0C0);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderFebruaryB::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -257,6 +369,34 @@
 .highpassFilterHorizontalSliderFebruaryB::-moz-range-thumb {
   width: 16px;
   height: 38px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ffff00, #ffffb2);
+  background: -webkit-linear-gradient(45deg, #ffff00, #ffffb2);
+  background: -o-linear-gradient(45deg, #ffff00, #ffffb2);
+  background: linear-gradient(45deg, #ffff00, #ffffb2);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderFebruaryB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #ffff00, #ffffb2);
+    background: -webkit-linear-gradient(45deg, #ffff00, #ffffb2);
+    background: -o-linear-gradient(45deg, #ffff00, #ffffb2);
+    background: linear-gradient(45deg, #ffff00, #ffffb2);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderFebruaryB::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
   border: solid 2px black;
   background-color: #eeeeee;
   background-color: -webkit-linear-gradient(45deg, #ffff00, #ffffb2);
@@ -321,6 +461,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterVerticalSliderFebruaryC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+    background: -webkit-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+    background: -o-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+    background: linear-gradient(45deg, #ff7f7f, #ffe5e5);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderFebruaryC::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+  background: -webkit-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+  background: -o-linear-gradient(45deg, #ff7f7f, #ffe5e5);
+  background: linear-gradient(45deg, #ff7f7f, #ffe5e5);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderMarchA::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -365,6 +533,34 @@
 .highpassFilterHorizontalSliderMarchA::-moz-range-thumb {
   width: 16px;
   height: 38px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #81ff81, #dbffdb);
+  background: -webkit-linear-gradient(45deg, #81ff81, #dbffdb);
+  background: -o-linear-gradient(45deg, #81ff81, #dbffdb);
+  background: linear-gradient(45deg, #81ff81, #dbffdb);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderMarchA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #81ff81, #dbffdb);
+    background: -webkit-linear-gradient(45deg, #81ff81, #dbffdb);
+    background: -o-linear-gradient(45deg, #81ff81, #dbffdb);
+    background: linear-gradient(45deg, #81ff81, #dbffdb);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderMarchA::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
   border: solid 2px black;
   background-color: #eeeeee;
   background-color: -webkit-linear-gradient(45deg, #81ff81, #dbffdb);
@@ -429,6 +625,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterVerticalSliderMarchB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #330000, #ff7f7f);
+    background: -webkit-linear-gradient(45deg, #330000, #ff7f7f);
+    background: -o-linear-gradient(45deg, #330000, #ff7f7f);
+    background: linear-gradient(45deg, #330000, #ff7f7f);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderMarchB::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #330000, #ff7f7f);
+  background: -webkit-linear-gradient(45deg, #330000, #ff7f7f);
+  background: -o-linear-gradient(45deg, #330000, #ff7f7f);
+  background: linear-gradient(45deg, #330000, #ff7f7f);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderMarchC::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -473,6 +697,34 @@
 .highpassFilterHorizontalSliderMarchC::-moz-range-thumb {
   width: 16px;
   height: 38px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #006600, #b2ffb2);
+  background: -webkit-linear-gradient(45deg, #006600, #b2ffb2);
+  background: -o-linear-gradient(45deg, #006600, #b2ffb2);
+  background: linear-gradient(45deg, #006600, #b2ffb2);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderMarchC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #006600, #b2ffb2);
+    background: -webkit-linear-gradient(45deg, #006600, #b2ffb2);
+    background: -o-linear-gradient(45deg, #006600, #b2ffb2);
+    background: linear-gradient(45deg, #006600, #b2ffb2);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderMarchC::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
   border: solid 2px black;
   background-color: #eeeeee;
   background-color: -webkit-linear-gradient(45deg, #006600, #b2ffb2);
@@ -537,6 +789,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterVerticalSliderAprilA::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #771111, #f8a7a7);
+    background: -webkit-linear-gradient(45deg, #771111, #f8a7a7);
+    background: -o-linear-gradient(45deg, #771111, #f8a7a7);
+    background: linear-gradient(45deg, #771111, #f8a7a7);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderAprilA::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #771111, #f8a7a7);
+  background: -webkit-linear-gradient(45deg, #771111, #f8a7a7);
+  background: -o-linear-gradient(45deg, #771111, #f8a7a7);
+  background: linear-gradient(45deg, #771111, #f8a7a7);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderAprilB::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -591,6 +871,34 @@
   transform: translateY(-2px);
 }
 
+.highpassFilterVerticalSliderAprilB::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #d9d914, #f5f55c);
+    background: -webkit-linear-gradient(45deg, #d9d914, #f5f55c);
+    background: -o-linear-gradient(45deg, #d9d914, #f5f55c);
+    background: linear-gradient(45deg, #d9d914, #f5f55c);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderAprilB::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #d9d914, #f5f55c);
+  background: -webkit-linear-gradient(45deg, #d9d914, #f5f55c);
+  background: -o-linear-gradient(45deg, #d9d914, #f5f55c);
+  background: linear-gradient(45deg, #d9d914, #f5f55c);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
 .highpassFilterSliderAprilC::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -635,6 +943,34 @@
 .highpassFilterHorizontalSliderAprilC::-moz-range-thumb {
   width: 16px;
   height: 38px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #0f9218, #8cf993);
+  background: -webkit-linear-gradient(45deg, #0f9218, #8cf993);
+  background: -o-linear-gradient(45deg, #0f9218, #8cf993);
+  background: linear-gradient(45deg, #0f9218, #8cf993);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderAprilC::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 35px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #0f9218, #8cf993);
+    background: -webkit-linear-gradient(45deg, #0f9218, #8cf993);
+    background: -o-linear-gradient(45deg, #0f9218, #8cf993);
+    background: linear-gradient(45deg, #0f9218, #8cf993);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.highpassFilterVerticalSliderAprilC::-moz-range-thumb {
+  width: 13px;
+  height: 35px;
   border: solid 2px black;
   background-color: #eeeeee;
   background-color: -webkit-linear-gradient(45deg, #0f9218, #8cf993);
