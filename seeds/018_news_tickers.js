@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          headline: 'Currently working on: Highpass Filter (module 8). Stage 16 - April Consequence - April skins added to skins table. Full rendering support.',
+          headline: 'Currently working on: Lowpass Filter (module 7). Stage 17 - May A Skin.',
           expired: false,
           created_at: new Date('2017-07-20T13:44:00.000Z'),
           updated_at: new Date('2017-07-20T13:44:00.000Z')

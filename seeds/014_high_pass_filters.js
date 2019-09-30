@@ -8,7 +8,9 @@ exports.seed = function(knex, Promise) {
         {
           id: 1,
           user_id: 1,
-          name: 'high pass filter',
+          name: 'highpass filter',
+          positionX: 400,
+          positionY: 200,
           frequency: 110.000,
           frequency_modulator: null,
           detune: 0.00,
