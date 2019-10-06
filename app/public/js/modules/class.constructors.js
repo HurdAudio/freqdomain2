@@ -4900,6 +4900,18 @@ var TestToneModule = (function(settings, skin, audioContext) {
           testToneFrequencySlider.className = 'testtoneAprilCSlider';
           testToneVolumeSlider.className = 'testtoneAprilCSlider';
           break;
+        case('Test Tone: May A'):
+          testToneFrequencySlider.className = 'testtoneMayASlider';
+          testToneVolumeSlider.className = 'testtoneMayASlider';
+          break;
+        case('Test Tone: May B'):
+          testToneFrequencySlider.className = 'testtoneMayBSlider';
+          testToneVolumeSlider.className = 'testtoneMayBSlider';
+          break;
+        case('Test Tone: May C'):
+          testToneFrequencySlider.className = 'testtoneMayCSlider';
+          testToneVolumeSlider.className = 'testtoneMayCSlider';
+          break;
         default:
           console.log('unsupported test tone skin');
       }
@@ -5233,6 +5245,18 @@ var TestToneModule = (function(settings, skin, audioContext) {
           testToneFrequencySlider.className = 'testtoneAprilCSliderHorizontal';
           testToneVolumeSlider.className = 'testtoneAprilCSliderHorizontal';
           break;
+        case('Test Tone: May A'):
+          testToneFrequencySlider.className = 'testtoneMayASliderHorizontal';
+          testToneVolumeSlider.className = 'testtoneMayASliderHorizontal';
+          break;
+        case('Test Tone: May B'):
+          testToneFrequencySlider.className = 'testtoneMayBSliderHorizontal';
+          testToneVolumeSlider.className = 'testtoneMayBSliderHorizontal';
+          break;
+        case('Test Tone: May C'):
+          testToneFrequencySlider.className = 'testtoneMayCSliderHorizontal';
+          testToneVolumeSlider.className = 'testtoneMayCSliderHorizontal';
+          break;
         default:
           console.log('unsupported test tone skin');
       }
@@ -5502,6 +5526,18 @@ var TestToneModule = (function(settings, skin, audioContext) {
         case('Test Tone: April C'):
           testToneFrequencySlider.className = 'testtoneAprilCSliderVertical';
           testToneVolumeSlider.className = 'testtoneAprilCSliderVertical';
+          break;
+        case('Test Tone: May A'):
+          testToneFrequencySlider.className = 'testtoneMayASliderVertical';
+          testToneVolumeSlider.className = 'testtoneMayASliderVertical';
+          break;
+        case('Test Tone: May B'):
+          testToneFrequencySlider.className = 'testtoneMayBSliderVertical';
+          testToneVolumeSlider.className = 'testtoneMayBSliderVertical';
+          break;
+        case('Test Tone: May C'):
+          testToneFrequencySlider.className = 'testtoneMayCSliderVertical';
+          testToneVolumeSlider.className = 'testtoneMayCSliderVertical';
           break;
         default:
           console.log('unsupported test tone skin');
