@@ -21,8 +21,8 @@ function trackCursorLocation(event) {
   // console.log(cursorX);
 
   if (activePatching) {
-    console.log(cursorX);
-    console.log(connect);
+    // console.log(cursorX);
+    // console.log(connect);
     if (connect.input !== null) {
       rect = connect.input.element.getBoundingClientRect();
       activeLine.setAttribute("d", 'M ' + Math.floor(rect.left + (rect.width/2) - connectorOffset) + ' ' + Math.floor(rect.top + (rect.height/2) - connectorOffset) + ' L ' + cursorX + ' ' + cursorY + ' A');
@@ -5038,11 +5038,13 @@ var TestToneModule = (function(settings, skin, audioContext) {
           element.style.left = (element.offsetLeft - pos1) + "px";
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
+          trackCursorLocation();
+          updateConnectors(obj);
         }
 
         function closeDragElement() {
           document.onmouseup = null;
-          document.onmousemove = null;
+          document.onmousemove = trackCursorLocation;
           obj.positionX = (element.offsetLeft - pos1);
           obj.positionY = (element.offsetTop - pos2);
         }
@@ -5054,8 +5056,16 @@ var TestToneModule = (function(settings, skin, audioContext) {
         this.mouseOn = true;
         if (this.deviceOn) {
           div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          updateConnectors(this);
+          setTimeout(() => {
+            updateConnectors(this);
+          }, 100);
         } else {
           div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          updateConnectors(this);
+          setTimeout(() => {
+            updateConnectors(this);
+          }, 100);
         }
 
       });
@@ -5064,13 +5074,26 @@ var TestToneModule = (function(settings, skin, audioContext) {
         this.mouseOn = false;
         if (this.deviceOn) {
           div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          updateConnectors(this);
+          setTimeout(() => {
+            updateConnectors(this);
+          }, 100);
         } else {
           div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          updateConnectors(this);
+          setTimeout(() => {
+            updateConnectors(this);
+          }, 100);
         }
       });
 
       outputPort.addEventListener('click', () => {
-        alert(outputPort.id);
+        if (this.output === null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'test_tone' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'test_tone');
+        }
+        // alert(outputPort.id);
       });
 
       return(div);
@@ -5349,7 +5372,12 @@ var TestToneModule = (function(settings, skin, audioContext) {
       switchDiv.setAttribute("style", "float: right; margin: -120px 0 0 40px; transform: scale(0.5);");
 
       outputPort.addEventListener('click', () => {
-        alert('Test Tone Output Port -- id: ' + this.id);
+        if (this.output === null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'test_tone' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'test_tone');
+        }
+        // alert('Test Tone Output Port -- id: ' + this.id);
       });
 
       this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
@@ -5631,7 +5659,12 @@ var TestToneModule = (function(settings, skin, audioContext) {
       switchDiv.setAttribute("style", "float: left; margin: -50px 0 0 30px; transform: scale(0.7);");
 
       outputPort.addEventListener('click', () => {
-        alert('Test Tone Output Port -- id: ' + this.id);
+        if (this.output === null) {
+          clickThroughput({ through: 'output', type: 'signal', device: 'test_tone' }, outputPort, this);
+        } else {
+          disconnectPatchConnection(this, 'output', 'test_tone');
+        }
+        // alert('Test Tone Output Port -- id: ' + this.id);
       });
 
       this.userFrequencyInput(testToneFrequency, testToneFrequencySlider);
