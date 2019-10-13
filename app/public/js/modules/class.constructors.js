@@ -1144,6 +1144,55 @@ function clickThroughput(throughput, element, device) {
               connect.output = null;
               activeLine = null;
               break;
+            case('test_tone'):
+              // connect master volume input to test tone output
+              // device = master volume input
+              // connect.output.device = test tone output
+
+              // Update objects
+              device.input = {
+                module: 'test_tones',
+                name: connect.output.device.name,
+                id: connect.output.device.id,
+                type: 'signal',
+                connection: connect.output.device
+              };
+              connect.output.device.output = {
+                module: 'master_volumes',
+                name: device.name,
+                id: device.id,
+                type: 'signal',
+                connection: device
+              };
+
+              // make connections
+              connect.output.device.gain.connect(device.masterGain);
+
+              // connect visual
+              inputRect = element.getBoundingClientRect();
+              outputRect = connect.output.element.getBoundingClientRect();
+              activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+              // maintain visual placement
+              patchCables.push({
+                line: activeLine,
+                input: {
+                  module: 'master_volumes',
+                  name: device.name,
+                  id: device.id,
+                  element: element
+                },
+                output: {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  element: connect.output.element
+                }
+              });
+              activePatching = false;
+              connect.output = null;
+              activeLine = null;
+              break;
             default:
               console.log('unsupported device');
               alert('unsupported device: \n master_volume input to ??');
@@ -1352,13 +1401,112 @@ function clickThroughput(throughput, element, device) {
                 activePatching = false;
                 connect.output = null;
                 activeLine = null;
-
               }
               break;
-            default:
-              console.log('unsupported device');
-              alert('unsupported device: \n gain input to ??');
-          }
+            case('test_tone'):
+              if (throughput.type === 'signal') {
+                // connect test_tone output to gain input
+                // device = gain input
+                // connect.output.device = test_tone output
+
+                // Update objects
+                device.input = {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal',
+                  connection: connect.output.device
+                };
+                connect.output.device.output = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'signal',
+                  connection: device
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.gain);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'test_tones',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+                break;
+              } else {
+                // connect test_tone output to gain modulation input
+                // device = gain modulation input
+                // connect.output.device = test_tone output
+
+                // Update objects
+                device.gainModulator = {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal',
+                  connection: connect.output.device
+                };
+                connect.output.device.output = {
+                  module: 'gains',
+                  name: device.name,
+                  id: device.id,
+                  type: 'modulation',
+                  connection: device
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.gain.gain);
+                console.log(connect.output.device);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'gains',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'test_tones',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+              }
+              default:
+                console.log('unsupported device');
+                alert('unsupported device: \n gain input to ??');
+            }
           break;
         case('oscillator'):
           switch(connect.output.throughput.device) {
@@ -1654,6 +1802,157 @@ function clickThroughput(throughput, element, device) {
                   },
                   output: {
                     module: 'oscillators',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+              }
+              break;
+            case('test_tone'):
+              if (throughput.type === 'frequencyModulation') {
+                // connect test_tone output to oscillator frequency modulation input
+                // device = frequency modulation input
+                // connect.output.device = test_tone output
+
+                // Update objects
+                device.hertzModulator = {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal',
+                  connection: connect.output.device
+                };
+                connect.output.device.output = {
+                  module: 'oscillators',
+                  name: device.name,
+                  id: device.id,
+                  type: 'frequencyModulation',
+                  connection: device
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.oscillator.frequency);
+                console.log(connect.output.device);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'oscillators',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'test_tones',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+              } else if (throughput.type === 'detuneModulation') {
+                // connect test_tone output to oscillator detune modulation input
+                // device = detune modulation input
+                // connect.output.device = test_tone output
+
+                // Update objects
+                device.detuneModulator = {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal',
+                  connection: connect.output.device
+                };
+                connect.output.device.output = {
+                  module: 'oscillators',
+                  name: device.name,
+                  id: device.id,
+                  type: 'detuneModulation',
+                  connection: device
+                };
+
+                // make connections
+                connect.output.device.gain.connect(device.oscillator.detune);
+                console.log(connect.output.device);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'oscillators',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'test_tones',
+                    name: connect.output.device.name,
+                    id: connect.output.device.id,
+                    element: connect.output.element
+                  }
+                });
+                activePatching = false;
+                connect.output = null;
+                activeLine = null;
+              } else if (throughput.type === 'waveformModulation') {
+                // connect test_tone output to oscillator waveform modulation input
+                // device = waveform modulation input
+                // connect.output.device = test_tone output
+
+                // Update objects
+                device.waveformModulator = {
+                  module: 'test_tones',
+                  name: connect.output.device.name,
+                  id: connect.output.device.id,
+                  type: 'signal',
+                  connection: connect.output.device
+                };
+                connect.output.device.output = {
+                  module: 'oscillators',
+                  name: device.name,
+                  id: device.id,
+                  type: 'waveformModulation',
+                  connection: device
+                };
+
+                // make connections
+                // connect.output.device.gain.connect(device.oscillator.type);
+                // Illegal connection
+                console.log(connect.output.device);
+
+                // connect visual
+                inputRect = element.getBoundingClientRect();
+                outputRect = connect.output.element.getBoundingClientRect();
+                activeLine.setAttribute("d", 'M ' + Math.floor(inputRect.left + (inputRect.width/2) - connectorOffset) + ' ' + Math.floor(inputRect.top + (inputRect.height/2) - connectorOffset) + ' L ' + Math.floor(outputRect.left + (outputRect.width/2) - connectorOffset) + ' ' + Math.floor(outputRect.top + (outputRect.height/2) - connectorOffset) + ' A');
+
+                // maintain visual placement
+                patchCables.push({
+                  line: activeLine,
+                  input: {
+                    module: 'oscillators',
+                    name: device.name,
+                    id: device.id,
+                    element: element
+                  },
+                  output: {
+                    module: 'gains',
                     name: connect.output.device.name,
                     id: connect.output.device.id,
                     element: connect.output.element
