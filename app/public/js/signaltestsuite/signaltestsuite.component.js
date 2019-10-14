@@ -1,9 +1,6 @@
 (function() {
   'use strict';
 
-
-
-
   angular.module('app')
     .component('signaltestsuite', {
       controller: SignalTestSuiteController,
@@ -26,6 +23,99 @@
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         let newId = parseInt($stateParams.id) + 1;
         $state.go('signaltestsuite', {id: newId});
+      }
+
+      function testToneTest1() {
+        let signalTestingSuite = document.getElementById('signalTestingSuite');
+        let signalTestLabel = document.getElementById('signalTestLabel');
+        let signalTestSublabel = document.getElementById('signalTestSublabel');
+        let signalTestingInstructions = document.getElementById('signalTestingInstructions');
+        let testingArray = [ 'Test Tone output -> Master Volume input', 'Test Tone volume slider/input test', 'Waveform Selector test', 'Frequency slider/input test', 'Disconnect Test Tone test' ];
+        let testingIndex = 0;
+        let testingInstructions = [ 'Connect the output of the Test Tone module to the in put of the Master Volume and turn on the Test Tone using its switch. A tone should be audible.', 'Adjust the volume slider and volume input on the Test Tone. Signal volume should reflect value changes.', 'Click on the waveform selector. Timbre should change to match the selected waveform.', 'Adjust the frequency slider and input. Frequency should reflect new input values.', 'Disconnect Test Tone from the Master Volume. Signal should cease to be audible.' ];
+        let testingErrors = [ 'FAIL: Test Tone to Master Volume connection error.', 'FAIL: Test Tone volume input(s) error.', 'FAIL: Test Tone waveform input error.', 'FAIL: Test Tone frequency input(s) error.', 'FAIL: Test Tone disconnection error.' ];
+        let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
+        let now = new Date();
+        $http.get('/test_tones/1')
+        .then(testToneData => {
+          let testTone = testToneData.data;
+          testTone.id = 333;
+          testTone.positionX = 600;
+          testTone.positionY = -100;
+          $http.get('/test_tone_skins')
+          .then(allTestToneSkinsData => {
+            let allTestToneSkins = allTestToneSkinsData.data;
+            let testToneSkinArray = allTestToneSkins.filter(skin => {
+              return((skin.month === months[now.getMonth()]) && (skin.rule.dates.indexOf(now.getDate()) !== -1));
+            });
+            if (testToneSkinArray.length === 0) {
+              testToneSkinArray.push(allTestToneSkins[Math.floor(Math.random() * (allTestToneSkins.length))]);
+            }
+            let testTone1 = new TestToneModule(testTone, testToneSkinArray[0], audioContext);
+            let testTone1Div = testTone1.renderDraggable();
+            signalTestingSuite.appendChild(testTone1Div);
+            $http.get('/master_volumes/1')
+            .then(masterVolumeData => {
+              let masterVolume = masterVolumeData.data;
+              $http.get('/master_volume_skins')
+              .then(allMasterVolumeSkinsData => {
+                let allMasterVolumeSkins = allMasterVolumeSkinsData.data;
+                let masterVolumeSkinsArray = allMasterVolumeSkins.filter(skin => {
+                  return((skin.month === months[now.getMonth()]) && (skin.rule.dates.indexOf(now.getDate()) !== -1));
+                });
+                if (masterVolumeSkinsArray.length === 0) {
+                  masterVolumeSkinsArray.push(allMasterVolumeSkins[Math.floor(Math.random() * allMasterVolumeSkins.length)]);
+                }
+                let masterVolume1 = new MasterVolume(masterVolume, masterVolumeSkinsArray[0], audioContext);
+                let masterVolume1Div = masterVolume1.renderDraggable();
+                signalTestingSuite.appendChild(masterVolume1Div);
+
+                signalTestLabel.innerHTML = 'Test Tone Test:';
+                signalTestSublabel.innerHTML = (testingIndex + 1) + ' of ' + (testingArray.length) + ' - ' + testingArray[testingIndex];
+                signalTestingInstructions.innerHTML = testingInstructions[testingIndex];
+                let signalTestFail = document.getElementById('signalTestFail');
+                let signalTestPass = document.getElementById('signalTestPass');
+
+                signalTestFail.addEventListener('click', () => {
+                  signalTestingInstructions.innerHTML = testingErrors[testingIndex];
+                  document.getElementById('successFail').innerHTML = 'FAIL';
+                  document.getElementById('successFail').setAttribute("style", "color: red;");
+                  signalTestFail.setAttribute("style", "display: none;");
+                  signalTestPass.setAttribute("style", "display: none;");
+                });
+
+                signalTestPass.addEventListener('click', () => {
+                  ++testingIndex;
+                  if (testingIndex < testingArray.length) {
+                    signalTestSublabel.innerHTML = (testingIndex + 1) + ' of ' + (testingArray.length) + ' - ' + testingArray[testingIndex];
+                    signalTestingInstructions.innerHTML = testingInstructions[testingIndex];
+                  } else {
+                    signalTestFail.setAttribute("style", "display: none;");
+                    signalTestPass.setAttribute("style", "display: none;");
+                    document.getElementById('successFail').innerHTML = 'SUCCESS';
+                    document.getElementById('successFail').setAttribute("style", "color: green;");
+                    signalTestLabel.innerHTML = 'Test Tone Test: PASSED';
+                    signalTestLabel.setAttribute("style", "color: green;");
+                    signalTestSublabel.innerHTML = (testingArray.length) + ' of ' + (testingArray.length) + ' tests passed.';
+                    signalTestSublabel.setAttribute("style", "color: green;");
+                    signalTestingInstructions.innerHTML = 'Test Tone passes signal testing.';
+                    signalTestingInstructions.setAttribute("style", "color: green;");
+                    document.getElementById('signalTestingTitle').setAttribute("style", "color: green;");
+                    document.getElementById('signalTestNext').setAttribute("style", "display: initial;");
+
+                    if (masterVolume.input !== null) {
+                      disconnectPatchConnection(masterVolume, 'input', 'master_volumes');
+                    }
+                    if (testTone1.output !== null) {
+                      disconnectPatchConnection(oscillator1, 'output', 'oscillators');
+                    }
+                    audioContext = null;
+                  }
+                });
+              });
+            });
+          });
+        });
       }
 
       function oscillatorTest1() {
@@ -401,6 +491,10 @@
             // OscillatorModule
             oscillatorTest1();
             break;
+          case(4):
+            // Test tone
+            testToneTest1();
+            break;
           default:
             alert('unsupported module type');
         }
@@ -444,6 +538,18 @@
         signalTestingInstructions.innerHTML = 'Click \'start\' to begin';
       }
 
+      function testToneTest(moduleVal) {
+        console.log('test tone');
+        let signalTestingSuite = document.getElementById('signalTestingSuite');
+        let signalTestLabel = document.getElementById('signalTestLabel');
+        let signalTestSublabel = document.getElementById('signalTestSublabel');
+        let signalTestingInstructions = document.getElementById('signalTestingInstructions');
+
+        signalTestLabel.innerHTML = 'Test Tone Test';
+        signalTestSublabel.innerHTML = '';
+        signalTestingInstructions.innerHTML = 'Click \'start\' to begin';
+      }
+
 
       function onInit() {
         console.log("Signal Testing Suite is lit");
@@ -458,6 +564,9 @@
             break;
           case('3'):
             oscillatorTest(3);
+            break;
+          case('4'):
+            testToneTest(4);
             break;
           default:
             alert('unsupported signal test');

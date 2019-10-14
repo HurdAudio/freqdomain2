@@ -1078,6 +1078,276 @@
   box-shadow: 1px -1px 1px #ffff19, 2px -2px 1px #ffff19, 3px -3px 1px #ffff19, 4px -4px 1px #ffff19;
 }
 
+.testtoneMayASlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background-color: #f49494;
+    background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+    background: linear-gradient(-135deg, #460c0c, #f49494);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ec3f3f, 2px -2px 1px #ec3f3f, 3px -3px 1px #ec3f3f, 4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayASlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background-color: #f49494;
+  background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+  background: linear-gradient(-135deg, #460c0c, #f49494);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ec3f3f, 2px -2px 1px #ec3f3f, 3px -3px 1px #ec3f3f, 4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayASliderHorizontal::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #f49494;
+    background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+    background: linear-gradient(-135deg, #460c0c, #f49494);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #ec3f3f, -2px -2px 1px #ec3f3f, -3px -3px 1px #ec3f3f, -4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayASliderHorizontal::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #f49494;
+  background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+  background: linear-gradient(-135deg, #460c0c, #f49494);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #ec3f3f, -2px -2px 1px #ec3f3f, -3px -3px 1px #ec3f3f, -4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayASliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #f49494;
+    background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+    background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+    background: linear-gradient(-135deg, #460c0c, #f49494);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #ec3f3f, 2px -2px 1px #ec3f3f, 3px -3px 1px #ec3f3f, 4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayASliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #f49494;
+  background-color: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -webkit-linear-gradient(-135deg, #460c0c, #f49494);
+  background: -o-linear-gradient(-135deg, #460c0c, #f49494);
+  background: linear-gradient(-135deg, #460c0c, #f49494);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #ec3f3f, 2px -2px 1px #ec3f3f, 3px -3px 1px #ec3f3f, 4px -4px 1px #ec3f3f;
+}
+
+.testtoneMayBSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background-color: #77e4fc;
+    background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #3ed9fb, 2px -2px 1px #3ed9fb, 3px -3px 1px #3ed9fb, 4px -4px 1px #3ed9fb;
+}
+
+.testtoneMayBSlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background-color: #77e4fc;
+  background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #3ed9fb, 2px -2px 1px #3ed9fb, 3px -3px 1px #3ed9fb, 4px -4px 1px #3ed9fb;trfg
+}
+
+.testtoneMayBSliderHorizontal::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #77e4fc;
+    background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #3ed9fb, -2px -2px 1px #3ed9fb, -3px -3px 1px #3ed9fb, -4px -4px 1px #3ed9fb;
+}
+
+.testtoneMayBSliderHorizontal::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #77e4fc;
+  background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #3ed9fb, -2px -2px 1px #3ed9fb, -3px -3px 1px #3ed9fb, -4px -4px 1px #3ed9fb;
+}
+
+.testtoneMayBSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #77e4fc;
+    background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #3ed9fb, 2px -2px 1px #3ed9fb, 3px -3px 1px #3ed9fb, 4px -4px 1px #3ed9fb;
+}
+
+.testtoneMayBSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #77e4fc;
+  background-color: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -webkit-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: -o-linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background: linear-gradient(-135deg, #1f6c7d, #77e4fc);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #3ed9fb, 2px -2px 1px #3ed9fb, 3px -3px 1px #3ed9fb, 4px -4px 1px #3ed9fb;
+}
+
+.testtoneMayCSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 49px;
+    background-color: #fefad2;
+    background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: linear-gradient(-135deg, #7e7947, #fefad2);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #fdf38f, 2px -2px 1px #fdf38f, 3px -3px 1px #fdf38f, 4px -4px 1px #fdf38f;
+}
+
+.testtoneMayCSlider::-moz-range-thumb {
+  width: 52px;
+  height: 49px;
+  background-color: #fefad2;
+  background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: linear-gradient(-135deg, #7e7947, #fefad2);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fdf38f, 2px -2px 1px #fdf38f, 3px -3px 1px #fdf38f, 4px -4px 1px #fdf38f;
+}
+
+.testtoneMayCSliderHorizontal::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #fefad2;
+    background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: linear-gradient(-135deg, #7e7947, #fefad2);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px #fdf38f, -2px -2px 1px #fdf38f, -3px -3px 1px #fdf38f, -4px -4px 1px #fdf38f;
+}
+
+.testtoneMayCSliderHorizontal::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #fefad2;
+  background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: linear-gradient(-135deg, #7e7947, #fefad2);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: -1px -1px 1px #fdf38f, -2px -2px 1px #fdf38f, -3px -3px 1px #fdf38f, -4px -4px 1px #fdf38f;
+}
+
+.testtoneMayCSliderVertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #fefad2;
+    background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+    background: linear-gradient(-135deg, #7e7947, #fefad2);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 1px -1px 1px #fdf38f, 2px -2px 1px #fdf38f, 3px -3px 1px #fdf38f, 4px -4px 1px #fdf38f;
+}
+
+.testtoneMayCSliderVertical::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background-color: #fefad2;
+  background-color: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -webkit-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: -o-linear-gradient(-135deg, #7e7947, #fefad2);
+  background: linear-gradient(-135deg, #7e7947, #fefad2);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 1px -1px 1px #fdf38f, 2px -2px 1px #fdf38f, 3px -3px 1px #fdf38f, 4px -4px 1px #fdf38f;
+}
+
 .testToneSwitch {
   margin: 6vmin 0 0 1vmin;
   position: relative;

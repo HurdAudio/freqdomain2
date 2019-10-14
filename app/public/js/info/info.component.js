@@ -28,7 +28,8 @@
       var rendered = {
         gain: false,
         master_volume: false,
-        oscillator: false
+        oscillator: false,
+        test_tone: false,
       };
 
       function navPatchEditor() {
@@ -63,6 +64,7 @@
         let now = new Date();
         let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
         let div = document.getElementById(moduleDiv);
+        console.log(div);
         let rect = div.getBoundingClientRect();
         let hubDiv = document.getElementById('hubDiv');
         console.log(rect);
@@ -141,6 +143,32 @@
                   let oscillatorDiv = oscillator.renderDraggable();
                   hubDiv.appendChild(oscillatorDiv);
                   oscillatorDiv.setAttribute("style", "position: fixed;");
+                });
+              });
+            }
+            break;
+          case('test_tone'):
+            if (!rendered.test_tone) {
+              rendered.test_tone = true;
+              $http.get('/test_tones/1')
+              .then(settingsData => {
+                let settings = settingsData.data;
+                settings.positionX = (rect.left + (rect.width/2));
+                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                $http.get('/test_tone_skins')
+                .then(allTestToneSkinsData => {
+                  let allTestToneSkins = allTestToneSkinsData.data;
+                  let skinArray = allTestToneSkins.filter(entry => {
+                    return((entry.month === months[now.getMonth()]) && (entry.rule.dates.indexOf(now.getDate()) !== -1));
+                  });
+                  if (skinArray.length === 0) {
+                    skinArray.push(allTestToneSkins[Math.floor(Math.random() * allTestToneSkins.length)]);
+                  }
+
+                  let testTone = new TestToneModule(settings, skinArray[0], audioContext);
+                  let testToneDiv = testTone.renderDraggable();
+                  hubDiv.appendChild(testToneDiv);
+                  testToneDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }

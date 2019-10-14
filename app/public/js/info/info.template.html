@@ -375,20 +375,23 @@
             </div>
           </li>
           <li>
-            <a href="#"><p>Test Tone</p></a>
-            <div class="infoBox">
-              <img src="./img/icons8-voice-64.png">
-              <h4>Brief Description:</h4>
-              <p>Utility for testing signal paths. A module that generates a constant tone.</p>
-              <h4>Status:</h4>
-              <p>pre-production</p>
-              <h4>Progress:</h4>
-              <p>Initial Design phase completed.</p>
-              <p>Table storage completed.</p>
-              <p>Skins table storage completed.</p>
-              <p>Class constructor created.</p>
-              <p>Full rendering support.</p>
-            </div>
+            <a href="#" ng-click="$ctrl.renderModule('test_tone', 'testToneInfoBox')"><p>Test Tone</p></a>
+            <div class="infosContainer" id="testToneInfoBox">
+                <div class="infoBox">
+                  <img src="./img/icons8-voice-64.png">
+                  <h4>Brief Description:</h4>
+                  <p>Utility for testing signal paths. A module that generates a constant tone.</p>
+                  <h4>Status:</h4>
+                  <p>pre-production</p>
+                  <h4>Progress:</h4>
+                  <p>Initial Design phase completed.</p>
+                  <p>Table storage completed.</p>
+                  <p>Skins table storage completed.</p>
+                  <p>Class constructor created.</p>
+                  <p>Full rendering support.</p>
+                  <p>Signal tests.</p>
+                </div>
+              </div>
           </li>
           <li>
             <a href="#"><p>Weather Module</p></a>
