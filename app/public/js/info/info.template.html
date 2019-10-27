@@ -32,7 +32,7 @@
               <h6>⇨</h6>
             </div>
           <a class="button" ng-click="$ctrl.navMixer()"><h3>Mixer Settings</h3></a>
-          <p>First: You will need a mixer. You define the path that an audio signal takes on its way to the speakers and ultimately to your years. This can be as simple as routing an output straight to the master volume controller or setting up an effects chain.</p>
+          <p>First: You will need a mixer. You define the path that an audio signal takes on its way to the speakers and ultimately to your ears. This can be as simple as routing an output straight to the master volume controller or setting up an effects chain.</p>
         </div>
         <div class="quarters">
           <h5 class="infoNumbers">2<h5>
@@ -58,6 +58,9 @@
       </div>
 
       <div class="fullWidth">
+        <div id="infoSVG">
+            <h2>Module Sandbox</h2>
+        </div>
         <h2>The Modules</h2>
         <ul class="infoList">
           <li>
@@ -186,8 +189,8 @@
           </li>
           <li>
             <a href="#" ng-click="$ctrl.renderModule('gain', 'gainInfoBox')"><p>Gain Module</p></a>
-            <div class="infosContainer" id="gainInfoBox">
-              <div class="infoBox">
+            <!-- <div class="infosContainer" id="gainInfoBox"> -->
+              <div class="infoBox" id="gainBox">
                 <img src="./img/icons8-audio-settings-64.png">
                 <h4>Brief Description:</h4>
                 <p>Gain represents a change in volume. It is an audio-processing module that causes a given gain to be applied to the input data before its propagation to the output.</p>
@@ -201,8 +204,8 @@
                 <p>Full rendering support.</p>
                 <p>Signal tests.</p>
               </div>
-              <div class="infoBoxRight"></div>
-            </div>
+              <!-- <div class="infoBoxRight"></div> -->
+            <!-- </div> -->
           </li>
           <li>
             <a href="#"><p>Highshelf Filter</p></a>

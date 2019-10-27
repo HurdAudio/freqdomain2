@@ -4,6 +4,25 @@
   top: 66px;
 }
 
+#infoSVG {
+  background: #282828;
+  border: 5px solid #00FF66;
+  float: right;
+  height: 1550vh;
+  margin: 14vh 0 0 0;
+  position: static;
+  width: 53%;
+  z-index: 50;
+}
+
+#infoSVG h2 {
+  color: #00FF66;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  position: relative;
+  transform: translateY(-30px);
+}
+
 #whitePaper {
   height: 690px;
   width: 96.8%;

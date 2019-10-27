@@ -63,7 +63,8 @@
         }
         let now = new Date();
         let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
-        let div = document.getElementById(moduleDiv);
+        let div = document.getElementById('renderSvg');
+        let infoSVG = document.getElementById('infoSVG')
         console.log(div);
         let rect = div.getBoundingClientRect();
         let hubDiv = document.getElementById('hubDiv');
@@ -101,8 +102,10 @@
               $http.get('/gains/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let gainBox = document.getElementById('gainBox');
+                let gainRect = gainBox.getBoundingClientRect();
                 settings.positionX = (rect.left + ((rect.width/2) + 20));
-                settings.positionY = (rect.top - (6 * (rect.height/12)));
+                settings.positionY = gainRect.top;
                 $http.get('/gain_skins')
                 .then(allGainSkinsData => {
                   let allGainSkins = allGainSkinsData.data;
@@ -113,10 +116,9 @@
                     skinArray.push(allGainSkins[Math.floor(Math.random() * allGainSkins.length)]);
                   }
 
-                  let gain = new GainModule(settings, skinArray[0], audioContext);
+                  let gain = new GainModule(settings, skinArray[0], audioContext, infoSVG);
                   let gainDiv = gain.renderDraggable();
                   hubDiv.appendChild(gainDiv);
-                  // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
             }
