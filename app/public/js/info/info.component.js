@@ -31,6 +31,35 @@
         oscillator: false,
         test_tone: false,
       };
+      var dragScale = 1;
+      var componentArr = [];
+
+      function manageScaling() {
+        switch(componentArr.length) {
+          case(1):
+            componentArr.forEach(element => {
+              element.setDragScale(1);
+            });
+            break;
+          case(2):
+            componentArr.forEach(element => {
+              element.setDragScale(1);
+            });
+            break;
+          case(3):
+            componentArr.forEach(element => {
+              element.setDragScale(0.9);
+            });
+            break;
+          case(4):
+            componentArr.forEach(element => {
+              element.setDragScale(0.8);
+            });
+            break;
+          default:
+            alert("Error: Unhandled component scaling");
+        }
+      }
 
       function navPatchEditor() {
         $state.go('patcheditor', {id: currentUserId});
@@ -63,7 +92,8 @@
         }
         let now = new Date();
         let months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
-        let div = document.getElementById(moduleDiv);
+        let div = document.getElementById('renderSvg');
+        let infoSVG = document.getElementById('infoSVG')
         console.log(div);
         let rect = div.getBoundingClientRect();
         let hubDiv = document.getElementById('hubDiv');
@@ -75,8 +105,10 @@
               $http.get('/master_volumes/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let masterBox = document.getElementById('masterBox');
+                let masterRect = masterBox.getBoundingClientRect();
                 settings.positionX = (rect.left + ((rect.width/2) + 20));
-                settings.positionY = (rect.top - (13 * (rect.height/14)));
+                settings.positionY = masterRect.top;
                 $http.get('/master_volume_skins')
                 .then(allMasterVolumeSkinsData => {
                   let allMasterVolumeSkins = allMasterVolumeSkinsData.data;
@@ -87,10 +119,11 @@
                     skinArray.push(allMasterVolumeSkins[Math.floor(Math.random() * allMasterVolumeSkins.length)]);
                   }
 
-                  let masterVolume = new MasterVolume(settings, skinArray[0], audioContext);
+                  let masterVolume = new MasterVolume(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(masterVolume);
+                  manageScaling();
                   let masterVolumeDiv = masterVolume.renderDraggable();
                   hubDiv.appendChild(masterVolumeDiv);
-                  // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
             }
@@ -101,8 +134,10 @@
               $http.get('/gains/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let gainBox = document.getElementById('gainBox');
+                let gainRect = gainBox.getBoundingClientRect();
                 settings.positionX = (rect.left + ((rect.width/2) + 20));
-                settings.positionY = (rect.top - (6 * (rect.height/12)));
+                settings.positionY = gainRect.top;
                 $http.get('/gain_skins')
                 .then(allGainSkinsData => {
                   let allGainSkins = allGainSkinsData.data;
@@ -113,10 +148,11 @@
                     skinArray.push(allGainSkins[Math.floor(Math.random() * allGainSkins.length)]);
                   }
 
-                  let gain = new GainModule(settings, skinArray[0], audioContext);
+                  let gain = new GainModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(gain);
+                  manageScaling();
                   let gainDiv = gain.renderDraggable();
                   hubDiv.appendChild(gainDiv);
-                  // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
             }
@@ -127,8 +163,10 @@
               $http.get('/oscillators/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let oscillatorBox = document.getElementById('oscillatorBox');
+                let oscillatorRect = oscillatorBox.getBoundingClientRect();
                 settings.positionX = (rect.left + (rect.width/2));
-                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                settings.positionY = oscillatorRect.top;
                 $http.get('/oscillator_skins')
                 .then(allOscillatorSkinsData => {
                   let allOscillatorSkins = allOscillatorSkinsData.data;
@@ -139,10 +177,11 @@
                     skinArray.push(allOscillatorSkins[Math.floor(Math.random() * allOscillatorSkins.length)]);
                   }
 
-                  let oscillator = new OscillatorModule(settings, skinArray[0], audioContext);
+                  let oscillator = new OscillatorModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(oscillator);
+                  manageScaling();
                   let oscillatorDiv = oscillator.renderDraggable();
                   hubDiv.appendChild(oscillatorDiv);
-                  oscillatorDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }
@@ -153,8 +192,10 @@
               $http.get('/test_tones/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let testBox = document.getElementById('testBox');
+                let testRect = testBox.getBoundingClientRect();
                 settings.positionX = (rect.left + (rect.width/2));
-                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                settings.positionY = testRect.top;
                 $http.get('/test_tone_skins')
                 .then(allTestToneSkinsData => {
                   let allTestToneSkins = allTestToneSkinsData.data;
@@ -165,10 +206,11 @@
                     skinArray.push(allTestToneSkins[Math.floor(Math.random() * allTestToneSkins.length)]);
                   }
 
-                  let testTone = new TestToneModule(settings, skinArray[0], audioContext);
+                  let testTone = new TestToneModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(testTone);
+                  manageScaling();
                   let testToneDiv = testTone.renderDraggable();
                   hubDiv.appendChild(testToneDiv);
-                  testToneDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }

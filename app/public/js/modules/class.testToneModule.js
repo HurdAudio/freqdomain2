@@ -1,8 +1,8 @@
 'use strict';
 
-var TestToneModule = (function(settings, skin, audioContext) {
+var TestToneModule = (function(settings, skin, audioContext, boundinDiv) {
 
-  let testToneNode = function(settings, skin, audioContext) {
+  let testToneNode = function(settings, skin, audioContext, boundingDiv) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -79,6 +79,12 @@ var TestToneModule = (function(settings, skin, audioContext) {
     this.verticalWidth = 160;
     this.verticalHeight = 750;
     this.mouseOn = false;
+
+    this.dragScale = 1;
+
+    this.setDragScale = (scale) => {
+      this.dragScale = scale;
+    }
 
     this.onOffFunctionalityVertical = (testToneOnOff, light, div, x, y) => {
       testToneOnOff.addEventListener('change', () => {
@@ -377,7 +383,7 @@ var TestToneModule = (function(settings, skin, audioContext) {
       switchLabel.appendChild(sliderSpan);
       sliderSpan.className = "testToneSlider";
 
-      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(" + (0.5 * this.dragScale) + ");");
       testtoneTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
       nameTag.innerHTML = this.name;
       nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
@@ -550,6 +556,13 @@ var TestToneModule = (function(settings, skin, audioContext) {
 
       function dragElement(element, obj) {
 
+        let bounded = false;
+        let boundRect;
+
+        if ((boundingDiv !== null) && (boundingDiv !== undefined)) {
+          bounded = true;
+        }
+
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         if (testtoneTop) {
           testtoneTop.onmousedown = dragMouseDown;
@@ -569,15 +582,51 @@ var TestToneModule = (function(settings, skin, audioContext) {
         function elementDrag(e) {
           e = e || window.event;
           e.preventDefault();
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          // set the element's new position:
-          element.style.top = (element.offsetTop - pos2) + "px";
-          element.style.left = (element.offsetLeft - pos1) + "px";
-          obj.positionX = (element.offsetLeft - pos1);
-          obj.positionY = (element.offsetTop - pos2);
+          if (bounded) {
+            boundRect = boundingDiv.getBoundingClientRect();
+            if ((e.clientX < (boundRect.left + (obj.dragWidth/4)))) {
+              pos1 = pos3 - (boundRect.left + (obj.dragWidth/4));
+              pos3 = (boundRect.left + (obj.dragWidth/4));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else if ((e.clientX > (boundRect.right - (obj.dragWidth/4)))) {
+              pos1 = pos3 - (boundRect.right - (obj.dragWidth/4));
+              pos3 = (boundRect.right - (obj.dragWidth/4));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else {
+              pos1 = pos3 - e.clientX;
+              pos3 = e.clientX;
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            }
+            if (e.clientY < boundRect.top) {
+              pos2 = pos4 - boundRect.top;
+              pos4 = boundRect.top;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else if (e.clientY > (boundRect.bottom - obj.dragHeight)) {
+              pos2 = pos4 - (boundRect.bottom - obj.dragHeight);
+              pos4 = (boundRect.bottom - obj.dragHeight);
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else {
+              pos2 = pos4 - e.clientY;
+              pos4 = e.clientY;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            }
+          } else {
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+            obj.positionX = (element.offsetLeft - pos1);
+            obj.positionY = (element.offsetTop - pos2);
+          }
           trackCursorLocation();
           updateConnectors(obj);
         }
@@ -595,13 +644,13 @@ var TestToneModule = (function(settings, skin, audioContext) {
       div.addEventListener('mouseover', () => {
         this.mouseOn = true;
         if (this.deviceOn) {
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(" + (0.7 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
           updateConnectors(this);
           setTimeout(() => {
             updateConnectors(this);
           }, 100);
         } else {
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(" + (0.7 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
           updateConnectors(this);
           setTimeout(() => {
             updateConnectors(this);
@@ -613,13 +662,13 @@ var TestToneModule = (function(settings, skin, audioContext) {
       div.addEventListener('mouseout', () => {
         this.mouseOn = false;
         if (this.deviceOn) {
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(0deg) contrast(100%); transform: scale(" + (0.5 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
           updateConnectors(this);
           setTimeout(() => {
             updateConnectors(this);
           }, 100);
         } else {
-          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+          div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; filter: hue-rotate(180deg) contrast(50%); transform: scale(" + (0.5 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
           updateConnectors(this);
           setTimeout(() => {
             updateConnectors(this);

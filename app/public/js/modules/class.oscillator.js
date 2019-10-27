@@ -1,8 +1,8 @@
 'use strict';
 
-var OscillatorModule = (function(settings, skin, audioContext) {
+var OscillatorModule = (function(settings, skin, audioContext, boundingDiv) {
 
-  let oscillatorNode = function(settings, skin, audioContext) {
+  let oscillatorNode = function(settings, skin, audioContext, boundingDiv) {
     this.id = settings.id;
     this.name = settings.name;
     this.waveform = settings.waveform;
@@ -84,6 +84,12 @@ var OscillatorModule = (function(settings, skin, audioContext) {
     this.horizontalHeight = 160;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
+
+    this.dragScale = 1;
+
+    this.setDragScale = (scale) => {
+      this.dragScale = scale;
+    }
 
     this.userWaveformInput = (sine, square, sawtooth, triangle) => {
       sine.addEventListener('click', () => {
@@ -284,7 +290,7 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       detuneModPort.innerHTML = '◦';
       detuneModPort.id = 'detuneModPort ' + this.name + this.id;
 
-      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(" + (0.5 * this.dragScale) + ");");
       oscillatorTop.setAttribute("style", "width: 100%; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 60px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
       nameTag.innerHTML = this.name;
       nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 40px; margin-left: 2em; margin-top: 6em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
@@ -334,7 +340,7 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       leverSpace.setAttribute("style", "margin: -465px 0 0 35%;");
       hertzLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 3px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow + ", -3px -3px 1px " + this.faceFontShadow + ", -4px -4px 1px " + this.faceFontShadow + "; transform: translateY(-300px);");
       hertzDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 56px; margin-left: 5px; margin-top: -20px; background: url(" + this.displayPath + "); background-size: " + this.frequencySize + "; box-shadow: -1px -1px 1px " + this.frequencyBoxShadow + ", -2px -2px 1px " + this.frequencyBoxShadow + ", -3px -3px 1px " + this.frequencyBoxShadow + ", -4px -4px 1px " + this.frequencyBoxShadow + "; padding-left: 1vmin; width: 65%; transform: translateY(-300px);");
-      hertzSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg) translateY(-300px); transform: translateY(-300px) rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 150px; margin-top: 80px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + "; height: 52px;");
+      hertzSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; webkit-transform: rotateZ(-90deg) translateY(-300px); transform: translateY(-300px) rotateZ(-90deg); width: 95%; background: url(" + this.frequencySliderPath + "); background-size: " + this.frequencySliderSize + "; outline: none; opacity: 1.0; margin-left: 150px; margin-top: 80px; box-shadow: 1px -1px 1px " + this.frequencyBoxShadow + ", 2px -2px 1px " + this.frequencyBoxShadow + ", 3px -3px 1px " + this.frequencyBoxShadow + ", 4px -4px 1px " + this.frequencyBoxShadow + "; height: 52px; z-index: 60;");
       switch(this.skinName) {
         case('Oscillator: January A'):
           hertzSlider.className = 'oscillatorJanuaryASlider';
@@ -403,7 +409,7 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       hertzModPort.setAttribute("style", "margin-top: -18px; margin-left: 45px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; transform: translateY(-290px);");
       detuneLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 30px; margin: -25px 0 0 0; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; transform: translateY(-250px);");
       detuneDisplay.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; margin-left: 1px; margin-top: 8px; background: url(" + this.detunePath + "); background-size: " + this.detuneSize + "; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + "; padding-left: 10px; transform: translateY(-250px);");
-      detuneSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; width: 65%; height: 32px; background: url(" + this.detuneSliderPath + "); background-size: " + this.detuneSliderSize + "; outline: none; opacity: 1.0; position: relative; left: -20px; top: 15px; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + "; transform: translateY(-250px);");
+      detuneSlider.setAttribute("style", "-webkit-appearance: none; appearance: none; width: 65%; height: 32px; background: url(" + this.detuneSliderPath + "); background-size: " + this.detuneSliderSize + "; outline: none; opacity: 1.0; position: relative; left: -20px; top: 15px; box-shadow: -1px -1px 1px " + this.detuneBoxShadowColor + ", -2px -2px 1px " + this.detuneBoxShadowColor + ", -3px -3px 1px " + this.detuneBoxShadowColor + ", -4px -4px 1px " + this.detuneBoxShadowColor + "; transform: translateY(-250px); z-index: 60;");
       detuneModLabel.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 24px; position: relative; top: -170px; left: 150px; color: " + this.faceFontColor + "; text-shadow: -1px -1px 1px " + this.faceFontShadow + ", -2px -2px 1px " + this.faceFontShadow +  "; transform: translateY(-250px);");
       detuneModPort.setAttribute("style", "position: relative; top: -190px; left: 170px; font-family: 'Righteous', cursive; font-size: 48px; width: 12%; color: " + this.faceFontColor + "; background: url(" + this.displayPath + "); background-size: " + this.outputSize + "; padding-left: 15px; text-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; box-shadow: -1px -1px 1px " + this.outputBoxShadowColor + ", -2px -2px 1px " + this.outputBoxShadowColor + "; cursor: pointer; transform: translateY(-250px);");
 
@@ -412,6 +418,13 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       this.userDetuneInput(detuneDisplay, detuneSlider);
 
       function dragElement(element, obj) {
+
+        let bounded = false;
+        let boundRect;
+
+        if ((boundingDiv !== null) && (boundingDiv !== undefined)) {
+          bounded = true;
+        }
 
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         if (oscillatorTop) {
@@ -432,15 +445,51 @@ var OscillatorModule = (function(settings, skin, audioContext) {
         function elementDrag(e) {
           e = e || window.event;
           e.preventDefault();
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          // set the element's new position:
-          element.style.top = (element.offsetTop - pos2) + "px";
-          element.style.left = (element.offsetLeft - pos1) + "px";
-          obj.positionX = (element.offsetLeft - pos1);
-          obj.positionY = (element.offsetTop - pos2);
+          if (bounded) {
+            boundRect = boundingDiv.getBoundingClientRect();
+            if ((e.clientX < (boundRect.left + (obj.dragWidth/2)))) {
+              pos1 = pos3 - (boundRect.left + (obj.dragWidth/2));
+              pos3 = (boundRect.left + (obj.dragWidth/2));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else if ((e.clientX > (boundRect.right - (obj.dragWidth/2)))) {
+              pos1 = pos3 - (boundRect.right - (obj.dragWidth/2));
+              pos3 = (boundRect.right - (obj.dragWidth/2));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else {
+              pos1 = pos3 - e.clientX;
+              pos3 = e.clientX;
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            }
+            if (e.clientY < boundRect.top) {
+              pos2 = pos4 - boundRect.top;
+              pos4 = boundRect.top;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else if (e.clientY > (boundRect.bottom - obj.dragHeight)) {
+              pos2 = pos4 - (boundRect.bottom - obj.dragHeight);
+              pos4 = (boundRect.bottom - obj.dragHeight);
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else {
+              pos2 = pos4 - e.clientY;
+              pos4 = e.clientY;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            }
+          } else {
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+            obj.positionX = (element.offsetLeft - pos1);
+            obj.positionY = (element.offsetTop - pos2);
+          }
           trackCursorLocation();
           updateConnectors(obj);
         }
@@ -456,7 +505,7 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       dragElement(div, this);
 
       div.addEventListener('mouseover', () => {
-        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(" + (0.7 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
         updateConnectors(this);
         setTimeout(() => {
           updateConnectors(this);
@@ -464,7 +513,7 @@ var OscillatorModule = (function(settings, skin, audioContext) {
       });
 
       div.addEventListener('mouseout', () => {
-        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(" + (0.5 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
         updateConnectors(this);
         setTimeout(() => {
           updateConnectors(this);

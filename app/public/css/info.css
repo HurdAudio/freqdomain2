@@ -4,6 +4,25 @@
   top: 66px;
 }
 
+#infoSVG {
+  background: #282828;
+  border: 5px solid #00FF66;
+  float: right;
+  height: 1425vh;
+  margin: 14vh 0 0 0;
+  position: static;
+  width: 53%;
+  z-index: 50;
+}
+
+#infoSVG h2 {
+  color: #00FF66;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  position: relative;
+  transform: translateY(-30px);
+}
+
 #whitePaper {
   height: 690px;
   width: 96.8%;
@@ -57,6 +76,7 @@
 
 #whitePaper h5 {
   font-size: 60px;
+  margin: 0 15px;
 }
 
 #whitePaper a h3:hover {
@@ -261,7 +281,7 @@ ul {
 .infoNumbers {
   font-family: 'Roboto', serif;
   /* align-content: center; */
-  padding: 0 0 0 40%;
+  padding: 0 5% 0 15%;
   margin: 0 0 0 0;
   float: left;
   color: #000000;
