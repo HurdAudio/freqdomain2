@@ -65,6 +65,11 @@ var GainModule = (function(settings, skin, audioContext, boundingDiv) {
     this.horizontalHeight = 160;
     this.verticalWidth = 160;
     this.verticalHeight = 750;
+    this.dragScale = 1;
+
+    this.setDragScale = (scale) => {
+      this.dragScale = scale;
+    }
 
     this.userVolumeInput = (display, slider) => {
 
@@ -138,7 +143,7 @@ var GainModule = (function(settings, skin, audioContext, boundingDiv) {
       modulationInputPort.innerHTML = '◦';
       modulationInputPort.id = 'modulationInput' + this.name + this.id;
 
-      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(0.5);");
+      div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; left: " + this.positionX + "px; top: " + this.positionY + "px; transform: scale(" + (0.5 * this.dragScale) + ");");
       gainTop.setAttribute("style", "width: " + (this.dragWidth) + "px; background: url(" + this.topPath + "); background-size: " + this.topSize + "; font-family: 'Righteous', cursive; height: 50px; webkit-transform: skew(45deg, 0deg); transform: skew(45deg, 0deg); margin-top: -30px; margin-left: 25px; cursor: move; background-repeat: " + this.topRepeat + ";");
       nameTag.innerHTML = this.name;
       nameTag.setAttribute("style", "font-family: 'Righteous', cursive; font-size: 36px; margin-left: 2em; margin-top: 1em; color: " + this.topFontColor + "; font-weight: 600; text-shadow: 1px 1px 1px " + this.topFontShadow + ", 2px 2px 1px " + this.topFontShadow + ";");
@@ -245,7 +250,7 @@ var GainModule = (function(settings, skin, audioContext, boundingDiv) {
       dragElement(div, this);
 
       div.addEventListener('mouseover', () => {
-        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.7); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(" + (0.7 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 6;");
         updateConnectors(this);
         setTimeout(() => {
           updateConnectors(this);
@@ -253,7 +258,7 @@ var GainModule = (function(settings, skin, audioContext, boundingDiv) {
       });
 
       div.addEventListener('mouseout', () => {
-        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(0.5); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
+        div.setAttribute("style", "width: " + this.dragWidth + "px; height: " + this.dragHeight + "px; background: transparent; position: absolute; transform: scale(" + (0.5 * this.dragScale) + "); transition: transform 0.1s linear; top: " + this.positionY + "px; left: " + this.positionX + "px; z-index: 1;");
         updateConnectors(this);
         setTimeout(() => {
           updateConnectors(this);

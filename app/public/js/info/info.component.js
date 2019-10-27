@@ -31,6 +31,35 @@
         oscillator: false,
         test_tone: false,
       };
+      var dragScale = 1;
+      var componentArr = [];
+
+      function manageScaling() {
+        switch(componentArr.length) {
+          case(1):
+            componentArr.forEach(element => {
+              element.setDragScale(1);
+            });
+            break;
+          case(2):
+            componentArr.forEach(element => {
+              element.setDragScale(1);
+            });
+            break;
+          case(3):
+            componentArr.forEach(element => {
+              element.setDragScale(0.9);
+            });
+            break;
+          case(4):
+            componentArr.forEach(element => {
+              element.setDragScale(0.8);
+            });
+            break;
+          default:
+            alert("Error: Unhandled component scaling");
+        }
+      }
 
       function navPatchEditor() {
         $state.go('patcheditor', {id: currentUserId});
@@ -91,6 +120,8 @@
                   }
 
                   let masterVolume = new MasterVolume(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(masterVolume);
+                  manageScaling();
                   let masterVolumeDiv = masterVolume.renderDraggable();
                   hubDiv.appendChild(masterVolumeDiv);
                 });
@@ -118,6 +149,8 @@
                   }
 
                   let gain = new GainModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(gain);
+                  manageScaling();
                   let gainDiv = gain.renderDraggable();
                   hubDiv.appendChild(gainDiv);
                 });
@@ -145,9 +178,10 @@
                   }
 
                   let oscillator = new OscillatorModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(oscillator);
+                  manageScaling();
                   let oscillatorDiv = oscillator.renderDraggable();
                   hubDiv.appendChild(oscillatorDiv);
-                  oscillatorDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }
@@ -173,9 +207,10 @@
                   }
 
                   let testTone = new TestToneModule(settings, skinArray[0], audioContext, infoSVG);
+                  componentArr.push(testTone);
+                  manageScaling();
                   let testToneDiv = testTone.renderDraggable();
                   hubDiv.appendChild(testToneDiv);
-                  testToneDiv.setAttribute("style", "position: fixed;");
                 });
               });
             }
