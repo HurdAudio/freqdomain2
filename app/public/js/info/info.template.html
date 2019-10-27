@@ -27,31 +27,31 @@
       <br><br>
       <div class="pure-g">
         <div class="quarters">
-          <h5 class="infoNumbers">1<h5>
+          <h5 class="infoNumbers">1</h5>
             <div class="infoArrows">
-              <h6>⇨</h6>
+              <h5>⇨</h5>
             </div>
           <a class="button" ng-click="$ctrl.navMixer()"><h3>Mixer Settings</h3></a>
           <p>First: You will need a mixer. You define the path that an audio signal takes on its way to the speakers and ultimately to your ears. This can be as simple as routing an output straight to the master volume controller or setting up an effects chain.</p>
         </div>
         <div class="quarters">
-          <h5 class="infoNumbers">2<h5>
+          <h5 class="infoNumbers">2</h5>
             <div class="infoArrows">
-              <h6>⇨</h6>
+              <h5>⇨</h5>
             </div>
           <a class="button" ng-click="$ctrl.navPatchEditor()"><h3>Patch Editor</h3></a>
           <p>Second: Let's build out some patches using sonic sources and modulators to run through your shiny new mixer. FreqDomain2 allows you to mix and match different modules to realize your sonic vision. New modules are being added all the time to expand the creative toolset.</p>
         </div>
         <div class="quarters">
-          <h5 class="infoNumbers">3<h5>
+          <h5 class="infoNumbers">3</h5>
             <div class="infoArrows">
-              <h6>⇨</h6>
+              <h5>⇨</h5>
             </div>
           <a class="button"><h3>Compose</h3></a>
           <p>Third: Now bring your collection of patches over to the composition editor where they can be triggered along a timeline to realize your masterpiece. Apply a wide range of onset, aftertouch and key-off parameters to breathe dynamicism into your sonic realization.</p>
         </div>
         <div class="quarters">
-          <h5 class="infoNumbers">4<h5>
+          <h5 class="infoNumbers">4</h5>
           <a class="button"><h3>Be Social</h3></a>
           <p>Fourth: Don't keep your creations to yourself. Share and collaborate with other FreqDomain2 users in our social marketspace.  Check out and share your mixers, patches and compositions with like-minded composers or just find inspiration for your next work.</p>
         </div>
@@ -284,8 +284,8 @@
           </li>
           <li>
             <a href="#" ng-click="$ctrl.renderModule('master_volume', 'masterVolumeInfoBox')"><p>Master Volume</p></a>
-            <div class="infosContainer" id="masterVolumeInfoBox">
-              <div class="infoBox">
+            <!-- <div class="infosContainer" id="masterVolumeInfoBox"> -->
+              <div class="infoBox" id="masterBox">
                 <img src="./img/icons8-audio-64.png">
                 <h4>Brief Description:</h4>
                 <p>Gain node connected directly to speaker output. Representing the final attenuator before a signal passes through. Master Volume also has mute functionality built in to quickly silence the final output.</p>
@@ -299,8 +299,7 @@
                 <p>Full rendering support.</p>
                 <p>Signal tests.</p>
               </div>
-              <div class="infoBoxRight"></div>
-            </div>
+            <!-- </div> -->
           </li>
           <li>
             <a href="#"><p>Notch Filter</p></a>
@@ -317,8 +316,8 @@
           </li>
           <li>
             <a href="#" ng-click="$ctrl.renderModule('oscillator', 'oscillatorInfoBox')"><p>Oscillator</p></a>
-            <div class="infosContainer" id="oscillatorInfoBox">
-              <div class="infoBox">
+            <!-- <div class="infosContainer" id="oscillatorInfoBox"> -->
+              <div class="infoBox" id="oscillatorBox">
                 <img src="./img/icons8-sine-40.png">
                 <h4>Brief Description:</h4>
                 <p>Represents a periodic waveform, such as a sine wave. It is an  audio-processing module that causes a specified frequency of a given wave to be created—in effect, a constant tone.</p>
@@ -332,8 +331,7 @@
                 <p>Full rendering support.</p>
                 <p>Signal tests.</p>
               </div>
-              <div class="infoBoxRight"></div>
-            </div>
+            <!-- </div> -->
           </li>
           <li>
             <a href="#"><p>Peaking Filter</p></a>
@@ -379,22 +377,22 @@
           </li>
           <li>
             <a href="#" ng-click="$ctrl.renderModule('test_tone', 'testToneInfoBox')"><p>Test Tone</p></a>
-            <div class="infosContainer" id="testToneInfoBox">
-                <div class="infoBox">
-                  <img src="./img/icons8-voice-64.png">
-                  <h4>Brief Description:</h4>
-                  <p>Utility for testing signal paths. A module that generates a constant tone.</p>
-                  <h4>Status:</h4>
-                  <p>pre-production</p>
-                  <h4>Progress:</h4>
-                  <p>Initial Design phase completed.</p>
-                  <p>Table storage completed.</p>
-                  <p>Skins table storage completed.</p>
-                  <p>Class constructor created.</p>
-                  <p>Full rendering support.</p>
-                  <p>Signal tests.</p>
-                </div>
-              </div>
+            <!-- <div class="infosContainer" id="testToneInfoBox"> -->
+            <div class="infoBox" id="testBox">
+              <img src="./img/icons8-voice-64.png">
+              <h4>Brief Description:</h4>
+              <p>Utility for testing signal paths. A module that generates a constant tone.</p>
+              <h4>Status:</h4>
+              <p>pre-production</p>
+              <h4>Progress:</h4>
+              <p>Initial Design phase completed.</p>
+              <p>Table storage completed.</p>
+              <p>Skins table storage completed.</p>
+              <p>Class constructor created.</p>
+              <p>Full rendering support.</p>
+              <p>Signal tests.</p>
+            </div>
+              <!-- </div> -->
           </li>
           <li>
             <a href="#"><p>Weather Module</p></a>

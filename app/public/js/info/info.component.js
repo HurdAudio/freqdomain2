@@ -76,8 +76,10 @@
               $http.get('/master_volumes/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let masterBox = document.getElementById('masterBox');
+                let masterRect = masterBox.getBoundingClientRect();
                 settings.positionX = (rect.left + ((rect.width/2) + 20));
-                settings.positionY = (rect.top - (13 * (rect.height/14)));
+                settings.positionY = masterRect.top;
                 $http.get('/master_volume_skins')
                 .then(allMasterVolumeSkinsData => {
                   let allMasterVolumeSkins = allMasterVolumeSkinsData.data;
@@ -88,10 +90,9 @@
                     skinArray.push(allMasterVolumeSkins[Math.floor(Math.random() * allMasterVolumeSkins.length)]);
                   }
 
-                  let masterVolume = new MasterVolume(settings, skinArray[0], audioContext);
+                  let masterVolume = new MasterVolume(settings, skinArray[0], audioContext, infoSVG);
                   let masterVolumeDiv = masterVolume.renderDraggable();
                   hubDiv.appendChild(masterVolumeDiv);
-                  // masterVolumeDiv.setAttribute("style", "position: relative;");
                 });
               });
             }
@@ -129,8 +130,10 @@
               $http.get('/oscillators/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let oscillatorBox = document.getElementById('oscillatorBox');
+                let oscillatorRect = oscillatorBox.getBoundingClientRect();
                 settings.positionX = (rect.left + (rect.width/2));
-                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                settings.positionY = oscillatorRect.top;
                 $http.get('/oscillator_skins')
                 .then(allOscillatorSkinsData => {
                   let allOscillatorSkins = allOscillatorSkinsData.data;
@@ -141,7 +144,7 @@
                     skinArray.push(allOscillatorSkins[Math.floor(Math.random() * allOscillatorSkins.length)]);
                   }
 
-                  let oscillator = new OscillatorModule(settings, skinArray[0], audioContext);
+                  let oscillator = new OscillatorModule(settings, skinArray[0], audioContext, infoSVG);
                   let oscillatorDiv = oscillator.renderDraggable();
                   hubDiv.appendChild(oscillatorDiv);
                   oscillatorDiv.setAttribute("style", "position: fixed;");
@@ -155,8 +158,10 @@
               $http.get('/test_tones/1')
               .then(settingsData => {
                 let settings = settingsData.data;
+                let testBox = document.getElementById('testBox');
+                let testRect = testBox.getBoundingClientRect();
                 settings.positionX = (rect.left + (rect.width/2));
-                settings.positionY = (rect.top - (7 * (rect.height/12)));
+                settings.positionY = testRect.top;
                 $http.get('/test_tone_skins')
                 .then(allTestToneSkinsData => {
                   let allTestToneSkins = allTestToneSkinsData.data;
@@ -167,7 +172,7 @@
                     skinArray.push(allTestToneSkins[Math.floor(Math.random() * allTestToneSkins.length)]);
                   }
 
-                  let testTone = new TestToneModule(settings, skinArray[0], audioContext);
+                  let testTone = new TestToneModule(settings, skinArray[0], audioContext, infoSVG);
                   let testToneDiv = testTone.renderDraggable();
                   hubDiv.appendChild(testToneDiv);
                   testToneDiv.setAttribute("style", "position: fixed;");

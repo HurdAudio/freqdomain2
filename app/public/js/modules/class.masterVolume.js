@@ -1,8 +1,8 @@
 'use strict';
 
-var MasterVolume = (function(settings, skin, audioContext) {
+var MasterVolume = (function(settings, skin, audioContext, boundingDiv) {
 
-  let master = function (settings, skin, audioContext) {
+  let master = function (settings, skin, audioContext, boundingDiv) {
     this.id = settings.id;
     this.name = settings.name;
     this.positionX = settings.positionX;
@@ -335,6 +335,13 @@ var MasterVolume = (function(settings, skin, audioContext) {
 
       function dragElement(element, obj) {
 
+        let bounded = false;
+        let boundRect;
+
+        if ((boundingDiv !== null) && (boundingDiv !== undefined)) {
+          bounded = true;
+        }
+
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         if (masterGainTop) {
           masterGainTop.onmousedown = dragMouseDown;
@@ -354,15 +361,51 @@ var MasterVolume = (function(settings, skin, audioContext) {
         function elementDrag(e) {
           e = e || window.event;
           e.preventDefault();
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          // set the element's new position:
-          element.style.top = (element.offsetTop - pos2) + "px";
-          element.style.left = (element.offsetLeft - pos1) + "px";
-          obj.positionX = (element.offsetLeft - pos1);
-          obj.positionY = (element.offsetTop - pos2);
+          if (bounded) {
+            boundRect = boundingDiv.getBoundingClientRect();
+            if ((e.clientX < (boundRect.left + (obj.dragWidth/2)))) {
+              pos1 = pos3 - (boundRect.left + (obj.dragWidth/2));
+              pos3 = (boundRect.left + (obj.dragWidth/2));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else if ((e.clientX > (boundRect.right - (obj.dragWidth/2)))) {
+              pos1 = pos3 - (boundRect.right - (obj.dragWidth/2));
+              pos3 = (boundRect.right - (obj.dragWidth/2));
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            } else {
+              pos1 = pos3 - e.clientX;
+              pos3 = e.clientX;
+              element.style.left = (element.offsetLeft - pos1) + "px";
+              obj.positionX = (element.offsetLeft - pos1);
+            }
+            if (e.clientY < boundRect.top) {
+              pos2 = pos4 - boundRect.top;
+              pos4 = boundRect.top;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else if (e.clientY > (boundRect.bottom - obj.dragHeight)) {
+              pos2 = pos4 - (boundRect.bottom - obj.dragHeight);
+              pos4 = (boundRect.bottom - obj.dragHeight);
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            } else {
+              pos2 = pos4 - e.clientY;
+              pos4 = e.clientY;
+              element.style.top = (element.offsetTop - pos2) + "px";
+              obj.positionY = (element.offsetTop - pos2);
+            }
+          } else {
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+            obj.positionX = (element.offsetLeft - pos1);
+            obj.positionY = (element.offsetTop - pos2);
+          }
           trackCursorLocation();
           updateConnectors(obj);
         }
