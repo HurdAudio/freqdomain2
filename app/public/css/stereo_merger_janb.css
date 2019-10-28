@@ -1,0 +1,117 @@
+body {
+  background-color: #000000;
+}
+
+#stereoMergerDiv {
+  position: fixed;
+  bottom: -34.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 450px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#stereoMergerTop {
+  /* background-color: #ffffff; */
+  background: url(../img/january/ice_world_ii_by_arayashikinoshaka_dautm4s-fullview.jpg);
+  background-size: cover;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 80%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#stereoMergerTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  color: #0a0a18;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #6d6df2, 2px 2px 1px #6d6df2;
+}
+
+#stereoMergerSignalFlow {
+  /* background-color: #ffffff; */
+  background: url(../img/january/ice_world_ii_by_arayashikinoshaka_dautm4s-fullview.jpg);
+  background-size: cover;
+  border: solid 1px transparent;
+  height: 350px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #6d6df2;
+}
+
+#stereoMergerSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 4vmin;
+  margin-bottom: 0;
+  color: #0a0a18;
+  text-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+}
+
+#stereoMergerSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #0a0a18;
+  background: url(../img/january/ice_on_white_by_donnasueb_dc0brhy-fullview.jpg);
+  background-size: 400%;
+  text-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+  box-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+  cursor: pointer;
+}
+
+#stereoMergerFace {
+  height: 350px;
+  width: 80%;
+  /* background: #ffffff; */
+  background: url(../img/january/ice_by_mars_hill_ddegeia-fullview.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -44.7vmin;
+  margin-left: 7.5vmin;
+  box-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2, -3px -3px 1px #6d6df2;
+}
+
+#stereoMergerFace p {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  color: #0a0a18;
+  text-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+  width: 30%;
+  margin-left: 20%;
+}
+
+#stereoMergerFace h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  width: 8%;
+  color: #0a0a18;
+  background: url(../img/january/ice_on_white_by_donnasueb_dc0brhy-fullview.jpg);
+  background-size: 400%;
+  text-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+  box-shadow: -1px -1px 1px #6d6df2, -2px -2px 1px #6d6df2;
+  cursor: pointer;
+  padding: 0 12px;
+  margin-left: 22%;
+  margin-top: -17px;
+}
+
+#stereoOutput {
+  padding: 20%;
+  width: 100%;
+}
