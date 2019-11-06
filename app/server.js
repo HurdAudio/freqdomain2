@@ -54,6 +54,7 @@ const allpass_filters = require('./routes/allpass_filters.js');
 const peaking_filter_skins = require('./routes/peaking_filter_skins.js');
 const impulse_files = require('./routes/impulse_files.js');
 const convolutions = require('./routes/convolutions.js');
+const delay_skins = require('./routes/delay_skins.js');
 
 const port = process.env.PORT || 3007;
 
@@ -108,6 +109,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
  app.use('/peaking_filter_skins', peaking_filter_skins);
  app.use('/impulse_files', impulse_files);
  app.use('/convolutions', convolutions);
+ app.use('/delay_skins', delay_skins);
 
 //
 // app.post('/xmlconverter/', (req, res, next)=>{
