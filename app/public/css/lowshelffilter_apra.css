@@ -1,0 +1,393 @@
+body {
+  background-color: #000000;
+}
+
+
+
+#lowshelfFilterDiv {
+  position: fixed;
+  bottom: -25.5%;
+  right: 0%;
+  margin: 10em;
+  height: 450px;
+  width: 1150px;
+  background-color: transparent;
+  transform: scale(0.5);
+}
+
+#lowshelfFilterTop {
+  background: url(../img/april/star-833611_1920.jpg);
+  background-size: cover;
+  background-color: #ffffff;
+  font-family: 'Righteous', cursive;
+  height: 50px;
+  width: 76%;
+  webkit-transform: skew(45deg, 0deg);
+  transform: skew(45deg, 0deg);
+  margin-left: 4.1vmin;
+  margin-bottom: -3vmin;
+}
+
+#lowshelfFilterTop h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  margin-left: 3em;
+  margin-top: 1em;
+  color: #18060c;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #f44381, 2px 2px 1px #f44381;
+}
+
+#lowshelfFilterSignalFlow {
+  background: url(../img/april/star-833611_1920.jpg);
+  background-size: cover;
+  background-color: #ffffff;
+  border: solid 1px transparent;
+  height: 450px;
+  width: 49px;
+  webkit-transform: skew(0deg, 45deg);
+  transform: skew(0deg, 45deg);
+  margin-left: 0.8vmin;
+  margin-bottom: 3.5vmin;
+  box-shadow: 0px -1px 1px #f44381;
+}
+
+#lowshelfFilterSignalFlow p {
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin-left: 0.8em;
+  margin-top: 12vmin;
+  margin-bottom: 0;
+  color: #18060c;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381;
+}
+
+#lowshelfFilterSignalFlow h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 48px;
+  margin-left: 0.2em;
+  margin-top: 2vmin;
+  margin-bottom: 8vmin;
+  width: 60%;
+  color: #18060c;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 300%;
+
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381;
+  cursor: pointer;
+}
+
+#lowshelfFilterFace {
+  height: 450px;
+  width: 76%;
+
+  background: url(../img/april/water-2598762_1920.jpg);
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -57.4vmin;
+  margin-left: 7.5vmin;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381;
+}
+
+#frequencyDiv {
+  margin: -2vmin 0 0 3vmin;
+}
+
+
+
+#detuneDiv {
+  margin: -2vmin 0 0 0;
+}
+
+
+
+#gainDiv {
+  margin: -2vmin 0 0 0;
+}
+
+#frequencyLabel {
+  color: #18060c;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381;
+}
+
+
+
+#detuneLabel {
+  color: #18060c;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381;
+  margin-left: 2vmin;
+}
+
+
+
+#gainLabel {
+  color: #18060c;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381;
+  margin-left: 2vmin;
+}
+
+#lowshelfFilterFrequencyDisplay {
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+  padding-left: 1vmin;
+}
+
+
+
+#lowshelfFilterDetuneDisplay {
+  margin-left: 2vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+  padding-left: 1vmin;
+}
+
+
+#lowshelfFilterGainDisplay {
+  margin-left: 2vmin;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: -2vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 200%;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+  padding-left: 1vmin;
+}
+
+#frequency {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 1vmin;
+  box-shadow: 1px -1px 1px #f44381, 2px -2px 1px #f44381, 3px -3px 1px #f44381, 4px -4px 1px #f44381;
+}
+
+
+
+#detune {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 1vmin;
+  box-shadow: 1px -1px 1px #f44381, 2px -2px 1px #f44381, 3px -3px 1px #f44381, 4px -4px 1px #f44381;
+}
+
+
+
+#gain {
+  -webkit-appearance: none;
+  appearance: none;
+  webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  width: 55vmin;
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 100%;
+  outline: none;
+  opacity: 1.0;
+  margin-top: 16vmin;
+  margin-left: 3vmin;
+  box-shadow: 1px -1px 1px #f44381, 2px -2px 1px #f44381, 3px -3px 1px #f44381, 4px -4px 1px #f44381;
+}
+
+#frequency::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+    background: linear-gradient(45deg, #611a33, #f77ba6);
+    cursor: pointer;
+}
+
+
+
+#detune::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+    background: linear-gradient(45deg, #611a33, #f77ba6);
+    cursor: pointer;
+}
+
+
+
+#gain::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 19px;
+    border: solid 2px black;
+    background-color: #eeeeee;
+    background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+    background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+    background: linear-gradient(45deg, #611a33, #f77ba6);
+    cursor: pointer;
+}
+
+#frequency::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+  background: linear-gradient(45deg, #611a33, #f77ba6);
+  cursor: pointer;
+}
+
+
+
+#detune::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+  background: linear-gradient(45deg, #611a33, #f77ba6);
+  cursor: pointer;
+}
+
+
+
+#gain::-moz-range-thumb {
+  width: 12px;
+  height: 19px;
+  border: solid 2px black;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+  background: linear-gradient(45deg, #611a33, #f77ba6);
+  cursor: pointer;
+}
+
+#frequencyModDiv {
+
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 5vmin 5vmin;
+}
+
+
+#detuneModDiv {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 5vmin 5vmin;
+}
+
+
+#gainModDiv {
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  margin: 0 0 3vmin 3vmin;
+}
+
+#frequencyModDiv p {
+  color: #18060c;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+
+#detuneModDiv p {
+  color: #18060c;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+
+#gainModDiv p {
+  color: #18060c;
+  margin-left: -1vmin;
+  text-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+#frequencyModSelect {
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 300%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+
+
+#detuneModSelect {
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 300%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+
+#gainModSelect {
+  background: url(../img/april/model-3213519_1920.jpg);
+  background-size: 300%;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+  margin: -4vmin 0 0 -1vmin;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+}
+
+button {
+
+  visibility: hidden;
+  width: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+  background: transparent;
+  margin-top: 2vmin;
+  margin-left: 1vmin;
+  box-shadow: -1px -1px 1px #f44381, -2px -2px 1px #f44381, -3px -3px 1px #f44381, -4px -4px 1px #f44381;
+  background-color: #eeeeee;
+  background-color: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -webkit-linear-gradient(45deg, #611a33, #f77ba6);
+  background: -o-linear-gradient(45deg, #611a33, #f77ba6);
+  background: linear-gradient(45deg, #611a33, #f77ba6);
+}
