@@ -780,21 +780,44 @@
         //   output: 4
         // }, {}, audioContext);
 
-        let lowshelfFilter = new LowshelfFilter({
-            id: 1,
-            user_id: 1,
-            name: 'lowshelf filter',
-            frequency: 110.000,
-            frequency_modulator: null,
-            detune: 0.00,
-            detune_modulator: null,
-            gain: 0.0,
-            gain_modulator: null,
-            input: null,
-            output: null
-        }, {}, audioContext);
+        // let lowshelfFilter = new LowshelfFilter({
+        //     id: 1,
+        //     user_id: 1,
+        //     name: 'lowshelf filter',
+        //     frequency: 110.000,
+        //     frequency_modulator: null,
+        //     detune: 0.00,
+        //     detune_modulator: null,
+        //     gain: 0.0,
+        //     gain_modulator: null,
+        //     input: null,
+        //     output: null
+        // }, {}, audioContext);
+        //
+        // console.log(lowshelfFilter);
 
-        console.log(lowshelfFilter);
+        let inputManager = new InputManager({
+          id: 1,
+          user_id: 1,
+          name: 'input manager',
+          input_strip: {
+            inputs: [
+              {
+                "source": null,
+                "input": 1,
+                "input_name": "Input 1",
+                "input_gain": 40,
+                "input_solo": false,
+                "input_mute": false,
+                "input_pan": 0
+              }]
+            },
+          output: null
+          }, {}, audioContext);
+
+        console.log(inputManager);
+
+        // })
 
 
 
