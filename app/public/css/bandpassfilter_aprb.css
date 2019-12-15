@@ -2,8 +2,6 @@ body {
   background-color: #000000;
 }
 
-
-
 #bandpassFilterDiv {
   position: fixed;
   bottom: -25.5%;
@@ -16,7 +14,7 @@ body {
 }
 
 #bandpassFilterTop {
-  background: url(../img/april/water_by_rosalinestock_d11g276-fullview.jpg);
+  background: url(../img/april/wave-1521130_1920.jpg);
   background-size: cover;
   background-color: #ffffff;
   font-family: 'Righteous', cursive;
@@ -33,14 +31,14 @@ body {
   font-size: 36px;
   margin-left: 3em;
   margin-top: 1em;
-  color: #180708;
+  color: #081418;
   font-weight: 600;
-  text-shadow: 1px 1px 1px #f24657, 2px 2px 1px #f24657;
+  text-shadow: 1px 1px 1px #54c9f6, 2px 2px 1px #54c9f6;
 }
 
 #bandpassFilterSignalFlow {
-  background: url(../img/april/water_by_rosalinestock_d11g276-fullview.jpg);
-  background-size: 2300%;
+  background: url(../img/april/wave-1521130_1920.jpg);
+  background-size: cover;
   background-color: #ffffff;
   border: solid 1px transparent;
   height: 450px;
@@ -49,7 +47,7 @@ body {
   transform: skew(0deg, 45deg);
   margin-left: 0.8vmin;
   margin-bottom: 3.5vmin;
-  box-shadow: 0px -1px 1px #f24657;
+  box-shadow: 0px -1px 1px #54c9f6;
 }
 
 #bandpassFilterSignalFlow p {
@@ -58,8 +56,8 @@ body {
   margin-left: 0.8em;
   margin-top: 12vmin;
   margin-bottom: 0;
-  color: #180708;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657;
+  color: #081418;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6;
 }
 
 #bandpassFilterSignalFlow h2 {
@@ -69,24 +67,24 @@ body {
   margin-top: 2vmin;
   margin-bottom: 8vmin;
   width: 60%;
-  color: #000000;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  color: #081418;
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 500%;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6;
   cursor: pointer;
 }
 
 #bandpassFilterFace {
   height: 450px;
   width: 76%;
-  background: url(../img/april/d2rfzjp-9e85ad7f-f17b-4190-ad59-8f71521eee73.png);
+  background: url(../img/april/splash-4587878_1920.jpg);
   background-color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: -57.4vmin;
   margin-left: 7.3vmin;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6;
 }
 
 #frequencyDiv {
@@ -106,29 +104,29 @@ body {
 }
 
 #frequencyLabel {
-  color: #180708;
+  color: #081418;
   font-family: 'Righteous', cursive;
   font-size: 24px;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6;
 }
 
 
 
 #detuneLabel {
-  color: #180708;
+  color: #081418;
   font-family: 'Righteous', cursive;
   font-size: 24px;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6;
   margin-left: 2vmin;
 }
 
 
 
 #qLabel {
-  color: #180708;
+  color: #081418;
   font-family: 'Righteous', cursive;
   font-size: 24px;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6;
   margin-left: 2vmin;
 }
 
@@ -136,9 +134,9 @@ body {
   font-family: 'Righteous', cursive;
   font-size: 30px;
   margin-top: -2vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
   padding-left: 1vmin;
 }
 
@@ -149,9 +147,9 @@ body {
   font-family: 'Righteous', cursive;
   font-size: 30px;
   margin-top: -2vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
   padding-left: 1vmin;
 }
 
@@ -161,9 +159,9 @@ body {
   font-family: 'Righteous', cursive;
   font-size: 30px;
   margin-top: -2vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
   padding-left: 1vmin;
 }
 
@@ -173,13 +171,13 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 55vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
   outline: none;
   opacity: 1.0;
   margin-top: 16vmin;
   margin-left: 1vmin;
-  box-shadow: 1px -1px 1px #f24657, 2px -2px 1px #f24657, 3px -3px 1px #f24657, 4px -4px 1px #f24657;
+  box-shadow: 1px -1px 1px #54c9f6, 2px -2px 1px #54c9f6, 3px -3px 1px #54c9f6, 4px -4px 1px #54c9f6;
 }
 
 
@@ -190,13 +188,13 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 55vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
   outline: none;
   opacity: 1.0;
   margin-top: 16vmin;
   margin-left: 1vmin;
-  box-shadow: 1px -1px 1px #f24657, 2px -2px 1px #f24657, 3px -3px 1px #f24657, 4px -4px 1px #f24657;
+  box-shadow: 1px -1px 1px #54c9f6, 2px -2px 1px #54c9f6, 3px -3px 1px #54c9f6, 4px -4px 1px #54c9f6;
 }
 
 
@@ -207,13 +205,13 @@ body {
   webkit-transform: rotateZ(-90deg);
   transform: rotateZ(-90deg);
   width: 55vmin;
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 200%;
   outline: none;
   opacity: 1.0;
   margin-top: 16vmin;
   margin-left: 3vmin;
-  box-shadow: 1px -1px 1px #f24657, 2px -2px 1px #f24657, 3px -3px 1px #f24657, 4px -4px 1px #f24657;
+  box-shadow: 1px -1px 1px #54c9f6, 2px -2px 1px #54c9f6, 3px -3px 1px #54c9f6, 4px -4px 1px #54c9f6;
 }
 
 #frequency::-webkit-slider-thumb {
@@ -223,10 +221,10 @@ body {
     height: 19px;
     border: solid 2px black;
     background-color: #eeeeee;
-    background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: linear-gradient(45deg, #912a34, #f9b5bb);
+    background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: linear-gradient(45deg, #193c49, #a9e4fa);
     cursor: pointer;
 }
 
@@ -239,10 +237,10 @@ body {
     height: 19px;
     border: solid 2px black;
     background-color: #eeeeee;
-    background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: linear-gradient(45deg, #912a34, #f9b5bb);
+    background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: linear-gradient(45deg, #193c49, #a9e4fa);
     cursor: pointer;
 }
 
@@ -255,10 +253,10 @@ body {
     height: 19px;
     border: solid 2px black;
     background-color: #eeeeee;
-    background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-    background: linear-gradient(45deg, #912a34, #f9b5bb);
+    background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+    background: linear-gradient(45deg, #193c49, #a9e4fa);
     cursor: pointer;
 }
 
@@ -267,10 +265,10 @@ body {
   height: 19px;
   border: solid 2px black;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: linear-gradient(45deg, #912a34, #f9b5bb);
+  background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: linear-gradient(45deg, #193c49, #a9e4fa);
   cursor: pointer;
 }
 
@@ -281,10 +279,10 @@ body {
   height: 19px;
   border: solid 2px black;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: linear-gradient(45deg, #912a34, #f9b5bb);
+  background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: linear-gradient(45deg, #193c49, #a9e4fa);
   cursor: pointer;
 }
 
@@ -295,10 +293,10 @@ body {
   height: 19px;
   border: solid 2px black;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: linear-gradient(45deg, #912a34, #f9b5bb);
+  background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: linear-gradient(45deg, #193c49, #a9e4fa);
   cursor: pointer;
 }
 
@@ -324,53 +322,53 @@ body {
 }
 
 #frequencyModDiv p {
-  color: #180708;
+  color: #081418;
   margin-left: -1vmin;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 
 #detuneModDiv p {
-  color: #180708;
+  color: #081418;
   margin-left: -1vmin;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 
 #qModDiv p {
-  color: #180708;
+  color: #081418;
   margin-left: -1vmin;
-  text-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  text-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 #frequencyModSelect {
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 100%;
   font-family: 'Righteous', cursive;
   font-size: 18px;
   margin: -4vmin 0 0 -1vmin;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 
 
 #detuneModSelect {
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 100%;
   font-family: 'Righteous', cursive;
   font-size: 18px;
   margin: -4vmin 0 0 -1vmin;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 
 #qModSelect {
-  background: url(../img/april/water_texture_by_jshei_dldhli-pre.jpg);
+  background: url(../img/april/algae-2307691_1920.jpg);
   background-size: 100%;
   font-family: 'Righteous', cursive;
   font-size: 18px;
   margin: -4vmin 0 0 -1vmin;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
 }
 
 button {
@@ -382,10 +380,10 @@ button {
   background: transparent;
   margin-top: 2vmin;
   margin-left: 1vmin;
-  box-shadow: -1px -1px 1px #f24657, -2px -2px 1px #f24657, -3px -3px 1px #f24657, -4px -4px 1px #f24657;
+  box-shadow: -1px -1px 1px #54c9f6, -2px -2px 1px #54c9f6, -3px -3px 1px #54c9f6, -4px -4px 1px #54c9f6;
   background-color: #eeeeee;
-  background-color: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -webkit-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: -o-linear-gradient(45deg, #912a34, #f9b5bb);
-  background: linear-gradient(45deg, #912a34, #f9b5bb);
+  background-color: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -webkit-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: -o-linear-gradient(45deg, #193c49, #a9e4fa);
+  background: linear-gradient(45deg, #193c49, #a9e4fa);
 }
