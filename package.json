@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/HurdAudio/freqdomain2#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^4.0.0",
