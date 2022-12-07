@@ -18,10 +18,10 @@
   "homepage": "https://github.com/HurdAudio/freqdomain2#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^4.0.0",
-    "express": "^4.16.2",
+    "express": "^4.18.2",
     "knex": "^0.15.2",
     "nanoid": "^0.2.2",
     "nodemailer": "^4.2.0",
